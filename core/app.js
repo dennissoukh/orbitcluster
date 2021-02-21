@@ -22,7 +22,25 @@ const app = require('fastify')({
 |
 */
 app.get('/', function (request, reply) {
-    reply.send({ message: 'Hello, world!' })
+    reply.send({ message: 'Hello, world!' });
+});
+
+/*
+|--------------------------------------------------------------------------
+| Bind Database
+|--------------------------------------------------------------------------
+|
+| Bind the MongoDB database using the Fastify MongoDB connection plugin,
+| allowing the sharing of the same MongoDB connection pool in every part
+| of the server.
+|
+*/
+app.register(require('fastify-mongodb'), {
+    forceClose: true,
+    url: 'mongodb://localhost:27017/orbitcluster',
+    name: 'orbitcluster-main',
+    useNewUrlParser: true,
+    useUnifiedTopology: true
 });
 
 module.exports = app;
