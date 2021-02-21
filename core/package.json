@@ -1,6 +1,14 @@
 {
-  "name": "core",
+  "name": "orbitcluster",
   "version": "1.0.0",
   "main": "app.js",
-  "license": "MIT"
+  "license": "MIT",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "watch": "nodemon ./bin/www"
+  },
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "fastify": "^3.12.0"
+  }
 }
