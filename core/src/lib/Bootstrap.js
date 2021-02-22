@@ -15,8 +15,5 @@ const helpers   = require('./helpers');
 global.env      = helpers.env;
 global.config   = helpers.config;
 
-const inspire   = require('./Foundation/Inspiring');
-
-module.exports = {
-    inspire
-}
+// Demonstrate how a global function would work
+global.inspire  = require('./Foundation/Inspiring');

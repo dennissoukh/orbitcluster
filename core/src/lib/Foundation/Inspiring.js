@@ -29,9 +29,6 @@ const quote = () =>
     ];
 
     return quotes[Math.floor(Math.random() * quotes.length)];
-}
+};
 
-module.exports = {
-    quote
-}
-
+module.exports = quote;

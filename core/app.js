@@ -47,7 +47,7 @@ app.register(require('fastify-mongodb'), {
 
 // Create a temporary, test route
 app.get('/', function (request, reply) {
-    reply.send({ message: Korolev.inspire.quote() });
+    reply.send({ message: inspire() });
 });
 
 module.exports = app;
