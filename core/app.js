@@ -21,9 +21,11 @@ const app = require('fastify')({
 | incoming requests to this application from both the web and CLI.
 |
 */
-app.get('/', function (request, reply) {
-    reply.send({ message: 'Hello, world!' });
-});
+const Korolev = require('./src/lib/Bootstrap');
+
+// Create and load application configs
+global.appConfig            = {};
+global.appConfig.database   = require('./src/config/database');
 
 /*
 |--------------------------------------------------------------------------
@@ -41,6 +43,11 @@ app.register(require('fastify-mongodb'), {
     name: 'orbitcluster-main',
     useNewUrlParser: true,
     useUnifiedTopology: true
+});
+
+// Create a temporary, test route
+app.get('/', function (request, reply) {
+    reply.send({ message: Korolev.inspire.quote() });
 });
 
 module.exports = app;

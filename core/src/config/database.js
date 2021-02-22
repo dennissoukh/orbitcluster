@@ -20,8 +20,8 @@ module.exports = {
    | Here are each of the database connections setup for your application.
    |
    */
-    connections: [
-        mongodb = {
+    connections: {
+        mongodb: {
             driver:             'mongodb',
             url:                env('DB_URL', 'mongodb://'),
             host:               env('DB_HOST', '127.0.0.1'),
@@ -37,6 +37,6 @@ module.exports = {
             clientLogData:      true,
             encryption:         'disabled',
         }
-    ]
+    }
 
 };
