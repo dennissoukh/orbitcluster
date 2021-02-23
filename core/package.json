@@ -11,5 +11,8 @@
     "dotenv": "^8.2.0",
     "fastify": "^3.12.0",
     "fastify-mongodb": "^2.0.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.7"
   }
 }
