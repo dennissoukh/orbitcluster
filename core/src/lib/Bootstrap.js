@@ -8,8 +8,6 @@
 |
 */
 
-const VERSION   = '1.0.0';
-
 // Create helper functions
 const helpers   = require('./helpers');
 global.env      = helpers.env;

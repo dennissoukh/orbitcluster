@@ -21,7 +21,7 @@ const app = require('fastify')({
 | incoming requests to this application from both the web and CLI.
 |
 */
-const Korolev = require('./src/lib/Bootstrap');
+require('./src/lib/Bootstrap');
 
 // Create and load application configs
 global.appConfig            = {};
