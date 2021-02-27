@@ -9,45 +9,56 @@
 */
 const app = require('fastify')({
     logger: true
-});
+})
+
 
 /*
 |--------------------------------------------------------------------------
-| Bind Important Interfaces
+| Bind Plugins
 |--------------------------------------------------------------------------
 |
-| Next, we need to bind some important interfaces into the container so
-| we will be able to resolve them when needed. The kernels serve the
-| incoming requests to this application from both the web and CLI.
+| Bind the required plugins to the application. Fastify creates an
+| encapsulation model that allows the splitting of the application in
+| multiple microservices at any moment.
 |
 */
-require('./src/lib/Bootstrap');
+const plugins = [
+    require('./src/plugins/Cors'),
+    require('./src/plugins/MongoDB')
+]
 
-// Create and load application configs
-global.appConfig            = {};
-global.appConfig.database   = require('./src/config/database');
+plugins.forEach((plugin) => {
+    app.register(plugin.plugin, plugin.options);
+})
+
 
 /*
 |--------------------------------------------------------------------------
-| Bind Database
+| Bind Routes / Services
 |--------------------------------------------------------------------------
 |
-| Bind the MongoDB database using the Fastify MongoDB connection plugin,
-| allowing the sharing of the same MongoDB connection pool in every part
-| of the server.
+| Routes are also referred to as services. Each service is a Fastify
+| plugin, it is encapsulated (it can have its own independent plugins) and
+| it is typically stored in a separate file.
 |
 */
-app.register(require('fastify-mongodb'), {
-    forceClose: true,
-    url: 'mongodb://localhost:27017/orbitcluster',
-    name: 'orbitcluster-main',
-    useNewUrlParser: true,
-    useUnifiedTopology: true
-});
+const routes = [
+    require('./src/services/application')
+]
 
-// Create a temporary, test route
-app.get('/', function (request, reply) {
-    reply.send({ message: inspire() });
-});
+routes.forEach((route) => {
+    app.register(route, Object.assign({ prefix: '/v1' }, route));
+})
 
-module.exports = app;
+
+/*
+|--------------------------------------------------------------------------
+| Return The Application as a Module
+|--------------------------------------------------------------------------
+|
+| This returns the application instance. The instance is given to
+| the calling script so we can separate the building of the instances
+| from the actual running of the application and sending responses.
+|
+*/
+module.exports = app

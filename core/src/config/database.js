@@ -2,7 +2,7 @@ module.exports = {
 
     /*
     |--------------------------------------------------------------------------
-    | Default Database Connection Name
+    | Default Connection
     |--------------------------------------------------------------------------
     |
     | Here you may specify which of the database connections below you wish
@@ -10,7 +10,7 @@ module.exports = {
     |
     */
 
-   default: env('DB_CONNECTION', 'mongodb'),
+   connection: 'mongodb',
 
    /*
    |--------------------------------------------------------------------------
@@ -22,20 +22,11 @@ module.exports = {
    */
     connections: {
         mongodb: {
-            driver:             'mongodb',
-            url:                env('DB_URL', 'mongodb://'),
-            host:               env('DB_HOST', '127.0.0.1'),
-            port:               env('DB_PORT', '27017'),
-            database:           env('DB_DATABASE', 'orbitcluster'),
-            username:           env('DB_USERNAME', 'user'),
-            password:           env('DB_PASSWORD', 'password'),
-            charset:            'utf8',
-            collation:          'utf8_unicode_ci',
-            authorization:      false,
-            clusterAuthMode:    'keyFile',
-            strict:             true,
-            clientLogData:      true,
-            encryption:         'disabled',
+            url:                'mongodb://localhost:27017/orbitcluster',
+            name:               'orbitcluster-main',
+            useNewUrlParser:    true,
+            useUnifiedTopology: true,
+            forceClose:         true
         }
     }
 

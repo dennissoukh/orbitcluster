@@ -1,10 +1,9 @@
 #!/usr/bin/env node
-const dotenv = require('dotenv');
+require('dotenv').config();
 
-process.on('uncaughtException', err => {
-    console.log('Uncaught Exception! Terminating Program...');
+process.on('uncaughtException', (err) => {
+    console.warn('Uncaught Exception!');
     console.log(err.name, err.message);
-    process.exit(1);
 });
 
 /**
@@ -18,7 +17,7 @@ const app = require('../app');
 const start = async () => {
     try {
         await app.listen(3000);
-        app.log.info(`server listening on ${app.server.address().port}`);
+        app.log.info(`server listening on ${app.server.address().port}, start time ${process.hrtime()}`);
     } catch (err) {
         app.log.error(err);
         process.exit(1);
