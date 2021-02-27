@@ -24,7 +24,8 @@ const app = require('fastify')({
 */
 const plugins = [
     require('./src/plugins/Cors'),
-    require('./src/plugins/MongoDB')
+    require('./src/plugins/MongoDB'),
+    require('./src/plugins/Helmet')
 ]
 
 plugins.forEach((plugin) => {
