@@ -26,7 +26,8 @@ const plugins = [
     require('./src/plugins/Cors'),
     require('./src/plugins/MongoDB'),
     require('./src/plugins/Helmet'),
-    require('./src/plugins/Cookie')
+    require('./src/plugins/Cookie'),
+    require('./src/plugins/Csrf')
 ]
 
 plugins.forEach((plugin) => {
