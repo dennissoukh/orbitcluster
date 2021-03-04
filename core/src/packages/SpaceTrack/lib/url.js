@@ -1,4 +1,4 @@
-const common = require('./common');
+const common = require('./common')
 
 // Build the Space-Track API URL
 const buildURL = (options) => {
@@ -132,4 +132,4 @@ const buildURL = (options) => {
     return url;
 }
 
-module.exports = buildURL;
+module.exports = buildURL

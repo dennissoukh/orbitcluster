@@ -1,9 +1,8 @@
-const axios                 = require('axios');
-const axiosCookieJarSupport = require('axios-cookiejar-support').default;
-const tough                 = require('tough-cookie');
-
-const common    = require('./lib/common');
-const buildURL  = require('./lib/url');
+const axios                 = require('axios')
+const axiosCookieJarSupport = require('axios-cookiejar-support').default
+const tough                 = require('tough-cookie')
+const common                = require('./lib/common')
+const buildURL              = require('./lib/url')
 
 const SpaceTrack = class {
     constructor() {
@@ -107,7 +106,7 @@ const SpaceTrack = class {
                 });
         });
     }
-};
+}
 
 delay = (ms) => {
     return new Promise((resolve) => {
@@ -117,4 +116,4 @@ delay = (ms) => {
     });
 }
 
-module.exports = new SpaceTrack();
+module.exports = new SpaceTrack()
