@@ -18,18 +18,21 @@ module.exports = {
      * Configure the Access-Control-Allow-Origin CORS header.
      * @type {Boolean|String|RegExp|Array|Function}
      */
+
     origin: true,
 
     /**
      * Configure the Access-Control-Allow-Methods CORS header.
      * @type {Array}
      */
+
     methods: ['GET', 'HEAD', 'PUT', 'PATCH', 'POST', 'DELETE'],
 
     /**
      * Configure the Access-Control-Allow-Headers CORS header.
      * @type {Array}
      */
+
     allowedHeaders: [],
 
 
@@ -37,12 +40,14 @@ module.exports = {
      * Configure the Access-Control-Expose-Headers CORS header.
      * @type {Array}
      */
+
     exposedHeaders: [],
 
     /**
      * Configure the Access-Control-Allow-Credentials CORS header.
      * @type {Boolean}
      */
+
     credentials: true,
 
     /**
@@ -50,23 +55,27 @@ module.exports = {
      * Set to 0 to disable.
      * @type {Number|null}
      */
+
     maxAge: 0,
 
     /**
      * Pass the CORS preflight response to the route handler.
      */
+
     preflightContinue: false,
 
     /**
      * Provides a status code to use for successful OPTIONS requests.
      * @type {Number}
      */
+
     optionsSuccessStatus: 204,
 
     /**
      * Enable or disable CORS preflight.
      * @type {Boolean}
      */
+
     preflight: true,
 
     /**
@@ -76,6 +85,7 @@ module.exports = {
      * will result in 400 errors when set to true.
      * @type {Boolean}
      */
+
     strictPreflight: true,
 
     /**
@@ -83,6 +93,7 @@ module.exports = {
      * @type {Boolean}
      *
      */
+
     hideOptionsRoute: true
 
 }

@@ -20,6 +20,7 @@ module.exports = {
    | Here are each of the database connections setup for your application.
    |
    */
+
     connections: {
         mongodb: {
             url:                'mongodb://localhost:27017/orbitcluster',
