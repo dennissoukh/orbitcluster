@@ -1,0 +1,72 @@
+.sidebar
+  display: flex
+  position: fixed
+  top: 0
+  left: 0
+  width: $sidebar-width
+  min-height: 100vh
+  transition: width 250ms ease-in-out
+  background-color: $cool-gray-1
+  z-index: $zindex-dropdown
+
+  &__content
+    display: flex
+    flex-direction: column
+    justify-content: space-between
+    padding: 2.5rem 0 2.5rem 35px
+
+    &-navigation
+      display: flex
+      flex-direction: column
+      margin-top: 1rem
+
+  .nav-item
+    margin-bottom: 3rem
+
+    a
+      display: flex
+      align-items: center
+      transition: opacity 100ms linear
+
+      &:hover
+        opacity: .8
+
+      svg
+        flex-shrink: 0
+        margin-right: 1rem
+
+      span
+        transition: opacity 270ms linear
+        font-size: .7rem
+        letter-spacing: .5px
+        text-transform: uppercase
+        white-space: nowrap
+        opacity: 0
+        overflow: hidden
+        z-index: -1
+
+    &__subnav
+      margin-left: calc(20px + 1rem)
+
+      a
+        margin-top: 2.5rem
+
+      span
+        font-size: .7rem
+        letter-spacing: .5px
+        text-transform: uppercase
+        white-space: nowrap
+
+
+  .last
+    margin-bottom: 0
+
+  &--is-active
+    width: $sidebar-active-width
+
+    .nav-item
+      a
+        span
+          display: inline
+          transition: opacity 100ms linear
+          opacity: 1

@@ -1,0 +1,15 @@
+// sass-lint:disable no-important
+
+=bg-variant($parent, $color)
+  #{$parent}
+    background-color: $color
+
+// Generate gray backgrounds
+@each $color, $value in $grays
+  +bg-variant(".bg-gray-#{$color}", $value)
+
+.bg-white
+  background-color: $white !important
+
+.bg-transparent
+  background-color: transparent !important
