@@ -1,0 +1,21 @@
+$border-focus: 1.2px solid #313A42
+$input-transition: 250ms border
+
+input,
+textarea,
+select
+  display: inline-block
+  width: 100%
+  padding: .9rem
+  transition: $input-transition
+  border: 1.2px solid transparent
+  background-color: $washed-gray
+  color: $white
+  font-size: $font-size-sm
+  white-space: normal
+
+  &::placeholder
+    color: $gray-500
+
+  &:focus
+    border: $border-focus

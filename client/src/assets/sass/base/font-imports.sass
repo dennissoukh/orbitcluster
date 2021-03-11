@@ -1,31 +1,17 @@
-$font-path-untitled:  "../../fonts/UntitledSans"
-$font-path-icons:     "../../fonts/MaterialIcons"
+$font-path-dinot:     "../../fonts/DINOT"
 
 =font-face($family, $path, $weight: 400, $style: normal)
   @font-face
     font-family: $family
     font-style: $style
     font-weight: $weight
-    src: url("#{$path}.woff2") format("woff2"), url("#{$path}.woff") format("woff")
+    src: url("#{$path}.woff2") format("woff2"), url("#{$path}.woff") format("woff"), url("#{$path}.otf") format("opentype"), url("#{$path}.svg") format("svg")
 
-// Untitled Sans Light
-+font-face("Untitled Sans", "#{$font-path-untitled}/Untitled Sans Light", 300)
-+font-face("Untitled Sans", "#{$font-path-untitled}/Untitled Sans Light Italic", 300, italic)
+// DINOT Regular
++font-face("DINOT", "#{$font-path-dinot}/DINOT-Regular")
 
-// Untitled Sans Regular
-+font-face("Untitled Sans", "#{$font-path-untitled}/Untitled Sans Regular")
-+font-face("Untitled Sans", "#{$font-path-untitled}/Untitled Sans Regular Italic", 400, italic)
+// DINOT Light
++font-face("DINOT", "#{$font-path-dinot}/DINOT-Light", 300)
 
-// Untitled Sans Bold
-// +font-face("Untitled Sans", "#{$font-path-untitled}/Untitled Sans Bold", 700)
-// +font-face("Untitled Sans", "#{$font-path-untitled}/Untitled Sans Bold Italic", 700, italic)
-
-// Untitled Sans Bold
-+font-face("Untitled Sans", "#{$font-path-untitled}/Untitled Sans Medium", 700)
-+font-face("Untitled Sans", "#{$font-path-untitled}/Untitled Sans Medium Italic", 700, italic)
-
-// Material Icons
-@font-face
-  font-family: Material Icons
-  font-weight: 400
-  src: url("#{$font-path-icons}/MaterialIcons-Regular.ttf")
+// DINOT Bold (use Medium)
++font-face("DINOT", "#{$font-path-dinot}/DINOT-Medium", 700)
