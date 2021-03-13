@@ -56,6 +56,20 @@ routes.forEach((route) => {
 
 /*
 |--------------------------------------------------------------------------
+| Register the Database Builder
+|--------------------------------------------------------------------------
+|
+| The database builder contains the validation schema definitions for the
+| MongoDB database that the app is using. We register the builder so
+| that it has access to the application's main database.
+|
+*/
+const builder = require('./src/database/builder')
+app.register(builder)
+
+
+/*
+|--------------------------------------------------------------------------
 | Return The Application as a Module
 |--------------------------------------------------------------------------
 |
