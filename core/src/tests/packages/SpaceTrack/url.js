@@ -1,5 +1,5 @@
-const expect    = require('chai').expect;
-const url       = require('../../../packages/SpaceTrack/lib/url');
+const { expect } = require('chai');
+const url = require('../../../packages/SpaceTrack/lib/url');
 
 describe('Space-Track API downloader', () => {
     describe('Create Space-Track URLs', () => {
@@ -10,12 +10,12 @@ describe('Space-Track API downloader', () => {
                 query: [
                     {
                         field: 'NORAD_CAT_ID',
-                        condition: '25544'
-                    }
+                        condition: '25544',
+                    },
                 ],
                 predicates: [
-                    'OBJECT_NAME'
-                ]
+                    'OBJECT_NAME',
+                ],
             });
 
             expect(satcat).to.deep.equal('https://www.space-track.org/basicspacedata/query/class/satcat/NORAD_CAT_ID/25544/predicates/OBJECT_NAME/metadata/true/emptyresult/show/format/json');
@@ -25,11 +25,11 @@ describe('Space-Track API downloader', () => {
             const gp = url({
                 class: 'gp',
                 format: 'json',
-                orderby: ['+OBJECT_NAME'],
-                limit: 100
+                orderby: ['+OBJECT_NAME', '-PERIOD'],
+                limit: 100,
             });
 
-            expect(gp).to.deep.equal('https://www.space-track.org/basicspacedata/query/class/gp/orderby/OBJECT_NAME%20asc/limit/100,0/metadata/true/emptyresult/show/format/json');
-        })
+            expect(gp).to.deep.equal('https://www.space-track.org/basicspacedata/query/class/gp/orderby/OBJECT_NAME%20asc,PERIOD%20desc/limit/100,0/metadata/true/emptyresult/show/format/json');
+        });
     });
 });

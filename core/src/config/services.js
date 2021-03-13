@@ -1,4 +1,4 @@
-const { env } = require("../helpers/helpers")
+const { env } = require('../helpers/helpers');
 
 module.exports = {
 
@@ -15,14 +15,14 @@ module.exports = {
     */
 
     mailgun: {
-        domain:     env('MAILGUN_DOMAIN'),
-        secret:     env('MAILGUN_SECRET'),
-        endpoint:   env('MAILGUN_ENDPOINT')
+        domain: env('MAILGUN_DOMAIN'),
+        secret: env('MAILGUN_SECRET'),
+        endpoint: env('MAILGUN_ENDPOINT'),
     },
 
     spacetrack: {
-        identity:   env('SPACETRACK_USERNAME'),
-        password:   env('SPACETRACK_PASSWORD')
-    }
+        identity: env('SPACETRACK_USERNAME'),
+        password: env('SPACETRACK_PASSWORD'),
+    },
 
-}
+};

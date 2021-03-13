@@ -35,7 +35,6 @@ module.exports = {
 
     allowedHeaders: [],
 
-
     /**
      * Configure the Access-Control-Expose-Headers CORS header.
      * @type {Array}
@@ -94,6 +93,6 @@ module.exports = {
      *
      */
 
-    hideOptionsRoute: true
+    hideOptionsRoute: true,
 
-}
+};

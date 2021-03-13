@@ -38,7 +38,7 @@ module.exports = {
      */
 
     referrerPolicy: {
-        policy: 'no-referrer'
+        policy: 'no-referrer',
     },
 
     /**
@@ -49,7 +49,7 @@ module.exports = {
     hsts: {
         maxAge: 15552000,
         includeSubDomains: true,
-        preload: false
+        preload: false,
     },
 
     /**
@@ -72,7 +72,7 @@ module.exports = {
      */
 
     dnsPrefetchControl: {
-        allow: false
+        allow: false,
     },
 
     /**
@@ -91,7 +91,7 @@ module.exports = {
      */
 
     frameguard: {
-        action: 'sameorigin'
+        action: 'sameorigin',
     },
 
     /**
@@ -103,7 +103,7 @@ module.exports = {
      */
 
     permittedCrossDomainPolicies: {
-        permittedPolicies: 'none'
+        permittedPolicies: 'none',
     },
 
     /**
@@ -118,6 +118,6 @@ module.exports = {
      * X-XSS-Protection header to 0.
      */
 
-    xssFilter: true
+    xssFilter: true,
 
-}
+};

@@ -4,9 +4,9 @@
   "main": "app.js",
   "license": "MIT",
   "scripts": {
-    "test": "mocha 'src/tests/**/*.js' --recursive --reporter spec",
+    "mocha": "mocha 'src/tests/**/*.js' --recursive --reporter spec",
     "watch": "nodemon ./bin/www",
-    "pretest": "eslint --ignore-path .gitignore ."
+    "test": "eslint --ignore-path .gitignore ."
   },
   "dependencies": {
     "axios": "^0.21.1",
@@ -21,6 +21,7 @@
     "tough-cookie": "^4.0.0"
   },
   "devDependencies": {
+    "babel-eslint": "^10.1.0",
     "chai": "^4.3.4",
     "eslint": "^7.22.0",
     "eslint-config-airbnb-base": "^14.2.1",

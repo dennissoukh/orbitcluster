@@ -1,4 +1,4 @@
-const { env } = require("../helpers/helpers")
+const { env } = require('../helpers/helpers');
 
 module.exports = {
 
@@ -69,6 +69,6 @@ module.exports = {
 
     key: env('APP_KEY'),
 
-    cipher: 'AES-256-CBC'
+    cipher: 'AES-256-CBC',
 
-}
+};

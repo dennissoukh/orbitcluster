@@ -11,11 +11,11 @@ module.exports = {
     |
     */
 
-    baseURL:            'https://www.space-track.org',
+    baseURL: 'https://www.space-track.org',
 
     auth: {
-        login:          '/ajaxauth/login',
-        logout:         '/ajaxauth/logout'
+        login: '/ajaxauth/login',
+        logout: '/ajaxauth/logout',
     },
 
     api: {
@@ -39,7 +39,7 @@ module.exports = {
         controllers: [
             'basicspacedata',
             'expandedspacedata',
-            'fileshare'
+            'fileshare',
         ],
 
         /*
@@ -56,7 +56,7 @@ module.exports = {
 
         actions: [
             'query',
-            'modeldef'
+            'modeldef',
         ],
 
         /*
@@ -115,7 +115,7 @@ module.exports = {
             'satcat',
             'satcat_change',
             'satcat_debut',
-            'tip'
+            'tip',
         ],
 
         /*
@@ -163,7 +163,7 @@ module.exports = {
             'tle',
             '3le',
             'kvn',
-            'stream'
+            'stream',
         ],
 
         fields: {
@@ -171,7 +171,7 @@ module.exports = {
                 'announcement_type',
                 'announcement_text',
                 'announcement_start',
-                'announcement_end'
+                'announcement_end',
             ],
 
             boxscore: [
@@ -186,7 +186,7 @@ module.exports = {
                 'DECAYED_ROCKET_BODY_COUNT',
                 'DECAYED_DEBRIS_COUNT',
                 'DECAYED_TOTAL_COUNT',
-                'COUNTRY_TOTAL'
+                'COUNTRY_TOTAL',
             ],
 
             cdm_public: [
@@ -205,7 +205,7 @@ module.exports = {
                 'SAT_2_NAME',
                 'SAT2_OBJECT_TYPE',
                 'SAT2_RCS',
-                'SAT_2_EXCL_VOL'
+                'SAT_2_EXCL_VOL',
             ],
 
             decay: [
@@ -221,7 +221,7 @@ module.exports = {
                 'DECAY_EPOCH',
                 'SOURCE',
                 'MSG_TYPE',
-                'PRECEDENCE'
+                'PRECEDENCE',
             ],
 
             gp: [
@@ -264,7 +264,7 @@ module.exports = {
                 'GP_ID',
                 'TLE_LINE0',
                 'TLE_LINE1',
-                'TLE_LINE2'
+                'TLE_LINE2',
             ],
 
             gp_history: [
@@ -307,12 +307,12 @@ module.exports = {
                 'GP_ID',
                 'TLE_LINE0',
                 'TLE_LINE1',
-                'TLE_LINE2'
+                'TLE_LINE2',
             ],
 
             launch_site: [
                 'SITE_CODE',
-                'LAUNCH_SITE'
+                'LAUNCH_SITE',
             ],
 
             satcat: [
@@ -339,7 +339,7 @@ module.exports = {
                 'CURRENT',
                 'OBJECT_NAME',
                 'OBJECT_ID',
-                'OBJECT_NUMBER'
+                'OBJECT_NUMBER',
             ],
 
             satcat_change: [
@@ -355,7 +355,7 @@ module.exports = {
                 'PREVIOUS_LAUNCH',
                 'CURRENT_DECAY',
                 'PREVIOUS_DECAY',
-                'CHANGE_MADE'
+                'CHANGE_MADE',
             ],
 
             satcat_debut: [
@@ -383,7 +383,7 @@ module.exports = {
                 'CURRENT',
                 'OBJECT_NAME',
                 'OBJECT_ID',
-                'OBJECT_NUMBER'
+                'OBJECT_NUMBER',
             ],
 
             tip: [
@@ -400,9 +400,9 @@ module.exports = {
                 'NEXT_REPORT',
                 'ID',
                 'HIGH_INTEREST',
-                'OBJECT_NUMBER'
-            ]
-        }
-    }
+                'OBJECT_NUMBER',
+            ],
+        },
+    },
 
-}
+};

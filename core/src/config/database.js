@@ -10,9 +10,9 @@ module.exports = {
     |
     */
 
-   connection: 'mongodb',
+    connection: 'mongodb',
 
-   /*
+    /*
    |--------------------------------------------------------------------------
    | Database Connections
    |--------------------------------------------------------------------------
@@ -23,12 +23,12 @@ module.exports = {
 
     connections: {
         mongodb: {
-            url:                'mongodb://localhost:27017/orbitcluster',
-            name:               'orbitcluster-main',
-            useNewUrlParser:    true,
+            url: 'mongodb://localhost:27017/orbitcluster',
+            name: 'orbitcluster-main',
+            useNewUrlParser: true,
             useUnifiedTopology: true,
-            forceClose:         true
-        }
-    }
+            forceClose: true,
+        },
+    },
 
 };

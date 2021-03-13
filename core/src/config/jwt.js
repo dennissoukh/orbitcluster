@@ -12,7 +12,7 @@ module.exports = {
     secret: 'supersecret',
 
     cookie: {
-        cookieName: 'authToken'
-    }
+        cookieName: 'authToken',
+    },
 
-}
+};
