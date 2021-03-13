@@ -1,33 +1,33 @@
 const data = async (db) => {
-    db.createCollection("launch-site", {
+    db.createCollection('launch-site', {
         validator: {
             $jsonSchema: {
-                bsonType: "object",
-                required: ["site_code", "launch_site", "description", "location"],
+                bsonType: 'object',
+                required: ['site_code', 'launch_site', 'description', 'location'],
                 properties: {
                     site_code: {
-                        bsonType: "string",
-                        description: "must be a string and is required"
+                        bsonType: 'string',
+                        description: 'must be a string and is required'
                     },
                     launch_site: {
-                        bsonType: "string",
-                        description: "must be a string and is required"
+                        bsonType: 'string',
+                        description: 'must be a string and is required'
                     },
                     description: {
-                        bsonType: "string",
-                        description: "must be a string and is required"
+                        bsonType: 'string',
+                        description: 'must be a string and is required'
                     },
                     location: {
-                        bsonType: "object",
-                        required: ["lat", "long"],
+                        bsonType: 'object',
+                        required: ['lat', 'long'],
                         properties: {
                             lat: {
-                                bsonType: "object",
-                                description: "must be an object"
+                                bsonType: 'object',
+                                description: 'must be an object'
                             },
                             long: {
-                                bsonType: "double",
-                                description: "must be a double"
+                                bsonType: 'double',
+                                description: 'must be a double'
                             }
                         }
                     }
