@@ -1,5 +1,5 @@
-const data = async (app) => {
-    app.mongo.db.createCollection("general-perturbation", {
+const data = async (db) => {
+    db.createCollection("general-perturbation", {
         validator: {
             $jsonSchema: {
                 bsonType: "object",

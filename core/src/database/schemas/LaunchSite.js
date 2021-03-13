@@ -1,5 +1,5 @@
-const data = async (app) => {
-    app.mongo.db.createCollection("launch-site", {
+const data = async (db) => {
+    db.createCollection("launch-site", {
         validator: {
             $jsonSchema: {
                 bsonType: "object",
