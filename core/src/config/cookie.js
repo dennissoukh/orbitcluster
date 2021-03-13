@@ -26,7 +26,7 @@ module.exports = {
      */
 
     parseOptions: {
-        decode: decodeURIComponent
-    }
+        decode: decodeURIComponent,
+    },
 
-}
+};

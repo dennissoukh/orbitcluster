@@ -1,13 +1,15 @@
-const common = require('./common')
+const common = require('./common');
 
 // Build the Space-Track API URL
-const buildURL = (options) => {
+const buildURL = (opt) => {
+    const options = opt;
+
     if (!options) {
-        throw new Error(`'options' undefined`);
+        throw new Error('\'options\' undefined');
     }
 
     if (!options.class) {
-        throw new Error(`'options.class' not set`);
+        throw new Error('\'options.class\' not set');
     }
 
     if (!options.emptyresult) {
@@ -58,7 +60,7 @@ const buildURL = (options) => {
         }
 
         options.predicates = options.predicates.filter((p) => {
-            let isValid = common.api.fields[options.class].indexOf(p) > -1;
+            const isValid = common.api.fields[options.class].indexOf(p) > -1;
 
             if (!isValid) {
                 throw new Error(`${p} is not a valid predicate for ${options.class}`);
@@ -86,8 +88,8 @@ const buildURL = (options) => {
         }
 
         options.orderby = options.orderby.filter((p) => {
-            let predicate = p.slice(~~( p[0] === '+' || p[0] === '-' ));
-            let isValid = common.api.fields[options.class].indexOf(predicate) > -1;
+            const predicate = p.slice(Math.floor(p[0] === '+' || p[0] === '-'));
+            const isValid = common.api.fields[options.class].indexOf(predicate) > -1;
 
             if (!isValid) {
                 throw new Error(`${p} is not a valid predicate for ${options.class}`);
@@ -96,32 +98,30 @@ const buildURL = (options) => {
             return isValid;
         });
 
-        url += `/orderby/${options.orderby.map((o) => {
-            return o.slice(~~( o[0] === '+' || o[0] === '-' ) ) +'%20'+ (o[0] === '-' ? 'desc' : 'asc');
-        }).join()}`;
+        url += `/orderby/${options.orderby.map((o) => `${o.slice(Math.floor(o[0] === '+' || o[0] === '-'))}%20${o[0] === '-' ? 'desc' : 'asc'}`).join()}`;
     }
 
     // Limit and offset
-    if (isFinite(options.limit) || isFinite(options.offset)) {
-        if (!isFinite(options.offset)) options.offset = 0;
-        if (!isFinite(options.limit)) options.limit = 100;
+    if (Number.isFinite(options.limit) || Number.isFinite(options.offset)) {
+        if (!Number.isFinite(options.offset)) options.offset = 0;
+        if (!Number.isFinite(options.limit)) options.limit = 100;
 
         url += `/limit/${options.limit},${options.offset}`;
     }
 
     // Distinct
     if (options.distinct) {
-        url += `/distinct/true`;
+        url += '/distinct/true';
     }
 
     // Metadata
     if (options.metadata) {
-        url += `/metadata/true`;
+        url += '/metadata/true';
     }
 
     // emptyresult
     if (options.emptyresult === 'show') {
-        url += `/emptyresult/show`;
+        url += '/emptyresult/show';
     }
 
     // format
@@ -130,6 +130,6 @@ const buildURL = (options) => {
     }
 
     return url;
-}
+};
 
-module.exports = buildURL
+module.exports = buildURL;

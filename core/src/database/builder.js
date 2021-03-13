@@ -7,16 +7,16 @@ const builder = async (app, options, done) => {
         { schema: require('./schemas/LaunchSite'), name: 'launch-site' },
         { schema: require('./schemas/Satellite'), name: 'satcat' },
         { schema: require('./schemas/User'), name: 'user' },
-    ]
+    ];
 
     // We'll create the validation schemas if they don't exist already
     schemas.forEach((schema) => {
         if (!db.collection(schema.name)) {
             (() => schema.schema(db))();
         }
-    })
+    });
 
-    done()
-}
+    done();
+};
 
-module.exports = builder
+module.exports = builder;

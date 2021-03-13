@@ -8,9 +8,8 @@
 |
 */
 const app = require('fastify')({
-    logger: true
-})
-
+    logger: true,
+});
 
 /*
 |--------------------------------------------------------------------------
@@ -27,13 +26,12 @@ const plugins = [
     require('./src/plugins/MongoDB'),
     require('./src/plugins/Helmet'),
     require('./src/plugins/Jwt'),
-    require('./src/plugins/Cookie')
-]
+    require('./src/plugins/Cookie'),
+];
 
 plugins.forEach((plugin) => {
     app.register(plugin.plugin, plugin.options);
-})
-
+});
 
 /*
 |--------------------------------------------------------------------------
@@ -46,13 +44,12 @@ plugins.forEach((plugin) => {
 |
 */
 const routes = [
-    require('./src/services/application')
-]
+    require('./src/services/application'),
+];
 
 routes.forEach((route) => {
-    app.register(route, Object.assign({ prefix: '/v1' }, route));
-})
-
+    app.register(route, { prefix: '/v1', ...route });
+});
 
 /*
 |--------------------------------------------------------------------------
@@ -64,9 +61,9 @@ routes.forEach((route) => {
 | that it has access to the application's main database.
 |
 */
-const builder = require('./src/database/builder')
-app.register(builder)
+const builder = require('./src/database/builder');
 
+app.register(builder);
 
 /*
 |--------------------------------------------------------------------------
@@ -78,4 +75,4 @@ app.register(builder)
 | from the actual running of the application and sending responses.
 |
 */
-module.exports = app
+module.exports = app;

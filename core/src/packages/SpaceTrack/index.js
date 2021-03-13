@@ -1,37 +1,41 @@
-const axios                 = require('axios')
-const axiosCookieJarSupport = require('axios-cookiejar-support').default
-const tough                 = require('tough-cookie')
-const common                = require('./lib/common')
-const buildURL              = require('./lib/url')
+const axios = require('axios');
+const axiosCookieJarSupport = require('axios-cookiejar-support').default;
+const tough = require('tough-cookie');
+const common = require('./lib/common');
+const buildURL = require('./lib/url');
 
 const SpaceTrack = class {
     constructor() {
-        this.loggedIn           = false;
-        this.loginInProgress    = false;
-        this.cookieJar          = new tough.CookieJar();
-        this.credentials        = {
+        this.loggedIn = false;
+        this.loginInProgress = false;
+        this.cookieJar = new tough.CookieJar();
+        this.credentials = {
             identity: process.env.SPACETRACK_USERNAME,
-            password: process.env.SPACETRACK_PASSWORD
-        }
+            password: process.env.SPACETRACK_PASSWORD,
+        };
 
         axiosCookieJarSupport(axios);
     }
 
-    get = (options) => {
-        return this.getRequest(options)
-            .catch((err) => {
-                if (err.statusCode && err.statusCode === 401) {
-                    this.loggedIn = false;
-                    return this.login.call(this).then(this.getRequest.bind(this, options));
-                }
+    delay = (ms) => new Promise((resolve) => {
+        setTimeout(() => {
+            resolve();
+        }, ms);
+    })
 
-                throw err;
-            })
-    }
+    get = (options) => this.getRequest(options)
+        .catch((err) => {
+            if (err.statusCode && err.statusCode === 401) {
+                this.loggedIn = false;
+                return this.login.call(this).then(this.getRequest.bind(this, options));
+            }
+
+            throw err;
+        })
 
     getRequest = (options) => {
         if (this.loginInProgress) {
-            return delay(350).then(this.getRequest.bind(this, options));
+            return this.delay(350).then(this.getRequest.bind(this, options));
         }
 
         if (!this.loggedIn) {
@@ -42,12 +46,10 @@ const SpaceTrack = class {
             const url = buildURL(options);
 
             axios.get(url, { responseType: 'json', jar: this.cookieJar, withCredentials: true })
-                .then((res) => {
-                    return resolve(res.data);
-                })
+                .then((res) => resolve(res.data))
                 .catch((err) => {
-                    err = new Error(`HTTP Error ${err.response.status}`);
-                    return reject(err);
+                    const error = new Error(`HTTP Error ${err.response.status}`);
+                    return reject(error);
                 });
         });
     }
@@ -84,36 +86,28 @@ const SpaceTrack = class {
                     this.loggedIn = false;
                     this.loginInProgress = false;
 
-                    let err = new Error(`Login Failed. Please try again.`);
+                    let err = new Error('Login Failed. Please try again.');
 
                     if (res.data && res.data.Login === 'Failed') {
-                        err = new Error(`Login Failed. Credentials are incorrect.`);
+                        err = new Error('Login Failed. Credentials are incorrect.');
                     }
 
-                    reject(err);
+                    return reject(err);
                 })
                 .catch((err) => {
                     this.loggedIn = false;
                     this.loginInProgress = false;
 
                     if (err.response && err.response.status) {
-                        err = new Error(`Login Failed. Received HTTP Error ${err.response.status} from Space-Track`);
+                        Error(`Login Failed. Received HTTP Error ${err.response.status} from Space-Track`);
                     } else {
-                        err = new Error(`Login Failed. Please try again.`);
+                        Error('Login Failed. Please try again.');
                     }
 
-                    reject(err);
+                    return reject(err);
                 });
         });
     }
-}
+};
 
-delay = (ms) => {
-    return new Promise((resolve) => {
-        setTimeout(() => {
-            resolve();
-        }, ms);
-    });
-}
-
-module.exports = new SpaceTrack()
+module.exports = new SpaceTrack();
