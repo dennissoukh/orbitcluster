@@ -7,15 +7,15 @@ const data = async (db) => {
                 properties: {
                     site_code: {
                         bsonType: 'string',
-                        description: 'must be a string and is required'
+                        description: 'must be a string and is required',
                     },
                     launch_site: {
                         bsonType: 'string',
-                        description: 'must be a string and is required'
+                        description: 'must be a string and is required',
                     },
                     description: {
                         bsonType: 'string',
-                        description: 'must be a string and is required'
+                        description: 'must be a string and is required',
                     },
                     location: {
                         bsonType: 'object',
@@ -23,18 +23,18 @@ const data = async (db) => {
                         properties: {
                             lat: {
                                 bsonType: 'object',
-                                description: 'must be an object'
+                                description: 'must be an object',
                             },
                             long: {
                                 bsonType: 'double',
-                                description: 'must be a double'
-                            }
-                        }
-                    }
-                }
-            }
-        }
-    })
-}
+                                description: 'must be a double',
+                            },
+                        },
+                    },
+                },
+            },
+        },
+    });
+};
 
-module.exports = data
+module.exports = data;
