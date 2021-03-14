@@ -9,9 +9,10 @@ const builder = async (app, options, done) => {
         { schema: require('./schemas/User'), name: 'user' },
     ];
 
-    // We'll create the validation schemas if they don't exist already
+    // Create the validation schemas if they don't exist already
+    const active = await db.listCollections().toArray();
     schemas.forEach((schema) => {
-        if (!db.collection(schema.name)) {
+        if (!active.find((s) => s.name === schema.name)) {
             (() => schema.schema(db))();
         }
     });
