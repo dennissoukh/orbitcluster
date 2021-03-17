@@ -17,21 +17,25 @@ const SpaceTrack = class {
         axiosCookieJarSupport(axios);
     }
 
-    delay = (ms) => new Promise((resolve) => {
-        setTimeout(() => {
-            resolve();
-        }, ms);
-    })
+    delay = (ms) => {
+        return new Promise((resolve) => {
+            setTimeout(() => {
+                resolve();
+            }, ms);
+        });
+    }
 
-    get = (options) => this.getRequest(options)
-        .catch((err) => {
-            if (err.statusCode && err.statusCode === 401) {
-                this.loggedIn = false;
-                return this.login.call(this).then(this.getRequest.bind(this, options));
-            }
+    get = (options) => {
+        return this.getRequest(options)
+            .catch((err) => {
+                if (err.statusCode && err.statusCode === 401) {
+                    this.loggedIn = false;
+                    return this.login.call(this).then(this.getRequest.bind(this, options));
+                }
 
-            throw err;
-        })
+                throw err;
+            });
+    }
 
     getRequest = (options) => {
         if (this.loginInProgress) {
@@ -46,7 +50,7 @@ const SpaceTrack = class {
             const url = buildURL(options);
 
             axios.get(url, { responseType: 'json', jar: this.cookieJar, withCredentials: true })
-                .then((res) => resolve(res.data))
+                .then((res) => { return resolve(res.data); })
                 .catch((err) => {
                     const error = new Error(`HTTP Error ${err.response.status}`);
                     return reject(error);

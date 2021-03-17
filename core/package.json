@@ -11,6 +11,8 @@
   "dependencies": {
     "axios": "^0.21.1",
     "axios-cookiejar-support": "^1.0.1",
+    "chalk": "^4.1.0",
+    "clear": "^0.1.0",
     "dotenv": "^8.2.0",
     "fastify": "^3.12.0",
     "fastify-cookie": "^5.1.0",
@@ -18,6 +20,8 @@
     "fastify-helmet": "^5.2.0",
     "fastify-jwt": "^2.3.0",
     "fastify-mongodb": "^2.0.1",
+    "minimist": "^1.2.5",
+    "node-cron": "^3.0.0",
     "tough-cookie": "^4.0.0"
   },
   "devDependencies": {
