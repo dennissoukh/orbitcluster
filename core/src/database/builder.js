@@ -3,7 +3,7 @@ const builder = async (app, options, done) => {
 
     // Load collection validation schemas
     const schemas = [
-        { schema: require('./schemas/GeneralPertubation'), name: 'general-pertubation' },
+        { schema: require('./schemas/GeneralPerturbation'), name: 'general-perturbation' },
         { schema: require('./schemas/LaunchSite'), name: 'launch-site' },
         { schema: require('./schemas/Satellite'), name: 'satcat' },
         { schema: require('./schemas/User'), name: 'user' },
