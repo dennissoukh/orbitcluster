@@ -18,9 +18,9 @@ class DownloadSatcat extends Command {
     /**
      * Execute the console command.
      */
-    handle = () => {
+    handle = (app) => {
         //
     }
 }
 
-module.exports = DownloadSatcat;
+module.exports = new DownloadSatcat();

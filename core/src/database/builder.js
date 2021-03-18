@@ -12,8 +12,8 @@ const builder = async (app, options, done) => {
     // Create the validation schemas if they don't exist already
     const active = await db.listCollections().toArray();
     schemas.forEach((schema) => {
-        if (!active.find((s) => s.name === schema.name)) {
-            (() => schema.schema(db))();
+        if (!active.find((s) => { return s.name === schema.name; })) {
+            (() => { return schema.schema(db); })();
         }
     });
 

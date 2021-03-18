@@ -1,3 +1,5 @@
+const Command = require('./Command');
+
 class Builder {
     /**
      * The Fastify application instance.
@@ -5,24 +7,51 @@ class Builder {
     fastify;
 
     /**
-     * The registered application commands & scheduler.
+     * The registered application kernel.
      */
-    commands;
+    kernel;
+
+    /**
+     * The registered application commands.
+     */
+    commands = [];
 
     /**
      * Create the Orbitcluster console application.
      */
-    constructor(fastify, commands) {
+    constructor(fastify, kernel) {
         this.fastify = fastify;
-        this.commands = commands;
-        this.bindToSchedule();
+        this.kernel = kernel;
+
+        this.bootstrap(this.kernel.commands);
+
+        this.dispatchSchedule();
     }
 
     /**
      * Bind scheduled commands to the scheduler.
      */
-    bindToSchedule = () => {
-        this.commands.schedule();
+    dispatchSchedule = () => {
+        this.kernel.schedule();
+    }
+
+    /**
+     * Bootstrap the console application commands.
+     */
+    bootstrap = (commands) => {
+        commands.forEach((command) => {
+            this.add(command);
+        });
+    }
+
+    /**
+     * Add a command to the console
+     */
+    add = (command) => {
+        if (command instanceof Command) {
+            command.setFastify(this.fastify);
+            this.commands.push(command);
+        }
     }
 }
 
