@@ -8,7 +8,8 @@
 |
 */
 const app = require('fastify')({
-    logger: true,
+    logger: process.env.APP_DEBUG ? process.env.APP_DEBUG : true,
+    ignoreTrailingSlash: true,
 });
 
 /*
@@ -22,8 +23,8 @@ const app = require('fastify')({
 |
 */
 const plugins = [
-    require('./src/plugins/Cors'),
     require('./src/plugins/MongoDB'),
+    require('./src/plugins/Cors'),
     require('./src/plugins/Helmet'),
     require('./src/plugins/Jwt'),
     require('./src/plugins/Cookie'),
@@ -44,7 +45,7 @@ plugins.forEach((plugin) => {
 |
 */
 const routes = [
-    require('./src/services/application'),
+    require('./src/routes/application'),
 ];
 
 routes.forEach((route) => {
