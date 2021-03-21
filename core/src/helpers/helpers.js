@@ -17,6 +17,6 @@ const method_exists = (obj, method) => {
     }
 
     return typeof obj[method] === 'function';
-}
+};
 
 module.exports = { env, method_exists };

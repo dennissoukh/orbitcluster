@@ -67,22 +67,6 @@ app.register(builder);
 
 /*
 |--------------------------------------------------------------------------
-| Register the Application Commands
-|--------------------------------------------------------------------------
-|
-| The database builder contains the validation schema definitions for the
-| MongoDB database that the app is using. We register the builder so
-| that it has access to the application's main database.
-|
-*/
-const commands = require('./src/console/Kernel');
-
-const CommandBuilder = require('./src/packages/Console/Builder');
-
-(() => { return new CommandBuilder(app, commands); })();
-
-/*
-|--------------------------------------------------------------------------
 | Return The Application as a Module
 |--------------------------------------------------------------------------
 |
