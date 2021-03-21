@@ -73,7 +73,12 @@ app.register(builder);
 |
 | This returns the application instance. The instance is given to
 | the calling script so we can separate the building of the instances
-| from the actual running of the application and sending responses.
+| from the actual running of the application and sending responses. The
+| ready app is returned in the form of a promise.
 |
 */
-module.exports = app;
+async function ready() {
+    return app.ready();
+}
+
+module.exports = ready;
