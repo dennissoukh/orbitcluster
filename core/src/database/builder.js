@@ -3,16 +3,17 @@ const builder = async (app, options, done) => {
 
     // Load collection validation schemas
     const schemas = [
-        { schema: require('./schemas/GeneralPertubation'), name: 'general-pertubation' },
+        { schema: require('./schemas/GeneralPerturbation'), name: 'general-perturbation' },
         { schema: require('./schemas/LaunchSite'), name: 'launch-site' },
         { schema: require('./schemas/Satellite'), name: 'satcat' },
         { schema: require('./schemas/User'), name: 'user' },
     ];
 
-    // We'll create the validation schemas if they don't exist already
+    // Create the validation schemas if they don't exist already
+    const active = await db.listCollections().toArray();
     schemas.forEach((schema) => {
-        if (!db.collection(schema.name)) {
-            (() => schema.schema(db))();
+        if (!active.find((s) => { return s.name === schema.name; })) {
+            (() => { return schema.schema(db); })();
         }
     });
 

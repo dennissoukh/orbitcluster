@@ -13,4 +13,7 @@ rules:
     linebreak-style: 0
     global-require: 0
     import/no-extraneous-dependencies: 0
+    arrow-body-style: [error, always]
+    no-extend-natives: 0
+    lines-between-class-members: 0
 

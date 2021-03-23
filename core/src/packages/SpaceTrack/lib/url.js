@@ -98,7 +98,7 @@ const buildURL = (opt) => {
             return isValid;
         });
 
-        url += `/orderby/${options.orderby.map((o) => `${o.slice(Math.floor(o[0] === '+' || o[0] === '-'))}%20${o[0] === '-' ? 'desc' : 'asc'}`).join()}`;
+        url += `/orderby/${options.orderby.map((o) => { return `${o.slice(Math.floor(o[0] === '+' || o[0] === '-'))}%20${o[0] === '-' ? 'desc' : 'asc'}`; }).join()}`;
     }
 
     // Limit and offset

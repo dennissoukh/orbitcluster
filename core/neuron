@@ -1,0 +1,12 @@
+#!/usr/bin/env node
+
+const Ignitor = require('./src/packages/Ignitor');
+
+(async () => {
+    const app = await require('./app.js')();
+
+    new Ignitor(app)
+        .fireNeuron()
+        .shutdown();
+})();
+
