@@ -3,7 +3,7 @@ const data = async (db) => {
         validator: {
             $jsonSchema: {
                 bsonType: 'object',
-                required: ['site_code', 'launch_site', 'description', 'location'],
+                required: ['site_code', 'launch_site'],
                 properties: {
                     site_code: {
                         bsonType: 'string',
