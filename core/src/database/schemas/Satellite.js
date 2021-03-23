@@ -70,7 +70,7 @@ const data = async (db) => {
                         description: 'must be a string and is required',
                     },
                     object_number: {
-                        bsonType: 'int unsigned',
+                        bsonType: 'int',
                         description: 'must be an int ',
                     },
                     details: {
