@@ -1,12 +1,13 @@
 #!/usr/bin/env node
 
+require('dotenv').config();
+
 const Ignitor = require('./src/packages/Ignitor');
 
 (async () => {
     const app = await require('./app.js')();
 
     new Ignitor(app)
-        .fireNeuron()
-        .shutdown();
+        .fireNeuron();
 })();
 

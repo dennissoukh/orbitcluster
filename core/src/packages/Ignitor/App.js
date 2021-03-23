@@ -31,10 +31,11 @@ class App {
              * Handle command
              */
             await this.kernel.handle(argv);
+
+            process.exit(1);
         } catch (error) {
             if (!error) {
                 process.exit(1);
-                return;
             }
 
             throw new Error(error);

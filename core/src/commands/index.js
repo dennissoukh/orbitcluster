@@ -5,6 +5,7 @@ class Commands {
     commands = [
         require('./GenerateKey'),
         require('./GenerateQuote'),
+        require('./DownloadLaunchsites'),
     ];
 
     /**

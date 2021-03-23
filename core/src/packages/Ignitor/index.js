@@ -11,9 +11,9 @@ class Ignitor {
 
     fireNeuron() {
         try {
-            new Neuron(this.appRoot).handle(process.argv.splice(2))
+            new Neuron(this.appRoot).handle(process.argv.splice(2));
         } catch (error) {
-            throw new Error(error)
+            throw new Error(error);
         }
 
         return this;
