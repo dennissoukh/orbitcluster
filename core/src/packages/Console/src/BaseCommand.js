@@ -7,10 +7,18 @@ class BaseCommand {
             if (typeof this.prepare === 'function') {
 
             }
-        } catch (error) {
 
+            commandResult = await hasRun ? this.run(this.application) : this.handle(this.application);
+
+            return commandResult;
+        } catch (error) {
+            throw new Error(error);
         }
+    }
+
+    setApplicationInstance = (application) => {
+        this.application = application;
     }
 }
 
-exports.default = BaseCommand;
+module.exports = BaseCommand;

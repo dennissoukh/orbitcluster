@@ -6,6 +6,7 @@ const Ignitor = require('./src/packages/Ignitor');
     const app = await require('./app.js')();
 
     new Ignitor(app)
-        .close();
+        .fireNeuron()
+        .shutdown();
 })();
 
