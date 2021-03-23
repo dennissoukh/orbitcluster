@@ -4,6 +4,7 @@ class Commands {
      */
     commands = [
         require('./GenerateKey'),
+        require('./GenerateQuote'),
     ];
 
     /**

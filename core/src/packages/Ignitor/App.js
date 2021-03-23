@@ -14,12 +14,22 @@ class App {
 
     async handle(argv) {
         try {
+            /**
+             * Print help when no arguments have been passed
+             */
             if (!argv.length) {
+                this.printHelp(true);
                 return;
             }
 
+            /**
+             * Hold reference to the command name
+             */
             this.commandName = argv[0];
 
+            /**
+             * Handle command
+             */
             await this.kernel.handle(argv);
         } catch (error) {
             if (!error) {
@@ -29,6 +39,15 @@ class App {
 
             throw new Error(error);
         }
+    }
+
+    printHelp = (value, command) => {
+        if (!value) {
+            return;
+        }
+
+        this.kernel.printHelp(command);
+        process.exit(0);
     }
 }
 

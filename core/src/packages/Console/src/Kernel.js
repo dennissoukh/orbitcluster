@@ -1,4 +1,5 @@
 const Commands = require("../../../commands");
+const { printHelp, printHelpFor } = require("./Help");
 
 class Kernel {
     /**
@@ -20,6 +21,11 @@ class Kernel {
      * The registered application commands.
      */
     commands = [];
+
+    /**
+     * List of registered flags
+     */
+    flags = [];
 
     /**
      * Create a newly registered command manifest.
@@ -83,6 +89,10 @@ class Kernel {
         } catch (error) {
             throw new Error(error)
         }
+    }
+
+    printHelp = async (command) => {
+        printHelp(this.commands, this.flags);
     }
 }
 
