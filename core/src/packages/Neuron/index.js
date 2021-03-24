@@ -3,5 +3,5 @@ const BaseCommand = require('./src/BaseCommand');
 
 module.exports = {
     Kernel,
-    BaseCommand
-}
+    BaseCommand,
+};

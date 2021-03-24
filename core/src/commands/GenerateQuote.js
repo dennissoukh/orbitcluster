@@ -1,11 +1,11 @@
 const chalk = require('chalk');
-const BaseCommand = require('../packages/Neuron').BaseCommand;
+const { BaseCommand } = require('../packages/Neuron');
 
 class GenerateQuote extends BaseCommand {
     commandName = 'inspire';
     description = 'Get an inspirational quote';
 
-    async run() {
+    run = async () => {
         const quotes = [
             'Act only according to that maxim whereby you can, at the same time, will that it should become a universal law. - Immanuel Kant',
             'An unexamined life is not worth living. - Socrates',

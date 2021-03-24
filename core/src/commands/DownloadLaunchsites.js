@@ -1,13 +1,13 @@
-const BaseCommand = require('../packages/Neuron').BaseCommand;
+const { performance } = require('perf_hooks');
+const { BaseCommand } = require('../packages/Neuron');
 const SpaceTrack = require('../packages/SpaceTrack');
-const performance = require('perf_hooks').performance;
 
 class DownloadLaunchSites extends BaseCommand {
     commandName = 'download:launchsites';
     description = 'Download and update launch-sites from Space-Track';
 
-    async run(app) {
-        let t0 = performance.now();
+    run = async (app) => {
+        const t0 = performance.now();
 
         console.log(`${Date.now()}> Executing download`);
 
@@ -27,13 +27,13 @@ class DownloadLaunchSites extends BaseCommand {
         });
 
         // Debugging values
-        let t1 = performance.now();
+        const t1 = performance.now();
 
         const timeTaken = (t1 - t0).toFixed(2);
         const rowLength = launchSites.data.length;
 
         console.log(
-            `${Date.now()}> Finished download, ${rowLength} rows synced @ ${timeTaken}ms`
+            `${Date.now()}> Finished download, ${rowLength} rows synced @ ${timeTaken}ms`,
         );
     }
 }

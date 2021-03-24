@@ -1,35 +1,35 @@
-const chalk = require("chalk");
-const version =  require('../../../../package.json').version;
-
-getCommandsForDisplay = (commands, aliases) => {
-    let commandList = [];
-
-    commands.forEach(command => {
-        commandList.push({
-            displayName: command.commandName,
-            description: command.description,
-            width: command.commandName.length
-        });
-    });
-
-    commandList = groupCommands(commandList);
-
-    return commandList;
-}
+const chalk = require('chalk');
+const { version } = require('../../../../package.json');
 
 groupCommands = (commands) => {
     return commands.reduce((rv, x) => {
         if (!x.displayName.includes(':')) {
-            (rv['default'] = rv['default'] || []).push(x);
+            (rv.default = rv.default || []).push(x);
             return rv;
-        };
+        }
 
         const namespace = x.displayName.split(':')[0];
         (rv[namespace] = rv[namespace] || []).push(x);
 
         return rv;
     }, {});
-}
+};
+
+getCommandsForDisplay = (commands) => {
+    let commandList = [];
+
+    commands.forEach((command) => {
+        commandList.push({
+            displayName: command.commandName,
+            description: command.description,
+            width: command.commandName.length,
+        });
+    });
+
+    commandList = groupCommands(commandList);
+
+    return commandList;
+};
 
 printHelp = (commands, flags, aliases) => {
     const commandList = getCommandsForDisplay(commands);
@@ -37,7 +37,9 @@ printHelp = (commands, flags, aliases) => {
     /**
      * Get the length of the longest command.
      */
-    const maxWidth = Math.max(...Object.values(commandList).map(command => command[0].width));
+    const maxWidth = Math.max(...Object.values(commandList).map((command) => {
+        return command[0].width;
+    }));
 
     console.log(`Orbitcluster Framework (Neuron) ${chalk.green(version)}`);
     console.log('');
@@ -56,9 +58,9 @@ printHelp = (commands, flags, aliases) => {
             const description = chalk.white(command.description);
 
             console.log(
-                `  ${displayName} ${whitespace} ${description}`
+                `  ${displayName} ${whitespace} ${description}`,
             );
-        })
+        });
     });
 
     Object.keys(commandList).forEach((key) => {
@@ -66,7 +68,7 @@ printHelp = (commands, flags, aliases) => {
             return;
         }
 
-        console.log(chalk.yellow(key))
+        console.log(chalk.yellow(key));
 
         commandList[key].forEach((command) => {
             const displayName = chalk.green(command.displayName);
@@ -74,12 +76,12 @@ printHelp = (commands, flags, aliases) => {
             const description = chalk.white(command.description);
 
             console.log(
-                `  ${displayName} ${whitespace} ${description}`
+                `  ${displayName} ${whitespace} ${description}`,
             );
-        })
+        });
     });
-}
+};
 
 module.exports = {
-    printHelp
-}
+    printHelp,
+};

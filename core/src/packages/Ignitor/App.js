@@ -1,4 +1,4 @@
-const Kernel = require('../Neuron').Kernel;
+const { Kernel } = require('../Neuron');
 
 class App {
     commandName;
@@ -25,7 +25,7 @@ class App {
             /**
              * Hold reference to the command name
              */
-            this.commandName = argv[0];
+            this.commandName = [argv];
 
             /**
              * Handle command

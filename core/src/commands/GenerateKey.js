@@ -1,11 +1,11 @@
 const chalk = require('chalk');
-const BaseCommand = require('../packages/Neuron').BaseCommand;
+const { BaseCommand } = require('../packages/Neuron');
 
 class GenerateKey extends BaseCommand {
     commandName = 'generate:key';
     description = 'Generate a new APP_KEY secret';
 
-    async run() {
+    run = async () => {
         const secret = Math.random().toString(16).substr(2, 32);
         console.log(chalk.green(secret));
 

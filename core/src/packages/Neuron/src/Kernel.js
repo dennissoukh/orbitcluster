@@ -1,5 +1,5 @@
-const Commands = require("../../../commands");
-const { printHelp, printHelpFor } = require("./Help");
+const Commands = require('../../../commands');
+const { printHelp } = require('./Help');
 
 class Kernel {
     /**
@@ -41,18 +41,18 @@ class Kernel {
 
     registerCommands = () => {
         this.manifest.commands.forEach((Command) => {
-            let commandInstance = new Command.default();
-            commandInstance.setApplicationInstance(this.application);
-            this.commands.push(commandInstance);
+            const CommandInstance = new Command.default();
+            CommandInstance.setApplicationInstance(this.application);
+            this.commands.push(CommandInstance);
         });
     }
 
     findCommand = (commandName) => {
-        return this.commands.find(command => command.commandName === commandName);
+        return this.commands.find((command) => { return command.commandName === commandName; });
     }
 
     exec = (commandName, args) => {
-        let command = this.findCommand(commandName);
+        const command = this.findCommand(commandName);
 
         if (!command) {
             throw new Error('The command you specified does not exist');
@@ -87,11 +87,11 @@ class Kernel {
             const [commandName, ...args] = argv;
             await this.exec(commandName, args);
         } catch (error) {
-            throw new Error(error)
+            throw new Error(error);
         }
     }
 
-    printHelp = async (command) => {
+    printHelp = async () => {
         printHelp(this.commands, this.flags);
     }
 }

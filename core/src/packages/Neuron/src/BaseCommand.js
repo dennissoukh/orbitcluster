@@ -1,16 +1,16 @@
 class BaseCommand {
     async exec() {
         const hasRun = typeof this.run === 'function';
-        let commandResult;
+        let result;
 
         try {
             if (typeof this.prepare === 'function') {
-
+                await this.prepare();
             }
 
-            commandResult = await hasRun ? this.run(this.application) : this.handle(this.application);
+            result = await hasRun ? this.run(this.application) : this.handle(this.application);
 
-            return commandResult;
+            return result;
         } catch (error) {
             throw new Error(error);
         }
