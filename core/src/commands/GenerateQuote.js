@@ -1,5 +1,5 @@
 const chalk = require('chalk');
-const BaseCommand = require('../packages/Console').BaseCommand;
+const BaseCommand = require('../packages/Neuron').BaseCommand;
 
 class GenerateQuote extends BaseCommand {
     commandName = 'inspire';

@@ -1,5 +1,5 @@
 const chalk = require('chalk');
-const BaseCommand = require('../packages/Console').BaseCommand;
+const BaseCommand = require('../packages/Neuron').BaseCommand;
 
 class GenerateKey extends BaseCommand {
     commandName = 'generate:key';

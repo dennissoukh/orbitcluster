@@ -1,4 +1,4 @@
-const BaseCommand = require('../packages/Console').BaseCommand;
+const BaseCommand = require('../packages/Neuron').BaseCommand;
 const SpaceTrack = require('../packages/SpaceTrack');
 const performance = require('perf_hooks').performance;
 

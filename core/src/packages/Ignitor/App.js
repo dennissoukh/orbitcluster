@@ -1,4 +1,4 @@
-const Kernel = require('../Console').Kernel;
+const Kernel = require('../Neuron').Kernel;
 
 class App {
     commandName;
