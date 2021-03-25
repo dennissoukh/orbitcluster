@@ -1,5 +1,6 @@
 const Commands = require('../../../commands');
 const { printHelp } = require('./Help');
+const { InvalidCommandException } = require('./Exceptions');
 
 class Kernel {
     /**
@@ -55,7 +56,8 @@ class Kernel {
         const command = this.findCommand(commandName);
 
         if (!command) {
-            throw new Error('The command you specified does not exist');
+            new InvalidCommandException().invoke(commandName, []);
+            process.exit(0);
         }
 
         return command.exec();

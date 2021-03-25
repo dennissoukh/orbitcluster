@@ -38,7 +38,7 @@ class App {
                 process.exit(1);
             }
 
-            throw new Error(error);
+            // throw new Error(error);
         }
     }
 
