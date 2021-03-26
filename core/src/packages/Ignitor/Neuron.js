@@ -6,8 +6,8 @@ class Neuron {
     }
 
     async handle(argv) {
-        // Proxy over to application commands
-        await new App(this.appRoot, 'neuron').handle(argv);
+        // Proxy over to the Orbitcluster Neuron package
+        await new App(this.appRoot).handle(argv);
     }
 }
 

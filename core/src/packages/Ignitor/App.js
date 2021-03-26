@@ -1,4 +1,4 @@
-const { Kernel } = require('../Neuron');
+const { Kernel } = require('../Neuron/build');
 
 class App {
     commandName;
@@ -14,14 +14,6 @@ class App {
 
     async handle(argv) {
         try {
-            /**
-             * Print help when no arguments have been passed
-             */
-            if (!argv.length) {
-                this.printHelp(true);
-                return;
-            }
-
             /**
              * Hold reference to the command name
              */
