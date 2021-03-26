@@ -1,4 +1,4 @@
-import { IocContract, BindCallback } from './Contracts'
+import { IocContract, BindCallback } from '../Contracts'
 
 /**
  * Manages the IoC container bindings

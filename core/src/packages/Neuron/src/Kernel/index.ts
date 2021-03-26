@@ -1,6 +1,5 @@
 import { ApplicationContract, CommandContract, CommandConstructorContract, KernelContract } from '../Contracts';
 import { HelpCommand } from '../HelpCommand';
-import { Ioc } from '../../../Ioc';
 
 export class Kernel implements KernelContract {
     /**
@@ -108,7 +107,7 @@ export class Kernel implements KernelContract {
     public async runDefaultCommand() {
         this.defaultCommand.boot();
 
-        const commandInstance = await new Ioc().make(this.defaultCommand, [
+        const commandInstance = this.application.container.make(this.defaultCommand, [
             this.application,
             this
         ]);

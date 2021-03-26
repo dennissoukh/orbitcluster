@@ -1,5 +1,5 @@
 import { normalize } from 'path'
-import { IocContract } from './Contracts'
+import { IocContract } from '../Contracts'
 
 /**
  * Manages the import aliases

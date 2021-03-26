@@ -1,5 +1,5 @@
 import { FastifyInstance } from 'fastify';
-import { IocContract } from '../../../Ioc/src/Contracts';
+import { IocContract } from '../../../Inverser/src/Contracts';
 
 /**
  * Shape of semver node

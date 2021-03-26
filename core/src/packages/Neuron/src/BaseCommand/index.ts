@@ -34,7 +34,7 @@ export abstract class BaseCommand implements CommandContract {
     }
 
     public async exec() {
-        //const hasRun = typeof this.run === 'function';
+        const hasRun = typeof this.run === 'function';
         let commandResult: any;
 
         /**
@@ -45,15 +45,17 @@ export abstract class BaseCommand implements CommandContract {
              * Run prepare method when it exists on the command instance
              */
             if (typeof this.prepare === 'function') {
-                await this.prepare(this.application.fastify);
+                await this.application.container.callAsync(this, 'prepare' as any, [this.application.fastify]);
             }
 
             /**
              * Execute the command handle or run method
              */
-            if (typeof this.run === 'function') {
-                commandResult = await this.run(this.application.fastify);
-            }
+            commandResult = await this.application.container.callAsync(
+                this,
+                hasRun ? 'run' : ('handle' as any),
+                [this.application.fastify]
+            );
         } catch (error) {
             this.error = error;
         }
@@ -64,7 +66,7 @@ export abstract class BaseCommand implements CommandContract {
          * Run completed method if it exists
          */
         if (typeof this.completed === 'function') {
-            errorHandled = await this.completed(this.application.fastify);
+            errorHandled = await this.application.container.callAsync(this, 'completed' as any, []);
         }
 
         /**

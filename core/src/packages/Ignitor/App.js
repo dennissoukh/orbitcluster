@@ -1,5 +1,5 @@
 const { Kernel } = require('../../build/Neuron');
-const { Ioc } = require('../../build/Ioc');
+const { Ioc } = require('../../build/Inverser');
 const path = require('path');
 
 class App {

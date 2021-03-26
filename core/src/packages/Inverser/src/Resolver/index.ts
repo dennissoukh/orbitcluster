@@ -1,4 +1,4 @@
-import { IocContract, IocResolverLookupNode, IocResolverContract } from './Contracts'
+import { IocContract, IocResolverLookupNode, IocResolverContract } from '../Contracts'
 
 /**
  * Exposes the API to resolve and call bindings from the IoC container. The resolver

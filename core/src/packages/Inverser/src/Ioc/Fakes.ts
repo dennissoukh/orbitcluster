@@ -1,4 +1,4 @@
-import { FakeCallback, IocContract } from './Contracts'
+import { FakeCallback, IocContract } from '../Contracts'
 
 /**
  * Manages the container fakes

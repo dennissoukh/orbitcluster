@@ -1,5 +1,5 @@
-import { IocContract } from './Contracts'
-import { isPrimtiveConstructor } from './helpers'
+import { IocContract } from '../Contracts'
+import { isPrimtiveConstructor } from '../helpers'
 
 /**
  * Exposes the API to injecting dependencies to a class or a method
