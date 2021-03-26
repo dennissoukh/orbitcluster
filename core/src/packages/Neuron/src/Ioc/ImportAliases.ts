@@ -60,7 +60,7 @@ export class ImportAliases {
 
         const cacheItem = this.requireCache.get(namespace)
         if (cacheItem) {
-            return cacheItem.value
+            return cacheItem.value;
         }
 
         /**
@@ -95,7 +95,7 @@ export class ImportAliases {
             return this.resolve(namespace)
         }
 
-        const alias = this.getPathAlias(namespace)
+        const alias = this.getPathAlias(namespace);
         if (!alias) {
             throw new Error('lookup failed')
         }

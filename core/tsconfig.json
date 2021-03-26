@@ -15,5 +15,5 @@
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true
   },
-  "include": ["./src/packages/Neuron/**/*", "src/packages/Ioc"]
+  "include": ["./src/packages/Neuron/**/*", "src/packages/Neuron/src/Ioc"]
 }
