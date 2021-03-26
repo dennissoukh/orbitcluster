@@ -34,6 +34,7 @@ export abstract class BaseCommand implements CommandContract {
     }
 
     public async exec() {
+        //const hasRun = typeof this.run === 'function';
         let commandResult: any;
 
         /**

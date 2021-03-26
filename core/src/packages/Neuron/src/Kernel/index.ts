@@ -1,6 +1,6 @@
 import { ApplicationContract, CommandContract, CommandConstructorContract, KernelContract } from '../Contracts';
 import { HelpCommand } from '../HelpCommand';
-import { Ioc } from '../Ioc';
+import { Ioc } from '../../../Ioc';
 
 export class Kernel implements KernelContract {
     /**

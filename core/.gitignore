@@ -116,4 +116,4 @@ dist
 .pnp.*
 
 # Other
-src/packages/Neuron/build
+build

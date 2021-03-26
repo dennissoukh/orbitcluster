@@ -1,12 +1,12 @@
-import { IocContract, BindCallback, FakeCallback, LookupNode, InferMakeType } from './Contracts'
+import { IocContract, BindCallback, FakeCallback, LookupNode, InferMakeType } from './src/Contracts'
 
-import { Fakes } from './Fakes'
-import { Bindings } from './Bindings'
-import { Injector } from './Injector'
-import { IocResolver } from './Resolver'
-import { ImportAliases } from './ImportAliases'
-import { ensureIsFunction, isEsm } from './helpers'
-import { IocProxyClass, IocProxyObject } from './IocProxy'
+import { Fakes } from './src/Fakes'
+import { Bindings } from './src/Bindings'
+import { Injector } from './src/Injector'
+import { IocResolver } from './src/Resolver'
+import { ImportAliases } from './src/ImportAliases'
+import { ensureIsFunction, isEsm } from './src/helpers'
+import { IocProxyClass, IocProxyObject } from './src/IocProxy'
 
 export class Ioc implements IocContract {
     private fakes: Fakes = new Fakes(this)

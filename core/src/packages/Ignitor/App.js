@@ -1,4 +1,6 @@
-const { Kernel } = require('../Neuron/build');
+const { Kernel } = require('../../build/Neuron');
+const { Ioc } = require('../../build/Ioc');
+const path = require('path');
 
 class App {
     commandName;
@@ -9,7 +11,12 @@ class App {
     constructor(application, environment) {
         this.application = application;
         this.environment = environment;
-        this.kernel = new Kernel(this.application, this.environment);
+        this.container = new Ioc();
+        this.kernel = new Kernel({
+            fastify: this.application,
+            container: this.container,
+            appRoot: path.dirname(require.main.filename)
+        });
     }
 
     async handle(argv) {

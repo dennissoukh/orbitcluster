@@ -1,4 +1,5 @@
 import { FastifyInstance } from 'fastify';
+import { IocContract } from '../../../Ioc/src/Contracts';
 
 /**
  * Shape of semver node
@@ -60,6 +61,11 @@ export interface ApplicationContract {
      * A boolean to know if application is running in dev mode
      */
     inDev: boolean;
+
+    /**
+     * Reference to the IoC container
+     */
+    container: IocContract;
 }
 
 /**
