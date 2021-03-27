@@ -20,6 +20,6 @@ export class Ignitor {
      * Returns instance of Neuron to handle console commands
      */
     public neuron() {
-        return new Neuron(this.fastify, 'D:/projects/orbitcluster/core');
+        return new Neuron(this.fastify, this.appRoot);
     }
 }

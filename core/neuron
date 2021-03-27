@@ -1,13 +1,15 @@
 #!/usr/bin/env node
+const dirname = require('path').dirname;
 
 require('dotenv').config();
 
 const Ignitor = require('./src/build/Ignitor').Ignitor;
+const projDir = dirname(require.main.filename);
 
 (async () => {
     const app = await require('./app.js')();
 
-    new Ignitor(app, 'D:/projects/orbitcluster-core/core')
+    new Ignitor(app, projDir)
         .neuron()
         .handle(process.argv.splice(2));
 })();
