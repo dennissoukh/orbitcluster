@@ -7,7 +7,7 @@
 |
 */
 const commands = [
-    'App/Commands/Test',
+    'commands/Greet',
 ];
 
 module.exports = { commands }
