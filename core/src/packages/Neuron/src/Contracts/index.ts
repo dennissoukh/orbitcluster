@@ -10,13 +10,13 @@ export type SemverNode = {
     patch: number;
     prerelease: (string | number)[];
     version: string;
-    toString: string;
+    toString(): string;
 }
 
 /**
  * Application environments
  */
-export type AppEnvironments = 'web' | 'console' | 'unknown';
+export type AppEnvironments = 'web' | 'console' | 'test' | 'unknown';
 
 export type SerializedCommand = {
     commandName: string;

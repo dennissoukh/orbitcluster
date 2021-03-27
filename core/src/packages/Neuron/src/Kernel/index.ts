@@ -123,8 +123,12 @@ export class Kernel implements KernelContract {
     /**
      * Print the help screen for a given command or all commands/flags
      */
-    public printHelp() {
-        console.log('print help');
+    public printHelp(command?: CommandConstructorContract) {
+        if (command) {
+            console.log(`help for: ${command}`);
+        } else {
+            console.log(`print help`)
+        }
     }
 
     /**

@@ -13,7 +13,14 @@
     "esModuleInterop": true,
     "outDir": "./src/build",
     "emitDecoratorMetadata": true,
-    "experimentalDecorators": true
+    "experimentalDecorators": true,
+    "types": ["node"],
   },
-  "include": ["./src/packages/Neuron/**/*", "./src/packages/Inverser/**/*"],
+  "include": [
+    "./src/packages/Neuron/**/*",
+    "./src/packages/Inverser/**/*",
+    "./src/packages/Ignitor/**/*",
+    "./src/packages/Cosmic/**/*",
+    "./src/packages/Orbitcluster/**/*"
+  ],
 }

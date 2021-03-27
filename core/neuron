@@ -2,12 +2,13 @@
 
 require('dotenv').config();
 
-const Ignitor = require('./src/packages/Ignitor');
+const Ignitor = require('./src/build/Ignitor').Ignitor;
 
 (async () => {
     const app = await require('./app.js')();
 
-    new Ignitor(app)
-        .fireNeuron();
+    new Ignitor(app, 'D:/projects/orbitcluster-core/core')
+        .neuron()
+        .handle(process.argv.splice(2));
 })();
 
