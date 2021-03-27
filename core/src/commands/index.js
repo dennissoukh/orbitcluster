@@ -1,19 +1,13 @@
-class Commands {
-    /**
-     * The commands provided by the application.
-     */
-    commands = [
-        require('./GenerateKey'),
-        require('./GenerateQuote'),
-        require('./DownloadLaunchsites'),
-    ];
+/*
+|--------------------------------------------------------------------------
+| Commands
+|--------------------------------------------------------------------------
+|
+| Define your custom Neuron commands.
+|
+*/
+const commands = [
+    'App/Commands/Test',
+];
 
-    /**
-     * Define the application's command schedule.
-     */
-    schedule = () => {
-        //
-    };
-}
-
-module.exports = Commands;
+module.exports = { commands }

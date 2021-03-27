@@ -8,3 +8,4 @@
  */
 
 export { Kernel } from './src/Kernel';
+export { BaseCommand } from './src/BaseCommand';
