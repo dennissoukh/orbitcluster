@@ -110,6 +110,8 @@ export interface KernelContract {
 export interface CommandContract {
     commandName: string;
     description: string;
+    args: CommandArg[];
+    aliases: string[];
 
     exitCode?: number;
     kernel: KernelContract;
@@ -129,4 +131,20 @@ export interface CommandContract {
  */
 export interface CommandConstructorContract {
     new (application: ApplicationContract, kernel: KernelContract, ...args: any[]): CommandContract;
+}
+
+/**
+ * The types of arguments can be defined on a command.
+ */
+export type ArgTypes = 'string' | 'spread';
+
+/**
+ * The shape of command argument
+ */
+export type CommandArg = {
+    propertyName: string;
+    name: string;
+    type: ArgTypes;
+    required: boolean;
+    description?: string;
 }

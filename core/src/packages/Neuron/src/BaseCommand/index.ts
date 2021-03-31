@@ -1,4 +1,4 @@
-import { ApplicationContract, CommandContract, KernelContract } from "../Contracts";
+import { ApplicationContract, CommandArg, CommandContract, KernelContract } from "../Contracts";
 
 export abstract class BaseCommand implements CommandContract {
     /**
@@ -21,7 +21,20 @@ export abstract class BaseCommand implements CommandContract {
      */
     description: string;
 
+    /**
+     * The exit code of the command
+     */
     exitCode?: number | undefined;
+
+    /**
+     * Command arguments
+     */
+    public args: CommandArg[] = [];
+
+    /**
+     * Command aliases
+     */
+    public aliases: string[] = [];
 
     /**
      * Error raised by the command

@@ -1,6 +1,7 @@
 import { ApplicationContract, CommandContract, CommandConstructorContract, KernelContract } from '../Contracts';
 import { HelpCommand } from '../HelpCommand';
 import { ManifestLoader } from '../Manifest/Loader';
+import { validateCommand } from '../utils/validateCommand';
 
 export class Kernel implements KernelContract {
     /**
@@ -129,6 +130,7 @@ export class Kernel implements KernelContract {
 
         commands.forEach((command) => {
             const commandInstance = new command(this.application, this);
+            validateCommand(commandInstance);
             this.commands[commandInstance.commandName] = commandInstance;
         });
 
