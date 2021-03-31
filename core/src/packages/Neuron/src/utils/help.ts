@@ -37,16 +37,20 @@ export function printHelp(
 ): void {
     const commandsList = getCommandsForDisplay(commands, aliases);
 
+    console.log('Orbitcluster Framework');
+    console.log('');
+    console.log(chalk.yellow('Usage:'))
+    console.log('  node neuron [option] [commands]');
+    console.log('');
+
     /**
      * Get width of longest command name
      */
-     const maxWidth = Math.max(...commandsList.map(command => command.width));
+    const maxWidth = Math.max(...commandsList.map(command => command.width));
 
     sortAndGroupCommands(commands).forEach(({ group, commands: groupCommands }) => {
-        console.log('');
-
         if (group === 'root') {
-            console.log(chalk.yellow('Available Commands'));
+            console.log(chalk.yellow('Available commands:'));
         } else {
             console.log(chalk.yellow(group));
         }
@@ -59,7 +63,7 @@ export function printHelp(
             const whiteSpace = ''.padEnd(maxWidth - displayName.length, ' ');
 
             console.log(
-                `  ${chalk.green(displayName)} ${whiteSpace} ${chalk.dim(description)}`
+                `  ${chalk.green(displayName)} ${whiteSpace} ${chalk.white(description)}`
             );
         })
     })
