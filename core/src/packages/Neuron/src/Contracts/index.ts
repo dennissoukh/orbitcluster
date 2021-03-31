@@ -148,3 +148,16 @@ export type CommandArg = {
     required: boolean;
     description?: string;
 }
+
+/**
+ * Shape of the aliases list
+ */
+export type Aliases = { [key: string]: string };
+
+/**
+ * Shape of grouped commands
+ */
+export type CommandsGroup = {
+    group: string;
+    commands: CommandContract[]
+}[]

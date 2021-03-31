@@ -1,6 +1,7 @@
 import { ApplicationContract, CommandContract, CommandConstructorContract, KernelContract } from '../Contracts';
 import { HelpCommand } from '../HelpCommand';
 import { ManifestLoader } from '../Manifest/Loader';
+import { printHelp } from '../utils/help';
 import { validateCommand } from '../utils/validateCommand';
 
 export class Kernel implements KernelContract {
@@ -264,10 +265,12 @@ export class Kernel implements KernelContract {
      * Print the help screen for a given command or all commands/flags
      */
     public printHelp(command?: CommandConstructorContract) {
+        const { commands, aliases } = this.getAllCommandsAndAliases();
+
         if (command) {
             console.log(`help for: ${command}`);
         } else {
-            console.log(`print help`);
+            printHelp(commands, aliases);
         }
     }
 
