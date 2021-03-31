@@ -9,4 +9,4 @@
 
 export { Kernel } from './src/Kernel';
 export { BaseCommand } from './src/BaseCommand';
-export { ManifestGenerator } from './src/Manifest/Generator';
+export { ManifestLoader } from './src/Manifest/Loader';

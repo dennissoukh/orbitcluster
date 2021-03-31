@@ -18,11 +18,6 @@ export type SemverNode = {
  */
 export type AppEnvironments = 'web' | 'console' | 'test' | 'unknown';
 
-export type SerializedCommand = {
-    commandName: string;
-    description: string;
-}
-
 /**
  * Shape of Fastify application
  */
@@ -113,6 +108,9 @@ export interface KernelContract {
  * Shape of command class
  */
 export interface CommandContract {
+    commandName: string;
+    description: string;
+
     exitCode?: number;
     kernel: KernelContract;
 
@@ -129,16 +127,6 @@ export interface CommandContract {
 /**
  * Shape of command constructor with its static properties
  */
-export interface CommandConstructorContract extends SerializedCommand {
+export interface CommandConstructorContract {
     new (application: ApplicationContract, kernel: KernelContract, ...args: any[]): CommandContract;
-
-    /**
-     * A boolean to know if the command has been booted or not
-     */
-    booted: boolean;
-
-    /**
-     * Boot the command
-     */
-    boot(): void;
 }

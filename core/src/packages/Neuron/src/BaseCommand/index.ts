@@ -12,6 +12,18 @@ export abstract class BaseCommand implements CommandContract {
     constructor(public application: ApplicationContract, public kernel: KernelContract) {}
 
     /**
+     * Name of the command
+     */
+    commandName: string;
+
+    /**
+     * Description of the command
+     */
+    description: string;
+
+    exitCode?: number | undefined;
+
+    /**
      * Error raised by the command
      */
     public error?: any;

@@ -1,6 +1,6 @@
 const { BaseCommand } = require('../build/Neuron');
 
-class GenerateKey extends BaseCommand
+class Greet extends BaseCommand
 {
     /**
      * The name and signature of the console command.
@@ -27,4 +27,4 @@ class GenerateKey extends BaseCommand
     }
 }
 
-module.exports = GenerateKey;
+module.exports = Greet;

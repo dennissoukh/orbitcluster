@@ -1,6 +1,7 @@
 import { FastifyInstance } from 'fastify';
 import { Application } from '../../../Orbitcluster';
-import { Kernel } from '../../../Neuron';
+import { Kernel, ManifestLoader } from '../../../Neuron';
+import { resolveFrom } from '../../../Cosmic';
 
 export class App {
     /**
@@ -20,13 +21,50 @@ export class App {
 
     constructor(private fastify: FastifyInstance, private appRoot: string) {}
 
+    private getCommandManifest() {
+        try {
+            const manifestAbsPath = resolveFrom(this.application.appRoot, './src/commands/index.js');
+            const basePath = this.application.appRoot;
+            return [
+                { manifestAbsPath, basePath }
+            ];
+        } catch (error) {
+            return [];
+        }
+    }
+
     /**
      * Handle application command
      */
     public async handle(argv: string[]) {
-        if (!argv.length) {
-            this.printHelp(true);
-            return;
+        try {
+            /**
+             * Manifest files to load
+             */
+            this.kernel.useManifest(
+                new ManifestLoader(this.appRoot, this.getCommandManifest())
+            );
+
+            /**
+             * Preload manifest. This way we can display all the commands
+             * that exist in Neuron
+             */
+            await this.kernel.preloadManifest();
+
+            /**
+             * Register application commands
+             */
+            await this.kernel.register();
+
+            /**
+             * Print help when no arguments passed
+             */
+            if (!argv.length) {
+                this.printHelp(true);
+                return;
+            }
+        } catch (error) {
+            throw error;
         }
     }
 

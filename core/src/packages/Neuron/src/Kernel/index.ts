@@ -1,5 +1,6 @@
 import { ApplicationContract, CommandContract, CommandConstructorContract, KernelContract } from '../Contracts';
 import { HelpCommand } from '../HelpCommand';
+import { ManifestLoader } from '../Manifest/Loader';
 
 export class Kernel implements KernelContract {
     /**
@@ -17,6 +18,17 @@ export class Kernel implements KernelContract {
      * defined
      */
     public defaultCommand: CommandConstructorContract = HelpCommand;
+
+    /**
+     * Reference to the mainfest loader
+     */
+    private manifestLoader: ManifestLoader;
+
+    /**
+     * List of registered commands
+     */
+    public commands: { [name: string]: CommandContract } = {};
+    // public commands: CommandConstructorContract[] = [];
 
     constructor(public application: ApplicationContract) {}
 
@@ -101,12 +113,32 @@ export class Kernel implements KernelContract {
         }
     }
 
+    public async preloadManifest() {
+        if (this.manifestLoader) {
+            await this.manifestLoader.boot();
+        }
+    }
+
+    public async useManifest(manifestLoader: ManifestLoader) {
+        this.manifestLoader = manifestLoader;
+        return this;
+    }
+
+    public async register(): Promise<this> {
+        const commands = await this.manifestLoader.loadApplicationCommands();
+
+        commands.forEach((command) => {
+            const commandInstance = new command(this.application, this);
+            this.commands[commandInstance.commandName] = commandInstance;
+        });
+
+        return this;
+    }
+
     /**
      * Run the default command
      */
     public async runDefaultCommand() {
-        this.defaultCommand.boot();
-
         const commandInstance = this.application.container.make(this.defaultCommand, [
             this.application,
             this
@@ -127,7 +159,7 @@ export class Kernel implements KernelContract {
         if (command) {
             console.log(`help for: ${command}`);
         } else {
-            console.log(`print help`)
+            console.log(`print help`);
         }
     }
 
