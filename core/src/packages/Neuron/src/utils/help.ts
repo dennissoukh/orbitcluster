@@ -36,11 +36,12 @@ export function printHelp(
     aliases: Aliases
 ): void {
     const commandsList = getCommandsForDisplay(commands, aliases);
+    const version = '1.0.0';
 
-    console.log('Orbitcluster Framework');
+    console.log(`Orbitcluster Framework ${chalk.green(version)}`);
     console.log('');
     console.log(chalk.yellow('Usage:'))
-    console.log('  node neuron [option] [commands]');
+    console.log('  node neuron [commands] [options]');
     console.log('');
 
     /**
@@ -74,9 +75,12 @@ export function commandNotFoundHelp(
     suggestions: string[]
 ): void {
     const errorString = `Command "${commandName}" is not defined.`;
-    const suggestionString = `Did you mean: ${suggestions.join(', ')}`;
+    const suggestionString = `Did you mean: ${suggestions.join(', ')}?`;
 
     console.log('');
     console.log(chalk.yellow(errorString));
-    console.log(suggestionString);
+
+    if (suggestions.length) {
+        console.log(suggestionString);
+    }
 }

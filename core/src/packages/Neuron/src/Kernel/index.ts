@@ -171,8 +171,15 @@ export class Kernel implements KernelContract {
              */
             if (!this.entryCommand) {
                 await this.exitProcess();
+                return;
             }
 
+            /**
+             * Exit the process if the command isn't a stay alive one
+             */
+            if (!this.entryCommand.stayAlive) {
+                await this.exitProcess();
+            }
         } catch (error) {
             await this.exitProcess(error);
         }

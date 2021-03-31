@@ -27,6 +27,11 @@ export abstract class BaseCommand implements CommandContract {
     exitCode?: number | undefined;
 
     /**
+     * Define whether the command should stay alive
+     */
+    stayAlive: boolean = false;
+
+    /**
      * Command arguments
      */
     public args: CommandArg[] = [];

@@ -112,6 +112,7 @@ export interface CommandContract {
     description: string;
     args: CommandArg[];
     aliases: string[];
+    stayAlive: boolean;
 
     exitCode?: number;
     kernel: KernelContract;
