@@ -69,3 +69,14 @@ export function printHelp(
     })
 }
 
+export function commandNotFoundHelp(
+    commandName: string,
+    suggestions: string[]
+): void {
+    const errorString = `Command "${commandName}" is not defined.`;
+    const suggestionString = `Did you mean: ${suggestions.join(', ')}`;
+
+    console.log('');
+    console.log(chalk.yellow(errorString));
+    console.log(suggestionString);
+}

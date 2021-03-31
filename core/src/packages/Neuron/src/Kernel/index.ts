@@ -1,7 +1,7 @@
 import { ApplicationContract, CommandContract, CommandConstructorContract, KernelContract } from '../Contracts';
 import { HelpCommand } from '../HelpCommand';
 import { ManifestLoader } from '../Manifest/Loader';
-import { printHelp } from '../utils/help';
+import { commandNotFoundHelp, printHelp } from '../utils/help';
 import { validateCommand } from '../utils/validateCommand';
 
 export class Kernel implements KernelContract {
@@ -62,8 +62,8 @@ export class Kernel implements KernelContract {
         const command = await this.find([commandName]);
 
         if (!command) {
-            console.log("suggestions: " + this.getSuggestions(commandName));
-            throw new Error('Command not found');
+            commandNotFoundHelp(commandName, this.getSuggestions(commandName));
+            throw new Error('Command not found exception');
         }
 
         /**
