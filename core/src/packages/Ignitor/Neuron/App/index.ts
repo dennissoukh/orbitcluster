@@ -63,6 +63,11 @@ export class App {
                 this.printHelp(true);
                 return;
             }
+
+            /**
+             * Handle command
+             */
+            await this.kernel.handle(argv);
         } catch (error) {
             throw error;
         }

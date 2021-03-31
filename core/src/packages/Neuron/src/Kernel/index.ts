@@ -29,7 +29,7 @@ export class Kernel implements KernelContract {
      * List of registered commands
      */
     public commands: { [name: string]: CommandContract } = {};
-    // public commands: CommandConstructorContract[] = [];
+    public aliases: { [name: string]: string } = {};
 
     constructor(public application: ApplicationContract) {}
 
@@ -53,6 +53,28 @@ export class Kernel implements KernelContract {
      * The error collected as part of the running commmands or executing flags
      */
     public error?: any;
+
+    /**
+     * Execute the main command
+     */
+    private async execMain(commandName: string) {
+        const command = await this.find([commandName]);
+
+        if (!command) {
+            console.log("suggestions: " + this.getSuggestions(commandName));
+            throw new Error('Command not found');
+        }
+
+        /**
+         * Define the entry command
+         */
+        this.entryCommand = command;
+
+        /**
+         * Execute command
+         */
+        return command.exec();
+    }
 
     /**
      * Handle exiting the process
@@ -91,6 +113,22 @@ export class Kernel implements KernelContract {
     }
 
     /**
+     * Find the given command
+     */
+    public async find(argv: string[]): Promise<CommandContract | null> {
+        const [commandName] = argv;
+
+        /**
+         * Command name from the registered aliases
+         */
+        const aliasCommandName = this.aliases[commandName];
+
+        const command = this.commands[commandName] || this.commands[aliasCommandName] || null;
+
+        return command;
+    }
+
+    /**
      * Makes instance of a given command by processing command line arguments
      */
     public async handle(argv: string[]) {
@@ -109,8 +147,33 @@ export class Kernel implements KernelContract {
                 await this.exitProcess();
                 return;
             }
-        } catch (error) {
 
+            /**
+             * Branch 2: No command has been mentioned. Execute all the global flags
+             * and invoke the exit handler
+             */
+            const hasMentionedCommand = !argv[0].startsWith('-');
+            if (!hasMentionedCommand) {
+                // TODO: executeGlobalFlagsHandlers()
+                await this.exitProcess();
+                return;
+            }
+
+            /**
+             * Branch 3: Execute the given command as the main command
+             */
+            const [commandName] = argv;
+            await this.execMain(commandName);
+
+            /**
+             * Exit the process if there isn't any entry command
+             */
+            if (!this.entryCommand) {
+                await this.exitProcess();
+            }
+
+        } catch (error) {
+            await this.exitProcess(error);
         }
     }
 
@@ -128,13 +191,56 @@ export class Kernel implements KernelContract {
     public async register(): Promise<this> {
         const commands = await this.manifestLoader.loadApplicationCommands();
 
-        commands.forEach((command) => {
-            const commandInstance = new command(this.application, this);
+        for (const command of commands) {
+            const commandInstance = await this.application.container.makeAsync(command, [
+                this.application,
+                this,
+            ]);
+
             validateCommand(commandInstance);
+
+            // Add command to the manifest
             this.commands[commandInstance.commandName] = commandInstance;
-        });
+
+            // Register the command aliases
+            commandInstance.aliases.forEach(alias => {
+                this.aliases[alias] = commandInstance.commandName;
+            });
+        }
 
         return this;
+    }
+
+    /**
+     * Returns an array of all registered commands
+     */
+    private getAllCommandsAndAliases() {
+        let commands = Object.keys(this.commands).map(
+            (name) => this.commands[name]
+        );
+
+        let aliases = {};
+
+        return {
+            commands,
+            aliases: Object.assign(aliases, this.aliases)
+        };
+    }
+
+    /**
+     * Returns an arary of command name suggestions for a given name
+     */
+    public getSuggestions(name: string, distance = 3): string[] {
+        const leven = require('leven');
+        const { commands, aliases } = this.getAllCommandsAndAliases();
+
+        const suggestions = commands
+            .filter(({ commandName }) => leven(name, commandName) <= distance)
+            .map(({ commandName }) => commandName);
+
+        return suggestions.concat(
+            Object.keys(aliases).filter((alias) => leven(name, alias) <= distance)
+        );
     }
 
     /**
