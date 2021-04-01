@@ -6,11 +6,6 @@ import chalk from 'chalk';
 
 export class App {
     /**
-     * The specified command string
-     */
-   // private commandName: string;
-
-    /**
      * Reference to the application
      */
     private application = new Application(this.fastify, 'console', this.appRoot);

@@ -2,6 +2,7 @@ import { FastifyInstance } from "fastify";
 import { Application } from "../Orbitcluster/Application";
 import { AppEnvironments } from "../Orbitcluster/Contracts";
 import { Neuron } from "./Neuron";
+
 /**
  * Ignitor is used to wireup different pieces of the Orbitcluster application
  * together.

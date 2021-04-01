@@ -12,7 +12,7 @@ export type SemverNode = {
     prerelease: (string | number)[];
     version: string;
     toString(): string;
-}
+};
 
 /**
  * Application environments
@@ -62,7 +62,7 @@ export interface ApplicationContract {
      * Reference to the IoC container
      */
     container: IocContract;
-}
+};
 
 /**
  * Shape of Neuron kernel
@@ -103,12 +103,12 @@ export interface KernelContract {
      * Trigger exit flow
      */
     exit(command: CommandContract, error?: any): Promise<void>;
-}
+};
 
 /**
  * The types of flags can be defined on a command.
  */
- export type FlagTypes = 'string' | 'number' | 'boolean' | 'array' | 'numArray'
+export type FlagTypes = 'string' | 'number' | 'boolean' | 'array' | 'numArray';
 
 /**
  * Shape of a command flag
@@ -121,7 +121,7 @@ export type CommandFlag<ReturnType extends any> = {
     description?: string;
     alias?: string;
     default?: any;
-}
+};
 
 /**
  * Handler for handling the global flags
@@ -129,8 +129,8 @@ export type CommandFlag<ReturnType extends any> = {
  export type GlobalFlagHandler = (
     value: any,
     parsed: ParsedOptions,
-    command?: CommandContract
-  ) => any
+    command?: CommandContract,
+) => any;
 
 /**
  * Shape of command class
@@ -155,14 +155,14 @@ export interface CommandContract {
     run?(...args: any[]): Promise<any>;
     prepare?(...args: any[]): Promise<any>;
     completed?(...args: any[]): Promise<any>;
-}
+};
 
 /**
  * Shape of command constructor with its static properties
  */
 export interface CommandConstructorContract {
     new (application: ApplicationContract, kernel: KernelContract, ...args: any[]): CommandContract;
-}
+};
 
 /**
  * The types of arguments can be defined on a command.
@@ -178,7 +178,7 @@ export type CommandArg = {
     type: ArgTypes;
     required: boolean;
     description?: string;
-}
+};
 
 /**
  * Shape of the aliases list
@@ -191,4 +191,4 @@ export type Aliases = { [key: string]: string };
 export type CommandsGroup = {
     group: string;
     commands: CommandContract[]
-}[]
+}[];

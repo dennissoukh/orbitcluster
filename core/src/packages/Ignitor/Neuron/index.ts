@@ -12,11 +12,6 @@ export class Neuron {
      */
     public async handle(argv: string[]) {
         /**
-         * Generate a new command manifest
-         */
-        // await new GenerateManifest(this.appRoot).handle();
-
-        /**
          * Proxy over to the Neuron package
          */
         await new App(this.fastify, this.appRoot).handle(argv);
