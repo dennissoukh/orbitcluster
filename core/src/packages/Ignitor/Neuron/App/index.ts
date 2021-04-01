@@ -2,6 +2,7 @@ import { FastifyInstance } from 'fastify';
 import { Application } from '../../../Orbitcluster';
 import { Kernel, ManifestLoader } from '../../../Neuron';
 import { resolveFrom } from '../../../Cosmic';
+import chalk from 'chalk';
 
 export class App {
     /**
@@ -89,6 +90,11 @@ export class App {
             alias: 'h',
             description: 'Display help for the given command'
         });
+
+        this.kernel.flag('version', async (value) => this.printVersion(value), {
+            alias: 'v',
+            description: 'Display the application version'
+        });
     }
 
     /**
@@ -100,6 +106,23 @@ export class App {
         }
 
         this.kernel.printHelp(command);
+        process.exit(0);
+    }
+
+    /**
+     * Print version
+     */
+    private printVersion(value?: any) {
+        if (!value) {
+            return;
+        }
+
+        const orbcVersion = require('../../../../../package.json').version;
+        const fastifyVersion = require('fastify/package.json').version;
+
+        console.log(`Orbitcluster Framework ${chalk.green(orbcVersion)}`);
+        console.log(`Fastify Framework ${chalk.green(fastifyVersion)}`);
+
         process.exit(0);
     }
 }

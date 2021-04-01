@@ -150,7 +150,7 @@ function wrapArg(arg: CommandArg): string {
 
 function getFlagsForDisplay(flags: CommandFlag<any>[]) {
     return flags.map(({ name, type, alias, description }) => {
-        const displayName = alias ? `-${alias}, --${name}` : `--${name}`;
+        const displayName = alias ? `-${alias}, --${name}` : `    --${name}`;
 
         let displayType = '';
         switch (type) {
