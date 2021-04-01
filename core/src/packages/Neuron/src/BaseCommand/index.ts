@@ -1,10 +1,17 @@
-import { ApplicationContract, CommandArg, CommandContract, KernelContract } from "../Contracts";
+import { ParsedOptions } from 'getopts';
+import {
+    ApplicationContract,
+    CommandArg,
+    CommandContract,
+    CommandFlag,
+    KernelContract
+} from "../Contracts";
 
 export abstract class BaseCommand implements CommandContract {
     /**
      * Reference to the exit handler
      */
-   protected exitHandler?: () => void | Promise<void>;
+    protected exitHandler?: () => void | Promise<void>;
 
     /**
      * Accepts the Fastify application and kernel instance
@@ -40,6 +47,16 @@ export abstract class BaseCommand implements CommandContract {
      * Command aliases
      */
     public aliases: string[] = [];
+
+    /**
+     * Command flags
+     */
+    public flags: CommandFlag<any>[];
+
+    /**
+     * Parsed options on the command (created via the kernel)
+     */
+    public parsed?: ParsedOptions;
 
     /**
      * Error raised by the command

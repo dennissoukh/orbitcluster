@@ -1,7 +1,8 @@
-import { ApplicationContract, CommandContract, CommandConstructorContract, KernelContract } from '../Contracts';
+import { ApplicationContract, CommandContract, CommandConstructorContract, KernelContract, CommandFlag, GlobalFlagHandler } from '../Contracts';
 import { HelpCommand } from '../HelpCommand';
 import { ManifestLoader } from '../Manifest/Loader';
-import { commandNotFoundHelp, printHelp } from '../utils/help';
+import { Parser } from '../Parser';
+import { commandNotFoundHelp, printHelp, printHelpFor } from '../utils/help';
 import { validateCommand } from '../utils/validateCommand';
 
 export class Kernel implements KernelContract {
@@ -32,6 +33,11 @@ export class Kernel implements KernelContract {
     public commands: { [name: string]: CommandContract } = {};
     public aliases: { [name: string]: string } = {};
 
+    /**
+     * List of registered flags
+     */
+    public flags: { [name: string]: CommandFlag<any> & { handler: GlobalFlagHandler } } = {};
+
     constructor(public application: ApplicationContract) {}
 
     /**
@@ -58,13 +64,23 @@ export class Kernel implements KernelContract {
     /**
      * Execute the main command
      */
-    private async execMain(commandName: string) {
+    private async execMain(commandName: string, args: string[]) {
         const command = await this.find([commandName]);
 
         if (!command) {
             commandNotFoundHelp(commandName, this.getSuggestions(commandName));
             throw new Error('Command not found exception');
         }
+
+        /**
+         * Execute global flags
+         */
+        this.executeGlobalFlagsHandlers(args, command);
+
+        /**
+         * Process the arguments and flags for the command
+         */
+        await this.processCommandArgsAndFlags(command, args);
 
         /**
          * Define the entry command
@@ -75,6 +91,108 @@ export class Kernel implements KernelContract {
          * Execute command
          */
         return command.exec();
+    }
+
+    /**
+     * Execute global flag handlers
+     */
+    private executeGlobalFlagsHandlers(argv: string[], command?: CommandContract) {
+        const globalFlags = Object.keys(this.flags);
+        const parsedOptions = new Parser(this.flags).parse(argv);
+
+        globalFlags.forEach((name) => {
+            const value = parsedOptions[name];
+
+            /**
+             * Flag was not specified
+             */
+            if (value === undefined || value === false) {
+                return;
+            }
+
+            /**
+             * Flag was not specified, but `getops` will return an empty array or string
+             */
+            if ((typeof value === 'string' || Array.isArray(value)) && !value.length) {
+                return;
+            }
+
+            /**
+             * Calling the handler
+             */
+            this.flags[name].handler(parsedOptions[name], parsedOptions, command);
+        });
+    }
+
+    /**
+     * Processes the args and sets values on the command instance
+     */
+    private async processCommandArgsAndFlags(command: CommandContract, args: string[]) {
+        const parser = new Parser(this.flags);
+
+        /**
+         * Parse the command arguments
+         */
+        const parsedOptions = parser.parse(args, command);
+
+        /**
+         * Validate command arguments after the global flags have been executed
+         */
+        command.args.forEach((arg, index) => {
+            parser.validateArg(arg, index, parsedOptions);
+        });
+
+        /**
+         * Set parsed options on the command instance
+         */
+        command.parsed = parsedOptions;
+
+        /**
+         * Setup command instance argument and flag properties.
+         */
+        for (let i = 0; i < command.args.length; i++) {
+            const arg = command.args[i];
+
+            if (arg.type === 'spread') {
+                command[arg.propertyName] = parsedOptions._.slice(i);
+                break;
+            } else {
+                command[arg.propertyName] = parsedOptions._[i];
+            }
+        }
+
+        /**
+         * Set flag value on the command instance
+         */
+        for (let flag of command.flags) {
+            const flagValue = parsedOptions[flag.name];
+
+            if (flag.type === 'boolean') {
+                command[flag.propertyName] = flagValue;
+            } else if (!flagValue && typeof flag.defaultValue === 'function') {
+                command[flag.propertyName] = await flag.defaultValue(command);
+            } else if (flagValue || command[flag.propertyName] === undefined) {
+                command[flag.propertyName] = flagValue;
+            }
+        }
+    }
+
+    /**
+     * Register a global flag. These flags can be used with any command
+     */
+    public flag(
+        name: string,
+        handler: GlobalFlagHandler,
+        options: Partial<Exclude<CommandFlag<any>, 'name' | 'propertyName' >>
+    ): this {
+        this.flags[name] = Object.assign({
+            name,
+            propertyName: name,
+            handler,
+            type: 'boolean'
+        }, options);
+
+        return this;
     }
 
     /**
@@ -155,7 +273,7 @@ export class Kernel implements KernelContract {
              */
             const hasMentionedCommand = !argv[0].startsWith('-');
             if (!hasMentionedCommand) {
-                // TODO: executeGlobalFlagsHandlers()
+                this.executeGlobalFlagsHandlers(argv);
                 await this.exitProcess();
                 return;
             }
@@ -163,8 +281,8 @@ export class Kernel implements KernelContract {
             /**
              * Branch 3: Execute the given command as the main command
              */
-            const [commandName] = argv;
-            await this.execMain(commandName);
+            const [commandName, ...args] = argv;
+            await this.execMain(commandName, args);
 
             /**
              * Exit the process if there isn't any entry command
@@ -271,13 +389,14 @@ export class Kernel implements KernelContract {
     /**
      * Print the help screen for a given command or all commands/flags
      */
-    public printHelp(command?: CommandConstructorContract) {
+    public printHelp(command?: CommandContract) {
         const { commands, aliases } = this.getAllCommandsAndAliases();
 
         if (command) {
-            console.log(`help for: ${command}`);
+            printHelpFor(command, aliases);
         } else {
-            printHelp(commands, aliases);
+            const flags = Object.keys(this.flags).map((name) => this.flags[name]);
+            printHelp(commands, aliases, flags);
         }
     }
 

@@ -46,6 +46,11 @@ export class App {
             );
 
             /**
+             * Add global kernel flags
+             */
+            this.addKernelFlags();
+
+            /**
              * Preload manifest. This way we can display all the commands
              * that exist in Neuron
              */
@@ -71,6 +76,19 @@ export class App {
         } catch (error) {
             throw error;
         }
+    }
+
+    /**
+     * Add kernel flags
+     */
+    private addKernelFlags() {
+        /**
+         * Showing help including core commands
+         */
+        this.kernel.flag('help', async (value, _, command) => this.printHelp(value, command), {
+            alias: 'h',
+            description: 'Display help for the given command'
+        });
     }
 
     /**

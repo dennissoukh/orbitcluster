@@ -1,5 +1,6 @@
 import { FastifyInstance } from 'fastify';
 import { IocContract } from '../../../Inverser/src/Contracts';
+import { ParsedOptions } from 'getopts';
 
 /**
  * Shape of semver node
@@ -96,13 +97,40 @@ export interface KernelContract {
     /**
      * Print help for all commands or a given command
      */
-    printHelp(command?: CommandConstructorContract): void;
+    printHelp(command?: CommandContract): void;
 
     /**
      * Trigger exit flow
      */
     exit(command: CommandContract, error?: any): Promise<void>;
 }
+
+/**
+ * The types of flags can be defined on a command.
+ */
+ export type FlagTypes = 'string' | 'number' | 'boolean' | 'array' | 'numArray'
+
+/**
+ * Shape of a command flag
+ */
+export type CommandFlag<ReturnType extends any> = {
+    propertyName: string;
+    name: string;
+    type: FlagTypes;
+    defaultValue?: (command: CommandContract) => ReturnType | Promise<ReturnType>;
+    description?: string;
+    alias?: string;
+    default?: any;
+}
+
+/**
+ * Handler for handling the global flags
+ */
+ export type GlobalFlagHandler = (
+    value: any,
+    parsed: ParsedOptions,
+    command?: CommandContract
+  ) => any
 
 /**
  * Shape of command class
@@ -113,6 +141,8 @@ export interface CommandContract {
     args: CommandArg[];
     aliases: string[];
     stayAlive: boolean;
+    flags: CommandFlag<any>[];
+    parsed?: ParsedOptions;
 
     exitCode?: number;
     kernel: KernelContract;
