@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "target": "es2020",
+    "target": "es6",
     "module": "commonjs",
     "lib": ["es2020"],
     "noUnusedLocals": true,
@@ -21,6 +21,7 @@
     "./src/packages/Inverser/**/*",
     "./src/packages/Ignitor/**/*",
     "./src/packages/Cosmic/**/*",
-    "./src/packages/Orbitcluster/**/*"
+    "./src/packages/Orbitcluster/**/*",
+    "./src/packages/SpaceData/**/*"
   ],
 }
