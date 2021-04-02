@@ -1,7 +1,6 @@
 const { BaseCommand } = require('../build/Neuron');
 
-class Greet extends BaseCommand
-{
+class Greet extends BaseCommand {
     /**
      * The name and signature of the console command.
      */

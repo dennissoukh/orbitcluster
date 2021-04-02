@@ -113,7 +113,7 @@ export function printHelpFor(
     if (commandAliases.length) {
         console.log('');
         console.log(chalk.yellow('Aliases:'));
-        console.log(chalk.green(commandAliases.join(', ')));
+        console.log(`  ${commandAliases.join(', ')}`);
     }
 
     if (args.length) {

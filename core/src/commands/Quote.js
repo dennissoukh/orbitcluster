@@ -1,8 +1,7 @@
 const chalk = require('chalk');
 const { BaseCommand } = require('../build/Neuron');
 
-class Quote extends BaseCommand
-{
+class Quote extends BaseCommand {
     /**
      * The name and signature of the console command.
      */

@@ -1,14 +1,13 @@
 const chalk = require('chalk');
 const { BaseCommand } = require('../build/Neuron');
 
-class Key extends BaseCommand
-{
+class Key extends BaseCommand {
     /**
      * The name and signature of the console command.
      */
     commandName = 'generate:key';
 
-     /**
+    /**
       * The console command description.
       */
     description = 'Generate a new secret application key';

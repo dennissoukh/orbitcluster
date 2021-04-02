@@ -51,7 +51,7 @@ export abstract class BaseCommand implements CommandContract {
     /**
      * Command flags
      */
-    public flags: CommandFlag<any>[];
+    public flags: CommandFlag<any>[] = [];
 
     /**
      * Parsed options on the command (created via the kernel)

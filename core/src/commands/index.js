@@ -10,7 +10,7 @@ const commands = [
     'commands/Greet',
     'commands/Quote',
     'commands/Key',
-    'commands/DownloadLaunchsites'
+    'commands/DownloadLaunchsites',
 ];
 
-module.exports = { commands }
+module.exports = { commands };
