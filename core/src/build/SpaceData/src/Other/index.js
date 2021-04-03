@@ -72,16 +72,6 @@ class SpaceOther {
             skipEmptyLines: true,
             delimiter: undefined,
             trim: true,
-            // columns: [
-            //     'satname',
-            //     'norad_cat_id',
-            //     'uplink',
-            //     'downlink',
-            //     'beacon',
-            //     'mode',
-            //     'callsign',
-            //     'type'
-            // ]
         });
         return res;
     }

@@ -1,6 +1,9 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.ParseSatlist = void 0;
+exports.ParseMcnames = exports.ParseSatlist = void 0;
+/**
+ * Process satlist.csv
+ */
 async function ParseSatlist(data) {
     let res = [];
     data.forEach((sat) => {
@@ -19,6 +22,28 @@ async function ParseSatlist(data) {
             res.push(satObject);
         }
     });
-    console.log(res);
+    return res;
 }
 exports.ParseSatlist = ParseSatlist;
+/**
+ * Process mcnames.zip
+ */
+async function ParseMcnames(data) {
+    let res = [];
+    const split = data.split(/\r\n|\n\r|\n|\r/);
+    split.forEach((sat) => {
+        const satObject = {
+            norad_cat_id: Number.parseInt(sat.slice(0, 5)),
+            satname: sat.slice(6, 20).trim(),
+            length: sat.slice(22, 26) ? Number.parseFloat(sat.slice(22, 26)) : null,
+            width: sat.slice(28, 31) ? Number.parseFloat(sat.slice(28, 31)) : null,
+            depth: sat.slice(33, 36) ? Number.parseFloat(sat.slice(33, 36)) : null,
+            magnitude: sat.slice(37, 41) ? Number.parseFloat(sat.slice(37, 41)) : null,
+            magnitude_source: sat.slice(42, 43) ? sat.slice(42, 43) : null,
+            rcs: sat.slice(44, 48) ? Number.parseFloat(sat.slice(44, 48)) : null,
+        };
+        res.push(satObject);
+    });
+    return res;
+}
+exports.ParseMcnames = ParseMcnames;
