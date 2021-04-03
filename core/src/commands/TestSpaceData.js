@@ -1,5 +1,5 @@
 const { BaseCommand } = require('../build/Neuron');
-const { SpaceOther } = require('../build/SpaceData');
+const { SpaceOther, ParseSatlist } = require('../build/SpaceData');
 
 class TestSpaceData extends BaseCommand {
     /**
@@ -18,8 +18,7 @@ class TestSpaceData extends BaseCommand {
     async run() {
         const spaceother = new SpaceOther();
         const data = await spaceother.get({ class: 'radio' });
-
-        console.log(data)
+        await ParseSatlist(data);
     }
 }
 

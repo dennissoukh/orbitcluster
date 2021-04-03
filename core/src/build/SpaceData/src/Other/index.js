@@ -68,8 +68,7 @@ class SpaceOther {
         return stream.toString('utf8');
     }
     async csv(stream) {
-        const data = stream;
-        const res = sync_1.default(data, {
+        const res = sync_1.default(stream, {
             skipEmptyLines: true,
             delimiter: undefined,
             trim: true,

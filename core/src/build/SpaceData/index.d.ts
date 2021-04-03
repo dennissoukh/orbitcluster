@@ -8,3 +8,4 @@
  */
 export { SpaceTrack } from './src/SpaceTrack';
 export { SpaceOther } from './src/Other';
+export { ParseSatlist } from './src/Other/parsers';
