@@ -7,3 +7,4 @@
  * file that was distributed with this source code.
  */
 export { SpaceTrack } from './src/SpaceTrack';
+export { SpaceOther } from './src/Other';

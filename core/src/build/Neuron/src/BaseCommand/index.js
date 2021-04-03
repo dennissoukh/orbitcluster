@@ -1,4 +1,13 @@
 "use strict";
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.BaseCommand = void 0;
 class BaseCommand {
@@ -31,41 +40,43 @@ class BaseCommand {
         }
         this.booted = true;
     }
-    async exec() {
-        const hasRun = typeof this.run === 'function';
-        let commandResult;
-        /**
-         * Run the command and catch any raised exceptions
-         */
-        try {
+    exec() {
+        return __awaiter(this, void 0, void 0, function* () {
+            const hasRun = typeof this.run === 'function';
+            let commandResult;
             /**
-             * Run prepare method when it exists on the command instance
+             * Run the command and catch any raised exceptions
              */
-            if (typeof this.prepare === 'function') {
-                await this.application.container.callAsync(this, 'prepare', [this.application.fastify]);
+            try {
+                /**
+                 * Run prepare method when it exists on the command instance
+                 */
+                if (typeof this.prepare === 'function') {
+                    yield this.application.container.callAsync(this, 'prepare', [this.application.fastify]);
+                }
+                /**
+                 * Execute the command handle or run method
+                 */
+                commandResult = yield this.application.container.callAsync(this, hasRun ? 'run' : 'handle', [this.application.fastify]);
+            }
+            catch (error) {
+                this.error = error;
+            }
+            let errorHandled = false;
+            /**
+             * Run completed method if it exists
+             */
+            if (typeof this.completed === 'function') {
+                errorHandled = yield this.application.container.callAsync(this, 'completed', []);
             }
             /**
-             * Execute the command handle or run method
+             * Throw error when the error itself exists and the completed method did not handle it
              */
-            commandResult = await this.application.container.callAsync(this, hasRun ? 'run' : 'handle', [this.application.fastify]);
-        }
-        catch (error) {
-            this.error = error;
-        }
-        let errorHandled = false;
-        /**
-         * Run completed method if it exists
-         */
-        if (typeof this.completed === 'function') {
-            errorHandled = await this.application.container.callAsync(this, 'completed', []);
-        }
-        /**
-         * Throw error when the error itself exists and the completed method did not handle it
-         */
-        if (this.error && !errorHandled) {
-            throw this.error;
-        }
-        return commandResult;
+            if (this.error && !errorHandled) {
+                throw this.error;
+            }
+            return commandResult;
+        });
     }
     /**
      * Register an onExit handler
@@ -77,11 +88,13 @@ class BaseCommand {
     /**
      * Trigger an exit
      */
-    async exit() {
-        if (typeof this.exitHandler === 'function') {
-            await this.exitHandler();
-        }
-        await this.kernel.exit(this);
+    exit() {
+        return __awaiter(this, void 0, void 0, function* () {
+            if (typeof this.exitHandler === 'function') {
+                yield this.exitHandler();
+            }
+            yield this.kernel.exit(this);
+        });
     }
 }
 exports.BaseCommand = BaseCommand;

@@ -9,6 +9,7 @@
     "test": "eslint --ignore-path .gitignore ."
   },
   "dependencies": {
+    "adm-zip": "^0.5.5",
     "chalk": "^4.1.0",
     "clear": "^0.1.0",
     "dotenv": "^8.2.0",

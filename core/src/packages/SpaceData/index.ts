@@ -8,3 +8,4 @@
  */
 
 export { SpaceTrack } from './src/SpaceTrack';
+export { SpaceOther } from './src/Other';

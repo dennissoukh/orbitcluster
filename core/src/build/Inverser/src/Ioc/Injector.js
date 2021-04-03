@@ -1,4 +1,13 @@
 "use strict";
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Injector = void 0;
 const helpers_1 = require("../helpers");
@@ -43,31 +52,33 @@ class Injector {
      * Resolves the injections to be injected to a method or the
      * class constructor
      */
-    async resolveAsync(targetName, injections, runtimeValues) {
-        /**
-         * If the runtime values length is greater or same as the length
-         * of injections, then we treat them as the source of truth
-         * and inject them as it is
-         */
-        if (runtimeValues.length >= injections.length) {
-            return runtimeValues;
-        }
-        /**
-         * Loop over all the injections and give preference to runtime value
-         * for a given index, otherwise fallback to `container.makeAsync`.
-         */
-        return Promise.all(injections.map((injection, index) => {
-            if (runtimeValues[index] !== undefined) {
-                return runtimeValues[index];
+    resolveAsync(targetName, injections, runtimeValues) {
+        return __awaiter(this, void 0, void 0, function* () {
+            /**
+             * If the runtime values length is greater or same as the length
+             * of injections, then we treat them as the source of truth
+             * and inject them as it is
+             */
+            if (runtimeValues.length >= injections.length) {
+                return runtimeValues;
             }
             /**
-             * Disallow object and primitive constructors
+             * Loop over all the injections and give preference to runtime value
+             * for a given index, otherwise fallback to `container.makeAsync`.
              */
-            if (helpers_1.isPrimtiveConstructor(injection)) {
-                throw new Error('InvalidInjectionException' + targetName);
-            }
-            return this.container.makeAsync(injection);
-        }));
+            return Promise.all(injections.map((injection, index) => {
+                if (runtimeValues[index] !== undefined) {
+                    return runtimeValues[index];
+                }
+                /**
+                 * Disallow object and primitive constructors
+                 */
+                if (helpers_1.isPrimtiveConstructor(injection)) {
+                    throw new Error('InvalidInjectionException' + targetName);
+                }
+                return this.container.makeAsync(injection);
+            }));
+        });
     }
     /**
      * Find if the value can be instantiated
@@ -93,11 +104,13 @@ class Injector {
     /**
      * Inject dependencies asynchronously to the constructor of the class
      */
-    async makeAsync(target, runtimeValues) {
-        if (!this.isNewable(target)) {
-            return target;
-        }
-        return new target(...(await this.resolveAsync(target.name, this.getInjections(target, 'instance'), runtimeValues)));
+    makeAsync(target, runtimeValues) {
+        return __awaiter(this, void 0, void 0, function* () {
+            if (!this.isNewable(target)) {
+                return target;
+            }
+            return new target(...(yield this.resolveAsync(target.name, this.getInjections(target, 'instance'), runtimeValues)));
+        });
     }
     /**
      * Injects dependencies to the class method
@@ -109,9 +122,11 @@ class Injector {
     /**
      * Injects dependencies asynchronously to the class method
      */
-    async callAsync(target, method, runtimeValues) {
-        const constructor = target.constructor;
-        return target[method](...(await this.resolveAsync(`${constructor.name}.${method}`, this.getInjections(constructor, method), runtimeValues)));
+    callAsync(target, method, runtimeValues) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const constructor = target.constructor;
+            return target[method](...(yield this.resolveAsync(`${constructor.name}.${method}`, this.getInjections(constructor, method), runtimeValues)));
+        });
     }
 }
 exports.Injector = Injector;

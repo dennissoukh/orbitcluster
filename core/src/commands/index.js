@@ -10,7 +10,8 @@ const commands = [
     'commands/Greet',
     'commands/Quote',
     'commands/Key',
-    'commands/DownloadLaunchsites',
+    // 'commands/DownloadLaunchsites',
+    'commands/TestSpaceData',
 ];
 
 module.exports = { commands };

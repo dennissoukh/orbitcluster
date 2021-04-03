@@ -8,27 +8,19 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.Neuron = void 0;
-const App_1 = require("./App");
-/**
- * Expose the API to execute Neuron commands
- */
-class Neuron {
-    constructor(fastify, appRoot) {
-        this.fastify = fastify;
-        this.appRoot = appRoot;
-    }
-    /**
-     * Handle the provided Neuron command
-     */
-    handle(argv) {
-        return __awaiter(this, void 0, void 0, function* () {
-            /**
-             * Proxy over to the Neuron package
-             */
-            yield new App_1.App(this.fastify, this.appRoot).handle(argv);
+exports.zip = void 0;
+const adm_zip_1 = __importDefault(require("adm-zip"));
+function zip(stream) {
+    return __awaiter(this, void 0, void 0, function* () {
+        const zip = new adm_zip_1.default(stream);
+        const zipEntries = zip.getEntries();
+        zipEntries.forEach((entry) => {
+            console.log(zip.readAsText(entry));
         });
-    }
+    });
 }
-exports.Neuron = Neuron;
+exports.zip = zip;
