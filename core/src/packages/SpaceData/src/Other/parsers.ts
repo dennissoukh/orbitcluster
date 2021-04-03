@@ -1,3 +1,4 @@
+import parseTLEFile from "../helpers/parseTleFile";
 import { Mcnames, Satlist } from "./contracts";
 
 /**
@@ -51,4 +52,8 @@ export async function ParseMcnames(data: any) {
     });
 
     return res;
+}
+
+export async function ParseClassfd(data: string) {
+    return await parseTLEFile(data);
 }

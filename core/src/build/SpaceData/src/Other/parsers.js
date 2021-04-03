@@ -1,6 +1,10 @@
 "use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.ParseMcnames = exports.ParseSatlist = void 0;
+exports.ParseClassfd = exports.ParseMcnames = exports.ParseSatlist = void 0;
+const parseTleFile_1 = __importDefault(require("../helpers/parseTleFile"));
 /**
  * Process satlist.csv
  */
@@ -47,3 +51,7 @@ async function ParseMcnames(data) {
     return res;
 }
 exports.ParseMcnames = ParseMcnames;
+async function ParseClassfd(data) {
+    return await parseTleFile_1.default(data);
+}
+exports.ParseClassfd = ParseClassfd;
