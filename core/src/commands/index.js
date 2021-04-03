@@ -12,6 +12,7 @@ const commands = [
     'commands/Key',
     // 'commands/DownloadLaunchsites',
     'commands/TestSpaceData',
+    'commands/ProcessStarData',
 ];
 
 module.exports = { commands };

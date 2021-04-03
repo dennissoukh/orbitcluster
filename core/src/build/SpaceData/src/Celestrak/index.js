@@ -14,8 +14,7 @@ class CelesTrak {
             return request;
         }
         catch (error) {
-            console.log(error);
-            throw error;
+            throw new Error(error);
         }
     }
     async getRequest(options) {
@@ -52,6 +51,11 @@ class CelesTrak {
         }
         if (!common_1.default[options.type].includes(options.set)) {
             throw new Error('The CelesTrak set option is incorrect');
+        }
+        if (options.type === 'GPElementSets' &&
+            options.format &&
+            !common_1.default.GPElementSetFormats.includes(options.format)) {
+            throw new Error('The CelesTrak format option is incorrect');
         }
     }
     hasJsonStructure(str) {
