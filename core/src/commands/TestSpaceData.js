@@ -1,5 +1,5 @@
 const { BaseCommand } = require('../build/Neuron');
-const { SpaceOther, ParseClassfd } = require('../build/SpaceData');
+const { CelesTrak } = require('../build/SpaceData');
 
 class TestSpaceData extends BaseCommand {
     /**
@@ -16,11 +16,12 @@ class TestSpaceData extends BaseCommand {
      * Execute the console command.
      */
     async run() {
-        const spaceother = new SpaceOther();
-        const data = await spaceother.get({ class: 'classfd' });
-        const parsed = await ParseClassfd(data);
-
-        console.log(parsed);
+        const celestrak = new CelesTrak();
+        const data = await celestrak.get({
+            set: 'starlink',
+            format: 'json',
+            type: 'GPElementSetss',
+        });
     }
 }
 

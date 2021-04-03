@@ -10,7 +10,7 @@ async function parseTLEFile(data) {
             break;
         if (!(line.startsWith('1') || line.startsWith('2'))) {
             const sat = {
-                name: line.trim(),
+                tle_line0: line.trim(),
                 tle_line1: lines[i++],
                 tle_line2: lines[i++],
             };

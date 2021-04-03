@@ -8,7 +8,7 @@ export declare function ParseSatlist(data: any): Promise<Satlist[]>;
  */
 export declare function ParseMcnames(data: any): Promise<Mcnames[]>;
 export declare function ParseClassfd(data: string): Promise<{
-    name: string;
+    tle_line0: string;
     tle_line1: string;
     tle_line2: string;
 }[]>;
