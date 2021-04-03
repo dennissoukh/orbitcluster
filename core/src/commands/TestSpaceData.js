@@ -20,8 +20,10 @@ class TestSpaceData extends BaseCommand {
         const data = await celestrak.get({
             set: 'starlink',
             format: 'json',
-            type: 'GPElementSetss',
+            type: 'GPElementSets',
         });
+
+        console.log(data)
     }
 }
 
