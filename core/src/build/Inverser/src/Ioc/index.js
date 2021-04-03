@@ -1,13 +1,4 @@
 "use strict";
-var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
-    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
-    return new (P || (P = Promise))(function (resolve, reject) {
-        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
-        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
-        step((generator = generator.apply(thisArg, _arguments || [])).next());
-    });
-};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Ioc = void 0;
 const Fakes_1 = require("./Fakes");
@@ -106,10 +97,8 @@ class Ioc {
     /**
      * Makes an instance of a class asynchronously by injecting dependencies
      */
-    makeRawAsync(value, args) {
-        return __awaiter(this, void 0, void 0, function* () {
-            return this.injector.makeAsync(value, args || []);
-        });
+    async makeRawAsync(value, args) {
+        return this.injector.makeAsync(value, args || []);
     }
     /**
      * Enable/disable proxies. Proxies are mainly required for fakes to
@@ -273,17 +262,15 @@ class Ioc {
      * Import namespace from the auto import aliases. This method assumes you are
      * using native ES modules
      */
-    import(namespace) {
-        return __awaiter(this, void 0, void 0, function* () {
-            if (this.trapCallback) {
-                return this.trapCallback(namespace);
-            }
-            const value = yield this.aliases.resolveAsync(namespace);
-            if (this.usingProxies) {
-                return this.wrapEsmModuleAsProxy(namespace, value);
-            }
-            return value;
-        });
+    async import(namespace) {
+        if (this.trapCallback) {
+            return this.trapCallback(namespace);
+        }
+        const value = await this.aliases.resolveAsync(namespace);
+        if (this.usingProxies) {
+            return this.wrapEsmModuleAsProxy(namespace, value);
+        }
+        return value;
     }
     /**
      * Same as the "import" method, but uses CJS for requiring the module from its
@@ -317,17 +304,15 @@ class Ioc {
      * Same as the [[use]] method, but instead uses ES modules for resolving
      * the auto import aliases
      */
-    useAsync(namespace) {
-        return __awaiter(this, void 0, void 0, function* () {
-            if (this.trapCallback) {
-                return this.trapCallback(typeof namespace === 'string' ? namespace : namespace['namespace']);
-            }
-            const lookupNode = this.lookupOrFail(namespace);
-            if (lookupNode.type === 'alias') {
-                return this.import(lookupNode.namespace);
-            }
-            return this.resolveBinding(lookupNode.namespace);
-        });
+    async useAsync(namespace) {
+        if (this.trapCallback) {
+            return this.trapCallback(typeof namespace === 'string' ? namespace : namespace['namespace']);
+        }
+        const lookupNode = this.lookupOrFail(namespace);
+        if (lookupNode.type === 'alias') {
+            return this.import(lookupNode.namespace);
+        }
+        return this.resolveBinding(lookupNode.namespace);
     }
     /**
      * Makes an instance of the class by first resolving it.
@@ -369,40 +354,38 @@ class Ioc {
      * Same as the [[make]] method, but instead uses ES modules for resolving
      * the auto import aliases
      */
-    makeAsync(namespace, args) {
-        return __awaiter(this, void 0, void 0, function* () {
-            const isContainerNamespace = typeof namespace === 'string' || (namespace['namespace'] && namespace['type']);
-            /**
-             * Value is not a container namespace or a lookup
-             * node
-             */
-            if (!isContainerNamespace) {
-                return this.makeRawAsync(namespace, args);
-            }
-            /**
-             * Invoke trap callback (if registered)
-             */
-            if (this.trapCallback) {
-                return this.trapCallback(typeof namespace === 'string' ? namespace : namespace['namespace']);
-            }
-            const lookupNode = this.lookupOrFail(namespace);
-            /**
-             * We do not touch bindings at all. The factory function
-             * return value is used as it is
-             */
-            if (lookupNode.type === 'binding') {
-                return this.resolveBinding(lookupNode.namespace);
-            }
-            const value = yield this.import(lookupNode.namespace);
-            /**
-             * We attempt to make an instance of only the export
-             * default of a ES module
-             */
-            if (this.isEsm(value) && value.default) {
-                return this.makeRawAsync(value.default, args || []);
-            }
-            return this.makeRawAsync(value, args);
-        });
+    async makeAsync(namespace, args) {
+        const isContainerNamespace = typeof namespace === 'string' || (namespace['namespace'] && namespace['type']);
+        /**
+         * Value is not a container namespace or a lookup
+         * node
+         */
+        if (!isContainerNamespace) {
+            return this.makeRawAsync(namespace, args);
+        }
+        /**
+         * Invoke trap callback (if registered)
+         */
+        if (this.trapCallback) {
+            return this.trapCallback(typeof namespace === 'string' ? namespace : namespace['namespace']);
+        }
+        const lookupNode = this.lookupOrFail(namespace);
+        /**
+         * We do not touch bindings at all. The factory function
+         * return value is used as it is
+         */
+        if (lookupNode.type === 'binding') {
+            return this.resolveBinding(lookupNode.namespace);
+        }
+        const value = await this.import(lookupNode.namespace);
+        /**
+         * We attempt to make an instance of only the export
+         * default of a ES module
+         */
+        if (this.isEsm(value) && value.default) {
+            return this.makeRawAsync(value.default, args || []);
+        }
+        return this.makeRawAsync(value, args);
     }
     /**
      * Define a callback to be called when all of the container
@@ -440,13 +423,11 @@ class Ioc {
      * Same as [[call]], but uses ES modules for resolving the auto
      * import aliases
      */
-    callAsync(target, method, args) {
-        return __awaiter(this, void 0, void 0, function* () {
-            if (typeof target[method] !== 'function') {
-                throw new Error(`Missing method "${method}" on "${target.constructor.name}"`);
-            }
-            return this.injector.callAsync(target, method, args || []);
-        });
+    async callAsync(target, method, args) {
+        if (typeof target[method] !== 'function') {
+            throw new Error(`Missing method "${method}" on "${target.constructor.name}"`);
+        }
+        return this.injector.callAsync(target, method, args || []);
     }
     /**
      * Trap container lookup calls. It includes

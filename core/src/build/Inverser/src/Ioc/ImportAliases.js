@@ -18,15 +18,6 @@ var __importStar = (this && this.__importStar) || function (mod) {
     __setModuleDefault(result, mod);
     return result;
 };
-var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
-    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
-    return new (P || (P = Promise))(function (resolve, reject) {
-        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
-        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
-        step((generator = generator.apply(thisArg, _arguments || [])).next());
-    });
-};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ImportAliases = void 0;
 const path_1 = require("path");
@@ -105,24 +96,22 @@ class ImportAliases {
     /**
      * Same as [[resolve]] but uses ES modules
      */
-    resolveAsync(namespace) {
-        return __awaiter(this, void 0, void 0, function* () {
-            /**
-             * Piggy back on resolve when using cjs module system
-             */
-            if (this.container.module === 'cjs') {
-                return this.resolve(namespace);
-            }
-            const alias = this.getPathAlias(namespace);
-            if (!alias) {
-                throw new Error('lookup failed');
-            }
-            /**
-             * Import the module. The following code will only compile to esm
-             * when the output of this build is esm
-             */
-            return Promise.resolve().then(() => __importStar(require(this.makeAliasPath(namespace, alias))));
-        });
+    async resolveAsync(namespace) {
+        /**
+         * Piggy back on resolve when using cjs module system
+         */
+        if (this.container.module === 'cjs') {
+            return this.resolve(namespace);
+        }
+        const alias = this.getPathAlias(namespace);
+        if (!alias) {
+            throw new Error('lookup failed');
+        }
+        /**
+         * Import the module. The following code will only compile to esm
+         * when the output of this build is esm
+         */
+        return Promise.resolve().then(() => __importStar(require(this.makeAliasPath(namespace, alias))));
     }
 }
 exports.ImportAliases = ImportAliases;

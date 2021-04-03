@@ -1,13 +1,4 @@
 "use strict";
-var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
-    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
-    return new (P || (P = Promise))(function (resolve, reject) {
-        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
-        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
-        step((generator = generator.apply(thisArg, _arguments || [])).next());
-    });
-};
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
@@ -45,42 +36,40 @@ class App {
     /**
      * Handle application command
      */
-    handle(argv) {
-        return __awaiter(this, void 0, void 0, function* () {
-            try {
-                /**
-                 * Manifest files to load
-                 */
-                this.kernel.useManifest(new Neuron_1.ManifestLoader(this.appRoot, this.getCommandManifest()));
-                /**
-                 * Add global kernel flags
-                 */
-                this.addKernelFlags();
-                /**
-                 * Preload manifest. This way we can display all the commands
-                 * that exist in Neuron
-                 */
-                yield this.kernel.preloadManifest();
-                /**
-                 * Register application commands
-                 */
-                yield this.kernel.register();
-                /**
-                 * Print help when no arguments passed
-                 */
-                if (!argv.length) {
-                    this.printHelp(true);
-                    return;
-                }
-                /**
-                 * Handle command
-                 */
-                yield this.kernel.handle(argv);
+    async handle(argv) {
+        try {
+            /**
+             * Manifest files to load
+             */
+            this.kernel.useManifest(new Neuron_1.ManifestLoader(this.appRoot, this.getCommandManifest()));
+            /**
+             * Add global kernel flags
+             */
+            this.addKernelFlags();
+            /**
+             * Preload manifest. This way we can display all the commands
+             * that exist in Neuron
+             */
+            await this.kernel.preloadManifest();
+            /**
+             * Register application commands
+             */
+            await this.kernel.register();
+            /**
+             * Print help when no arguments passed
+             */
+            if (!argv.length) {
+                this.printHelp(true);
+                return;
             }
-            catch (error) {
-                throw error;
-            }
-        });
+            /**
+             * Handle command
+             */
+            await this.kernel.handle(argv);
+        }
+        catch (error) {
+            throw error;
+        }
     }
     /**
      * Add kernel flags
@@ -89,11 +78,11 @@ class App {
         /**
          * Showing help including core commands
          */
-        this.kernel.flag('help', (value, _, command) => __awaiter(this, void 0, void 0, function* () { return this.printHelp(value, command); }), {
+        this.kernel.flag('help', async (value, _, command) => this.printHelp(value, command), {
             alias: 'h',
             description: 'Display help for the given command'
         });
-        this.kernel.flag('version', (value) => __awaiter(this, void 0, void 0, function* () { return this.printVersion(value); }), {
+        this.kernel.flag('version', async (value) => this.printVersion(value), {
             alias: 'v',
             description: 'Display the application version'
         });

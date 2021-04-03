@@ -1,6 +1,7 @@
 import https from "https";
 import path from "path";
 import AdmZip from 'adm-zip';
+import parse from 'csv-parse/lib/sync';
 import { URL } from "url";
 import { common } from "./common";
 
@@ -19,6 +20,10 @@ export class SpaceOther {
 
         if (url.fileType === '.txt' || url.fileType === '.tle') {
             return await this.plainText(res);
+        }
+
+        if (url.fileType === '.csv') {
+            return await this.csv(res);
         }
 
         throw new Error('Filetype not supported');
@@ -72,5 +77,25 @@ export class SpaceOther {
 
     async plainText(stream: Buffer) {
         return stream.toString('utf8');
+    }
+
+    async csv(stream: Buffer) {
+        const res = parse(stream, {
+            skipEmptyLines: true,
+            delimiter: undefined,
+            trim: true,
+            // columns: [
+            //     'satname',
+            //     'norad_cat_id',
+            //     'uplink',
+            //     'downlink',
+            //     'beacon',
+            //     'mode',
+            //     'callsign',
+            //     'type'
+            // ]
+        });
+
+        return res;
     }
 }

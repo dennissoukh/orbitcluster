@@ -83,6 +83,6 @@ export const common = {
     | Satellite frequencies list for satellites
     |
     */
-    radio: 'http://www.ne.jp/asahi/hamradio/je9pel/satslist.csv',
+    radio: 'https://www.ne.jp/asahi/hamradio/je9pel/satslist.csv',
 
 }

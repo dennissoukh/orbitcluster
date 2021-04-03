@@ -42,12 +42,11 @@ class Fakes {
      * not fake is defined
      */
     resolve(namespace, originalValue) {
-        var _a;
         const fake = this.list.get(namespace);
         if (!fake) {
             throw new Error('Missing Fake');
         }
-        fake.cachedValue = (_a = fake.cachedValue) !== null && _a !== void 0 ? _a : fake.callback(this.container, originalValue);
+        fake.cachedValue = fake.cachedValue ?? fake.callback(this.container, originalValue);
         return fake.cachedValue;
     }
 }

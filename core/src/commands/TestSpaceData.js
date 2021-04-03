@@ -17,7 +17,7 @@ class TestSpaceData extends BaseCommand {
      */
     async run() {
         const spaceother = new SpaceOther();
-        const data = await spaceother.get({ class: 'amsat' });
+        const data = await spaceother.get({ class: 'radio' });
 
         console.log(data)
     }

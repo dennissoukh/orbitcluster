@@ -2,7 +2,7 @@
 export declare class SpaceOther {
     get(options: {
         class: string;
-    }): Promise<string | undefined>;
+    }): Promise<any>;
     getRequest(url: string): Promise<unknown>;
     parseURL(url: string): {
         href: string;
@@ -10,4 +10,5 @@ export declare class SpaceOther {
     };
     zip(stream: Buffer): Promise<string>;
     plainText(stream: Buffer): Promise<string>;
+    csv(stream: Buffer): Promise<any>;
 }
