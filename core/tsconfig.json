@@ -22,6 +22,7 @@
     "./src/packages/Ignitor/**/*",
     "./src/packages/Cosmic/**/*",
     "./src/packages/Orbitcluster/**/*",
-    "./src/packages/SpaceData/**/*"
+    "./src/packages/SpaceData/**/*",
+    "./src/packages/StarChart/**/*",
   ],
 }

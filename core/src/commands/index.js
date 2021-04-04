@@ -13,6 +13,7 @@ const commands = [
     // 'commands/DownloadLaunchsites',
     'commands/TestSpaceData',
     'commands/ProcessStarData',
+    'commands/CreateStarChart',
 ];
 
 module.exports = { commands };
