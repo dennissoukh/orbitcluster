@@ -1,0 +1,4685 @@
+[
+  {
+    "abbreviation": "And",
+    "group": "1",
+    "abbreviation_group": "And1",
+    "star_1": "677",
+    "star_2": "3092"
+  },
+  {
+    "abbreviation": "And",
+    "group": "2",
+    "abbreviation_group": "And2",
+    "star_1": "3092",
+    "star_2": "5447"
+  },
+  {
+    "abbreviation": "And",
+    "group": "3",
+    "abbreviation_group": "And3",
+    "star_1": "9640",
+    "star_2": "5447"
+  },
+  {
+    "abbreviation": "And",
+    "group": "4",
+    "abbreviation_group": "And4",
+    "star_1": "5447",
+    "star_2": "4436"
+  },
+  {
+    "abbreviation": "And",
+    "group": "5",
+    "abbreviation_group": "And5",
+    "star_1": "4436",
+    "star_2": "3881"
+  },
+  {
+    "abbreviation": "Ant",
+    "group": "1",
+    "abbreviation_group": "Ant1",
+    "star_1": "51172",
+    "star_2": "48926"
+  },
+  {
+    "abbreviation": "Aps",
+    "group": "1",
+    "abbreviation_group": "Aps1",
+    "star_1": "72370",
+    "star_2": "81065"
+  },
+  {
+    "abbreviation": "Aps",
+    "group": "2",
+    "abbreviation_group": "Aps2",
+    "star_1": "81065",
+    "star_2": "81852"
+  },
+  {
+    "abbreviation": "Aql",
+    "group": "1",
+    "abbreviation_group": "Aql1",
+    "star_1": "98036",
+    "star_2": "97649"
+  },
+  {
+    "abbreviation": "Aql",
+    "group": "2",
+    "abbreviation_group": "Aql2",
+    "star_1": "97649",
+    "star_2": "97278"
+  },
+  {
+    "abbreviation": "Aql",
+    "group": "3",
+    "abbreviation_group": "Aql3",
+    "star_1": "97649",
+    "star_2": "95501"
+  },
+  {
+    "abbreviation": "Aql",
+    "group": "4",
+    "abbreviation_group": "Aql4",
+    "star_1": "95501",
+    "star_2": "97804"
+  },
+  {
+    "abbreviation": "Aql",
+    "group": "5",
+    "abbreviation_group": "Aql5",
+    "star_1": "99473",
+    "star_2": "97804"
+  },
+  {
+    "abbreviation": "Aql",
+    "group": "6",
+    "abbreviation_group": "Aql6",
+    "star_1": "95501",
+    "star_2": "93747"
+  },
+  {
+    "abbreviation": "Aql",
+    "group": "7",
+    "abbreviation_group": "Aql7",
+    "star_1": "93747",
+    "star_2": "93244"
+  },
+  {
+    "abbreviation": "Aql",
+    "group": "8",
+    "abbreviation_group": "Aql8",
+    "star_1": "95501",
+    "star_2": "93805"
+  },
+  {
+    "abbreviation": "Aqr",
+    "group": "1",
+    "abbreviation_group": "Aqr1",
+    "star_1": "106278",
+    "star_2": "109074"
+  },
+  {
+    "abbreviation": "Aqr",
+    "group": "2",
+    "abbreviation_group": "Aqr2",
+    "star_1": "109074",
+    "star_2": "110395"
+  },
+  {
+    "abbreviation": "Aqr",
+    "group": "3",
+    "abbreviation_group": "Aqr3",
+    "star_1": "110395",
+    "star_2": "110960"
+  },
+  {
+    "abbreviation": "Aqr",
+    "group": "4",
+    "abbreviation_group": "Aqr4",
+    "star_1": "110960",
+    "star_2": "111497"
+  },
+  {
+    "abbreviation": "Aqr",
+    "group": "5",
+    "abbreviation_group": "Aqr5",
+    "star_1": "111497",
+    "star_2": "112961"
+  },
+  {
+    "abbreviation": "Aqr",
+    "group": "6",
+    "abbreviation_group": "Aqr6",
+    "star_1": "112961",
+    "star_2": "114855"
+  },
+  {
+    "abbreviation": "Aqr",
+    "group": "7",
+    "abbreviation_group": "Aqr7",
+    "star_1": "114855",
+    "star_2": "115438"
+  },
+  {
+    "abbreviation": "Aqr",
+    "group": "8",
+    "abbreviation_group": "Aqr8",
+    "star_1": "109074",
+    "star_2": "110003"
+  },
+  {
+    "abbreviation": "Aqr",
+    "group": "9",
+    "abbreviation_group": "Aqr9",
+    "star_1": "110003",
+    "star_2": "109139"
+  },
+  {
+    "abbreviation": "Aqr",
+    "group": "10",
+    "abbreviation_group": "Aqr10",
+    "star_1": "110003",
+    "star_2": "111123"
+  },
+  {
+    "abbreviation": "Aqr",
+    "group": "11",
+    "abbreviation_group": "Aqr11",
+    "star_1": "111123",
+    "star_2": "112716"
+  },
+  {
+    "abbreviation": "Aqr",
+    "group": "12",
+    "abbreviation_group": "Aqr12",
+    "star_1": "112716",
+    "star_2": "113136"
+  },
+  {
+    "abbreviation": "Aqr",
+    "group": "13",
+    "abbreviation_group": "Aqr13",
+    "star_1": "113136",
+    "star_2": "114341"
+  },
+  {
+    "abbreviation": "Aqr",
+    "group": "14",
+    "abbreviation_group": "Aqr14",
+    "star_1": "102618",
+    "star_2": "106278"
+  },
+  {
+    "abbreviation": "Ara",
+    "group": "1",
+    "abbreviation_group": "Ara1",
+    "star_1": "88714",
+    "star_2": "85792"
+  },
+  {
+    "abbreviation": "Ara",
+    "group": "2",
+    "abbreviation_group": "Ara2",
+    "star_1": "85792",
+    "star_2": "83081"
+  },
+  {
+    "abbreviation": "Ara",
+    "group": "3",
+    "abbreviation_group": "Ara3",
+    "star_1": "83081",
+    "star_2": "82363"
+  },
+  {
+    "abbreviation": "Ara",
+    "group": "4",
+    "abbreviation_group": "Ara4",
+    "star_1": "82363",
+    "star_2": "85727"
+  },
+  {
+    "abbreviation": "Ara",
+    "group": "5",
+    "abbreviation_group": "Ara5",
+    "star_1": "85727",
+    "star_2": "85267"
+  },
+  {
+    "abbreviation": "Ara",
+    "group": "6",
+    "abbreviation_group": "Ara6",
+    "star_1": "85267",
+    "star_2": "85258"
+  },
+  {
+    "abbreviation": "Ara",
+    "group": "7",
+    "abbreviation_group": "Ara7",
+    "star_1": "85258",
+    "star_2": "88714"
+  },
+  {
+    "abbreviation": "Ari",
+    "group": "1",
+    "abbreviation_group": "Ari1",
+    "star_1": "13209",
+    "star_2": "9884"
+  },
+  {
+    "abbreviation": "Ari",
+    "group": "2",
+    "abbreviation_group": "Ari2",
+    "star_1": "9884",
+    "star_2": "8903"
+  },
+  {
+    "abbreviation": "Ari",
+    "group": "3",
+    "abbreviation_group": "Ari3",
+    "star_1": "8903",
+    "star_2": "8832"
+  },
+  {
+    "abbreviation": "Aur",
+    "group": "1",
+    "abbreviation_group": "Aur1",
+    "star_1": "28380",
+    "star_2": "28360"
+  },
+  {
+    "abbreviation": "Aur",
+    "group": "2",
+    "abbreviation_group": "Aur2",
+    "star_1": "28360",
+    "star_2": "24608"
+  },
+  {
+    "abbreviation": "Aur",
+    "group": "3",
+    "abbreviation_group": "Aur3",
+    "star_1": "24608",
+    "star_2": "23453"
+  },
+  {
+    "abbreviation": "Aur",
+    "group": "4",
+    "abbreviation_group": "Aur4",
+    "star_1": "23453",
+    "star_2": "23015"
+  },
+  {
+    "abbreviation": "Aur",
+    "group": "5",
+    "abbreviation_group": "Aur5",
+    "star_1": "25428",
+    "star_2": "23015"
+  },
+  {
+    "abbreviation": "Aur",
+    "group": "6",
+    "abbreviation_group": "Aur6",
+    "star_1": "25428",
+    "star_2": "28380"
+  },
+  {
+    "abbreviation": "Boo",
+    "group": "1",
+    "abbreviation_group": "Boo1",
+    "star_1": "71795",
+    "star_2": "69673"
+  },
+  {
+    "abbreviation": "Boo",
+    "group": "2",
+    "abbreviation_group": "Boo2",
+    "star_1": "69673",
+    "star_2": "72105"
+  },
+  {
+    "abbreviation": "Boo",
+    "group": "3",
+    "abbreviation_group": "Boo3",
+    "star_1": "72105",
+    "star_2": "74666"
+  },
+  {
+    "abbreviation": "Boo",
+    "group": "4",
+    "abbreviation_group": "Boo4",
+    "star_1": "74666",
+    "star_2": "73555"
+  },
+  {
+    "abbreviation": "Boo",
+    "group": "5",
+    "abbreviation_group": "Boo5",
+    "star_1": "73555",
+    "star_2": "71075"
+  },
+  {
+    "abbreviation": "Boo",
+    "group": "6",
+    "abbreviation_group": "Boo6",
+    "star_1": "71075",
+    "star_2": "71053"
+  },
+  {
+    "abbreviation": "Boo",
+    "group": "7",
+    "abbreviation_group": "Boo7",
+    "star_1": "71053",
+    "star_2": "69673"
+  },
+  {
+    "abbreviation": "Boo",
+    "group": "8",
+    "abbreviation_group": "Boo8",
+    "star_1": "69673",
+    "star_2": "67927"
+  },
+  {
+    "abbreviation": "Boo",
+    "group": "9",
+    "abbreviation_group": "Boo9",
+    "star_1": "67927",
+    "star_2": "67459"
+  },
+  {
+    "abbreviation": "Cae",
+    "group": "1",
+    "abbreviation_group": "Cae1",
+    "star_1": "21060",
+    "star_2": "21770"
+  },
+  {
+    "abbreviation": "Cae",
+    "group": "2",
+    "abbreviation_group": "Cae2",
+    "star_1": "21770",
+    "star_2": "21861"
+  },
+  {
+    "abbreviation": "Cam",
+    "group": "1",
+    "abbreviation_group": "Cam1",
+    "star_1": "16228",
+    "star_2": "18505"
+  },
+  {
+    "abbreviation": "Cam",
+    "group": "2",
+    "abbreviation_group": "Cam2",
+    "star_1": "18505",
+    "star_2": "22783"
+  },
+  {
+    "abbreviation": "Cam",
+    "group": "3",
+    "abbreviation_group": "Cam3",
+    "star_1": "16228",
+    "star_2": "17959"
+  },
+  {
+    "abbreviation": "Cam",
+    "group": "4",
+    "abbreviation_group": "Cam4",
+    "star_1": "17959",
+    "star_2": "22783"
+  },
+  {
+    "abbreviation": "Cam",
+    "group": "5",
+    "abbreviation_group": "Cam5",
+    "star_1": "17959",
+    "star_2": "25110"
+  },
+  {
+    "abbreviation": "Cap",
+    "group": "1",
+    "abbreviation_group": "Cap1",
+    "star_1": "100064",
+    "star_2": "100345"
+  },
+  {
+    "abbreviation": "Cap",
+    "group": "2",
+    "abbreviation_group": "Cap2",
+    "star_1": "100345",
+    "star_2": "104139"
+  },
+  {
+    "abbreviation": "Cap",
+    "group": "3",
+    "abbreviation_group": "Cap3",
+    "star_1": "104139",
+    "star_2": "105515"
+  },
+  {
+    "abbreviation": "Cap",
+    "group": "4",
+    "abbreviation_group": "Cap4",
+    "star_1": "105515",
+    "star_2": "106985"
+  },
+  {
+    "abbreviation": "Cap",
+    "group": "5",
+    "abbreviation_group": "Cap5",
+    "star_1": "106985",
+    "star_2": "107556"
+  },
+  {
+    "abbreviation": "Cap",
+    "group": "6",
+    "abbreviation_group": "Cap6",
+    "star_1": "105515",
+    "star_2": "105881"
+  },
+  {
+    "abbreviation": "Cap",
+    "group": "7",
+    "abbreviation_group": "Cap7",
+    "star_1": "105881",
+    "star_2": "104139"
+  },
+  {
+    "abbreviation": "Cap",
+    "group": "8",
+    "abbreviation_group": "Cap8",
+    "star_1": "100345",
+    "star_2": "102485"
+  },
+  {
+    "abbreviation": "Cap",
+    "group": "9",
+    "abbreviation_group": "Cap9",
+    "star_1": "104139",
+    "star_2": "102978"
+  },
+  {
+    "abbreviation": "Car",
+    "group": "1",
+    "abbreviation_group": "Car1",
+    "star_1": "45238",
+    "star_2": "50099"
+  },
+  {
+    "abbreviation": "Car",
+    "group": "2",
+    "abbreviation_group": "Car2",
+    "star_1": "50099",
+    "star_2": "52419"
+  },
+  {
+    "abbreviation": "Car",
+    "group": "3",
+    "abbreviation_group": "Car3",
+    "star_1": "52419",
+    "star_2": "52468"
+  },
+  {
+    "abbreviation": "Car",
+    "group": "4",
+    "abbreviation_group": "Car4",
+    "star_1": "52468",
+    "star_2": "54463"
+  },
+  {
+    "abbreviation": "Car",
+    "group": "5",
+    "abbreviation_group": "Car5",
+    "star_1": "54463",
+    "star_2": "53253"
+  },
+  {
+    "abbreviation": "Car",
+    "group": "6",
+    "abbreviation_group": "Car6",
+    "star_1": "53253",
+    "star_2": "51232"
+  },
+  {
+    "abbreviation": "Car",
+    "group": "7",
+    "abbreviation_group": "Car7",
+    "star_1": "51232",
+    "star_2": "50371"
+  },
+  {
+    "abbreviation": "Car",
+    "group": "8",
+    "abbreviation_group": "Car8",
+    "star_1": "50371",
+    "star_2": "45556"
+  },
+  {
+    "abbreviation": "Car",
+    "group": "9",
+    "abbreviation_group": "Car9",
+    "star_1": "42568",
+    "star_2": "41037"
+  },
+  {
+    "abbreviation": "Car",
+    "group": "10",
+    "abbreviation_group": "Car10",
+    "star_1": "41037",
+    "star_2": "30438"
+  },
+  {
+    "abbreviation": "Car",
+    "group": "11",
+    "abbreviation_group": "Car11",
+    "star_1": "45080",
+    "star_2": "45556"
+  },
+  {
+    "abbreviation": "Car",
+    "group": "12",
+    "abbreviation_group": "Car12",
+    "star_1": "45080",
+    "star_2": "42568"
+  },
+  {
+    "abbreviation": "Car",
+    "group": "13",
+    "abbreviation_group": "Car13",
+    "star_1": "30438",
+    "star_2": "31685"
+  },
+  {
+    "abbreviation": "Car",
+    "group": "14",
+    "abbreviation_group": "Car14",
+    "star_1": "41037",
+    "star_2": "39429"
+  },
+  {
+    "abbreviation": "Cas",
+    "group": "1",
+    "abbreviation_group": "Cas1",
+    "star_1": "8886",
+    "star_2": "6686"
+  },
+  {
+    "abbreviation": "Cas",
+    "group": "2",
+    "abbreviation_group": "Cas2",
+    "star_1": "6686",
+    "star_2": "4427"
+  },
+  {
+    "abbreviation": "Cas",
+    "group": "3",
+    "abbreviation_group": "Cas3",
+    "star_1": "4427",
+    "star_2": "3179"
+  },
+  {
+    "abbreviation": "Cas",
+    "group": "4",
+    "abbreviation_group": "Cas4",
+    "star_1": "3179",
+    "star_2": "746"
+  },
+  {
+    "abbreviation": "Cen",
+    "group": "1",
+    "abbreviation_group": "Cen1",
+    "star_1": "71683",
+    "star_2": "68702"
+  },
+  {
+    "abbreviation": "Cen",
+    "group": "2",
+    "abbreviation_group": "Cen2",
+    "star_1": "68702",
+    "star_2": "66657"
+  },
+  {
+    "abbreviation": "Cen",
+    "group": "3",
+    "abbreviation_group": "Cen3",
+    "star_1": "66657",
+    "star_2": "68002"
+  },
+  {
+    "abbreviation": "Cen",
+    "group": "4",
+    "abbreviation_group": "Cen4",
+    "star_1": "68002",
+    "star_2": "68282"
+  },
+  {
+    "abbreviation": "Cen",
+    "group": "5",
+    "abbreviation_group": "Cen5",
+    "star_1": "68282",
+    "star_2": "67472"
+  },
+  {
+    "abbreviation": "Cen",
+    "group": "6",
+    "abbreviation_group": "Cen6",
+    "star_1": "67472",
+    "star_2": "67464"
+  },
+  {
+    "abbreviation": "Cen",
+    "group": "7",
+    "abbreviation_group": "Cen7",
+    "star_1": "67464",
+    "star_2": "65936"
+  },
+  {
+    "abbreviation": "Cen",
+    "group": "8",
+    "abbreviation_group": "Cen8",
+    "star_1": "65936",
+    "star_2": "65109"
+  },
+  {
+    "abbreviation": "Cen",
+    "group": "9",
+    "abbreviation_group": "Cen9",
+    "star_1": "67464",
+    "star_2": "68933"
+  },
+  {
+    "abbreviation": "Cen",
+    "group": "10",
+    "abbreviation_group": "Cen10",
+    "star_1": "67472",
+    "star_2": "71352"
+  },
+  {
+    "abbreviation": "Cen",
+    "group": "11",
+    "abbreviation_group": "Cen11",
+    "star_1": "71352",
+    "star_2": "73334"
+  },
+  {
+    "abbreviation": "Cen",
+    "group": "12",
+    "abbreviation_group": "Cen12",
+    "star_1": "68002",
+    "star_2": "61932"
+  },
+  {
+    "abbreviation": "Cen",
+    "group": "13",
+    "abbreviation_group": "Cen13",
+    "star_1": "61932",
+    "star_2": "60823"
+  },
+  {
+    "abbreviation": "Cen",
+    "group": "14",
+    "abbreviation_group": "Cen14",
+    "star_1": "60823",
+    "star_2": "59196"
+  },
+  {
+    "abbreviation": "Cen",
+    "group": "15",
+    "abbreviation_group": "Cen15",
+    "star_1": "59196",
+    "star_2": "56480"
+  },
+  {
+    "abbreviation": "Cen",
+    "group": "16",
+    "abbreviation_group": "Cen16",
+    "star_1": "56480",
+    "star_2": "56561"
+  },
+  {
+    "abbreviation": "Cep",
+    "group": "1",
+    "abbreviation_group": "Cep1",
+    "star_1": "109492",
+    "star_2": "112724"
+  },
+  {
+    "abbreviation": "Cep",
+    "group": "2",
+    "abbreviation_group": "Cep2",
+    "star_1": "112724",
+    "star_2": "106032"
+  },
+  {
+    "abbreviation": "Cep",
+    "group": "3",
+    "abbreviation_group": "Cep3",
+    "star_1": "106032",
+    "star_2": "105199"
+  },
+  {
+    "abbreviation": "Cep",
+    "group": "4",
+    "abbreviation_group": "Cep4",
+    "star_1": "105199",
+    "star_2": "109492"
+  },
+  {
+    "abbreviation": "Cep",
+    "group": "5",
+    "abbreviation_group": "Cep5",
+    "star_1": "112724",
+    "star_2": "116727"
+  },
+  {
+    "abbreviation": "Cep",
+    "group": "6",
+    "abbreviation_group": "Cep6",
+    "star_1": "116727",
+    "star_2": "106032"
+  },
+  {
+    "abbreviation": "Cet",
+    "group": "1",
+    "abbreviation_group": "Cet1",
+    "star_1": "10324",
+    "star_2": "11484"
+  },
+  {
+    "abbreviation": "Cet",
+    "group": "2",
+    "abbreviation_group": "Cet2",
+    "star_1": "8102",
+    "star_2": "3419"
+  },
+  {
+    "abbreviation": "Cet",
+    "group": "3",
+    "abbreviation_group": "Cet3",
+    "star_1": "3419",
+    "star_2": "1562"
+  },
+  {
+    "abbreviation": "Cet",
+    "group": "4",
+    "abbreviation_group": "Cet4",
+    "star_1": "3419",
+    "star_2": "5364"
+  },
+  {
+    "abbreviation": "Cet",
+    "group": "5",
+    "abbreviation_group": "Cet5",
+    "star_1": "5364",
+    "star_2": "6537"
+  },
+  {
+    "abbreviation": "Cet",
+    "group": "6",
+    "abbreviation_group": "Cet6",
+    "star_1": "6537",
+    "star_2": "8645"
+  },
+  {
+    "abbreviation": "Cet",
+    "group": "7",
+    "abbreviation_group": "Cet7",
+    "star_1": "8645",
+    "star_2": "11345"
+  },
+  {
+    "abbreviation": "Cet",
+    "group": "8",
+    "abbreviation_group": "Cet8",
+    "star_1": "11345",
+    "star_2": "12390"
+  },
+  {
+    "abbreviation": "Cet",
+    "group": "9",
+    "abbreviation_group": "Cet9",
+    "star_1": "12390",
+    "star_2": "12770"
+  },
+  {
+    "abbreviation": "Cet",
+    "group": "10",
+    "abbreviation_group": "Cet10",
+    "star_1": "12770",
+    "star_2": "11783"
+  },
+  {
+    "abbreviation": "Cet",
+    "group": "11",
+    "abbreviation_group": "Cet11",
+    "star_1": "11783",
+    "star_2": "8102"
+  },
+  {
+    "abbreviation": "Cet",
+    "group": "12",
+    "abbreviation_group": "Cet12",
+    "star_1": "12387",
+    "star_2": "12706"
+  },
+  {
+    "abbreviation": "Cet",
+    "group": "14",
+    "abbreviation_group": "Cet13",
+    "star_1": "12706",
+    "star_2": "14135"
+  },
+  {
+    "abbreviation": "Cet",
+    "group": "15",
+    "abbreviation_group": "Cet14",
+    "star_1": "14135",
+    "star_2": "13954"
+  },
+  {
+    "abbreviation": "Cet",
+    "group": "16",
+    "abbreviation_group": "Cet15",
+    "star_1": "13954",
+    "star_2": "12828"
+  },
+  {
+    "abbreviation": "Cet",
+    "group": "17",
+    "abbreviation_group": "Cet16",
+    "star_1": "12828",
+    "star_2": "11484"
+  },
+  {
+    "abbreviation": "Cet",
+    "group": "17",
+    "abbreviation_group": "Cet17",
+    "star_1": "11484",
+    "star_2": "12093"
+  },
+  {
+    "abbreviation": "Cet",
+    "group": "18",
+    "abbreviation_group": "Cet18",
+    "star_1": "12093",
+    "star_2": "12706"
+  },
+  {
+    "abbreviation": "Cha",
+    "group": "1",
+    "abbreviation_group": "Cha1",
+    "star_1": "40702",
+    "star_2": "51839"
+  },
+  {
+    "abbreviation": "Cha",
+    "group": "2",
+    "abbreviation_group": "Cha2",
+    "star_1": "51839",
+    "star_2": "60000"
+  },
+  {
+    "abbreviation": "Cir",
+    "group": "1",
+    "abbreviation_group": "Cir1",
+    "star_1": "71908",
+    "star_2": "75323"
+  },
+  {
+    "abbreviation": "Cir",
+    "group": "2",
+    "abbreviation_group": "Cir2",
+    "star_1": "71908",
+    "star_2": "74824"
+  },
+  {
+    "abbreviation": "CMa",
+    "group": "1",
+    "abbreviation_group": "CMa1",
+    "star_1": "33160",
+    "star_2": "34045"
+  },
+  {
+    "abbreviation": "CMa",
+    "group": "2",
+    "abbreviation_group": "CMa2",
+    "star_1": "34045",
+    "star_2": "33347"
+  },
+  {
+    "abbreviation": "CMa",
+    "group": "3",
+    "abbreviation_group": "CMa3",
+    "star_1": "33347",
+    "star_2": "32349"
+  },
+  {
+    "abbreviation": "CMa",
+    "group": "4",
+    "abbreviation_group": "CMa4",
+    "star_1": "32349",
+    "star_2": "33977"
+  },
+  {
+    "abbreviation": "CMa",
+    "group": "5",
+    "abbreviation_group": "CMa5",
+    "star_1": "33977",
+    "star_2": "34444"
+  },
+  {
+    "abbreviation": "CMa",
+    "group": "6",
+    "abbreviation_group": "CMa6",
+    "star_1": "34444",
+    "star_2": "35037"
+  },
+  {
+    "abbreviation": "CMa",
+    "group": "7",
+    "abbreviation_group": "CMa7",
+    "star_1": "35037",
+    "star_2": "35904"
+  },
+  {
+    "abbreviation": "CMa",
+    "group": "8",
+    "abbreviation_group": "CMa8",
+    "star_1": "33579",
+    "star_2": "33856"
+  },
+  {
+    "abbreviation": "CMa",
+    "group": "9",
+    "abbreviation_group": "CMa9",
+    "star_1": "33856",
+    "star_2": "34444"
+  },
+  {
+    "abbreviation": "CMa",
+    "group": "10",
+    "abbreviation_group": "CMa10",
+    "star_1": "31592",
+    "star_2": "31416"
+  },
+  {
+    "abbreviation": "CMa",
+    "group": "11",
+    "abbreviation_group": "CMa11",
+    "star_1": "31592",
+    "star_2": "30324"
+  },
+  {
+    "abbreviation": "CMa",
+    "group": "12",
+    "abbreviation_group": "CMa12",
+    "star_1": "31592",
+    "star_2": "32349"
+  },
+  {
+    "abbreviation": "CMa",
+    "group": "13",
+    "abbreviation_group": "CMa13",
+    "star_1": "33579",
+    "star_2": "32759"
+  },
+  {
+    "abbreviation": "CMa",
+    "group": "14",
+    "abbreviation_group": "CMa14",
+    "star_1": "30122",
+    "star_2": "33579"
+  },
+  {
+    "abbreviation": "CMa",
+    "group": "15",
+    "abbreviation_group": "CMa15",
+    "star_1": "33347",
+    "star_2": "33160"
+  },
+  {
+    "abbreviation": "CMi",
+    "group": "1",
+    "abbreviation_group": "CMi1",
+    "star_1": "37279",
+    "star_2": "36188"
+  },
+  {
+    "abbreviation": "Cnc",
+    "group": "1",
+    "abbreviation_group": "Cnc1",
+    "star_1": "43103",
+    "star_2": "42806"
+  },
+  {
+    "abbreviation": "Cnc",
+    "group": "2",
+    "abbreviation_group": "Cnc2",
+    "star_1": "42806",
+    "star_2": "40843"
+  },
+  {
+    "abbreviation": "Cnc",
+    "group": "3",
+    "abbreviation_group": "Cnc3",
+    "star_1": "42806",
+    "star_2": "42911"
+  },
+  {
+    "abbreviation": "Cnc",
+    "group": "4",
+    "abbreviation_group": "Cnc4",
+    "star_1": "42911",
+    "star_2": "40526"
+  },
+  {
+    "abbreviation": "Cnc",
+    "group": "5",
+    "abbreviation_group": "Cnc5",
+    "star_1": "42911",
+    "star_2": "44066"
+  },
+  {
+    "abbreviation": "Col",
+    "group": "1",
+    "abbreviation_group": "Col1",
+    "star_1": "30277",
+    "star_2": "29807"
+  },
+  {
+    "abbreviation": "Col",
+    "group": "2",
+    "abbreviation_group": "Col2",
+    "star_1": "29807",
+    "star_2": "28199"
+  },
+  {
+    "abbreviation": "Col",
+    "group": "3",
+    "abbreviation_group": "Col3",
+    "star_1": "28199",
+    "star_2": "27628"
+  },
+  {
+    "abbreviation": "Col",
+    "group": "4",
+    "abbreviation_group": "Col4",
+    "star_1": "27628",
+    "star_2": "28328"
+  },
+  {
+    "abbreviation": "Col",
+    "group": "5",
+    "abbreviation_group": "Col5",
+    "star_1": "27628",
+    "star_2": "26634"
+  },
+  {
+    "abbreviation": "Col",
+    "group": "6",
+    "abbreviation_group": "Col6",
+    "star_1": "26634",
+    "star_2": "25859"
+  },
+  {
+    "abbreviation": "Com",
+    "group": "1",
+    "abbreviation_group": "Com1",
+    "star_1": "64241",
+    "star_2": "64394"
+  },
+  {
+    "abbreviation": "Com",
+    "group": "2",
+    "abbreviation_group": "Com2",
+    "star_1": "64394",
+    "star_2": "60742"
+  },
+  {
+    "abbreviation": "CrA",
+    "group": "1",
+    "abbreviation_group": "CrA1",
+    "star_1": "91875",
+    "star_2": "92989"
+  },
+  {
+    "abbreviation": "CrA",
+    "group": "2",
+    "abbreviation_group": "CrA2",
+    "star_1": "92989",
+    "star_2": "93174"
+  },
+  {
+    "abbreviation": "CrA",
+    "group": "3",
+    "abbreviation_group": "CrA3",
+    "star_1": "93174",
+    "star_2": "93825"
+  },
+  {
+    "abbreviation": "CrA",
+    "group": "4",
+    "abbreviation_group": "CrA4",
+    "star_1": "93825",
+    "star_2": "94114"
+  },
+  {
+    "abbreviation": "CrA",
+    "group": "5",
+    "abbreviation_group": "CrA5",
+    "star_1": "94114",
+    "star_2": "94160"
+  },
+  {
+    "abbreviation": "CrA",
+    "group": "6",
+    "abbreviation_group": "CrA6",
+    "star_1": "94160",
+    "star_2": "94005"
+  },
+  {
+    "abbreviation": "CrA",
+    "group": "7",
+    "abbreviation_group": "CrA7",
+    "star_1": "94005",
+    "star_2": "93542"
+  },
+  {
+    "abbreviation": "CrA",
+    "group": "8",
+    "abbreviation_group": "CrA8",
+    "star_1": "93542",
+    "star_2": "92953"
+  },
+  {
+    "abbreviation": "CrA",
+    "group": "9",
+    "abbreviation_group": "CrA9",
+    "star_1": "91875",
+    "star_2": "90887"
+  },
+  {
+    "abbreviation": "CrB",
+    "group": "1",
+    "abbreviation_group": "CrB1",
+    "star_1": "76127",
+    "star_2": "75695"
+  },
+  {
+    "abbreviation": "CrB",
+    "group": "2",
+    "abbreviation_group": "CrB2",
+    "star_1": "75695",
+    "star_2": "76267"
+  },
+  {
+    "abbreviation": "CrB",
+    "group": "3",
+    "abbreviation_group": "CrB3",
+    "star_1": "76267",
+    "star_2": "76952"
+  },
+  {
+    "abbreviation": "CrB",
+    "group": "4",
+    "abbreviation_group": "CrB4",
+    "star_1": "76952",
+    "star_2": "77512"
+  },
+  {
+    "abbreviation": "CrB",
+    "group": "5",
+    "abbreviation_group": "CrB5",
+    "star_1": "77512",
+    "star_2": "78159"
+  },
+  {
+    "abbreviation": "CrB",
+    "group": "6",
+    "abbreviation_group": "CrB6",
+    "star_1": "78159",
+    "star_2": "78493"
+  },
+  {
+    "abbreviation": "Crt",
+    "group": "1",
+    "abbreviation_group": "Crt1",
+    "star_1": "53740",
+    "star_2": "54682"
+  },
+  {
+    "abbreviation": "Crt",
+    "group": "2",
+    "abbreviation_group": "Crt2",
+    "star_1": "54682",
+    "star_2": "55705"
+  },
+  {
+    "abbreviation": "Crt",
+    "group": "3",
+    "abbreviation_group": "Crt3",
+    "star_1": "55705",
+    "star_2": "55282"
+  },
+  {
+    "abbreviation": "Crt",
+    "group": "4",
+    "abbreviation_group": "Crt4",
+    "star_1": "55282",
+    "star_2": "53740"
+  },
+  {
+    "abbreviation": "Crt",
+    "group": "5",
+    "abbreviation_group": "Crt5",
+    "star_1": "55282",
+    "star_2": "55687"
+  },
+  {
+    "abbreviation": "Crt",
+    "group": "6",
+    "abbreviation_group": "Crt6",
+    "star_1": "55687",
+    "star_2": "56633"
+  },
+  {
+    "abbreviation": "Crt",
+    "group": "7",
+    "abbreviation_group": "Crt7",
+    "star_1": "56633",
+    "star_2": "58188"
+  },
+  {
+    "abbreviation": "Crt",
+    "group": "8",
+    "abbreviation_group": "Crt8",
+    "star_1": "58188",
+    "star_2": "57283"
+  },
+  {
+    "abbreviation": "Crt",
+    "group": "9",
+    "abbreviation_group": "Crt9",
+    "star_1": "57283",
+    "star_2": "55705"
+  },
+  {
+    "abbreviation": "Cru",
+    "group": "1",
+    "abbreviation_group": "Cru1",
+    "star_1": "61084",
+    "star_2": "60718"
+  },
+  {
+    "abbreviation": "Cru",
+    "group": "2",
+    "abbreviation_group": "Cru2",
+    "star_1": "62434",
+    "star_2": "59747"
+  },
+  {
+    "abbreviation": "Crv",
+    "group": "1",
+    "abbreviation_group": "Crv1",
+    "star_1": "61174",
+    "star_2": "60965"
+  },
+  {
+    "abbreviation": "Crv",
+    "group": "2",
+    "abbreviation_group": "Crv2",
+    "star_1": "60965",
+    "star_2": "59803"
+  },
+  {
+    "abbreviation": "Crv",
+    "group": "3",
+    "abbreviation_group": "Crv3",
+    "star_1": "59803",
+    "star_2": "59316"
+  },
+  {
+    "abbreviation": "Crv",
+    "group": "4",
+    "abbreviation_group": "Crv4",
+    "star_1": "59316",
+    "star_2": "59199"
+  },
+  {
+    "abbreviation": "Crv",
+    "group": "5",
+    "abbreviation_group": "Crv5",
+    "star_1": "59316",
+    "star_2": "61359"
+  },
+  {
+    "abbreviation": "Crv",
+    "group": "6",
+    "abbreviation_group": "Crv6",
+    "star_1": "61359",
+    "star_2": "60965"
+  },
+  {
+    "abbreviation": "CVn",
+    "group": "1",
+    "abbreviation_group": "CVn1",
+    "star_1": "61317",
+    "star_2": "63125"
+  },
+  {
+    "abbreviation": "Cyg",
+    "group": "1",
+    "abbreviation_group": "Cyg1",
+    "star_1": "94779",
+    "star_2": "95853"
+  },
+  {
+    "abbreviation": "Cyg",
+    "group": "2",
+    "abbreviation_group": "Cyg2",
+    "star_1": "95853",
+    "star_2": "97165"
+  },
+  {
+    "abbreviation": "Cyg",
+    "group": "3",
+    "abbreviation_group": "Cyg3",
+    "star_1": "97165",
+    "star_2": "100453"
+  },
+  {
+    "abbreviation": "Cyg",
+    "group": "4",
+    "abbreviation_group": "Cyg4",
+    "star_1": "100453",
+    "star_2": "102098"
+  },
+  {
+    "abbreviation": "Cyg",
+    "group": "5",
+    "abbreviation_group": "Cyg5",
+    "star_1": "100453",
+    "star_2": "102488"
+  },
+  {
+    "abbreviation": "Cyg",
+    "group": "6",
+    "abbreviation_group": "Cyg6",
+    "star_1": "102488",
+    "star_2": "104732"
+  },
+  {
+    "abbreviation": "Cyg",
+    "group": "7",
+    "abbreviation_group": "Cyg7",
+    "star_1": "104732",
+    "star_2": "107310"
+  },
+  {
+    "abbreviation": "Cyg",
+    "group": "8",
+    "abbreviation_group": "Cyg8",
+    "star_1": "100453",
+    "star_2": "98110"
+  },
+  {
+    "abbreviation": "Cyg",
+    "group": "9",
+    "abbreviation_group": "Cyg9",
+    "star_1": "98110",
+    "star_2": "95947"
+  },
+  {
+    "abbreviation": "Del",
+    "group": "1",
+    "abbreviation_group": "Del1",
+    "star_1": "101421",
+    "star_2": "101769"
+  },
+  {
+    "abbreviation": "Del",
+    "group": "2",
+    "abbreviation_group": "Del2",
+    "star_1": "101769",
+    "star_2": "101958"
+  },
+  {
+    "abbreviation": "Del",
+    "group": "3",
+    "abbreviation_group": "Del3",
+    "star_1": "101958",
+    "star_2": "102532"
+  },
+  {
+    "abbreviation": "Del",
+    "group": "4",
+    "abbreviation_group": "Del4",
+    "star_1": "102532",
+    "star_2": "102281"
+  },
+  {
+    "abbreviation": "Del",
+    "group": "5",
+    "abbreviation_group": "Del5",
+    "star_1": "102281",
+    "star_2": "101769"
+  },
+  {
+    "abbreviation": "Dor",
+    "group": "1",
+    "abbreviation_group": "Dor1",
+    "star_1": "27100",
+    "star_2": "27890"
+  },
+  {
+    "abbreviation": "Dor",
+    "group": "2",
+    "abbreviation_group": "Dor2",
+    "star_1": "27890",
+    "star_2": "26069"
+  },
+  {
+    "abbreviation": "Dor",
+    "group": "3",
+    "abbreviation_group": "Dor3",
+    "star_1": "26069",
+    "star_2": "27100"
+  },
+  {
+    "abbreviation": "Dor",
+    "group": "4",
+    "abbreviation_group": "Dor4",
+    "star_1": "26069",
+    "star_2": "21281"
+  },
+  {
+    "abbreviation": "Dor",
+    "group": "5",
+    "abbreviation_group": "Dor5",
+    "star_1": "21281",
+    "star_2": "19893"
+  },
+  {
+    "abbreviation": "Dra",
+    "group": "1",
+    "abbreviation_group": "Dra1",
+    "star_1": "87585",
+    "star_2": "87833"
+  },
+  {
+    "abbreviation": "Dra",
+    "group": "2",
+    "abbreviation_group": "Dra2",
+    "star_1": "87833",
+    "star_2": "85670"
+  },
+  {
+    "abbreviation": "Dra",
+    "group": "3",
+    "abbreviation_group": "Dra3",
+    "star_1": "85670",
+    "star_2": "85829"
+  },
+  {
+    "abbreviation": "Dra",
+    "group": "4",
+    "abbreviation_group": "Dra4",
+    "star_1": "85829",
+    "star_2": "87585"
+  },
+  {
+    "abbreviation": "Dra",
+    "group": "5",
+    "abbreviation_group": "Dra5",
+    "star_1": "87585",
+    "star_2": "94376"
+  },
+  {
+    "abbreviation": "Dra",
+    "group": "6",
+    "abbreviation_group": "Dra6",
+    "star_1": "94376",
+    "star_2": "97433"
+  },
+  {
+    "abbreviation": "Dra",
+    "group": "7",
+    "abbreviation_group": "Dra7",
+    "star_1": "97433",
+    "star_2": "89937"
+  },
+  {
+    "abbreviation": "Dra",
+    "group": "8",
+    "abbreviation_group": "Dra8",
+    "star_1": "89937",
+    "star_2": "83895"
+  },
+  {
+    "abbreviation": "Dra",
+    "group": "9",
+    "abbreviation_group": "Dra9",
+    "star_1": "83895",
+    "star_2": "80331"
+  },
+  {
+    "abbreviation": "Dra",
+    "group": "10",
+    "abbreviation_group": "Dra10",
+    "star_1": "80331",
+    "star_2": "78527"
+  },
+  {
+    "abbreviation": "Dra",
+    "group": "11",
+    "abbreviation_group": "Dra11",
+    "star_1": "78527",
+    "star_2": "75458"
+  },
+  {
+    "abbreviation": "Dra",
+    "group": "12",
+    "abbreviation_group": "Dra12",
+    "star_1": "75458",
+    "star_2": "68756"
+  },
+  {
+    "abbreviation": "Dra",
+    "group": "13",
+    "abbreviation_group": "Dra13",
+    "star_1": "68756",
+    "star_2": "61281"
+  },
+  {
+    "abbreviation": "Dra",
+    "group": "14",
+    "abbreviation_group": "Dra14",
+    "star_1": "61281",
+    "star_2": "56211"
+  },
+  {
+    "abbreviation": "Equ",
+    "group": "1",
+    "abbreviation_group": "Equ1",
+    "star_1": "104521",
+    "star_2": "104858"
+  },
+  {
+    "abbreviation": "Equ",
+    "group": "2",
+    "abbreviation_group": "Equ2",
+    "star_1": "104858",
+    "star_2": "105570"
+  },
+  {
+    "abbreviation": "Equ",
+    "group": "3",
+    "abbreviation_group": "Equ3",
+    "star_1": "105570",
+    "star_2": "104987"
+  },
+  {
+    "abbreviation": "Equ",
+    "group": "4",
+    "abbreviation_group": "Equ4",
+    "star_1": "104987",
+    "star_2": "104521"
+  },
+  {
+    "abbreviation": "Eri",
+    "group": "1",
+    "abbreviation_group": "Eri1",
+    "star_1": "7588",
+    "star_2": "9007"
+  },
+  {
+    "abbreviation": "Eri",
+    "group": "2",
+    "abbreviation_group": "Eri2",
+    "star_1": "9007",
+    "star_2": "10602"
+  },
+  {
+    "abbreviation": "Eri",
+    "group": "3",
+    "abbreviation_group": "Eri3",
+    "star_1": "10602",
+    "star_2": "11407"
+  },
+  {
+    "abbreviation": "Eri",
+    "group": "4",
+    "abbreviation_group": "Eri4",
+    "star_1": "11407",
+    "star_2": "12413"
+  },
+  {
+    "abbreviation": "Eri",
+    "group": "5",
+    "abbreviation_group": "Eri5",
+    "star_1": "12413",
+    "star_2": "12486"
+  },
+  {
+    "abbreviation": "Eri",
+    "group": "6",
+    "abbreviation_group": "Eri6",
+    "star_1": "12486",
+    "star_2": "13847"
+  },
+  {
+    "abbreviation": "Eri",
+    "group": "7",
+    "abbreviation_group": "Eri7",
+    "star_1": "13847",
+    "star_2": "15510"
+  },
+  {
+    "abbreviation": "Eri",
+    "group": "8",
+    "abbreviation_group": "Eri8",
+    "star_1": "15510",
+    "star_2": "17797"
+  },
+  {
+    "abbreviation": "Eri",
+    "group": "9",
+    "abbreviation_group": "Eri9",
+    "star_1": "17797",
+    "star_2": "17874"
+  },
+  {
+    "abbreviation": "Eri",
+    "group": "10",
+    "abbreviation_group": "Eri10",
+    "star_1": "17874",
+    "star_2": "20042"
+  },
+  {
+    "abbreviation": "Eri",
+    "group": "11",
+    "abbreviation_group": "Eri11",
+    "star_1": "20042",
+    "star_2": "20535"
+  },
+  {
+    "abbreviation": "Eri",
+    "group": "12",
+    "abbreviation_group": "Eri12",
+    "star_1": "20535",
+    "star_2": "21393"
+  },
+  {
+    "abbreviation": "Eri",
+    "group": "13",
+    "abbreviation_group": "Eri13",
+    "star_1": "21393",
+    "star_2": "17651"
+  },
+  {
+    "abbreviation": "Eri",
+    "group": "14",
+    "abbreviation_group": "Eri14",
+    "star_1": "17651",
+    "star_2": "16611"
+  },
+  {
+    "abbreviation": "Eri",
+    "group": "15",
+    "abbreviation_group": "Eri15",
+    "star_1": "16611",
+    "star_2": "15474"
+  },
+  {
+    "abbreviation": "Eri",
+    "group": "16",
+    "abbreviation_group": "Eri16",
+    "star_1": "15474",
+    "star_2": "14146"
+  },
+  {
+    "abbreviation": "Eri",
+    "group": "17",
+    "abbreviation_group": "Eri17",
+    "star_1": "14146",
+    "star_2": "12843"
+  },
+  {
+    "abbreviation": "Eri",
+    "group": "18",
+    "abbreviation_group": "Eri18",
+    "star_1": "12843",
+    "star_2": "13701"
+  },
+  {
+    "abbreviation": "Eri",
+    "group": "19",
+    "abbreviation_group": "Eri19",
+    "star_1": "13701",
+    "star_2": "15197"
+  },
+  {
+    "abbreviation": "Eri",
+    "group": "20",
+    "abbreviation_group": "Eri20",
+    "star_1": "15197",
+    "star_2": "16537"
+  },
+  {
+    "abbreviation": "Eri",
+    "group": "21",
+    "abbreviation_group": "Eri21",
+    "star_1": "16537",
+    "star_2": "17378"
+  },
+  {
+    "abbreviation": "Eri",
+    "group": "22",
+    "abbreviation_group": "Eri22",
+    "star_1": "17378",
+    "star_2": "21444"
+  },
+  {
+    "abbreviation": "Eri",
+    "group": "23",
+    "abbreviation_group": "Eri23",
+    "star_1": "21444",
+    "star_2": "22109"
+  },
+  {
+    "abbreviation": "Eri",
+    "group": "24",
+    "abbreviation_group": "Eri24",
+    "star_1": "22109",
+    "star_2": "22701"
+  },
+  {
+    "abbreviation": "Eri",
+    "group": "25",
+    "abbreviation_group": "Eri25",
+    "star_1": "22701",
+    "star_2": "23875"
+  },
+  {
+    "abbreviation": "Eri",
+    "group": "26",
+    "abbreviation_group": "Eri26",
+    "star_1": "23875",
+    "star_2": "23972"
+  },
+  {
+    "abbreviation": "Eri",
+    "group": "27",
+    "abbreviation_group": "Eri27",
+    "star_1": "23972",
+    "star_2": "21594"
+  },
+  {
+    "abbreviation": "For",
+    "group": "1",
+    "abbreviation_group": "For1",
+    "star_1": "13147",
+    "star_2": "14879"
+  },
+  {
+    "abbreviation": "Gem",
+    "group": "1",
+    "abbreviation_group": "Gem1",
+    "star_1": "31681",
+    "star_2": "34088"
+  },
+  {
+    "abbreviation": "Gem",
+    "group": "2",
+    "abbreviation_group": "Gem2",
+    "star_1": "34088",
+    "star_2": "35550"
+  },
+  {
+    "abbreviation": "Gem",
+    "group": "3",
+    "abbreviation_group": "Gem3",
+    "star_1": "35550",
+    "star_2": "35350"
+  },
+  {
+    "abbreviation": "Gem",
+    "group": "4",
+    "abbreviation_group": "Gem4",
+    "star_1": "35350",
+    "star_2": "32362"
+  },
+  {
+    "abbreviation": "Gem",
+    "group": "5",
+    "abbreviation_group": "Gem5",
+    "star_1": "35550",
+    "star_2": "36962"
+  },
+  {
+    "abbreviation": "Gem",
+    "group": "6",
+    "abbreviation_group": "Gem6",
+    "star_1": "36962",
+    "star_2": "37740"
+  },
+  {
+    "abbreviation": "Gem",
+    "group": "7",
+    "abbreviation_group": "Gem7",
+    "star_1": "36962",
+    "star_2": "37826"
+  },
+  {
+    "abbreviation": "Gem",
+    "group": "8",
+    "abbreviation_group": "Gem8",
+    "star_1": "36962",
+    "star_2": "36046"
+  },
+  {
+    "abbreviation": "Gem",
+    "group": "9",
+    "abbreviation_group": "Gem9",
+    "star_1": "36046",
+    "star_2": "34693"
+  },
+  {
+    "abbreviation": "Gem",
+    "group": "10",
+    "abbreviation_group": "Gem10",
+    "star_1": "34693",
+    "star_2": "36850"
+  },
+  {
+    "abbreviation": "Gem",
+    "group": "11",
+    "abbreviation_group": "Gem11",
+    "star_1": "34693",
+    "star_2": "33018"
+  },
+  {
+    "abbreviation": "Gem",
+    "group": "12",
+    "abbreviation_group": "Gem12",
+    "star_1": "34693",
+    "star_2": "32246"
+  },
+  {
+    "abbreviation": "Gem",
+    "group": "13",
+    "abbreviation_group": "Gem13",
+    "star_1": "32246",
+    "star_2": "30883"
+  },
+  {
+    "abbreviation": "Gem",
+    "group": "14",
+    "abbreviation_group": "Gem14",
+    "star_1": "32246",
+    "star_2": "30343"
+  },
+  {
+    "abbreviation": "Gem",
+    "group": "15",
+    "abbreviation_group": "Gem15",
+    "star_1": "30343",
+    "star_2": "29655"
+  },
+  {
+    "abbreviation": "Gem",
+    "group": "16",
+    "abbreviation_group": "Gem16",
+    "star_1": "29655",
+    "star_2": "28734"
+  },
+  {
+    "abbreviation": "Gru",
+    "group": "1",
+    "abbreviation_group": "Gru1",
+    "star_1": "114131",
+    "star_2": "110997"
+  },
+  {
+    "abbreviation": "Gru",
+    "group": "2",
+    "abbreviation_group": "Gru2",
+    "star_1": "110997",
+    "star_2": "109268"
+  },
+  {
+    "abbreviation": "Gru",
+    "group": "3",
+    "abbreviation_group": "Gru3",
+    "star_1": "109268",
+    "star_2": "112122"
+  },
+  {
+    "abbreviation": "Gru",
+    "group": "4",
+    "abbreviation_group": "Gru4",
+    "star_1": "112122",
+    "star_2": "114421"
+  },
+  {
+    "abbreviation": "Gru",
+    "group": "5",
+    "abbreviation_group": "Gru5",
+    "star_1": "114421",
+    "star_2": "114131"
+  },
+  {
+    "abbreviation": "Gru",
+    "group": "6",
+    "abbreviation_group": "Gru6",
+    "star_1": "112122",
+    "star_2": "113638"
+  },
+  {
+    "abbreviation": "Gru",
+    "group": "7",
+    "abbreviation_group": "Gru7",
+    "star_1": "112122",
+    "star_2": "112623"
+  },
+  {
+    "abbreviation": "Gru",
+    "group": "8",
+    "abbreviation_group": "Gru8",
+    "star_1": "109268",
+    "star_2": "109111"
+  },
+  {
+    "abbreviation": "Gru",
+    "group": "9",
+    "abbreviation_group": "Gru9",
+    "star_1": "109111",
+    "star_2": "108085"
+  },
+  {
+    "abbreviation": "Her",
+    "group": "1",
+    "abbreviation_group": "Her1",
+    "star_1": "86414",
+    "star_2": "87808"
+  },
+  {
+    "abbreviation": "Her",
+    "group": "2",
+    "abbreviation_group": "Her2",
+    "star_1": "87808",
+    "star_2": "85112"
+  },
+  {
+    "abbreviation": "Her",
+    "group": "3",
+    "abbreviation_group": "Her3",
+    "star_1": "85112",
+    "star_2": "84606"
+  },
+  {
+    "abbreviation": "Her",
+    "group": "4",
+    "abbreviation_group": "Her4",
+    "star_1": "84606",
+    "star_2": "84380"
+  },
+  {
+    "abbreviation": "Her",
+    "group": "5",
+    "abbreviation_group": "Her5",
+    "star_1": "84380",
+    "star_2": "81833"
+  },
+  {
+    "abbreviation": "Her",
+    "group": "6",
+    "abbreviation_group": "Her6",
+    "star_1": "81833",
+    "star_2": "81126"
+  },
+  {
+    "abbreviation": "Her",
+    "group": "7",
+    "abbreviation_group": "Her7",
+    "star_1": "81126",
+    "star_2": "79992"
+  },
+  {
+    "abbreviation": "Her",
+    "group": "8",
+    "abbreviation_group": "Her8",
+    "star_1": "79992",
+    "star_2": "77760"
+  },
+  {
+    "abbreviation": "Her",
+    "group": "9",
+    "abbreviation_group": "Her9",
+    "star_1": "81833",
+    "star_2": "81693"
+  },
+  {
+    "abbreviation": "Her",
+    "group": "10",
+    "abbreviation_group": "Her10",
+    "star_1": "81693",
+    "star_2": "80816"
+  },
+  {
+    "abbreviation": "Her",
+    "group": "11",
+    "abbreviation_group": "Her11",
+    "star_1": "80816",
+    "star_2": "80170"
+  },
+  {
+    "abbreviation": "Her",
+    "group": "12",
+    "abbreviation_group": "Her12",
+    "star_1": "81693",
+    "star_2": "83207"
+  },
+  {
+    "abbreviation": "Her",
+    "group": "13",
+    "abbreviation_group": "Her13",
+    "star_1": "83207",
+    "star_2": "85693"
+  },
+  {
+    "abbreviation": "Her",
+    "group": "14",
+    "abbreviation_group": "Her14",
+    "star_1": "85693",
+    "star_2": "84379"
+  },
+  {
+    "abbreviation": "Her",
+    "group": "15",
+    "abbreviation_group": "Her15",
+    "star_1": "86974",
+    "star_2": "87933"
+  },
+  {
+    "abbreviation": "Her",
+    "group": "16",
+    "abbreviation_group": "Her16",
+    "star_1": "87933",
+    "star_2": "88794"
+  },
+  {
+    "abbreviation": "Her",
+    "group": "17",
+    "abbreviation_group": "Her17",
+    "star_1": "87933",
+    "star_2": "86974"
+  },
+  {
+    "abbreviation": "Her",
+    "group": "18",
+    "abbreviation_group": "Her18",
+    "star_1": "83207",
+    "star_2": "84380"
+  },
+  {
+    "abbreviation": "Hor",
+    "group": "1",
+    "abbreviation_group": "Hor1",
+    "star_1": "19747",
+    "star_2": "12484"
+  },
+  {
+    "abbreviation": "Hor",
+    "group": "2",
+    "abbreviation_group": "Hor2",
+    "star_1": "12484",
+    "star_2": "14240"
+  },
+  {
+    "abbreviation": "Hya",
+    "group": "1",
+    "abbreviation_group": "Hya1",
+    "star_1": "42799",
+    "star_2": "42402"
+  },
+  {
+    "abbreviation": "Hya",
+    "group": "2",
+    "abbreviation_group": "Hya2",
+    "star_1": "42402",
+    "star_2": "42313"
+  },
+  {
+    "abbreviation": "Hya",
+    "group": "3",
+    "abbreviation_group": "Hya3",
+    "star_1": "42313",
+    "star_2": "43109"
+  },
+  {
+    "abbreviation": "Hya",
+    "group": "4",
+    "abbreviation_group": "Hya4",
+    "star_1": "43109",
+    "star_2": "43234"
+  },
+  {
+    "abbreviation": "Hya",
+    "group": "5",
+    "abbreviation_group": "Hya5",
+    "star_1": "43234",
+    "star_2": "42799"
+  },
+  {
+    "abbreviation": "Hya",
+    "group": "6",
+    "abbreviation_group": "Hya6",
+    "star_1": "43234",
+    "star_2": "43813"
+  },
+  {
+    "abbreviation": "Hya",
+    "group": "7",
+    "abbreviation_group": "Hya7",
+    "star_1": "43813",
+    "star_2": "45336"
+  },
+  {
+    "abbreviation": "Hya",
+    "group": "8",
+    "abbreviation_group": "Hya8",
+    "star_1": "45336",
+    "star_2": "46776"
+  },
+  {
+    "abbreviation": "Hya",
+    "group": "9",
+    "abbreviation_group": "Hya9",
+    "star_1": "46776",
+    "star_2": "46509"
+  },
+  {
+    "abbreviation": "Hya",
+    "group": "10",
+    "abbreviation_group": "Hya10",
+    "star_1": "46509",
+    "star_2": "46390"
+  },
+  {
+    "abbreviation": "Hya",
+    "group": "11",
+    "abbreviation_group": "Hya11",
+    "star_1": "46390",
+    "star_2": "48356"
+  },
+  {
+    "abbreviation": "Hya",
+    "group": "12",
+    "abbreviation_group": "Hya12",
+    "star_1": "48356",
+    "star_2": "49841"
+  },
+  {
+    "abbreviation": "Hya",
+    "group": "13",
+    "abbreviation_group": "Hya13",
+    "star_1": "49841",
+    "star_2": "51069"
+  },
+  {
+    "abbreviation": "Hya",
+    "group": "14",
+    "abbreviation_group": "Hya14",
+    "star_1": "51069",
+    "star_2": "52943"
+  },
+  {
+    "abbreviation": "Hya",
+    "group": "15",
+    "abbreviation_group": "Hya15",
+    "star_1": "52943",
+    "star_2": "56343"
+  },
+  {
+    "abbreviation": "Hya",
+    "group": "16",
+    "abbreviation_group": "Hya16",
+    "star_1": "56343",
+    "star_2": "57936"
+  },
+  {
+    "abbreviation": "Hya",
+    "group": "17",
+    "abbreviation_group": "Hya17",
+    "star_1": "57936",
+    "star_2": "64166"
+  },
+  {
+    "abbreviation": "Hya",
+    "group": "18",
+    "abbreviation_group": "Hya18",
+    "star_1": "64166",
+    "star_2": "64962"
+  },
+  {
+    "abbreviation": "Hyi",
+    "group": "1",
+    "abbreviation_group": "Hyi1",
+    "star_1": "2021",
+    "star_2": "17678"
+  },
+  {
+    "abbreviation": "Hyi",
+    "group": "2",
+    "abbreviation_group": "Hyi2",
+    "star_1": "17678",
+    "star_2": "12394"
+  },
+  {
+    "abbreviation": "Hyi",
+    "group": "3",
+    "abbreviation_group": "Hyi3",
+    "star_1": "12394",
+    "star_2": "11001"
+  },
+  {
+    "abbreviation": "Hyi",
+    "group": "4",
+    "abbreviation_group": "Hyi4",
+    "star_1": "11001",
+    "star_2": "9236"
+  },
+  {
+    "abbreviation": "Ind",
+    "group": "1",
+    "abbreviation_group": "Ind1",
+    "star_1": "105319",
+    "star_2": "101772"
+  },
+  {
+    "abbreviation": "Ind",
+    "group": "2",
+    "abbreviation_group": "Ind2",
+    "star_1": "101772",
+    "star_2": "103227"
+  },
+  {
+    "abbreviation": "Ind",
+    "group": "3",
+    "abbreviation_group": "Ind3",
+    "star_1": "103227",
+    "star_2": "105319"
+  },
+  {
+    "abbreviation": "Lac",
+    "group": "1",
+    "abbreviation_group": "Lac1",
+    "star_1": "109937",
+    "star_2": "111104"
+  },
+  {
+    "abbreviation": "Lac",
+    "group": "2",
+    "abbreviation_group": "Lac2",
+    "star_1": "111104",
+    "star_2": "111022"
+  },
+  {
+    "abbreviation": "Lac",
+    "group": "3",
+    "abbreviation_group": "Lac3",
+    "star_1": "111022",
+    "star_2": "110609"
+  },
+  {
+    "abbreviation": "Lac",
+    "group": "4",
+    "abbreviation_group": "Lac4",
+    "star_1": "110609",
+    "star_2": "110538"
+  },
+  {
+    "abbreviation": "Lac",
+    "group": "5",
+    "abbreviation_group": "Lac5",
+    "star_1": "110538",
+    "star_2": "111169"
+  },
+  {
+    "abbreviation": "Lac",
+    "group": "6",
+    "abbreviation_group": "Lac6",
+    "star_1": "111169",
+    "star_2": "111022"
+  },
+  {
+    "abbreviation": "Leo",
+    "group": "1",
+    "abbreviation_group": "Leo1",
+    "star_1": "57632",
+    "star_2": "54879"
+  },
+  {
+    "abbreviation": "Leo",
+    "group": "2",
+    "abbreviation_group": "Leo2",
+    "star_1": "54879",
+    "star_2": "49669"
+  },
+  {
+    "abbreviation": "Leo",
+    "group": "3",
+    "abbreviation_group": "Leo3",
+    "star_1": "49669",
+    "star_2": "49583"
+  },
+  {
+    "abbreviation": "Leo",
+    "group": "4",
+    "abbreviation_group": "Leo4",
+    "star_1": "49583",
+    "star_2": "50583"
+  },
+  {
+    "abbreviation": "Leo",
+    "group": "5",
+    "abbreviation_group": "Leo5",
+    "star_1": "50583",
+    "star_2": "54872"
+  },
+  {
+    "abbreviation": "Leo",
+    "group": "6",
+    "abbreviation_group": "Leo6",
+    "star_1": "54872",
+    "star_2": "57632"
+  },
+  {
+    "abbreviation": "Leo",
+    "group": "7",
+    "abbreviation_group": "Leo7",
+    "star_1": "50583",
+    "star_2": "50335"
+  },
+  {
+    "abbreviation": "Leo",
+    "group": "8",
+    "abbreviation_group": "Leo8",
+    "star_1": "50335",
+    "star_2": "48455"
+  },
+  {
+    "abbreviation": "Leo",
+    "group": "9",
+    "abbreviation_group": "Leo9",
+    "star_1": "48455",
+    "star_2": "47908"
+  },
+  {
+    "abbreviation": "Leo",
+    "group": "10",
+    "abbreviation_group": "Leo10",
+    "star_1": "54872",
+    "star_2": "54879"
+  },
+  {
+    "abbreviation": "Lep",
+    "group": "1",
+    "abbreviation_group": "Lep1",
+    "star_1": "28910",
+    "star_2": "28103"
+  },
+  {
+    "abbreviation": "Lep",
+    "group": "2",
+    "abbreviation_group": "Lep2",
+    "star_1": "28103",
+    "star_2": "27288"
+  },
+  {
+    "abbreviation": "Lep",
+    "group": "3",
+    "abbreviation_group": "Lep3",
+    "star_1": "27288",
+    "star_2": "25985"
+  },
+  {
+    "abbreviation": "Lep",
+    "group": "4",
+    "abbreviation_group": "Lep4",
+    "star_1": "25985",
+    "star_2": "24305"
+  },
+  {
+    "abbreviation": "Lep",
+    "group": "5",
+    "abbreviation_group": "Lep5",
+    "star_1": "25985",
+    "star_2": "27654"
+  },
+  {
+    "abbreviation": "Lep",
+    "group": "6",
+    "abbreviation_group": "Lep6",
+    "star_1": "27654",
+    "star_2": "27072"
+  },
+  {
+    "abbreviation": "Lep",
+    "group": "7",
+    "abbreviation_group": "Lep7",
+    "star_1": "27072",
+    "star_2": "25606"
+  },
+  {
+    "abbreviation": "Lep",
+    "group": "8",
+    "abbreviation_group": "Lep8",
+    "star_1": "25606",
+    "star_2": "23685"
+  },
+  {
+    "abbreviation": "Lep",
+    "group": "9",
+    "abbreviation_group": "Lep9",
+    "star_1": "25985",
+    "star_2": "25606"
+  },
+  {
+    "abbreviation": "Lep",
+    "group": "10",
+    "abbreviation_group": "Lep10",
+    "star_1": "24305",
+    "star_2": "24845"
+  },
+  {
+    "abbreviation": "Lep",
+    "group": "11",
+    "abbreviation_group": "Lep11",
+    "star_1": "24305",
+    "star_2": "24327"
+  },
+  {
+    "abbreviation": "Lep",
+    "group": "12",
+    "abbreviation_group": "Lep12",
+    "star_1": "23685",
+    "star_2": "24305"
+  },
+  {
+    "abbreviation": "Lep",
+    "group": "13",
+    "abbreviation_group": "Lep13",
+    "star_1": "24327",
+    "star_2": "24244"
+  },
+  {
+    "abbreviation": "Lep",
+    "group": "14",
+    "abbreviation_group": "Lep14",
+    "star_1": "24845",
+    "star_2": "24873"
+  },
+  {
+    "abbreviation": "Lib",
+    "group": "1",
+    "abbreviation_group": "Lib1",
+    "star_1": "77853",
+    "star_2": "76333"
+  },
+  {
+    "abbreviation": "Lib",
+    "group": "2",
+    "abbreviation_group": "Lib2",
+    "star_1": "76333",
+    "star_2": "74785"
+  },
+  {
+    "abbreviation": "Lib",
+    "group": "3",
+    "abbreviation_group": "Lib3",
+    "star_1": "74785",
+    "star_2": "72622"
+  },
+  {
+    "abbreviation": "Lib",
+    "group": "4",
+    "abbreviation_group": "Lib4",
+    "star_1": "72622",
+    "star_2": "73714"
+  },
+  {
+    "abbreviation": "Lib",
+    "group": "5",
+    "abbreviation_group": "Lib5",
+    "star_1": "73714",
+    "star_2": "76333"
+  },
+  {
+    "abbreviation": "LMi",
+    "group": "1",
+    "abbreviation_group": "LMi1",
+    "star_1": "53229",
+    "star_2": "51233"
+  },
+  {
+    "abbreviation": "LMi",
+    "group": "2",
+    "abbreviation_group": "LMi2",
+    "star_1": "51233",
+    "star_2": "49593"
+  },
+  {
+    "abbreviation": "LMi",
+    "group": "3",
+    "abbreviation_group": "LMi3",
+    "star_1": "49593",
+    "star_2": "46952"
+  },
+  {
+    "abbreviation": "LMi",
+    "group": "4",
+    "abbreviation_group": "LMi4",
+    "star_1": "49593",
+    "star_2": "53229"
+  },
+  {
+    "abbreviation": "Lup",
+    "group": "1",
+    "abbreviation_group": "Lup1",
+    "star_1": "77634",
+    "star_2": "78970"
+  },
+  {
+    "abbreviation": "Lup",
+    "group": "2",
+    "abbreviation_group": "Lup2",
+    "star_1": "78970",
+    "star_2": "78384"
+  },
+  {
+    "abbreviation": "Lup",
+    "group": "3",
+    "abbreviation_group": "Lup3",
+    "star_1": "78384",
+    "star_2": "77634"
+  },
+  {
+    "abbreviation": "Lup",
+    "group": "4",
+    "abbreviation_group": "Lup4",
+    "star_1": "78384",
+    "star_2": "76297"
+  },
+  {
+    "abbreviation": "Lup",
+    "group": "5",
+    "abbreviation_group": "Lup5",
+    "star_1": "76297",
+    "star_2": "75141"
+  },
+  {
+    "abbreviation": "Lup",
+    "group": "6",
+    "abbreviation_group": "Lup6",
+    "star_1": "75141",
+    "star_2": "75177"
+  },
+  {
+    "abbreviation": "Lup",
+    "group": "7",
+    "abbreviation_group": "Lup7",
+    "star_1": "75141",
+    "star_2": "73273"
+  },
+  {
+    "abbreviation": "Lup",
+    "group": "8",
+    "abbreviation_group": "Lup8",
+    "star_1": "76297",
+    "star_2": "76552"
+  },
+  {
+    "abbreviation": "Lup",
+    "group": "9",
+    "abbreviation_group": "Lup9",
+    "star_1": "76552",
+    "star_2": "74395"
+  },
+  {
+    "abbreviation": "Lup",
+    "group": "10",
+    "abbreviation_group": "Lup10",
+    "star_1": "74395",
+    "star_2": "71860"
+  },
+  {
+    "abbreviation": "Lup",
+    "group": "11",
+    "abbreviation_group": "Lup11",
+    "star_1": "74395",
+    "star_2": "71536"
+  },
+  {
+    "abbreviation": "Lup",
+    "group": "12",
+    "abbreviation_group": "Lup12",
+    "star_1": "71860",
+    "star_2": "70576"
+  },
+  {
+    "abbreviation": "Lup",
+    "group": "13",
+    "abbreviation_group": "Lup13",
+    "star_1": "71860",
+    "star_2": "73273"
+  },
+  {
+    "abbreviation": "Lyn",
+    "group": "1",
+    "abbreviation_group": "Lyn1",
+    "star_1": "45860",
+    "star_2": "45688"
+  },
+  {
+    "abbreviation": "Lyn",
+    "group": "2",
+    "abbreviation_group": "Lyn2",
+    "star_1": "45688",
+    "star_2": "44700"
+  },
+  {
+    "abbreviation": "Lyn",
+    "group": "3",
+    "abbreviation_group": "Lyn3",
+    "star_1": "44700",
+    "star_2": "44248"
+  },
+  {
+    "abbreviation": "Lyn",
+    "group": "4",
+    "abbreviation_group": "Lyn4",
+    "star_1": "44248",
+    "star_2": "41075"
+  },
+  {
+    "abbreviation": "Lyn",
+    "group": "5",
+    "abbreviation_group": "Lyn5",
+    "star_1": "41075",
+    "star_2": "36145"
+  },
+  {
+    "abbreviation": "Lyn",
+    "group": "6",
+    "abbreviation_group": "Lyn6",
+    "star_1": "36145",
+    "star_2": "33449"
+  },
+  {
+    "abbreviation": "Lyn",
+    "group": "7",
+    "abbreviation_group": "Lyn7",
+    "star_1": "33449",
+    "star_2": "30060"
+  },
+  {
+    "abbreviation": "Lyr",
+    "group": "1",
+    "abbreviation_group": "Lyr1",
+    "star_1": "91262",
+    "star_2": "91971"
+  },
+  {
+    "abbreviation": "Lyr",
+    "group": "2",
+    "abbreviation_group": "Lyr2",
+    "star_1": "91971",
+    "star_2": "92420"
+  },
+  {
+    "abbreviation": "Lyr",
+    "group": "3",
+    "abbreviation_group": "Lyr3",
+    "star_1": "92420",
+    "star_2": "93194"
+  },
+  {
+    "abbreviation": "Lyr",
+    "group": "4",
+    "abbreviation_group": "Lyr4",
+    "star_1": "93194",
+    "star_2": "92791"
+  },
+  {
+    "abbreviation": "Lyr",
+    "group": "5",
+    "abbreviation_group": "Lyr5",
+    "star_1": "92791",
+    "star_2": "91971"
+  },
+  {
+    "abbreviation": "Men",
+    "group": "1",
+    "abbreviation_group": "Men1",
+    "star_1": "25918",
+    "star_2": "21949"
+  },
+  {
+    "abbreviation": "Mic",
+    "group": "1",
+    "abbreviation_group": "Mic1",
+    "star_1": "105140",
+    "star_2": "103738"
+  },
+  {
+    "abbreviation": "Mic",
+    "group": "2",
+    "abbreviation_group": "Mic2",
+    "star_1": "103738",
+    "star_2": "102831"
+  },
+  {
+    "abbreviation": "Mon",
+    "group": "1",
+    "abbreviation_group": "Mon1",
+    "star_1": "29651",
+    "star_2": "30867"
+  },
+  {
+    "abbreviation": "Mon",
+    "group": "2",
+    "abbreviation_group": "Mon2",
+    "star_1": "30867",
+    "star_2": "34769"
+  },
+  {
+    "abbreviation": "Mon",
+    "group": "3",
+    "abbreviation_group": "Mon3",
+    "star_1": "34769",
+    "star_2": "30419"
+  },
+  {
+    "abbreviation": "Mon",
+    "group": "4",
+    "abbreviation_group": "Mon4",
+    "star_1": "30419",
+    "star_2": "29151"
+  },
+  {
+    "abbreviation": "Mon",
+    "group": "5",
+    "abbreviation_group": "Mon5",
+    "star_1": "34769",
+    "star_2": "39863"
+  },
+  {
+    "abbreviation": "Mon",
+    "group": "6",
+    "abbreviation_group": "Mon6",
+    "star_1": "39863",
+    "star_2": "37447"
+  },
+  {
+    "abbreviation": "Mus",
+    "group": "1",
+    "abbreviation_group": "Mus1",
+    "star_1": "62322",
+    "star_2": "57363"
+  },
+  {
+    "abbreviation": "Mus",
+    "group": "2",
+    "abbreviation_group": "Mus2",
+    "star_1": "57363",
+    "star_2": "61199"
+  },
+  {
+    "abbreviation": "Mus",
+    "group": "3",
+    "abbreviation_group": "Mus3",
+    "star_1": "61199",
+    "star_2": "61585"
+  },
+  {
+    "abbreviation": "Mus",
+    "group": "4",
+    "abbreviation_group": "Mus4",
+    "star_1": "61585",
+    "star_2": "62322"
+  },
+  {
+    "abbreviation": "Nor",
+    "group": "1",
+    "abbreviation_group": "Nor1",
+    "star_1": "79509",
+    "star_2": "80000"
+  },
+  {
+    "abbreviation": "Nor",
+    "group": "2",
+    "abbreviation_group": "Nor2",
+    "star_1": "80000",
+    "star_2": "80582"
+  },
+  {
+    "abbreviation": "Nor",
+    "group": "3",
+    "abbreviation_group": "Nor3",
+    "star_1": "80582",
+    "star_2": "78639"
+  },
+  {
+    "abbreviation": "Nor",
+    "group": "4",
+    "abbreviation_group": "Nor4",
+    "star_1": "78639",
+    "star_2": "80000"
+  },
+  {
+    "abbreviation": "Nor",
+    "group": "5",
+    "abbreviation_group": "Nor5",
+    "star_1": "78639",
+    "star_2": "79509"
+  },
+  {
+    "abbreviation": "Oct",
+    "group": "1",
+    "abbreviation_group": "1-Oct",
+    "star_1": "107089",
+    "star_2": "112405"
+  },
+  {
+    "abbreviation": "Oct",
+    "group": "2",
+    "abbreviation_group": "2-Oct",
+    "star_1": "112405",
+    "star_2": "70638"
+  },
+  {
+    "abbreviation": "Oct",
+    "group": "3",
+    "abbreviation_group": "3-Oct",
+    "star_1": "70638",
+    "star_2": "107089"
+  },
+  {
+    "abbreviation": "Oph",
+    "group": "1",
+    "abbreviation_group": "Oph1",
+    "star_1": "86032",
+    "star_2": "86742"
+  },
+  {
+    "abbreviation": "Oph",
+    "group": "2",
+    "abbreviation_group": "Oph2",
+    "star_1": "84012",
+    "star_2": "86742"
+  },
+  {
+    "abbreviation": "Oph",
+    "group": "3",
+    "abbreviation_group": "Oph3",
+    "star_1": "86032",
+    "star_2": "83000"
+  },
+  {
+    "abbreviation": "Oph",
+    "group": "4",
+    "abbreviation_group": "Oph4",
+    "star_1": "83000",
+    "star_2": "79882"
+  },
+  {
+    "abbreviation": "Oph",
+    "group": "5",
+    "abbreviation_group": "Oph5",
+    "star_1": "79882",
+    "star_2": "81377"
+  },
+  {
+    "abbreviation": "Oph",
+    "group": "6",
+    "abbreviation_group": "Oph6",
+    "star_1": "81377",
+    "star_2": "84012"
+  },
+  {
+    "abbreviation": "Oph",
+    "group": "7",
+    "abbreviation_group": "Oph7",
+    "star_1": "84012",
+    "star_2": "85755"
+  },
+  {
+    "abbreviation": "Ori",
+    "group": "1",
+    "abbreviation_group": "Ori1",
+    "star_1": "26727",
+    "star_2": "26311"
+  },
+  {
+    "abbreviation": "Ori",
+    "group": "2",
+    "abbreviation_group": "Ori2",
+    "star_1": "26311",
+    "star_2": "25930"
+  },
+  {
+    "abbreviation": "Ori",
+    "group": "3",
+    "abbreviation_group": "Ori3",
+    "star_1": "28691",
+    "star_2": "29426"
+  },
+  {
+    "abbreviation": "Ori",
+    "group": "4",
+    "abbreviation_group": "Ori4",
+    "star_1": "29426",
+    "star_2": "29038"
+  },
+  {
+    "abbreviation": "Ori",
+    "group": "5",
+    "abbreviation_group": "Ori5",
+    "star_1": "29038",
+    "star_2": "27913"
+  },
+  {
+    "abbreviation": "Ori",
+    "group": "6",
+    "abbreviation_group": "Ori6",
+    "star_1": "29426",
+    "star_2": "28614"
+  },
+  {
+    "abbreviation": "Ori",
+    "group": "7",
+    "abbreviation_group": "Ori7",
+    "star_1": "28614",
+    "star_2": "27989"
+  },
+  {
+    "abbreviation": "Ori",
+    "group": "8",
+    "abbreviation_group": "Ori8",
+    "star_1": "27989",
+    "star_2": "26727"
+  },
+  {
+    "abbreviation": "Ori",
+    "group": "9",
+    "abbreviation_group": "Ori9",
+    "star_1": "26727",
+    "star_2": "27366"
+  },
+  {
+    "abbreviation": "Ori",
+    "group": "10",
+    "abbreviation_group": "Ori10",
+    "star_1": "27366",
+    "star_2": "24436"
+  },
+  {
+    "abbreviation": "Ori",
+    "group": "11",
+    "abbreviation_group": "Ori11",
+    "star_1": "24436",
+    "star_2": "25930"
+  },
+  {
+    "abbreviation": "Ori",
+    "group": "12",
+    "abbreviation_group": "Ori12",
+    "star_1": "25930",
+    "star_2": "25336"
+  },
+  {
+    "abbreviation": "Ori",
+    "group": "13",
+    "abbreviation_group": "Ori13",
+    "star_1": "25336",
+    "star_2": "26207"
+  },
+  {
+    "abbreviation": "Ori",
+    "group": "14",
+    "abbreviation_group": "Ori14",
+    "star_1": "26207",
+    "star_2": "27989"
+  },
+  {
+    "abbreviation": "Ori",
+    "group": "15",
+    "abbreviation_group": "Ori15",
+    "star_1": "25336",
+    "star_2": "22449"
+  },
+  {
+    "abbreviation": "Ori",
+    "group": "16",
+    "abbreviation_group": "Ori16",
+    "star_1": "22449",
+    "star_2": "22549"
+  },
+  {
+    "abbreviation": "Ori",
+    "group": "17",
+    "abbreviation_group": "Ori17",
+    "star_1": "22549",
+    "star_2": "22730"
+  },
+  {
+    "abbreviation": "Ori",
+    "group": "18",
+    "abbreviation_group": "Ori18",
+    "star_1": "22730",
+    "star_2": "23123"
+  },
+  {
+    "abbreviation": "Ori",
+    "group": "19",
+    "abbreviation_group": "Ori19",
+    "star_1": "22449",
+    "star_2": "22509"
+  },
+  {
+    "abbreviation": "Ori",
+    "group": "20",
+    "abbreviation_group": "Ori20",
+    "star_1": "22509",
+    "star_2": "22845"
+  },
+  {
+    "abbreviation": "Ori",
+    "group": "21",
+    "abbreviation_group": "Ori21",
+    "star_1": "29038",
+    "star_2": "28614"
+  },
+  {
+    "abbreviation": "Pav",
+    "group": "1",
+    "abbreviation_group": "Pav1",
+    "star_1": "100751",
+    "star_2": "105858"
+  },
+  {
+    "abbreviation": "Pav",
+    "group": "2",
+    "abbreviation_group": "Pav2",
+    "star_1": "105858",
+    "star_2": "102395"
+  },
+  {
+    "abbreviation": "Pav",
+    "group": "3",
+    "abbreviation_group": "Pav3",
+    "star_1": "102395",
+    "star_2": "99240"
+  },
+  {
+    "abbreviation": "Pav",
+    "group": "4",
+    "abbreviation_group": "Pav4",
+    "star_1": "99240",
+    "star_2": "100751"
+  },
+  {
+    "abbreviation": "Pav",
+    "group": "5",
+    "abbreviation_group": "Pav5",
+    "star_1": "99240",
+    "star_2": "98495"
+  },
+  {
+    "abbreviation": "Pav",
+    "group": "6",
+    "abbreviation_group": "Pav6",
+    "star_1": "98495",
+    "star_2": "91792"
+  },
+  {
+    "abbreviation": "Pav",
+    "group": "7",
+    "abbreviation_group": "Pav7",
+    "star_1": "91792",
+    "star_2": "93015"
+  },
+  {
+    "abbreviation": "Pav",
+    "group": "8",
+    "abbreviation_group": "Pav8",
+    "star_1": "93015",
+    "star_2": "99240"
+  },
+  {
+    "abbreviation": "Pav",
+    "group": "9",
+    "abbreviation_group": "Pav9",
+    "star_1": "93015",
+    "star_2": "92609"
+  },
+  {
+    "abbreviation": "Pav",
+    "group": "10",
+    "abbreviation_group": "Pav10",
+    "star_1": "92609",
+    "star_2": "90098"
+  },
+  {
+    "abbreviation": "Pav",
+    "group": "11",
+    "abbreviation_group": "Pav11",
+    "star_1": "90098",
+    "star_2": "88866"
+  },
+  {
+    "abbreviation": "Pav",
+    "group": "12",
+    "abbreviation_group": "Pav12",
+    "star_1": "88866",
+    "star_2": "92609"
+  },
+  {
+    "abbreviation": "Pav",
+    "group": "13",
+    "abbreviation_group": "Pav13",
+    "star_1": "88866",
+    "star_2": "86929"
+  },
+  {
+    "abbreviation": "Peg",
+    "group": "1",
+    "abbreviation_group": "Peg1",
+    "star_1": "1067",
+    "star_2": "113963"
+  },
+  {
+    "abbreviation": "Peg",
+    "group": "2",
+    "abbreviation_group": "Peg2",
+    "star_1": "113881",
+    "star_2": "112158"
+  },
+  {
+    "abbreviation": "Peg",
+    "group": "3",
+    "abbreviation_group": "Peg3",
+    "star_1": "112158",
+    "star_2": "109352"
+  },
+  {
+    "abbreviation": "Peg",
+    "group": "4",
+    "abbreviation_group": "Peg4",
+    "star_1": "113881",
+    "star_2": "112748"
+  },
+  {
+    "abbreviation": "Peg",
+    "group": "5",
+    "abbreviation_group": "Peg5",
+    "star_1": "112748",
+    "star_2": "112440"
+  },
+  {
+    "abbreviation": "Peg",
+    "group": "6",
+    "abbreviation_group": "Peg6",
+    "star_1": "112440",
+    "star_2": "109176"
+  },
+  {
+    "abbreviation": "Peg",
+    "group": "7",
+    "abbreviation_group": "Peg7",
+    "star_1": "109176",
+    "star_2": "107354"
+  },
+  {
+    "abbreviation": "Peg",
+    "group": "8",
+    "abbreviation_group": "Peg8",
+    "star_1": "113963",
+    "star_2": "112447"
+  },
+  {
+    "abbreviation": "Peg",
+    "group": "9",
+    "abbreviation_group": "Peg9",
+    "star_1": "112447",
+    "star_2": "112029"
+  },
+  {
+    "abbreviation": "Peg",
+    "group": "10",
+    "abbreviation_group": "Peg10",
+    "star_1": "112029",
+    "star_2": "109427"
+  },
+  {
+    "abbreviation": "Peg",
+    "group": "11",
+    "abbreviation_group": "Peg11",
+    "star_1": "109427",
+    "star_2": "107315"
+  },
+  {
+    "abbreviation": "Peg",
+    "group": "12",
+    "abbreviation_group": "Peg12",
+    "star_1": "677",
+    "star_2": "113881"
+  },
+  {
+    "abbreviation": "Peg",
+    "group": "13",
+    "abbreviation_group": "Peg13",
+    "star_1": "677",
+    "star_2": "1067"
+  },
+  {
+    "abbreviation": "Peg",
+    "group": "14",
+    "abbreviation_group": "Peg14",
+    "star_1": "113881",
+    "star_2": "113963"
+  },
+  {
+    "abbreviation": "Per",
+    "group": "1",
+    "abbreviation_group": "Per1",
+    "star_1": "17448",
+    "star_2": "18246"
+  },
+  {
+    "abbreviation": "Per",
+    "group": "2",
+    "abbreviation_group": "Per2",
+    "star_1": "18246",
+    "star_2": "18614"
+  },
+  {
+    "abbreviation": "Per",
+    "group": "3",
+    "abbreviation_group": "Per3",
+    "star_1": "18614",
+    "star_2": "18532"
+  },
+  {
+    "abbreviation": "Per",
+    "group": "4",
+    "abbreviation_group": "Per4",
+    "star_1": "18532",
+    "star_2": "17358"
+  },
+  {
+    "abbreviation": "Per",
+    "group": "5",
+    "abbreviation_group": "Per5",
+    "star_1": "17358",
+    "star_2": "15863"
+  },
+  {
+    "abbreviation": "Per",
+    "group": "6",
+    "abbreviation_group": "Per6",
+    "star_1": "15863",
+    "star_2": "14328"
+  },
+  {
+    "abbreviation": "Per",
+    "group": "7",
+    "abbreviation_group": "Per7",
+    "star_1": "14328",
+    "star_2": "13268"
+  },
+  {
+    "abbreviation": "Per",
+    "group": "8",
+    "abbreviation_group": "Per8",
+    "star_1": "15863",
+    "star_2": "14576"
+  },
+  {
+    "abbreviation": "Per",
+    "group": "9",
+    "abbreviation_group": "Per9",
+    "star_1": "14576",
+    "star_2": "14354"
+  },
+  {
+    "abbreviation": "Per",
+    "group": "10",
+    "abbreviation_group": "Per10",
+    "star_1": "14354",
+    "star_2": "13254"
+  },
+  {
+    "abbreviation": "Phe",
+    "group": "1",
+    "abbreviation_group": "Phe1",
+    "star_1": "5348",
+    "star_2": "5165"
+  },
+  {
+    "abbreviation": "Phe",
+    "group": "2",
+    "abbreviation_group": "Phe2",
+    "star_1": "5165",
+    "star_2": "2072"
+  },
+  {
+    "abbreviation": "Phe",
+    "group": "3",
+    "abbreviation_group": "Phe3",
+    "star_1": "2072",
+    "star_2": "5348"
+  },
+  {
+    "abbreviation": "Phe",
+    "group": "4",
+    "abbreviation_group": "Phe4",
+    "star_1": "5165",
+    "star_2": "7083"
+  },
+  {
+    "abbreviation": "Phe",
+    "group": "5",
+    "abbreviation_group": "Phe5",
+    "star_1": "7083",
+    "star_2": "8837"
+  },
+  {
+    "abbreviation": "Phe",
+    "group": "6",
+    "abbreviation_group": "Phe6",
+    "star_1": "8837",
+    "star_2": "5165"
+  },
+  {
+    "abbreviation": "Phe",
+    "group": "7",
+    "abbreviation_group": "Phe7",
+    "star_1": "5165",
+    "star_2": "6867"
+  },
+  {
+    "abbreviation": "Phe",
+    "group": "8",
+    "abbreviation_group": "Phe8",
+    "star_1": "6867",
+    "star_2": "2072"
+  },
+  {
+    "abbreviation": "Phe",
+    "group": "9",
+    "abbreviation_group": "Phe9",
+    "star_1": "2072",
+    "star_2": "2081"
+  },
+  {
+    "abbreviation": "Phe",
+    "group": "10",
+    "abbreviation_group": "Phe10",
+    "star_1": "2081",
+    "star_2": "765"
+  },
+  {
+    "abbreviation": "Phe",
+    "group": "11",
+    "abbreviation_group": "Phe11",
+    "star_1": "765",
+    "star_2": "2072"
+  },
+  {
+    "abbreviation": "Pic",
+    "group": "1",
+    "abbreviation_group": "Pic1",
+    "star_1": "32607",
+    "star_2": "27530"
+  },
+  {
+    "abbreviation": "Pic",
+    "group": "2",
+    "abbreviation_group": "Pic2",
+    "star_1": "27530",
+    "star_2": "27321"
+  },
+  {
+    "abbreviation": "PsA",
+    "group": "1",
+    "abbreviation_group": "PsA1",
+    "star_1": "113368",
+    "star_2": "111954"
+  },
+  {
+    "abbreviation": "PsA",
+    "group": "2",
+    "abbreviation_group": "PsA2",
+    "star_1": "111954",
+    "star_2": "108661"
+  },
+  {
+    "abbreviation": "PsA",
+    "group": "3",
+    "abbreviation_group": "PsA3",
+    "star_1": "108661",
+    "star_2": "107608"
+  },
+  {
+    "abbreviation": "PsA",
+    "group": "4",
+    "abbreviation_group": "PsA4",
+    "star_1": "107608",
+    "star_2": "109422"
+  },
+  {
+    "abbreviation": "PsA",
+    "group": "5",
+    "abbreviation_group": "PsA5",
+    "star_1": "109422",
+    "star_2": "111188"
+  },
+  {
+    "abbreviation": "PsA",
+    "group": "6",
+    "abbreviation_group": "PsA6",
+    "star_1": "111188",
+    "star_2": "113246"
+  },
+  {
+    "abbreviation": "Psc",
+    "group": "1",
+    "abbreviation_group": "Psc1",
+    "star_1": "4889",
+    "star_2": "5742"
+  },
+  {
+    "abbreviation": "Psc",
+    "group": "2",
+    "abbreviation_group": "Psc2",
+    "star_1": "4889",
+    "star_2": "6193"
+  },
+  {
+    "abbreviation": "Psc",
+    "group": "3",
+    "abbreviation_group": "Psc3",
+    "star_1": "6193",
+    "star_2": "5742"
+  },
+  {
+    "abbreviation": "Psc",
+    "group": "4",
+    "abbreviation_group": "Psc4",
+    "star_1": "5742",
+    "star_2": "7097"
+  },
+  {
+    "abbreviation": "Psc",
+    "group": "5",
+    "abbreviation_group": "Psc5",
+    "star_1": "7097",
+    "star_2": "8198"
+  },
+  {
+    "abbreviation": "Psc",
+    "group": "6",
+    "abbreviation_group": "Psc6",
+    "star_1": "8198",
+    "star_2": "9487"
+  },
+  {
+    "abbreviation": "Psc",
+    "group": "7",
+    "abbreviation_group": "Psc7",
+    "star_1": "9487",
+    "star_2": "8833"
+  },
+  {
+    "abbreviation": "Psc",
+    "group": "8",
+    "abbreviation_group": "Psc8",
+    "star_1": "8833",
+    "star_2": "7884"
+  },
+  {
+    "abbreviation": "Psc",
+    "group": "9",
+    "abbreviation_group": "Psc9",
+    "star_1": "7884",
+    "star_2": "7007"
+  },
+  {
+    "abbreviation": "Psc",
+    "group": "10",
+    "abbreviation_group": "Psc10",
+    "star_1": "7007",
+    "star_2": "4906"
+  },
+  {
+    "abbreviation": "Psc",
+    "group": "11",
+    "abbreviation_group": "Psc11",
+    "star_1": "4906",
+    "star_2": "3760"
+  },
+  {
+    "abbreviation": "Psc",
+    "group": "12",
+    "abbreviation_group": "Psc12",
+    "star_1": "3760",
+    "star_2": "1645"
+  },
+  {
+    "abbreviation": "Psc",
+    "group": "13",
+    "abbreviation_group": "Psc13",
+    "star_1": "1645",
+    "star_2": "118268"
+  },
+  {
+    "abbreviation": "Psc",
+    "group": "14",
+    "abbreviation_group": "Psc14",
+    "star_1": "118268",
+    "star_2": "116771"
+  },
+  {
+    "abbreviation": "Psc",
+    "group": "15",
+    "abbreviation_group": "Psc15",
+    "star_1": "116771",
+    "star_2": "116928"
+  },
+  {
+    "abbreviation": "Psc",
+    "group": "16",
+    "abbreviation_group": "Psc16",
+    "star_1": "116928",
+    "star_2": "115738"
+  },
+  {
+    "abbreviation": "Psc",
+    "group": "17",
+    "abbreviation_group": "Psc17",
+    "star_1": "115738",
+    "star_2": "114971"
+  },
+  {
+    "abbreviation": "Psc",
+    "group": "18",
+    "abbreviation_group": "Psc18",
+    "star_1": "114971",
+    "star_2": "115830"
+  },
+  {
+    "abbreviation": "Psc",
+    "group": "19",
+    "abbreviation_group": "Psc19",
+    "star_1": "115830",
+    "star_2": "116771"
+  },
+  {
+    "abbreviation": "Pup",
+    "group": "1",
+    "abbreviation_group": "Pup1",
+    "star_1": "39757",
+    "star_2": "38146"
+  },
+  {
+    "abbreviation": "Pup",
+    "group": "2",
+    "abbreviation_group": "Pup2",
+    "star_1": "38146",
+    "star_2": "35264"
+  },
+  {
+    "abbreviation": "Pup",
+    "group": "3",
+    "abbreviation_group": "Pup3",
+    "star_1": "35264",
+    "star_2": "31685"
+  },
+  {
+    "abbreviation": "Pup",
+    "group": "4",
+    "abbreviation_group": "Pup4",
+    "star_1": "31685",
+    "star_2": "32768"
+  },
+  {
+    "abbreviation": "Pup",
+    "group": "5",
+    "abbreviation_group": "Pup5",
+    "star_1": "32768",
+    "star_2": "36377"
+  },
+  {
+    "abbreviation": "Pup",
+    "group": "6",
+    "abbreviation_group": "Pup6",
+    "star_1": "36377",
+    "star_2": "39429"
+  },
+  {
+    "abbreviation": "Pup",
+    "group": "7",
+    "abbreviation_group": "Pup7",
+    "star_1": "39429",
+    "star_2": "39757"
+  },
+  {
+    "abbreviation": "Pyx",
+    "group": "1",
+    "abbreviation_group": "Pyx1",
+    "star_1": "42515",
+    "star_2": "42828"
+  },
+  {
+    "abbreviation": "Pyx",
+    "group": "2",
+    "abbreviation_group": "Pyx2",
+    "star_1": "42828",
+    "star_2": "43409"
+  },
+  {
+    "abbreviation": "Ret",
+    "group": "1",
+    "abbreviation_group": "Ret1",
+    "star_1": "19780",
+    "star_2": "19921"
+  },
+  {
+    "abbreviation": "Ret",
+    "group": "2",
+    "abbreviation_group": "Ret2",
+    "star_1": "19921",
+    "star_2": "18597"
+  },
+  {
+    "abbreviation": "Ret",
+    "group": "3",
+    "abbreviation_group": "Ret3",
+    "star_1": "18597",
+    "star_2": "17440"
+  },
+  {
+    "abbreviation": "Ret",
+    "group": "4",
+    "abbreviation_group": "Ret4",
+    "star_1": "17440",
+    "star_2": "19780"
+  },
+  {
+    "abbreviation": "Scl",
+    "group": "1",
+    "abbreviation_group": "Scl1",
+    "star_1": "116231",
+    "star_2": "4577"
+  },
+  {
+    "abbreviation": "Scl",
+    "group": "2",
+    "abbreviation_group": "Scl2",
+    "star_1": "4577",
+    "star_2": "115102"
+  },
+  {
+    "abbreviation": "Scl",
+    "group": "3",
+    "abbreviation_group": "Scl3",
+    "star_1": "115102",
+    "star_2": "116231"
+  },
+  {
+    "abbreviation": "Sco",
+    "group": "1",
+    "abbreviation_group": "Sco1",
+    "star_1": "85927",
+    "star_2": "86670"
+  },
+  {
+    "abbreviation": "Sco",
+    "group": "2",
+    "abbreviation_group": "Sco2",
+    "star_1": "86670",
+    "star_2": "87073"
+  },
+  {
+    "abbreviation": "Sco",
+    "group": "3",
+    "abbreviation_group": "Sco3",
+    "star_1": "87073",
+    "star_2": "86228"
+  },
+  {
+    "abbreviation": "Sco",
+    "group": "4",
+    "abbreviation_group": "Sco4",
+    "star_1": "86228",
+    "star_2": "84143"
+  },
+  {
+    "abbreviation": "Sco",
+    "group": "5",
+    "abbreviation_group": "Sco5",
+    "star_1": "84143",
+    "star_2": "82671"
+  },
+  {
+    "abbreviation": "Sco",
+    "group": "6",
+    "abbreviation_group": "Sco6",
+    "star_1": "82671",
+    "star_2": "82514"
+  },
+  {
+    "abbreviation": "Sco",
+    "group": "7",
+    "abbreviation_group": "Sco7",
+    "star_1": "82514",
+    "star_2": "82396"
+  },
+  {
+    "abbreviation": "Sco",
+    "group": "8",
+    "abbreviation_group": "Sco8",
+    "star_1": "82396",
+    "star_2": "81266"
+  },
+  {
+    "abbreviation": "Sco",
+    "group": "9",
+    "abbreviation_group": "Sco9",
+    "star_1": "81266",
+    "star_2": "80763"
+  },
+  {
+    "abbreviation": "Sco",
+    "group": "10",
+    "abbreviation_group": "Sco10",
+    "star_1": "80763",
+    "star_2": "78401"
+  },
+  {
+    "abbreviation": "Sco",
+    "group": "11",
+    "abbreviation_group": "Sco11",
+    "star_1": "78401",
+    "star_2": "78265"
+  },
+  {
+    "abbreviation": "Sco",
+    "group": "12",
+    "abbreviation_group": "Sco12",
+    "star_1": "78401",
+    "star_2": "78820"
+  },
+  {
+    "abbreviation": "Sct",
+    "group": "1",
+    "abbreviation_group": "Sct1",
+    "star_1": "92175",
+    "star_2": "92202"
+  },
+  {
+    "abbreviation": "Sct",
+    "group": "2",
+    "abbreviation_group": "Sct2",
+    "star_1": "92202",
+    "star_2": "92814"
+  },
+  {
+    "abbreviation": "Sct",
+    "group": "3",
+    "abbreviation_group": "Sct3",
+    "star_1": "92814",
+    "star_2": "90595"
+  },
+  {
+    "abbreviation": "Sct",
+    "group": "4",
+    "abbreviation_group": "Sct4",
+    "star_1": "90595",
+    "star_2": "91117"
+  },
+  {
+    "abbreviation": "Sct",
+    "group": "5",
+    "abbreviation_group": "Sct5",
+    "star_1": "91117",
+    "star_2": "92175"
+  },
+  {
+    "abbreviation": "Ser",
+    "group": "1",
+    "abbreviation_group": "Ser1",
+    "star_1": "77516",
+    "star_2": "77622"
+  },
+  {
+    "abbreviation": "Ser",
+    "group": "2",
+    "abbreviation_group": "Ser2",
+    "star_1": "77622",
+    "star_2": "77070"
+  },
+  {
+    "abbreviation": "Ser",
+    "group": "3",
+    "abbreviation_group": "Ser3",
+    "star_1": "77070",
+    "star_2": "76276"
+  },
+  {
+    "abbreviation": "Ser",
+    "group": "4",
+    "abbreviation_group": "Ser4",
+    "star_1": "76276",
+    "star_2": "77233"
+  },
+  {
+    "abbreviation": "Ser",
+    "group": "5",
+    "abbreviation_group": "Ser5",
+    "star_1": "77233",
+    "star_2": "78072"
+  },
+  {
+    "abbreviation": "Ser",
+    "group": "6",
+    "abbreviation_group": "Ser6",
+    "star_1": "78072",
+    "star_2": "77450"
+  },
+  {
+    "abbreviation": "Ser",
+    "group": "7",
+    "abbreviation_group": "Ser7",
+    "star_1": "77450",
+    "star_2": "77233"
+  },
+  {
+    "abbreviation": "Ser",
+    "group": "8",
+    "abbreviation_group": "Ser8",
+    "star_1": "92946",
+    "star_2": "89962"
+  },
+  {
+    "abbreviation": "Ser",
+    "group": "9",
+    "abbreviation_group": "Ser9",
+    "star_1": "89962",
+    "star_2": "86565"
+  },
+  {
+    "abbreviation": "Ser",
+    "group": "10",
+    "abbreviation_group": "Ser10",
+    "star_1": "86565",
+    "star_2": "86263"
+  },
+  {
+    "abbreviation": "Ser",
+    "group": "11",
+    "abbreviation_group": "Ser11",
+    "star_1": "86263",
+    "star_2": "84880"
+  },
+  {
+    "abbreviation": "Sex",
+    "group": "1",
+    "abbreviation_group": "Sex1",
+    "star_1": "51437",
+    "star_2": "49641"
+  },
+  {
+    "abbreviation": "Sge",
+    "group": "1",
+    "abbreviation_group": "Sge1",
+    "star_1": "96837",
+    "star_2": "97365"
+  },
+  {
+    "abbreviation": "Sge",
+    "group": "2",
+    "abbreviation_group": "Sge2",
+    "star_1": "97365",
+    "star_2": "96757"
+  },
+  {
+    "abbreviation": "Sge",
+    "group": "3",
+    "abbreviation_group": "Sge3",
+    "star_1": "97365",
+    "star_2": "98337"
+  },
+  {
+    "abbreviation": "Sge",
+    "group": "4",
+    "abbreviation_group": "Sge4",
+    "star_1": "98337",
+    "star_2": "98920"
+  },
+  {
+    "abbreviation": "Sgr",
+    "group": "1",
+    "abbreviation_group": "Sgr1",
+    "star_1": "89931",
+    "star_2": "90496"
+  },
+  {
+    "abbreviation": "Sgr",
+    "group": "2",
+    "abbreviation_group": "Sgr2",
+    "star_1": "89642",
+    "star_2": "90185"
+  },
+  {
+    "abbreviation": "Sgr",
+    "group": "3",
+    "abbreviation_group": "Sgr3",
+    "star_1": "90185",
+    "star_2": "88635"
+  },
+  {
+    "abbreviation": "Sgr",
+    "group": "4",
+    "abbreviation_group": "Sgr4",
+    "star_1": "88635",
+    "star_2": "87072"
+  },
+  {
+    "abbreviation": "Sgr",
+    "group": "5",
+    "abbreviation_group": "Sgr5",
+    "star_1": "88635",
+    "star_2": "89931"
+  },
+  {
+    "abbreviation": "Sgr",
+    "group": "6",
+    "abbreviation_group": "Sgr6",
+    "star_1": "89931",
+    "star_2": "90185"
+  },
+  {
+    "abbreviation": "Sgr",
+    "group": "7",
+    "abbreviation_group": "Sgr7",
+    "star_1": "90185",
+    "star_2": "93506"
+  },
+  {
+    "abbreviation": "Sgr",
+    "group": "8",
+    "abbreviation_group": "Sgr8",
+    "star_1": "93506",
+    "star_2": "92041"
+  },
+  {
+    "abbreviation": "Sgr",
+    "group": "9",
+    "abbreviation_group": "Sgr9",
+    "star_1": "92041",
+    "star_2": "89931"
+  },
+  {
+    "abbreviation": "Sgr",
+    "group": "10",
+    "abbreviation_group": "Sgr10",
+    "star_1": "92041",
+    "star_2": "90496"
+  },
+  {
+    "abbreviation": "Sgr",
+    "group": "11",
+    "abbreviation_group": "Sgr11",
+    "star_1": "90496",
+    "star_2": "89341"
+  },
+  {
+    "abbreviation": "Sgr",
+    "group": "12",
+    "abbreviation_group": "Sgr12",
+    "star_1": "93506",
+    "star_2": "93864"
+  },
+  {
+    "abbreviation": "Sgr",
+    "group": "13",
+    "abbreviation_group": "Sgr13",
+    "star_1": "93864",
+    "star_2": "92855"
+  },
+  {
+    "abbreviation": "Sgr",
+    "group": "14",
+    "abbreviation_group": "Sgr14",
+    "star_1": "92855",
+    "star_2": "92041"
+  },
+  {
+    "abbreviation": "Sgr",
+    "group": "15",
+    "abbreviation_group": "Sgr15",
+    "star_1": "92855",
+    "star_2": "93085"
+  },
+  {
+    "abbreviation": "Sgr",
+    "group": "16",
+    "abbreviation_group": "Sgr16",
+    "star_1": "93085",
+    "star_2": "93683"
+  },
+  {
+    "abbreviation": "Sgr",
+    "group": "17",
+    "abbreviation_group": "Sgr17",
+    "star_1": "93683",
+    "star_2": "94820"
+  },
+  {
+    "abbreviation": "Sgr",
+    "group": "18",
+    "abbreviation_group": "Sgr18",
+    "star_1": "94820",
+    "star_2": "95168"
+  },
+  {
+    "abbreviation": "Sgr",
+    "group": "19",
+    "abbreviation_group": "Sgr19",
+    "star_1": "93864",
+    "star_2": "96406"
+  },
+  {
+    "abbreviation": "Sgr",
+    "group": "20",
+    "abbreviation_group": "Sgr20",
+    "star_1": "96406",
+    "star_2": "98688"
+  },
+  {
+    "abbreviation": "Sgr",
+    "group": "21",
+    "abbreviation_group": "Sgr21",
+    "star_1": "98688",
+    "star_2": "98412"
+  },
+  {
+    "abbreviation": "Sgr",
+    "group": "22",
+    "abbreviation_group": "Sgr22",
+    "star_1": "98412",
+    "star_2": "98032"
+  },
+  {
+    "abbreviation": "Sgr",
+    "group": "23",
+    "abbreviation_group": "Sgr23",
+    "star_1": "98032",
+    "star_2": "95347"
+  },
+  {
+    "abbreviation": "Sgr",
+    "group": "24",
+    "abbreviation_group": "Sgr24",
+    "star_1": "98032",
+    "star_2": "95294"
+  },
+  {
+    "abbreviation": "Tau",
+    "group": "1",
+    "abbreviation_group": "Tau1",
+    "star_1": "25428",
+    "star_2": "21881"
+  },
+  {
+    "abbreviation": "Tau",
+    "group": "2",
+    "abbreviation_group": "Tau2",
+    "star_1": "21881",
+    "star_2": "20889"
+  },
+  {
+    "abbreviation": "Tau",
+    "group": "3",
+    "abbreviation_group": "Tau3",
+    "star_1": "21421",
+    "star_2": "26451"
+  },
+  {
+    "abbreviation": "Tau",
+    "group": "4",
+    "abbreviation_group": "Tau4",
+    "star_1": "20205",
+    "star_2": "20455"
+  },
+  {
+    "abbreviation": "Tau",
+    "group": "5",
+    "abbreviation_group": "Tau5",
+    "star_1": "20205",
+    "star_2": "18724"
+  },
+  {
+    "abbreviation": "Tau",
+    "group": "6",
+    "abbreviation_group": "Tau6",
+    "star_1": "18724",
+    "star_2": "15900"
+  },
+  {
+    "abbreviation": "Tau",
+    "group": "7",
+    "abbreviation_group": "Tau7",
+    "star_1": "21421",
+    "star_2": "20889"
+  },
+  {
+    "abbreviation": "Tau",
+    "group": "8",
+    "abbreviation_group": "Tau8",
+    "star_1": "21421",
+    "star_2": "20894"
+  },
+  {
+    "abbreviation": "Tau",
+    "group": "9",
+    "abbreviation_group": "Tau9",
+    "star_1": "20894",
+    "star_2": "20205"
+  },
+  {
+    "abbreviation": "Tau",
+    "group": "10",
+    "abbreviation_group": "Tau10",
+    "star_1": "20889",
+    "star_2": "20648"
+  },
+  {
+    "abbreviation": "Tau",
+    "group": "11",
+    "abbreviation_group": "Tau11",
+    "star_1": "20648",
+    "star_2": "20455"
+  },
+  {
+    "abbreviation": "Tau",
+    "group": "12",
+    "abbreviation_group": "Tau12",
+    "star_1": "20455",
+    "star_2": "17847"
+  },
+  {
+    "abbreviation": "Tel",
+    "group": "1",
+    "abbreviation_group": "Tel1",
+    "star_1": "90568",
+    "star_2": "90422"
+  },
+  {
+    "abbreviation": "TrA",
+    "group": "1",
+    "abbreviation_group": "TrA1",
+    "star_1": "82273",
+    "star_2": "74946"
+  },
+  {
+    "abbreviation": "TrA",
+    "group": "2",
+    "abbreviation_group": "TrA2",
+    "star_1": "74946",
+    "star_2": "77952"
+  },
+  {
+    "abbreviation": "TrA",
+    "group": "3",
+    "abbreviation_group": "TrA3",
+    "star_1": "77952",
+    "star_2": "82273"
+  },
+  {
+    "abbreviation": "Tri",
+    "group": "1",
+    "abbreviation_group": "Tri1",
+    "star_1": "10559",
+    "star_2": "10064"
+  },
+  {
+    "abbreviation": "Tri",
+    "group": "2",
+    "abbreviation_group": "Tri2",
+    "star_1": "10064",
+    "star_2": "8796"
+  },
+  {
+    "abbreviation": "Tri",
+    "group": "3",
+    "abbreviation_group": "Tri3",
+    "star_1": "8796",
+    "star_2": "10559"
+  },
+  {
+    "abbreviation": "Tuc",
+    "group": "1",
+    "abbreviation_group": "Tuc1",
+    "star_1": "110130",
+    "star_2": "114996"
+  },
+  {
+    "abbreviation": "Tuc",
+    "group": "2",
+    "abbreviation_group": "Tuc2",
+    "star_1": "114996",
+    "star_2": "1599"
+  },
+  {
+    "abbreviation": "Tuc",
+    "group": "3",
+    "abbreviation_group": "Tuc3",
+    "star_1": "114996",
+    "star_2": "2484"
+  },
+  {
+    "abbreviation": "UMa",
+    "group": "1",
+    "abbreviation_group": "UMa1",
+    "star_1": "67301",
+    "star_2": "65378"
+  },
+  {
+    "abbreviation": "UMa",
+    "group": "2",
+    "abbreviation_group": "UMa2",
+    "star_1": "65378",
+    "star_2": "62956"
+  },
+  {
+    "abbreviation": "UMa",
+    "group": "3",
+    "abbreviation_group": "UMa3",
+    "star_1": "62956",
+    "star_2": "59774"
+  },
+  {
+    "abbreviation": "UMa",
+    "group": "4",
+    "abbreviation_group": "UMa4",
+    "star_1": "59774",
+    "star_2": "54061"
+  },
+  {
+    "abbreviation": "UMa",
+    "group": "5",
+    "abbreviation_group": "UMa5",
+    "star_1": "54061",
+    "star_2": "53910"
+  },
+  {
+    "abbreviation": "UMa",
+    "group": "6",
+    "abbreviation_group": "UMa6",
+    "star_1": "53910",
+    "star_2": "58001"
+  },
+  {
+    "abbreviation": "UMa",
+    "group": "7",
+    "abbreviation_group": "UMa7",
+    "star_1": "58001",
+    "star_2": "59774"
+  },
+  {
+    "abbreviation": "UMa",
+    "group": "8",
+    "abbreviation_group": "UMa8",
+    "star_1": "58001",
+    "star_2": "57399"
+  },
+  {
+    "abbreviation": "UMa",
+    "group": "9",
+    "abbreviation_group": "UMa9",
+    "star_1": "57399",
+    "star_2": "54539"
+  },
+  {
+    "abbreviation": "UMa",
+    "group": "10",
+    "abbreviation_group": "UMa10",
+    "star_1": "54539",
+    "star_2": "50372"
+  },
+  {
+    "abbreviation": "UMa",
+    "group": "11",
+    "abbreviation_group": "UMa11",
+    "star_1": "54539",
+    "star_2": "50801"
+  },
+  {
+    "abbreviation": "UMa",
+    "group": "12",
+    "abbreviation_group": "UMa12",
+    "star_1": "53910",
+    "star_2": "48402"
+  },
+  {
+    "abbreviation": "UMa",
+    "group": "13",
+    "abbreviation_group": "UMa13",
+    "star_1": "48402",
+    "star_2": "46853"
+  },
+  {
+    "abbreviation": "UMa",
+    "group": "14",
+    "abbreviation_group": "UMa14",
+    "star_1": "46853",
+    "star_2": "44471"
+  },
+  {
+    "abbreviation": "UMa",
+    "group": "15",
+    "abbreviation_group": "UMa15",
+    "star_1": "46853",
+    "star_2": "44127"
+  },
+  {
+    "abbreviation": "UMa",
+    "group": "16",
+    "abbreviation_group": "UMa16",
+    "star_1": "48402",
+    "star_2": "48319"
+  },
+  {
+    "abbreviation": "UMa",
+    "group": "17",
+    "abbreviation_group": "UMa17",
+    "star_1": "48319",
+    "star_2": "41704"
+  },
+  {
+    "abbreviation": "UMa",
+    "group": "18",
+    "abbreviation_group": "UMa18",
+    "star_1": "41704",
+    "star_2": "46733"
+  },
+  {
+    "abbreviation": "UMa",
+    "group": "19",
+    "abbreviation_group": "UMa19",
+    "star_1": "46733",
+    "star_2": "54061"
+  },
+  {
+    "abbreviation": "UMi",
+    "group": "1",
+    "abbreviation_group": "UMi1",
+    "star_1": "11767",
+    "star_2": "85822"
+  },
+  {
+    "abbreviation": "UMi",
+    "group": "2",
+    "abbreviation_group": "UMi2",
+    "star_1": "85822",
+    "star_2": "82080"
+  },
+  {
+    "abbreviation": "UMi",
+    "group": "3",
+    "abbreviation_group": "UMi3",
+    "star_1": "82080",
+    "star_2": "77055"
+  },
+  {
+    "abbreviation": "UMi",
+    "group": "4",
+    "abbreviation_group": "UMi4",
+    "star_1": "77055",
+    "star_2": "79822"
+  },
+  {
+    "abbreviation": "UMi",
+    "group": "5",
+    "abbreviation_group": "UMi5",
+    "star_1": "79822",
+    "star_2": "75097"
+  },
+  {
+    "abbreviation": "UMi",
+    "group": "6",
+    "abbreviation_group": "UMi6",
+    "star_1": "75097",
+    "star_2": "72607"
+  },
+  {
+    "abbreviation": "UMi",
+    "group": "7",
+    "abbreviation_group": "UMi7",
+    "star_1": "72607",
+    "star_2": "77055"
+  },
+  {
+    "abbreviation": "Vel",
+    "group": "1",
+    "abbreviation_group": "Vel1",
+    "star_1": "39953",
+    "star_2": "42536"
+  },
+  {
+    "abbreviation": "Vel",
+    "group": "2",
+    "abbreviation_group": "Vel2",
+    "star_1": "42536",
+    "star_2": "42913"
+  },
+  {
+    "abbreviation": "Vel",
+    "group": "3",
+    "abbreviation_group": "Vel3",
+    "star_1": "42913",
+    "star_2": "45941"
+  },
+  {
+    "abbreviation": "Vel",
+    "group": "4",
+    "abbreviation_group": "Vel4",
+    "star_1": "45941",
+    "star_2": "48774"
+  },
+  {
+    "abbreviation": "Vel",
+    "group": "5",
+    "abbreviation_group": "Vel5",
+    "star_1": "48774",
+    "star_2": "52727"
+  },
+  {
+    "abbreviation": "Vel",
+    "group": "6",
+    "abbreviation_group": "Vel6",
+    "star_1": "52727",
+    "star_2": "51986"
+  },
+  {
+    "abbreviation": "Vel",
+    "group": "7",
+    "abbreviation_group": "Vel7",
+    "star_1": "51986",
+    "star_2": "50191"
+  },
+  {
+    "abbreviation": "Vel",
+    "group": "8",
+    "abbreviation_group": "Vel8",
+    "star_1": "50191",
+    "star_2": "46651"
+  },
+  {
+    "abbreviation": "Vel",
+    "group": "9",
+    "abbreviation_group": "Vel9",
+    "star_1": "46651",
+    "star_2": "44816"
+  },
+  {
+    "abbreviation": "Vel",
+    "group": "10",
+    "abbreviation_group": "Vel10",
+    "star_1": "44816",
+    "star_2": "39953"
+  },
+  {
+    "abbreviation": "Vir",
+    "group": "1",
+    "abbreviation_group": "Vir1",
+    "star_1": "57380",
+    "star_2": "60030"
+  },
+  {
+    "abbreviation": "Vir",
+    "group": "2",
+    "abbreviation_group": "Vir2",
+    "star_1": "60030",
+    "star_2": "61941"
+  },
+  {
+    "abbreviation": "Vir",
+    "group": "3",
+    "abbreviation_group": "Vir3",
+    "star_1": "61941",
+    "star_2": "65474"
+  },
+  {
+    "abbreviation": "Vir",
+    "group": "4",
+    "abbreviation_group": "Vir4",
+    "star_1": "65474",
+    "star_2": "69427"
+  },
+  {
+    "abbreviation": "Vir",
+    "group": "5",
+    "abbreviation_group": "Vir5",
+    "star_1": "69427",
+    "star_2": "69701"
+  },
+  {
+    "abbreviation": "Vir",
+    "group": "6",
+    "abbreviation_group": "Vir6",
+    "star_1": "69701",
+    "star_2": "71957"
+  },
+  {
+    "abbreviation": "Vir",
+    "group": "7",
+    "abbreviation_group": "Vir7",
+    "star_1": "65474",
+    "star_2": "66249"
+  },
+  {
+    "abbreviation": "Vir",
+    "group": "8",
+    "abbreviation_group": "Vir8",
+    "star_1": "66249",
+    "star_2": "68520"
+  },
+  {
+    "abbreviation": "Vir",
+    "group": "9",
+    "abbreviation_group": "Vir9",
+    "star_1": "68520",
+    "star_2": "72220"
+  },
+  {
+    "abbreviation": "Vir",
+    "group": "10",
+    "abbreviation_group": "Vir10",
+    "star_1": "66249",
+    "star_2": "63090"
+  },
+  {
+    "abbreviation": "Vir",
+    "group": "11",
+    "abbreviation_group": "Vir11",
+    "star_1": "63090",
+    "star_2": "63608"
+  },
+  {
+    "abbreviation": "Vir",
+    "group": "12",
+    "abbreviation_group": "Vir12",
+    "star_1": "63090",
+    "star_2": "61941"
+  },
+  {
+    "abbreviation": "Vol",
+    "group": "1",
+    "abbreviation_group": "Vol1",
+    "star_1": "37504",
+    "star_2": "34481"
+  },
+  {
+    "abbreviation": "Vol",
+    "group": "2",
+    "abbreviation_group": "Vol2",
+    "star_1": "34481",
+    "star_2": "39794"
+  },
+  {
+    "abbreviation": "Vol",
+    "group": "3",
+    "abbreviation_group": "Vol3",
+    "star_1": "39794",
+    "star_2": "37504"
+  },
+  {
+    "abbreviation": "Vol",
+    "group": "4",
+    "abbreviation_group": "Vol4",
+    "star_1": "39794",
+    "star_2": "35228"
+  },
+  {
+    "abbreviation": "Vol",
+    "group": "5",
+    "abbreviation_group": "Vol5",
+    "star_1": "39794",
+    "star_2": "41312"
+  },
+  {
+    "abbreviation": "Vol",
+    "group": "6",
+    "abbreviation_group": "Vol6",
+    "star_1": "41312",
+    "star_2": "44382"
+  },
+  {
+    "abbreviation": "Vol",
+    "group": "7",
+    "abbreviation_group": "Vol7",
+    "star_1": "44382",
+    "star_2": "39794"
+  },
+  {
+    "abbreviation": "Vul",
+    "group": "1",
+    "abbreviation_group": "Vul1",
+    "star_1": "95771",
+    "star_2": "98543"
+  }
+]

@@ -1,5 +1,7 @@
-module.exports = {
-
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.common = void 0;
+exports.common = {
     /*
     |--------------------------------------------------------------------------
     | Space-Track (spacetrack.js)
@@ -10,14 +12,11 @@ module.exports = {
     | retrieval.
     |
     */
-
-    baseURL: 'https://www.space-track.org',
-
+    baseURL: 'www.space-track.org',
     auth: {
         login: '/ajaxauth/login',
         logout: '/ajaxauth/logout',
     },
-
     api: {
         /*
         |----------------------------------------------------------------------
@@ -35,13 +34,11 @@ module.exports = {
         | Panel. (permission controlled)
         |
         */
-
         controllers: [
             'basicspacedata',
             'expandedspacedata',
             'fileshare',
         ],
-
         /*
         |----------------------------------------------------------------------
         | Space-Track API Actions
@@ -53,12 +50,10 @@ module.exports = {
         | particularly a list of valid predicates.
         |
         */
-
         actions: [
             'query',
             'modeldef',
         ],
-
         /*
         |----------------------------------------------------------------------
         | Space-Track API Classes
@@ -103,7 +98,6 @@ module.exports = {
         | tip: Tracking and Impact Prediction (TIP) Message.
         |
         */
-
         classes: [
             'announcement',
             'boxscore',
@@ -117,7 +111,6 @@ module.exports = {
             'satcat_debut',
             'tip',
         ],
-
         /*
         |----------------------------------------------------------------------
         | Space-Track API Formats
@@ -154,7 +147,6 @@ module.exports = {
         | exclusively with download class.
         |
         */
-
         formats: [
             'xml',
             'json',
@@ -165,7 +157,6 @@ module.exports = {
             'kvn',
             'stream',
         ],
-
         fields: {
             announcement: [
                 'announcement_type',
@@ -173,7 +164,6 @@ module.exports = {
                 'announcement_start',
                 'announcement_end',
             ],
-
             boxscore: [
                 'COUNTRY',
                 'SPADOC_CD',
@@ -188,7 +178,6 @@ module.exports = {
                 'DECAYED_TOTAL_COUNT',
                 'COUNTRY_TOTAL',
             ],
-
             cdm_public: [
                 'CDM_ID',
                 'CREATED',
@@ -207,7 +196,6 @@ module.exports = {
                 'SAT2_RCS',
                 'SAT_2_EXCL_VOL',
             ],
-
             decay: [
                 'NORAD_CAT_ID',
                 'OBJECT_NUMBER',
@@ -223,7 +211,6 @@ module.exports = {
                 'MSG_TYPE',
                 'PRECEDENCE',
             ],
-
             gp: [
                 'CCSDS_OMM_VERS',
                 'COMMENT',
@@ -266,7 +253,6 @@ module.exports = {
                 'TLE_LINE1',
                 'TLE_LINE2',
             ],
-
             gp_history: [
                 'CCSDS_OMM_VERS',
                 'COMMENT',
@@ -309,12 +295,10 @@ module.exports = {
                 'TLE_LINE1',
                 'TLE_LINE2',
             ],
-
             launch_site: [
                 'SITE_CODE',
                 'LAUNCH_SITE',
             ],
-
             satcat: [
                 'INTLDES',
                 'NORAD_CAT_ID',
@@ -341,7 +325,6 @@ module.exports = {
                 'OBJECT_ID',
                 'OBJECT_NUMBER',
             ],
-
             satcat_change: [
                 'NORAD_CAT_ID',
                 'OBJECT_NUMBER',
@@ -357,7 +340,6 @@ module.exports = {
                 'PREVIOUS_DECAY',
                 'CHANGE_MADE',
             ],
-
             satcat_debut: [
                 'INTLDES',
                 'NORAD_CAT_ID',
@@ -385,7 +367,6 @@ module.exports = {
                 'OBJECT_ID',
                 'OBJECT_NUMBER',
             ],
-
             tip: [
                 'NORAD_CAT_ID',
                 'MSG_EPOCH',
@@ -404,5 +385,4 @@ module.exports = {
             ],
         },
     },
-
 };

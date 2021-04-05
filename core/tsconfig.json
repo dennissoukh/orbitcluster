@@ -21,6 +21,7 @@
     "./src/packages/Inverser/**/*",
     "./src/packages/Ignitor/**/*",
     "./src/packages/Cosmic/**/*",
-    "./src/packages/Orbitcluster/**/*"
+    "./src/packages/Orbitcluster/**/*",
+    "./src/packages/SpaceData/**/*",
   ],
 }
