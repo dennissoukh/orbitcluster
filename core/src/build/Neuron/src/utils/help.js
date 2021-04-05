@@ -1,11 +1,10 @@
-"use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
+const __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { default: mod };
 };
-Object.defineProperty(exports, "__esModule", { value: true });
+Object.defineProperty(exports, '__esModule', { value: true });
 exports.commandNotFoundHelp = exports.printHelpFor = exports.printHelp = void 0;
-const chalk_1 = __importDefault(require("chalk"));
-const sortAndGroupCommands_1 = require("./sortAndGroupCommands");
+const chalk_1 = __importDefault(require('chalk'));
+const sortAndGroupCommands_1 = require('./sortAndGroupCommands');
 /**
  * Returns an array of commands for display
  */
@@ -16,7 +15,7 @@ function getCommandsForDisplay(commands, aliases) {
         return {
             displayName: `${commandName}${aliasesString}`,
             description,
-            width: commandName.length + aliasesString.length
+            width: commandName.length + aliasesString.length,
         };
     });
 }
@@ -43,7 +42,7 @@ function printHelp(commands, aliases, flags) {
     /**
      * Get width of longest command name
      */
-    const maxWidth = Math.max(...commandsList.map(command => command.width));
+    const maxWidth = Math.max(...commandsList.map((command) => { return command.width; }));
     if (flagsList.length) {
         console.log(chalk_1.default.yellow('Global options:'));
         flagsList.forEach(({ displayName, description = '' }) => {
@@ -55,8 +54,7 @@ function printHelp(commands, aliases, flags) {
     sortAndGroupCommands_1.sortAndGroupCommands(commands).forEach(({ group, commands: groupCommands }) => {
         if (group === 'root') {
             console.log(chalk_1.default.yellow('Available commands:'));
-        }
-        else {
+        } else {
             console.log(chalk_1.default.yellow(group));
         }
         groupCommands.forEach(({ commandName, description }) => {
@@ -79,7 +77,7 @@ function printHelpFor(command, aliases) {
     console.log(`  ${command.commandName} ${chalk_1.default.dim(command.args.map(wrapArg).join(' '))}`);
     const flags = getFlagsForDisplay(command.flags);
     const args = getArgsForDisplay(command.args);
-    const maxWidth = Math.max.apply(Math, flags.concat(args).map(({ width }) => width));
+    const maxWidth = Math.max.apply(Math, flags.concat(args).map(({ width }) => { return width; }));
     const commandAliases = getCommandAliases(command.commandName, aliases);
     if (commandAliases.length) {
         console.log('');
@@ -97,7 +95,9 @@ function printHelpFor(command, aliases) {
     if (flags.length) {
         console.log('');
         console.log(chalk_1.default.yellow('Flags:'));
-        flags.forEach(({ displayName, displayType, description = '', width }) => {
+        flags.forEach(({
+            displayName, displayType, description = '', width,
+        }) => {
             const whiteSpace = ''.padEnd(maxWidth - width, ' ');
             console.log(`  ${chalk_1.default.green(displayName)} ${displayType}${whiteSpace}  ${description}`);
         });
@@ -109,25 +109,27 @@ function wrapArg(arg) {
     return arg.required ? `${displayName}` : `[${displayName}]`;
 }
 function getFlagsForDisplay(flags) {
-    return flags.map(({ name, type, alias, description }) => {
+    return flags.map(({
+        name, type, alias, description,
+    }) => {
         const displayName = alias ? `-${alias}, --${name}` : `    --${name}`;
         let displayType = '';
         switch (type) {
-            case 'array':
-                displayType = 'string[]';
-                break;
-            case 'numArray':
-                displayType = 'number[]';
-                break;
-            case 'string':
-                displayType = 'string';
-                break;
-            case 'boolean':
-                displayType = 'boolean';
-                break;
-            case 'number':
-                displayType = 'number';
-                break;
+        case 'array':
+            displayType = 'string[]';
+            break;
+        case 'numArray':
+            displayType = 'number[]';
+            break;
+        case 'string':
+            displayType = 'string';
+            break;
+        case 'boolean':
+            displayType = 'boolean';
+            break;
+        case 'number':
+            displayType = 'number';
+            break;
         }
         return {
             displayName,
@@ -141,7 +143,7 @@ function getArgsForDisplay(args) {
     return args.map(({ name, description }) => {
         return {
             displayName: name,
-            description: description,
+            description,
             width: name.length,
         };
     });

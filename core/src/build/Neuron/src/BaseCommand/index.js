@@ -1,5 +1,4 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
+Object.defineProperty(exports, '__esModule', { value: true });
 exports.BaseCommand = void 0;
 class BaseCommand {
     /**
@@ -48,8 +47,7 @@ class BaseCommand {
              * Execute the command handle or run method
              */
             commandResult = await this.application.container.callAsync(this, hasRun ? 'run' : 'handle', [this.application.fastify]);
-        }
-        catch (error) {
+        } catch (error) {
             this.error = error;
         }
         let errorHandled = false;

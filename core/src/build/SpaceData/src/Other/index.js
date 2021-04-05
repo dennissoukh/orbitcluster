@@ -1,15 +1,15 @@
-"use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
+const __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { default: mod };
 };
-Object.defineProperty(exports, "__esModule", { value: true });
+Object.defineProperty(exports, '__esModule', { value: true });
 exports.SpaceOther = void 0;
-const https_1 = __importDefault(require("https"));
-const path_1 = __importDefault(require("path"));
-const adm_zip_1 = __importDefault(require("adm-zip"));
-const sync_1 = __importDefault(require("csv-parse/lib/sync"));
-const url_1 = require("url");
-const common_1 = require("./common");
+const https_1 = __importDefault(require('https'));
+const path_1 = __importDefault(require('path'));
+const adm_zip_1 = __importDefault(require('adm-zip'));
+const sync_1 = __importDefault(require('csv-parse/lib/sync'));
+const url_1 = require('url');
+const common_1 = require('./common');
+
 class SpaceOther {
     async get(options) {
         if (!common_1.common[options.class]) {
@@ -31,11 +31,11 @@ class SpaceOther {
     async getRequest(url) {
         return new Promise((resolve, reject) => {
             const req = https_1.default.get(url, (res) => {
-                let chunks = [];
+                const chunks = [];
                 res.on('data', (d) => {
                     chunks.push(d);
                 }).on('end', () => {
-                    let data = Buffer.concat(chunks);
+                    const data = Buffer.concat(chunks);
                     return resolve(data);
                 });
             });
@@ -52,7 +52,7 @@ class SpaceOther {
         const fileType = path_1.default.extname(parsedUrl.pathname);
         return {
             href: parsedUrl.href,
-            fileType: fileType,
+            fileType,
         };
     }
     async zip(stream) {

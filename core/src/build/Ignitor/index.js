@@ -1,8 +1,7 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
+Object.defineProperty(exports, '__esModule', { value: true });
 exports.Ignitor = void 0;
-const Application_1 = require("../Orbitcluster/Application");
-const Neuron_1 = require("./Neuron");
+const Application_1 = require('../Orbitcluster/Application');
+const Neuron_1 = require('./Neuron');
 /**
  * Ignitor is used to wireup different pieces of the Orbitcluster application
  * together.

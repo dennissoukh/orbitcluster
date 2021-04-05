@@ -1,13 +1,13 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
+Object.defineProperty(exports, '__esModule', { value: true });
 exports.Ioc = void 0;
-const Fakes_1 = require("./Fakes");
-const Bindings_1 = require("./Bindings");
-const Injector_1 = require("./Injector");
-const Resolver_1 = require("../Resolver");
-const ImportAliases_1 = require("./ImportAliases");
-const helpers_1 = require("../helpers");
-const IocProxy_1 = require("./IocProxy");
+const Fakes_1 = require('./Fakes');
+const Bindings_1 = require('./Bindings');
+const Injector_1 = require('./Injector');
+const Resolver_1 = require('../Resolver');
+const ImportAliases_1 = require('./ImportAliases');
+const helpers_1 = require('../helpers');
+const IocProxy_1 = require('./IocProxy');
+
 class Ioc {
     constructor() {
         this.fakes = new Fakes_1.Fakes(this);
@@ -196,7 +196,7 @@ class Ioc {
      * - Output: App/UsersController
      */
     lookup(namespace, prefixNamespace) {
-        if (typeof namespace !== 'string' && namespace['namespace'] && namespace['type']) {
+        if (typeof namespace !== 'string' && namespace.namespace && namespace.type) {
             return namespace;
         }
         /**
@@ -210,8 +210,7 @@ class Ioc {
          */
         if (namespace.startsWith('/')) {
             namespace = namespace.substr(1);
-        }
-        else if (prefixNamespace) {
+        } else if (prefixNamespace) {
             namespace = `${prefixNamespace.replace(/\/$/, '')}/${namespace}`;
         }
         /**
@@ -220,7 +219,7 @@ class Ioc {
         if (this.hasBinding(namespace)) {
             return {
                 type: 'binding',
-                namespace: namespace,
+                namespace,
             };
         }
         /**
@@ -229,7 +228,7 @@ class Ioc {
         if (this.isAliasPath(namespace)) {
             return {
                 type: 'alias',
-                namespace: namespace,
+                namespace,
             };
         }
         return null;
@@ -292,7 +291,7 @@ class Ioc {
      */
     use(namespace) {
         if (this.trapCallback) {
-            return this.trapCallback(typeof namespace === 'string' ? namespace : namespace['namespace']);
+            return this.trapCallback(typeof namespace === 'string' ? namespace : namespace.namespace);
         }
         const lookupNode = this.lookupOrFail(namespace);
         if (lookupNode.type === 'alias') {
@@ -306,7 +305,7 @@ class Ioc {
      */
     async useAsync(namespace) {
         if (this.trapCallback) {
-            return this.trapCallback(typeof namespace === 'string' ? namespace : namespace['namespace']);
+            return this.trapCallback(typeof namespace === 'string' ? namespace : namespace.namespace);
         }
         const lookupNode = this.lookupOrFail(namespace);
         if (lookupNode.type === 'alias') {
@@ -318,7 +317,7 @@ class Ioc {
      * Makes an instance of the class by first resolving it.
      */
     make(namespace, args) {
-        const isContainerNamespace = typeof namespace === 'string' || (namespace['namespace'] && namespace['type']);
+        const isContainerNamespace = typeof namespace === 'string' || (namespace.namespace && namespace.type);
         /**
          * Value is not a container namespace or a lookup
          * node
@@ -330,7 +329,7 @@ class Ioc {
          * Invoke trap callback (if registered)
          */
         if (this.trapCallback) {
-            return this.trapCallback(typeof namespace === 'string' ? namespace : namespace['namespace']);
+            return this.trapCallback(typeof namespace === 'string' ? namespace : namespace.namespace);
         }
         const lookupNode = this.lookupOrFail(namespace);
         /**
@@ -355,7 +354,7 @@ class Ioc {
      * the auto import aliases
      */
     async makeAsync(namespace, args) {
-        const isContainerNamespace = typeof namespace === 'string' || (namespace['namespace'] && namespace['type']);
+        const isContainerNamespace = typeof namespace === 'string' || (namespace.namespace && namespace.type);
         /**
          * Value is not a container namespace or a lookup
          * node
@@ -367,7 +366,7 @@ class Ioc {
          * Invoke trap callback (if registered)
          */
         if (this.trapCallback) {
-            return this.trapCallback(typeof namespace === 'string' ? namespace : namespace['namespace']);
+            return this.trapCallback(typeof namespace === 'string' ? namespace : namespace.namespace);
         }
         const lookupNode = this.lookupOrFail(namespace);
         /**
@@ -395,12 +394,12 @@ class Ioc {
      * auto import aliases
      */
     withBindings(namespaces, cb) {
-        if (namespaces.every((namespace) => this.hasBinding(namespace))) {
+        if (namespaces.every((namespace) => { return this.hasBinding(namespace); })) {
             /**
              * The callback accepts a tuple, whereas map returns an array. So we
              * need to cast the value to any by hand
              */
-            cb(...namespaces.map((namespace) => this.resolveBinding(namespace)));
+            cb(...namespaces.map((namespace) => { return this.resolveBinding(namespace); }));
         }
     }
     /**

@@ -1,5 +1,4 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
+Object.defineProperty(exports, '__esModule', { value: true });
 exports.IocProxyClass = exports.IocProxyObject = void 0;
 /**
  * Checks for the existence of fake on the target
@@ -14,9 +13,8 @@ function callTrap(target, trap, ...args) {
     if (hasFake(target)) {
         return Reflect[trap](target.options.resolve(target.namespace, target.value), ...args);
     }
-    else {
-        return Reflect[trap](target.value, ...args);
-    }
+
+    return Reflect[trap](target.value, ...args);
 }
 /**
  * Proxy handler to handle objects
@@ -62,11 +60,12 @@ const objectHandler = {
 /**
  * Proxy handler to handle classes and functions
  */
-const classHandler = Object.assign({}, objectHandler, {
+const classHandler = {
+    ...objectHandler,
     construct(target, ...args) {
         return callTrap(target, 'construct', ...args);
     },
-});
+};
 /**
  * Proxies the objects to fallback to fake, when it exists.
  */

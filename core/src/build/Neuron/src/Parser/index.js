@@ -1,10 +1,10 @@
-"use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
+const __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { default: mod };
 };
-Object.defineProperty(exports, "__esModule", { value: true });
+Object.defineProperty(exports, '__esModule', { value: true });
 exports.Parser = void 0;
-const getopts_1 = __importDefault(require("getopts"));
+const getopts_1 = __importDefault(require('getopts'));
+
 class Parser {
     constructor(registeredFlags) {
         this.registeredFlags = registeredFlags;
@@ -64,7 +64,7 @@ class Parser {
         if (flag.type === 'numArray') {
             parsed[flag.name] = value
                 ? typeof value === 'string'
-                    ? value.split(',').map((one) => Number(one))
+                    ? value.split(',').map((one) => { return Number(one); })
                     : [Number(value)]
                 : [];
         }
@@ -86,8 +86,8 @@ class Parser {
         /**
          * Raise error when value is expected to be array of numbers, but is NaN
          */
-        if (flag.type === 'numArray' &&
-            value.findIndex((one) => {
+        if (flag.type === 'numArray'
+            && value.findIndex((one) => {
                 return typeof one !== 'number' || isNaN(one);
             }) > -1) {
             throw new Error(`${flag.name}: Invalid Flag Exception (Number Integrity)`);
@@ -106,17 +106,19 @@ class Parser {
      * Parse argv and execute command and global flag handlers
      */
     parse(argv, command) {
-        let options = { alias: {}, boolean: [], default: {}, string: [] };
-        const globalFlags = Object.keys(this.registeredFlags).map((name) => this.registeredFlags[name]);
+        const options = {
+            alias: {}, boolean: [], default: {}, string: [],
+        };
+        const globalFlags = Object.keys(this.registeredFlags).map((name) => { return this.registeredFlags[name]; });
         /**
          * Build options from global flags
          */
-        globalFlags.forEach((flag) => this.preProcessFlag(flag, options));
+        globalFlags.forEach((flag) => { return this.preProcessFlag(flag, options); });
         /**
          * Build options from command flags
          */
         if (command) {
-            command.flags.forEach((flag) => this.preProcessFlag(flag, options));
+            command.flags.forEach((flag) => { return this.preProcessFlag(flag, options); });
         }
         /**
          * Parsing argv with the previously built options

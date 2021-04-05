@@ -53,12 +53,12 @@ const data = async (db) => {
                                 description: 'must be an int',
                             },
                             power: {
-                                bsonType: 'string',
-                                description: 'must be a string',
+                                bsonType: 'double',
+                                description: 'must be a double',
                             },
                             expected_lifetime: {
-                                bsonType: 'string',
-                                description: 'must be a string',
+                                bsonType: 'double',
+                                description: 'must be a double',
                             },
                             contractor: {
                                 bsonType: 'string',
@@ -83,10 +83,6 @@ const data = async (db) => {
                             norad_cat_id: {
                                 bsonType: 'int',
                                 description: 'must be an int and is required',
-                            },
-                            full_description: {
-                                bsonType: 'string',
-                                description: 'must be a string',
                             },
                             radio: {
                                 bsonType: 'object',

@@ -1,8 +1,8 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
+Object.defineProperty(exports, '__esModule', { value: true });
 exports.ManifestLoader = void 0;
-const path_1 = require("path");
-const Cosmic_1 = require("../../../Cosmic");
+const path_1 = require('path');
+const Cosmic_1 = require('../../../Cosmic');
+
 class ManifestLoader {
     constructor(basePath, files) {
         this.basePath = basePath;
@@ -16,10 +16,9 @@ class ManifestLoader {
     async resolveManifestFile(modulePath) {
         try {
             const manifest = await require(modulePath);
-            const commands = manifest.commands;
+            const { commands } = manifest;
             return { basePath: modulePath, commands };
-        }
-        catch (error) {
+        } catch (error) {
             throw error;
         }
     }
@@ -27,8 +26,8 @@ class ManifestLoader {
      * Load commands from each manifest file
      */
     async loadCommands(manifestFile) {
-        let commands = manifestFile.commands;
-        let manifestCommands = [];
+        const { commands } = manifestFile;
+        const manifestCommands = [];
         for (const command of commands) {
             manifestCommands.push(await this.loadCommand(command));
         }
@@ -51,8 +50,7 @@ class ManifestLoader {
         try {
             const path = Cosmic_1.resolveFrom(srcPath, commandPath);
             return require(path);
-        }
-        catch (error) {
+        } catch (error) {
             throw error;
         }
     }
@@ -60,7 +58,7 @@ class ManifestLoader {
      * Load all application commands
      */
     async loadApplicationCommands() {
-        this.manifestFiles = await Promise.all(this.files.map((file) => this.resolveManifestFile(file.manifestAbsPath)));
+        this.manifestFiles = await Promise.all(this.files.map((file) => { return this.resolveManifestFile(file.manifestAbsPath); }));
         const commands = [];
         /**
          * Load and process commands in each manifest file

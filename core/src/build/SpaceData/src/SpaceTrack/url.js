@@ -1,14 +1,14 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
+Object.defineProperty(exports, '__esModule', { value: true });
 exports.buildURL = void 0;
-const common_1 = require("./common");
+const common_1 = require('./common');
+
 const buildURL = (opt) => {
     const options = opt;
     if (!options) {
-        throw new Error(`'options' undefined`);
+        throw new Error('\'options\' undefined');
     }
     if (!options.class) {
-        throw new Error(`'options.class' undefined`);
+        throw new Error('\'options.class\' undefined');
     }
     if (!options.emptyresult) {
         options.emptyresult = 'show';
@@ -82,10 +82,8 @@ const buildURL = (opt) => {
     }
     // Limit and offset
     if (Number.isFinite(options.limit) || Number.isFinite(options.offset)) {
-        if (!Number.isFinite(options.offset))
-            options.offset = 0;
-        if (!Number.isFinite(options.limit))
-            options.limit = 100;
+        if (!Number.isFinite(options.offset)) options.offset = 0;
+        if (!Number.isFinite(options.limit)) options.limit = 100;
         url += `/limit/${options.limit},${options.offset}`;
     }
     // Distinct
