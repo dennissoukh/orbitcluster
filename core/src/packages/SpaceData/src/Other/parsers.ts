@@ -57,3 +57,11 @@ export async function ParseMcnames(data: any) {
 export async function ParseClassfd(data: string) {
     return await parseTLEFile(data);
 }
+
+export async function ParseAmsat(data: string) {
+    return await parseTLEFile(data);
+}
+
+export async function ParseHamsat(data: string) {
+    return await parseTLEFile(data);
+}
