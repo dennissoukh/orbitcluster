@@ -36,7 +36,7 @@ class SatRadioDownloader extends BaseCommand {
                 const document = await collection.findOne({ norad_cat_id: element.norad_cat_id });
                 if (document) {
                     const query = { norad_cat_id: element.norad_cat_id };
-                    const radio = {
+                    const radioUpdate = {
                         $set: {
                             radio: {
                                 uplink: element.uplink,
@@ -48,7 +48,7 @@ class SatRadioDownloader extends BaseCommand {
                             },
                         },
                     };
-                    await collection.updateOne(query, radio);
+                    await collection.updateOne(query, radioUpdate);
                 } else if (element.norad_cat_id) {
                     await collection.insertOne({
                         norad_cat_id: Number.parseInt(element.norad_cat_id, 10),

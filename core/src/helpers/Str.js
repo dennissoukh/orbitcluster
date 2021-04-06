@@ -11,5 +11,5 @@ String.prototype.explode = function explode(separator, limit) {
 };
 
 String.prototype.handleEmpty = function handleEmpty(string) {
-    return string ? string : null;
-}
+    return (string.length === 0 || !this.trim()) ? string : null;
+};
