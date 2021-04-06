@@ -1,5 +1,6 @@
 const { performance } = require('perf_hooks');
 const { BaseCommand } = require('../build/Neuron');
+require('../helpers/Number');
 const { SpaceOther, ParseClassfd } = require('../build/SpaceData');
 
 class DownloadClassfd extends BaseCommand {
@@ -35,7 +36,7 @@ class DownloadClassfd extends BaseCommand {
                 const element = parsed[i];
 
                 await collection.insertOne({
-                    norad_cat_id: Number.parseInt(element.tle_line2.slice(2, 7), 10),
+                    norad_cat_id: (element.tle_line2.slice(2, 7)).convertToInt(),
                     tle_line0: element.tle_line0,
                     tle_line1: element.tle_line1,
                     tle_line2: element.tle_line2,

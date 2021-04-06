@@ -51,7 +51,7 @@ class SatRadioDownloader extends BaseCommand {
                     await collection.updateOne(query, radioUpdate);
                 } else if (element.norad_cat_id) {
                     await collection.insertOne({
-                        norad_cat_id: Number.parseInt(element.norad_cat_id, 10),
+                        norad_cat_id: element.norad_cat_id.convertToInt(),
                         alternate_name: element.satname,
                         radio: {
                             uplink: element.uplink,

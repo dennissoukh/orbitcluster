@@ -1,5 +1,7 @@
 const { performance } = require('perf_hooks');
 const { BaseCommand } = require('../build/Neuron');
+require('../helpers/Str');
+require('../helpers/Number');
 const ucs = require('../../data/ucs.json');
 
 class SatDataDownloader extends BaseCommand {
@@ -32,24 +34,24 @@ class SatDataDownloader extends BaseCommand {
                 const element = ucs[i];
 
                 await collection.insertOne({
-                    alternate_name: element.alternate_name ? element.alternate_name : null,
-                    un_registry: element.un_registry ? element.un_registry : null,
-                    country_operator_owner: element.country_operator_owner ? element.country_operator_owner : null,
-                    operator_owner: element.operator_owner ? element.operator_owner : null,
-                    users: element.users ? element.users : null,
-                    purpose: element.purpose ? element.purpose : null,
-                    detailed_purpose: element.detailed_purpose ? element.detailed_purpose : null,
-                    orbit_class: element.orbit_class ? element.orbit_class : null,
-                    orbit_type: element.orbit_type ? element.orbit_type : null,
-                    launch_mass: Number.parseInt(element.launch_mass.replace(/,/g, ''), 10) ? Number.parseInt(element.launch_mass.replace(/,/g, ''), 10) : null,
-                    dry_mass: Number.parseInt(element.dry_mass.replace(/,/g, ''), 10) ? Number.parseInt(element.dry_mass.replace(/,/g, ''), 10) : null,
-                    power: Number.parseFloat(element.power.replace(/,/g, ''), 10) ? Number.parseFloat(element.power.replace(/,/g, ''), 10) : null,
-                    expected_lifetime: Number.parseFloat(element.expected_lifetime.replace(/,/g, ''), 10) ? Number.parseFloat(element.expected_lifetime.replace(/,/g, ''), 10) : null,
-                    contractor: element.contractor ? element.contractor : null,
-                    contractor_country: element.contractor_country ? element.contractor_country : null,
-                    launch_vehicle: element.launch_vehicle ? element.launch_vehicle : null,
-                    comments: element.comments ? element.comments : null,
-                    norad_cat_id: Number.parseInt(element.norad_number.replace(/,/g, ''), 10) ? Number.parseInt(element.norad_number.replace(/,/g, ''), 10) : null,
+                    alternate_name: element.alternate_name.handleEmpty(),
+                    un_registry: element.un_registry.handleEmpty(),
+                    country_operator_owner: element.country_operator_owner.handleEmpty(),
+                    operator_owner: element.operator_owner.handleEmpty(),
+                    users: element.users.handleEmpty(),
+                    purpose: element.purpose.handleEmpty(),
+                    detailed_purpose: element.detailed_purpose.handleEmpty(),
+                    orbit_class: element.orbit_class.handleEmpty(),
+                    orbit_type: element.orbit_type.handleEmpty(),
+                    launch_mass: element.launch_mass.convertToInt(),
+                    dry_mass: element.dry_mass.convertToInt(),
+                    power: element.power.convertToFloat(),
+                    expected_lifetime: element.expected_lifetime.convertToFloat(),
+                    contractor: element.contractor.handleEmpty(),
+                    contractor_country: element.contractor_country.handleEmpty(),
+                    launch_vehicle: element.launch_vehicle.handleEmpty(),
+                    comments: element.comments.handleEmpty(),
+                    norad_cat_id: element.norad_cat_id.convertToInt(),
 
                 });
             }
