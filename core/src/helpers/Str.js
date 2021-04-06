@@ -10,6 +10,6 @@ String.prototype.explode = function explode(separator, limit) {
     return array;
 };
 
-String.prototype.handleEmpty = function handleEmpty(string) {
-    return (string.length === 0 || !this.trim()) ? string : null;
+String.prototype.handleEmpty = function handleEmpty() {
+    return (this.length === 0 || !this.trim()) ? null : this;
 };
