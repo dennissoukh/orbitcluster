@@ -1,4 +1,5 @@
-Object.defineProperty(exports, '__esModule', { value: true });
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 exports.ensureIsFunction = exports.isPrimtiveConstructor = exports.isEsm = void 0;
 /**
  * Returns a boolean telling if value is an esm module
@@ -21,7 +22,7 @@ exports.isPrimtiveConstructor = isPrimtiveConstructor;
  */
 function ensureIsFunction(callback, message) {
     if (typeof callback !== 'function') {
-        throw new Error(`E_RUNTIME_EXCEPTION${message}`);
+        throw new Error('E_RUNTIME_EXCEPTION' + message);
     }
 }
 exports.ensureIsFunction = ensureIsFunction;

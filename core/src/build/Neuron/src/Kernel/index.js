@@ -1,10 +1,10 @@
-Object.defineProperty(exports, '__esModule', { value: true });
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 exports.Kernel = void 0;
-const HelpCommand_1 = require('../HelpCommand');
-const Parser_1 = require('../Parser');
-const help_1 = require('../utils/help');
-const validateCommand_1 = require('../utils/validateCommand');
-
+const HelpCommand_1 = require("../HelpCommand");
+const Parser_1 = require("../Parser");
+const help_1 = require("../utils/help");
+const validateCommand_1 = require("../utils/validateCommand");
 class Kernel {
     constructor(application) {
         this.application = application;
@@ -115,20 +115,23 @@ class Kernel {
             if (arg.type === 'spread') {
                 command[arg.propertyName] = parsedOptions._.slice(i);
                 break;
-            } else {
+            }
+            else {
                 command[arg.propertyName] = parsedOptions._[i];
             }
         }
         /**
          * Set flag value on the command instance
          */
-        for (const flag of command.flags) {
+        for (let flag of command.flags) {
             const flagValue = parsedOptions[flag.name];
             if (flag.type === 'boolean') {
                 command[flag.propertyName] = flagValue;
-            } else if (!flagValue && typeof flag.defaultValue === 'function') {
+            }
+            else if (!flagValue && typeof flag.defaultValue === 'function') {
                 command[flag.propertyName] = await flag.defaultValue(command);
-            } else if (flagValue || command[flag.propertyName] === undefined) {
+            }
+            else if (flagValue || command[flag.propertyName] === undefined) {
                 command[flag.propertyName] = flagValue;
             }
         }
@@ -137,13 +140,12 @@ class Kernel {
      * Register a global flag. These flags can be used with any command
      */
     flag(name, handler, options) {
-        this.flags[name] = {
+        this.flags[name] = Object.assign({
             name,
             propertyName: name,
             handler,
-            type: 'boolean',
-            ...options,
-        };
+            type: 'boolean'
+        }, options);
         return this;
     }
     /**
@@ -171,7 +173,8 @@ class Kernel {
         this.exitCode = commandExitCode === undefined ? exitCode : commandExitCode;
         try {
             await this.exitHandler(this);
-        } catch (exitHandlerError) {
+        }
+        catch (exitHandlerError) {
             console.log('Expected the exit handler to exit the process. Instead it raised an exception');
             throw exitHandlerError;
         }
@@ -233,7 +236,8 @@ class Kernel {
             if (!this.entryCommand.stayAlive) {
                 await this.exitProcess();
             }
-        } catch (error) {
+        }
+        catch (error) {
             await this.exitProcess(error);
         }
     }
@@ -257,7 +261,7 @@ class Kernel {
             // Add command to the manifest
             this.commands[commandInstance.commandName] = commandInstance;
             // Register the command aliases
-            commandInstance.aliases.forEach((alias) => {
+            commandInstance.aliases.forEach(alias => {
                 this.aliases[alias] = commandInstance.commandName;
             });
         }
@@ -267,11 +271,11 @@ class Kernel {
      * Returns an array of all registered commands
      */
     getAllCommandsAndAliases() {
-        const commands = Object.keys(this.commands).map((name) => { return this.commands[name]; });
-        const aliases = {};
+        let commands = Object.keys(this.commands).map((name) => this.commands[name]);
+        let aliases = {};
         return {
             commands,
-            aliases: Object.assign(aliases, this.aliases),
+            aliases: Object.assign(aliases, this.aliases)
         };
     }
     /**
@@ -281,9 +285,9 @@ class Kernel {
         const leven = require('leven');
         const { commands, aliases } = this.getAllCommandsAndAliases();
         const suggestions = commands
-            .filter(({ commandName }) => { return leven(name, commandName) <= distance; })
-            .map(({ commandName }) => { return commandName; });
-        return suggestions.concat(Object.keys(aliases).filter((alias) => { return leven(name, alias) <= distance; }));
+            .filter(({ commandName }) => leven(name, commandName) <= distance)
+            .map(({ commandName }) => commandName);
+        return suggestions.concat(Object.keys(aliases).filter((alias) => leven(name, alias) <= distance));
     }
     /**
      * Run the default command
@@ -291,7 +295,7 @@ class Kernel {
     async runDefaultCommand() {
         const commandInstance = this.application.container.make(this.defaultCommand, [
             this.application,
-            this,
+            this
         ]);
         this.entryCommand = commandInstance;
         /**
@@ -306,8 +310,9 @@ class Kernel {
         const { commands, aliases } = this.getAllCommandsAndAliases();
         if (command) {
             help_1.printHelpFor(command, aliases);
-        } else {
-            const flags = Object.keys(this.flags).map((name) => { return this.flags[name]; });
+        }
+        else {
+            const flags = Object.keys(this.flags).map((name) => this.flags[name]);
             help_1.printHelp(commands, aliases, flags);
         }
     }

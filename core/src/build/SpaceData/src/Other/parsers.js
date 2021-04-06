@@ -1,14 +1,15 @@
-const __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { default: mod };
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
 };
-Object.defineProperty(exports, '__esModule', { value: true });
+Object.defineProperty(exports, "__esModule", { value: true });
 exports.ParseClassfd = exports.ParseMcnames = exports.ParseSatlist = void 0;
-const parseTleFile_1 = __importDefault(require('../helpers/parseTleFile'));
+const parseTleFile_1 = __importDefault(require("../helpers/parseTleFile"));
 /**
  * Process satlist.csv
  */
 async function ParseSatlist(data) {
-    const res = [];
+    let res = [];
     data.forEach((sat) => {
         const data = sat[0].split(';');
         if (data.length === 8) {
@@ -32,7 +33,7 @@ exports.ParseSatlist = ParseSatlist;
  * Process mcnames.zip
  */
 async function ParseMcnames(data) {
-    const res = [];
+    let res = [];
     const split = data.split(/\r\n|\n\r|\n|\r/);
     split.forEach((sat) => {
         const satObject = {

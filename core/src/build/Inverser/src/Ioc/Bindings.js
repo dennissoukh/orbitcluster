@@ -1,4 +1,5 @@
-Object.defineProperty(exports, '__esModule', { value: true });
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 exports.Bindings = void 0;
 /**
  * Manages the IoC container bindings
@@ -36,7 +37,8 @@ class Bindings {
         if (bindingNode.singleton) {
             bindingNode.cachedValue = bindingNode.cachedValue ?? bindingNode.callback(this.container);
             resolvedValue = bindingNode.cachedValue;
-        } else {
+        }
+        else {
             resolvedValue = bindingNode.callback(this.container);
         }
         return resolvedValue;

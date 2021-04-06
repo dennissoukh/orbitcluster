@@ -9,3 +9,7 @@ String.prototype.explode = function explode(separator, limit) {
 
     return array;
 };
+
+String.prototype.handleEmpty = function handleEmpty(string) {
+    return string ? string : null;
+}

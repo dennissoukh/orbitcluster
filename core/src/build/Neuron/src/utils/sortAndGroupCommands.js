@@ -1,4 +1,5 @@
-Object.defineProperty(exports, '__esModule', { value: true });
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 exports.sortAndGroupCommands = void 0;
 /**
  * Loops over the commands and converts them to an array of sorted groups with
@@ -26,33 +27,33 @@ function sortAndGroupCommands(commands) {
      */
     return Object.keys(groupsLiteral)
         .sort((prev, curr) => {
-            if (prev === 'root') {
-                return -1;
-            }
-            if (curr === 'root') {
-                return 1;
-            }
-            if (curr > prev) {
-                return -1;
-            }
-            if (curr < prev) {
-                return 1;
-            }
-            return 0;
-        })
+        if (prev === 'root') {
+            return -1;
+        }
+        if (curr === 'root') {
+            return 1;
+        }
+        if (curr > prev) {
+            return -1;
+        }
+        if (curr < prev) {
+            return 1;
+        }
+        return 0;
+    })
         .map((name) => {
-            return {
-                group: name,
-                commands: groupsLiteral[name].sort((prev, curr) => {
-                    if (curr.commandName > prev.commandName) {
-                        return -1;
-                    }
-                    if (curr.commandName < prev.commandName) {
-                        return 1;
-                    }
-                    return 0;
-                }),
-            };
-        });
+        return {
+            group: name,
+            commands: groupsLiteral[name].sort((prev, curr) => {
+                if (curr.commandName > prev.commandName) {
+                    return -1;
+                }
+                if (curr.commandName < prev.commandName) {
+                    return 1;
+                }
+                return 0;
+            }),
+        };
+    });
 }
 exports.sortAndGroupCommands = sortAndGroupCommands;

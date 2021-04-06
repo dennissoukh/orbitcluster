@@ -1,4 +1,5 @@
-Object.defineProperty(exports, '__esModule', { value: true });
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 exports.IocResolver = void 0;
 /**
  * Exposes the API to resolve and call bindings from the IoC container. The resolver

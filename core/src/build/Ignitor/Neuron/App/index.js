@@ -1,13 +1,13 @@
-const __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { default: mod };
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
 };
-Object.defineProperty(exports, '__esModule', { value: true });
+Object.defineProperty(exports, "__esModule", { value: true });
 exports.App = void 0;
-const Orbitcluster_1 = require('../../../Orbitcluster');
-const Neuron_1 = require('../../../Neuron');
-const Cosmic_1 = require('../../../Cosmic');
-const chalk_1 = __importDefault(require('chalk'));
-
+const Orbitcluster_1 = require("../../../Orbitcluster");
+const Neuron_1 = require("../../../Neuron");
+const Cosmic_1 = require("../../../Cosmic");
+const chalk_1 = __importDefault(require("chalk"));
 class App {
     constructor(fastify, appRoot) {
         this.fastify = fastify;
@@ -26,9 +26,10 @@ class App {
             const manifestAbsPath = Cosmic_1.resolveFrom(this.application.appRoot, './src/commands/index.js');
             const basePath = this.application.appRoot;
             return [
-                { manifestAbsPath, basePath },
+                { manifestAbsPath, basePath }
             ];
-        } catch (error) {
+        }
+        catch (error) {
             return [];
         }
     }
@@ -65,7 +66,8 @@ class App {
              * Handle command
              */
             await this.kernel.handle(argv);
-        } catch (error) {
+        }
+        catch (error) {
             throw error;
         }
     }
@@ -76,13 +78,13 @@ class App {
         /**
          * Showing help including core commands
          */
-        this.kernel.flag('help', async (value, _, command) => { return this.printHelp(value, command); }, {
+        this.kernel.flag('help', async (value, _, command) => this.printHelp(value, command), {
             alias: 'h',
-            description: 'Display help for the given command',
+            description: 'Display help for the given command'
         });
-        this.kernel.flag('version', async (value) => { return this.printVersion(value); }, {
+        this.kernel.flag('version', async (value) => this.printVersion(value), {
             alias: 'v',
-            description: 'Display the application version',
+            description: 'Display the application version'
         });
     }
     /**

@@ -1,6 +1,7 @@
-Object.defineProperty(exports, '__esModule', { value: true });
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 exports.Injector = void 0;
-const helpers_1 = require('../helpers');
+const helpers_1 = require("../helpers");
 /**
  * Exposes the API to injecting dependencies to a class or a method
  */
@@ -33,7 +34,7 @@ class Injector {
              * Disallow object and primitive constructors
              */
             if (helpers_1.isPrimtiveConstructor(injection)) {
-                throw new Error(`Invalid Injection Exception${targetName}`);
+                throw new Error('Invalid Injection Exception' + targetName);
             }
             return this.container.make(injection);
         });
@@ -63,7 +64,7 @@ class Injector {
              * Disallow object and primitive constructors
              */
             if (helpers_1.isPrimtiveConstructor(injection)) {
-                throw new Error(`InvalidInjectionException${targetName}`);
+                throw new Error('InvalidInjectionException' + targetName);
             }
             return this.container.makeAsync(injection);
         }));
@@ -102,14 +103,14 @@ class Injector {
      * Injects dependencies to the class method
      */
     call(target, method, runtimeValues) {
-        const { constructor } = target;
+        const constructor = target.constructor;
         return target[method](...this.resolve(`${constructor.name}.${method}`, this.getInjections(constructor, method), runtimeValues));
     }
     /**
      * Injects dependencies asynchronously to the class method
      */
     async callAsync(target, method, runtimeValues) {
-        const { constructor } = target;
+        const constructor = target.constructor;
         return target[method](...(await this.resolveAsync(`${constructor.name}.${method}`, this.getInjections(constructor, method), runtimeValues)));
     }
 }

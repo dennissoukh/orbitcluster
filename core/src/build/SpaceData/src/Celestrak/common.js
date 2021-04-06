@@ -1,4 +1,5 @@
-Object.defineProperty(exports, '__esModule', { value: true });
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 exports.default = {
     /*
     |--------------------------------------------------------------------------
@@ -16,9 +17,9 @@ exports.default = {
         'supplementalElementSets',
     ],
     setURLS: {
-        GPElementSets: (set, format) => { return `/NORAD/elements/gp.php?GROUP=${set}&FORMAT=${format}`; },
-        elementSets: (set) => { return `/satcat/${set}.php`; },
-        supplementalElementSets: (set) => { return `/NORAD/elements/supplemental/${set}.txt`; },
+        GPElementSets: (set, format) => `/NORAD/elements/gp.php?GROUP=${set}&FORMAT=${format}`,
+        elementSets: (set) => `/satcat/${set}.php`,
+        supplementalElementSets: (set) => `/NORAD/elements/supplemental/${set}.txt`,
     },
     /*
     |--------------------------------------------------------------------------
@@ -87,7 +88,7 @@ exports.default = {
         'military',
         'radar',
         'cubesat',
-        'other',
+        'other'
     ],
     GPElementSetFormats: [
         'tle',
@@ -96,7 +97,7 @@ exports.default = {
         'kvn',
         'json',
         'json-pretty',
-        'csv',
+        'csv'
     ],
     /*
     |--------------------------------------------------------------------------
@@ -113,7 +114,7 @@ exports.default = {
     */
     elementSets: [
         'gpz',
-        'gpz-plus',
+        'gpz-plus'
     ],
     /*
     |--------------------------------------------------------------------------
@@ -140,6 +141,6 @@ exports.default = {
         'telesat',
         'orbcomm',
         'iss',
-        'cpf',
-    ],
+        'cpf'
+    ]
 };
