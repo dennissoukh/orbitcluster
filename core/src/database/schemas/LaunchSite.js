@@ -14,16 +14,16 @@ const data = async (db) => {
                         description: 'must be a string and is required',
                     },
                     description: {
-                        bsonType: 'string',
-                        description: 'must be a string and is required',
+                        bsonType: ['string', 'null'],
+                        description: 'must be a string',
                     },
                     location: {
-                        bsonType: 'object',
+                        bsonType: ['object', 'null'],
                         required: ['lat', 'long'],
                         properties: {
                             lat: {
-                                bsonType: 'object',
-                                description: 'must be an object',
+                                bsonType: 'double',
+                                description: 'must be an double',
                             },
                             long: {
                                 bsonType: 'double',

@@ -1,4 +1,4 @@
-const { performance } = require('perf_hooks');
+const { startPerf, endPerf } = require('../helpers/Perf');
 const { BaseCommand } = require('../build/Neuron');
 const { SpaceOther, ParseClassfd } = require('../build/SpaceData');
 const { convertToInt } = require('../helpers/Number');
@@ -18,11 +18,11 @@ class DownloadClassfd extends BaseCommand {
      * Execute the console command.
      */
     async run(app) {
-        const t0 = performance.now();
-        console.log(`${Date.now()}> Executing download`);
-        const data = new SpaceOther();
-        const classfd = await data.get({ class: 'classfd' });
-        const parsed = await ParseClassfd(classfd);
+        const t0 = startPerf('Executing download');
+
+        const spaceOther = new SpaceOther();
+        const data = await spaceOther.get({ class: 'classfd' });
+        const classfd = await ParseClassfd(data);
 
         // Get an instance of the application database
         const { db } = app.mongo;
@@ -31,33 +31,26 @@ class DownloadClassfd extends BaseCommand {
             // Get the database collection
             const collection = db.collection('tle-data');
 
-            // Save tle-data into the database
-            for (let i = 0; i < parsed.length; i += 1) {
-                const element = parsed[i];
+            // Save each classfd TLE into the database
+            for (let i = 0; i < classfd.length; i += 1) {
+                const element = classfd[i];
+                const norad = convertToInt(element.tle_line2.slice(2, 7));
 
-                await collection.insertOne({
-                    norad_cat_id: convertToInt(element.tle_line2.slice(2, 7)),
-                    tle_line0: element.tle_line0,
-                    tle_line1: element.tle_line1,
-                    tle_line2: element.tle_line2,
-                    source: 'McCants',
-                });
+                await collection.updateOne({ norad_cat_id: norad }, {
+                    $set: {
+                        norad_cat_id: norad,
+                        tle_line0: element.tle_line0,
+                        tle_line1: element.tle_line1,
+                        tle_line2: element.tle_line2,
+                        source: 'McCants',
+                    }
+                }, { upsert: true });
             }
         } catch (error) {
-            console.log(
-                `${Date.now()}> Could not update documents`,
-            );
+            throw new Error(`${Date.now()}> Could not update documents`);
         }
 
-        // Console debugging messages
-        const t1 = performance.now();
-
-        const timeTaken = (t1 - t0).toFixed(2);
-        const rowLength = parsed.length;
-
-        console.log(
-            `${Date.now()}> Finished download, ${rowLength} documents synced @ ${timeTaken}ms`,
-        );
+        endPerf(t0, `Finished download, ${classfd.length} documents synced`);
     }
 }
 

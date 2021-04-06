@@ -21,7 +21,7 @@ const data = async (db) => {
                         description: 'must be a string',
                     },
                     source: {
-                        bsonType: 'string',
+                        bsonType: ['string', 'null'],
                         description: 'must be a string',
                     },
                 },
