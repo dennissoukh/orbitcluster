@@ -13,6 +13,7 @@ const commands = [
     // 'commands/DownloadLaunchsites',
     'commands/SatDataDownloader',
     'commands/SatRadioDownloader',
+    'commands/DownloadClassfd',
 ];
 
 module.exports = { commands };
