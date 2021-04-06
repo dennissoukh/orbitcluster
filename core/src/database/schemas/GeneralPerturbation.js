@@ -3,7 +3,7 @@ const data = async (db) => {
         validator: {
             $jsonSchema: {
                 bsonType: 'object',
-                required: ['originator', 'norad_cat_id'],
+                required: ['norad_cat_id'],
                 properties: {
                     originator: {
                         bsonType: 'string',
