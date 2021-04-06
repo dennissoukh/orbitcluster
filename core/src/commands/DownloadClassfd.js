@@ -30,7 +30,7 @@ class DownloadClassfd extends BaseCommand {
             // Get the database collection
             const collection = db.collection('tle-data');
 
-            // Save sat-data into the database
+            // Save tle-data into the database
             for (let i = 0; i < parsed.length; i += 1) {
                 const element = parsed[i];
 
