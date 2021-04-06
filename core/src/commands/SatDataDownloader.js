@@ -1,7 +1,7 @@
 const { performance } = require('perf_hooks');
 const { BaseCommand } = require('../build/Neuron');
-require('../helpers/Str');
-require('../helpers/Number');
+const { handleEmpty } = require('../helpers/Str');
+const { convertToInt, convertToFloat } = require('../helpers/Number');
 const ucs = require('../../data/ucs.json');
 
 class SatDataDownloader extends BaseCommand {
@@ -34,25 +34,24 @@ class SatDataDownloader extends BaseCommand {
                 const element = ucs[i];
 
                 await collection.insertOne({
-                    alternate_name: element.alternate_name.handleEmpty(),
-                    un_registry: element.un_registry.handleEmpty(),
-                    country_operator_owner: element.country_operator_owner.handleEmpty(),
-                    operator_owner: element.operator_owner.handleEmpty(),
-                    users: element.users.handleEmpty(),
-                    purpose: element.purpose.handleEmpty(),
-                    detailed_purpose: element.detailed_purpose.handleEmpty(),
-                    orbit_class: element.orbit_class.handleEmpty(),
-                    orbit_type: element.orbit_type.handleEmpty(),
-                    launch_mass: element.launch_mass.convertToInt(),
-                    dry_mass: element.dry_mass.convertToInt(),
-                    power: element.power.convertToFloat(),
-                    expected_lifetime: element.expected_lifetime.convertToFloat(),
-                    contractor: element.contractor.handleEmpty(),
-                    contractor_country: element.contractor_country.handleEmpty(),
-                    launch_vehicle: element.launch_vehicle.handleEmpty(),
-                    comments: element.comments.handleEmpty(),
-                    norad_cat_id: element.norad_cat_id.convertToInt(),
-
+                    alternate_name: handleEmpty(element.alternate_name),
+                    un_registry: handleEmpty(element.un_registry),
+                    country_operator_owner: handleEmpty(element.country_operator_owner),
+                    operator_owner: handleEmpty(element.operator_owner),
+                    users: handleEmpty(element.users),
+                    purpose: handleEmpty(element.purpose),
+                    detailed_purpose: handleEmpty(element.detailed_purpose),
+                    orbit_class: handleEmpty(element.orbit_class),
+                    orbit_type: handleEmpty(element.orbit_type),
+                    launch_mass: convertToInt(element.launch_mass),
+                    dry_mass: convertToInt(element.dry_mass),
+                    power: convertToFloat(element.power),
+                    expected_lifetime: convertToFloat(element.expected_lifetime),
+                    contractor: handleEmpty(element.contractor),
+                    contractor_country: handleEmpty(element.contractor_country),
+                    launch_vehicle: handleEmpty(element.launch_vehicle),
+                    comments: handleEmpty(element.comments),
+                    norad_cat_id: convertToInt(element.norad_number),
                 });
             }
         } catch (error) {

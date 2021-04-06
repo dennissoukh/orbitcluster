@@ -1,6 +1,7 @@
 const { performance } = require('perf_hooks');
 const { BaseCommand } = require('../build/Neuron');
 const { SpaceOther, ParseSatlist } = require('../build/SpaceData');
+const { convertToInt } = require('../helpers/Number');
 
 class SatRadioDownloader extends BaseCommand {
     /**
@@ -51,7 +52,7 @@ class SatRadioDownloader extends BaseCommand {
                     await collection.updateOne(query, radioUpdate);
                 } else if (element.norad_cat_id) {
                     await collection.insertOne({
-                        norad_cat_id: element.norad_cat_id.convertToInt(),
+                        norad_cat_id: convertToInt(element.norad_cat_id),
                         alternate_name: element.satname,
                         radio: {
                             uplink: element.uplink,

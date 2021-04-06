@@ -1,13 +1,22 @@
-/* eslint no-extend-native: ["error", { "exceptions": ["Number"] }] */
-
-Number.prototype.convertToInt = function convertToInt() {
-    const num = Number.parseInt(this.replace(/,/g, ''), 10);
+/**
+ * Convert a number to an int, returning null if the value is empty
+ */
+const convertToInt = (value) => {
+    const num = Number.parseInt(value.replace(/,/g, ''), 10);
 
     return Number.isNaN(num) ? null : num;
 };
 
-Number.prototype.convertToFloat = function convertToFloat() {
-    const num = Number.parseFloat(this.replace(/,/g, ''), 10);
+/**
+ * Convert a number to float, returning null if the value is empty
+ */
+const convertToFloat = (value) => {
+    const num = Number.parseFloat(value.replace(/,/g, ''), 10);
 
     return Number.isNaN(num) ? null : num;
+};
+
+module.exports = {
+    convertToInt,
+    convertToFloat,
 };
