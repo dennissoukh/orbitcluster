@@ -48,7 +48,7 @@ class SatDataDownloader extends BaseCommand {
                     contractor: element.contractor ? element.contractor : null,
                     contractor_country: element.contractor_country ? element.contractor_country : null,
                     launch_vehicle: element.launch_vehicle ? element.launch_vehicle : null,
-                    description: element.comments ? element.comments : null,
+                    comments: element.comments ? element.comments : null,
                     norad_cat_id: Number.parseInt(element.norad_number.replace(/,/g, ''), 10) ? Number.parseInt(element.norad_number.replace(/,/g, ''), 10) : null,
 
                 });
