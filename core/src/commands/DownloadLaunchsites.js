@@ -1,6 +1,6 @@
 const { performance } = require('perf_hooks');
 const { BaseCommand } = require('../build/Neuron');
-const SpaceTrack = require('../packages/SpaceTrack');
+const { SpaceTrack } = require('../build/SpaceData');
 
 class DownloadLaunchSites extends BaseCommand {
     /**
@@ -22,7 +22,8 @@ class DownloadLaunchSites extends BaseCommand {
         console.log(`${Date.now()}> Executing download`);
 
         // Query Space-Track API
-        const launchSites = await SpaceTrack.get({
+        const spaceTrack = new SpaceTrack();
+        const launchSites = await spaceTrack.get({
             class: 'launch_site',
         });
 
@@ -43,9 +44,7 @@ class DownloadLaunchSites extends BaseCommand {
                 });
             }
         } catch (error) {
-            console.log(
-                `${Date.now()}> Could not update documents`,
-            );
+            throw Error(`${Date.now()}> Could not update documents`);
         }
 
         // Console debugging messages
