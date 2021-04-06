@@ -8,6 +8,8 @@ const builder = async (app, options, done) => {
         { schema: require('./schemas/Satellite'), name: 'satcat' },
         { schema: require('./schemas/User'), name: 'user' },
         { schema: require('./schemas/SatData'), name: 'sat-data' },
+        { schema: require('./schemas/TLEData'), name: 'tle-data' },
+
     ];
 
     // Create the validation schemas if they don't exist already
