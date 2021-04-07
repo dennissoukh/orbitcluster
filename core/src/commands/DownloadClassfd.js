@@ -43,7 +43,7 @@ class DownloadClassfd extends BaseCommand {
                         tle_line1: element.tle_line1,
                         tle_line2: element.tle_line2,
                         source: 'McCants',
-                    }
+                    },
                 }, { upsert: true });
             }
         } catch (error) {
