@@ -1,18 +1,18 @@
 const { performance } = require('perf_hooks');
 const { BaseCommand } = require('../build/Neuron');
 const { convertToInt, convertToFloat } = require('../helpers/Number');
-const { SpaceOther, ParseClassfd } = require('../build/SpaceData');
+const { SpaceOther, ParseAmsat } = require('../build/SpaceData');
 
-class DownloadClassfd extends BaseCommand {
+class Amsat extends BaseCommand {
     /**
      * The name and signature of the console command.
      */
-    commandName = 'download:satclassfd';
+    commandName = 'download:amsat';
 
     /**
      * The console command description.
      */
-    description = 'Download and update "classfd" from SpaceData';
+    description = 'Download and update "amsat" from SpaceData';
 
     /**
      * Execute the console command.
@@ -21,8 +21,8 @@ class DownloadClassfd extends BaseCommand {
         const t0 = performance.now();
         console.log(`${Date.now()}> Executing download`);
         const data = new SpaceOther();
-        const classfd = await data.get({ class: 'classfd' });
-        const parsed = await ParseClassfd(classfd);
+        const amsat = await data.get({ class: 'amsat' });
+        const parsed = await ParseAmsat(amsat);
 
         // Get an instance of the application database
         const { db } = app.mongo;
@@ -40,7 +40,7 @@ class DownloadClassfd extends BaseCommand {
                     tle_line0: element.tle_line0,
                     tle_line1: element.tle_line1,
                     tle_line2: element.tle_line2,
-                    source: 'McCants',
+                    source: 'Amsat',
                 });
             }
         } catch (error) {
@@ -61,4 +61,4 @@ class DownloadClassfd extends BaseCommand {
     }
 }
 
-module.exports = DownloadClassfd;
+module.exports = Amsat;
