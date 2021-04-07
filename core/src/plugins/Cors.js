@@ -1,4 +1,4 @@
-const plugin    = require('fastify-cors')
-const options   = require('../config/cors')
+const plugin = require('fastify-cors');
+const options = require('../config/cors');
 
-module.exports = { plugin, options }
+module.exports = { plugin, options };

@@ -9,14 +9,16 @@ process.on('uncaughtException', (err) => {
 /**
  * Module dependencies
  */
-const app = require('../app');
+const app = async () => {
+    return await require('../app')();
+}
 
 /**
  * Run server
  */
-const start = async () => {
+const start = async (app) => {
     try {
-        await app.listen(3000);
+        await app.listen(process.env.PORT || 3000);
         app.log.info(`server listening on ${app.server.address().port}, start time ${process.hrtime()}`);
     } catch (err) {
         app.log.error(err);
@@ -24,4 +26,9 @@ const start = async () => {
     }
 }
 
-start();
+/**
+ * Bind a ready Fastify application to start
+ */
+app().then((app) => {
+    start(app);
+});

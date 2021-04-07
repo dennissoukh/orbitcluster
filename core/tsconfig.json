@@ -1,0 +1,27 @@
+{
+  "compilerOptions": {
+    "target": "es2020",
+    "module": "commonjs",
+    "lib": ["es2020"],
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "removeComments": false,
+    "declaration": true,
+    "moduleResolution": "node",
+    "strictNullChecks": true,
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "outDir": "./src/build",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "types": ["node"],
+  },
+  "include": [
+    "./src/packages/Neuron/**/*",
+    "./src/packages/Inverser/**/*",
+    "./src/packages/Ignitor/**/*",
+    "./src/packages/Cosmic/**/*",
+    "./src/packages/Orbitcluster/**/*",
+    "./src/packages/SpaceData/**/*",
+  ],
+}

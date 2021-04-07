@@ -8,9 +8,9 @@
 |
 */
 const app = require('fastify')({
-    logger: true
-})
-
+    logger: process.env.APP_DEBUG ? process.env.APP_DEBUG : true,
+    ignoreTrailingSlash: true,
+});
 
 /*
 |--------------------------------------------------------------------------
@@ -23,18 +23,16 @@ const app = require('fastify')({
 |
 */
 const plugins = [
-    require('./src/plugins/Cors'),
     require('./src/plugins/MongoDB'),
+    require('./src/plugins/Cors'),
     require('./src/plugins/Helmet'),
     require('./src/plugins/Jwt'),
     require('./src/plugins/Cookie'),
-    require('./src/plugins/Csrf')
-]
+];
 
 plugins.forEach((plugin) => {
     app.register(plugin.plugin, plugin.options);
-})
-
+});
 
 /*
 |--------------------------------------------------------------------------
@@ -47,13 +45,26 @@ plugins.forEach((plugin) => {
 |
 */
 const routes = [
-    require('./src/services/application')
-]
+    require('./src/routes/application'),
+];
 
 routes.forEach((route) => {
-    app.register(route, Object.assign({ prefix: '/v1' }, route));
-})
+    app.register(route, { prefix: '/v1', ...route });
+});
 
+/*
+|--------------------------------------------------------------------------
+| Register the Database Builder
+|--------------------------------------------------------------------------
+|
+| The database builder contains the validation schema definitions for the
+| MongoDB database that the app is using. We register the builder so
+| that it has access to the application's main database.
+|
+*/
+const builder = require('./src/database/builder');
+
+app.register(builder);
 
 /*
 |--------------------------------------------------------------------------
@@ -62,7 +73,12 @@ routes.forEach((route) => {
 |
 | This returns the application instance. The instance is given to
 | the calling script so we can separate the building of the instances
-| from the actual running of the application and sending responses.
+| from the actual running of the application and sending responses. The
+| ready app is returned in the form of a promise.
 |
 */
-module.exports = app
+async function ready() {
+    return app.ready();
+}
+
+module.exports = ready;
