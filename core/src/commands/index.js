@@ -14,7 +14,6 @@ const commands = [
     'commands/SatDataDownloader',
     'commands/SatRadioDownloader',
     'commands/DownloadClassfd',
-    'commands/DownloadDescriptions',
 ];
 
 module.exports = { commands };

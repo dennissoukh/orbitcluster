@@ -80,38 +80,17 @@ const data = async (db) => {
                                 bsonType: ['string', 'null'],
                                 description: 'must be a string',
                             },
+                            cospar_number: {
+                                bsonType: ['string', 'null'],
+                                description: 'must be a string',
+                            },
                             norad_cat_id: {
                                 bsonType: 'int',
                                 description: 'must be an int and is required',
                             },
                             radio: {
-                                bsonType: 'object',
-                                properties: {
-                                    uplink: {
-                                        bsonType: ['string', 'null'],
-                                        description: 'must be a string',
-                                    },
-                                    downlink: {
-                                        bsonType: ['string', 'null'],
-                                        description: 'must be a string',
-                                    },
-                                    beacon: {
-                                        bsonType: ['string', 'null'],
-                                        description: 'must be a string',
-                                    },
-                                    mode: {
-                                        bsonType: ['string', 'null'],
-                                        description: 'must be a string',
-                                    },
-                                    callsign: {
-                                        bsonType: ['string', 'null'],
-                                        description: 'must be a string',
-                                    },
-                                    type: {
-                                        bsonType: ['string', 'null'],
-                                        description: 'must be a string',
-                                    },
-                                },
+                                bsonType: ['array', 'null'],
+                                description: 'must be an array',
                             },
                         },
                     },
