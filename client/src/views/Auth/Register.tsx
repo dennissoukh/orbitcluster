@@ -1,17 +1,12 @@
 import React from 'react';
-import CSS from 'csstype';
 import { Link } from 'react-router-dom';
-
-const authStyles: CSS.Properties = {
-    width: '500px'
-}
 
 export class Register extends React.Component {
     render() {
         return (
             <div className="d-flex align-items-center justify-content-center min-vh-100">
-                <div className="auth-container" style={authStyles}>
-                    <h1 className="font-bold">Register</h1>
+                <div className="auth-container">
+                    <h2 className="font-bold">Register</h2>
                     <div className="mt-4">
                         <form>
                             <div className="form-group">

@@ -1,17 +1,28 @@
-$font-path-dinot:     "../../fonts/DINOT"
+$font-path-dinot: "../../fonts/DINOT"
+$font-path-inter: "../../fonts/Inter"
 
 =font-face($family, $path, $weight: 400, $style: normal)
   @font-face
     font-family: $family
     font-style: $style
     font-weight: $weight
-    src: url("#{$path}.woff2") format("woff2"), url("#{$path}.woff") format("woff"), url("#{$path}.otf") format("opentype"), url("#{$path}.svg") format("svg")
+    font-display: swap
+    src: url("#{$path}.woff2") format("woff2"), url("#{$path}.woff") format("woff")
 
-// DINOT Regular
-+font-face("DINOT", "#{$font-path-dinot}/DINOT-Regular")
+// // DINOT Regular
+// +font-face("DINOT", "#{$font-path-dinot}/DINOT-Regular")
 
-// DINOT Light
-+font-face("DINOT", "#{$font-path-dinot}/DINOT-Light", 300)
+// // DINOT Light
+// +font-face("DINOT", "#{$font-path-dinot}/DINOT-Light", 300)
 
-// DINOT Bold (use Medium)
-+font-face("DINOT", "#{$font-path-dinot}/DINOT-Medium", 700)
+// // DINOT Bold (use Medium)
+// +font-face("DINOT", "#{$font-path-dinot}/DINOT-Medium", 700)
+
+// Inter
++font-face("Inter", "#{$font-path-inter}/Inter-Regular")
+
+// Inter Light
++font-face("Inter", "#{$font-path-inter}/Inter-Light", 300)
+
+// Inter Bold
++font-face("Inter", "#{$font-path-inter}/Inter-Bold", 700)
