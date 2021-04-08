@@ -1,6 +1,6 @@
 const { performance } = require('perf_hooks');
 const { BaseCommand } = require('../build/Neuron');
-const { convertToInt, convertToFloat } = require('../helpers/Number');
+const { convertToInt } = require('../helpers/Number');
 const { SpaceOther, ParseClassfd, CelesTrak } = require('../build/SpaceData');
 
 class CelesTrakDownloader extends BaseCommand {

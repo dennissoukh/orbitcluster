@@ -1,7 +1,7 @@
-const { performance } = require('perf_hooks');
 const { BaseCommand } = require('../build/Neuron');
-const { convertToInt, convertToFloat } = require('../helpers/Number');
+const { convertToInt} = require('../helpers/Number');
 const { SpaceOther, ParseClassfd } = require('../build/SpaceData');
+const { endPerf, startPerf } = require('../helpers/Perf');
 
 class DownloadClassfd extends BaseCommand {
     /**
@@ -18,8 +18,7 @@ class DownloadClassfd extends BaseCommand {
      * Execute the console command.
      */
     async run(app) {
-        const t0 = performance.now();
-        console.log(`${Date.now()}> Executing download`);
+        const t0 = startPerf('Extracting File');
         const data = new SpaceOther();
         const classfd = await data.get({ class: 'classfd' });
         const parsed = await ParseClassfd(classfd);
@@ -50,14 +49,7 @@ class DownloadClassfd extends BaseCommand {
         }
 
         // Console debugging messages
-        const t1 = performance.now();
-
-        const timeTaken = (t1 - t0).toFixed(2);
-        const rowLength = parsed.length;
-
-        console.log(
-            `${Date.now()}> Finished download, ${rowLength} documents synced @ ${timeTaken}ms`,
-        );
+        endPerf(t0, `Finished download, ${parsed.length} documents synced`);
     }
 }
 

@@ -1,7 +1,7 @@
-const { performance } = require('perf_hooks');
 const { BaseCommand } = require('../build/Neuron');
 const { SpaceOther, ParseSatlist } = require('../build/SpaceData');
 const { convertToInt } = require('../helpers/Number');
+const { endPerf, startPerf } = require('../helpers/Perf');
 
 class SatRadioDownloader extends BaseCommand {
     /**
@@ -18,8 +18,7 @@ class SatRadioDownloader extends BaseCommand {
      * Execute the console command.
      */
     async run(app) {
-        const t0 = performance.now();
-        console.log(`${Date.now()}> Executing download`);
+        const t0 = startPerf('Extracting File');
         const data = new SpaceOther();
         const radio = await data.get({ class: 'radio' });
         const parsed = await ParseSatlist(radio);
@@ -72,14 +71,7 @@ class SatRadioDownloader extends BaseCommand {
         }
 
         // Console debugging messages
-        const t1 = performance.now();
-
-        const timeTaken = (t1 - t0).toFixed(2);
-        const rowLength = parsed.length;
-
-        console.log(
-            `${Date.now()}> Finished download, ${rowLength} documents synced @ ${timeTaken}ms`,
-        );
+        endPerf(t0, `Finished download, ${parsed.length} documents synced`);
     }
 }
 

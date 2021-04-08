@@ -1,6 +1,6 @@
 const { BaseCommand } = require('../build/Neuron');
-const { endPerf, startPerf } = require('../helpers/Perf');
 const satData = require('../../data/sat-data.json');
+const { endPerf, startPerf } = require('../helpers/Perf');
 
 class SatDataDownloader extends BaseCommand {
     /**
