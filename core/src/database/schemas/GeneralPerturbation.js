@@ -14,27 +14,27 @@ const data = async (db) => {
                         description: 'must be a date',
                     },
                     mean_motion: {
-                        bsonType: ['double', 'null'],
+                        bsonType: ['double', 'null', 'int'],
                         description: 'must be a double',
                     },
                     eccentricity: {
-                        bsonType: ['double', 'null'],
+                        bsonType: ['double', 'null', 'int'],
                         description: 'must be a double',
                     },
                     inclination: {
-                        bsonType: ['double', 'null'],
+                        bsonType: ['double', 'null', 'int'],
                         description: 'must be a double',
                     },
                     ra_of_asc_node: {
-                        bsonType: ['double', 'null'],
+                        bsonType: ['double', 'null', 'int'],
                         description: 'must be a double',
                     },
                     arg_of_pericenter: {
-                        bsonType: ['double', 'null'],
+                        bsonType: ['double', 'null', 'int'],
                         description: 'must be an double',
                     },
                     mean_anomaly: {
-                        bsonType: ['double', 'null'],
+                        bsonType: ['double', 'null', 'int'],
                         description: 'must be a double',
                     },
                     ephemeris_type: {
@@ -58,31 +58,31 @@ const data = async (db) => {
                         description: 'must be a int',
                     },
                     bstar: {
-                        bsonType: ['double', 'null'],
+                        bsonType: ['double', 'null', 'int'],
                         description: 'must be a double',
                     },
                     mean_motion_dot: {
-                        bsonType: ['double', 'null'],
+                        bsonType: ['double', 'null', 'int'],
                         description: 'must be a double',
                     },
                     mean_motion_ddot: {
-                        bsonType: ['double', 'null'],
+                        bsonType: ['double', 'null', 'int'],
                         description: 'must be a double',
                     },
                     semimajor_axis: {
-                        bsonType: ['double', 'null'],
+                        bsonType: ['double', 'null', 'int'],
                         description: 'must be a double',
                     },
                     period: {
-                        bsonType: ['double', 'null'],
+                        bsonType: ['double', 'null', 'int'],
                         description: 'must be a double',
                     },
                     apoapsis: {
-                        bsonType: ['double', 'null'],
+                        bsonType: ['double', 'null', 'int'],
                         description: 'must be a double',
                     },
                     periapsis: {
-                        bsonType: ['double', 'null'],
+                        bsonType: ['double', 'null', 'int'],
                         description: 'must be a double',
                     },
                     tle_line0: {

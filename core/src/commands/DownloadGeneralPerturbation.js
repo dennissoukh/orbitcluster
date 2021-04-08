@@ -1,6 +1,7 @@
 const { performance } = require('perf_hooks');
 const { BaseCommand } = require('../build/Neuron');
 const { SpaceTrack } = require('../build/SpaceData');
+const { convertToInt, convertToFloat } = require('../helpers/Number');
 
 class DownloadGeneralPerturbations extends BaseCommand {
     /**
@@ -11,20 +12,48 @@ class DownloadGeneralPerturbations extends BaseCommand {
     /**
      * The console command description.
      */
-    description = 'Download and update "launch-sites" from Space-Track';
+    description = 'Download and update "gp" from Space-Track';
 
     /**
      * Execute the console command.
      */
-    async run(app) {
+     async run(app) {
         const t0 = performance.now();
 
         console.log(`${Date.now()}> Executing download`);
 
         // Query Space-Track API
         const spaceTrack = new SpaceTrack();
-        const launchSites = await spaceTrack.get({
+        const gp = await spaceTrack.get({
             class: 'gp',
+            predicates: [
+                'NORAD_CAT_ID',
+                'ORIGINATOR',
+                'EPOCH',
+                'MEAN_MOTION',
+                'ECCENTRICITY',
+                'INCLINATION',
+                'RA_OF_ASC_NODE',
+                'ARG_OF_PERICENTER',
+                'MEAN_ANOMALY',
+                'EPHEMERIS_TYPE',
+                'CLASSIFICATION_TYPE',
+                'ELEMENT_SET_NO',
+                'REV_AT_EPOCH',
+                'BSTAR',
+                'MEAN_MOTION_DOT',
+                'SEMIMAJOR_AXIS',
+                'PERIOD',
+                'APOAPSIS',
+                'PERIAPSIS',
+                'TLE_LINE0',
+                'TLE_LINE1',
+                'TLE_LINE2',
+            ],
+            query: [
+                { field: 'NORAD_CAT_ID', condition: '%3C100000' },
+                { field: 'DECAY_DATE', condition: 'null-val' },
+            ],
         });
 
         // Get an instance of the application database
@@ -35,45 +64,43 @@ class DownloadGeneralPerturbations extends BaseCommand {
             const collection = await db.collection('general-perturbation');
 
             // Save each launchsite into the database
-            for (let i = 0; i < launchSites.data.length; i += 1) {
-                const site = launchSites.data[i];
+            for (let i = 0; i < gp.data.length; i += 1) {
+                const element = gp.data[i];
 
                 await collection.insertOne({
-                    norad_cat_id: Number.parseInt(site.NORAD_CAT_ID,10),
-                    originator: site.ORIGINATOR,
-                    epoch: new Date(site.EPOCH),
-                    mean_motion: Number.parseFloat(site.MEAN_MOTION,10),
-                    eccentricity: Number.parseFloat(site.ECCENTRICITY,10),
-                    inclination: Number.parseFloat(site.INCLINATION,10),
-                    ra_of_asc_node: Number.parseFloat(site.RA_OF_ASC_NODE,10),
-                    arg_of_pericenter: Number.parseFloat(site.ARG_OF_PERICENTER,10),
-                    mean_anomaly: Number.parseFloat(site.MEAN_ANOMALY,10),
-                    ephemeris_type: Number.parseInt(site.EPHEMERIS_TYPE,10),
-                    classification_type: site.CLASSIFICATION_TYPE,
-                    element_set_no: Number.parseInt(site.ELEMENT_SET_NO,10),
-                    rev_at_epoch: Number.parseInt(site.REV_AT_EPOCH,10),
-                    bstar: Number.parseFloat(site.BSTAR,10),
-                    mean_motion_dot: Number.parseFloat(site.MEAN_MOTION_DOT,10),
-                    semimajor_axis: Number.parseFloat(site.SEMIMAJOR_AXIS,10),
-                    period: Number.parseFloat(site.PERIOD,10),
-                    apoapsis: Number.parseFloat(site.APOAPSIS,10),
-                    periapsis: Number.parseFloat(site.PERIAPSIS,10),
-                    tle_line0: site.TLE_LINE0,
-                    tle_line1: site.TLE_LINE1,
-                    tle_line2: site.TLE_LINE2,
-
+                    norad_cat_id: convertToInt(element.NORAD_CAT_ID),
+                    originator: element.ORIGINATOR,
+                    epoch: new Date(element.EPOCH),
+                    mean_motion: convertToFloat(element.MEAN_MOTION),
+                    eccentricity: convertToFloat(element.ECCENTRICITY),
+                    inclination: convertToFloat(element.INCLINATION),
+                    ra_of_asc_node: convertToFloat(element.RA_OF_ASC_NODE),
+                    arg_of_pericenter: convertToFloat(element.ARG_OF_PERICENTER),
+                    mean_anomaly: convertToFloat(element.MEAN_ANOMALY),
+                    ephemeris_type: convertToInt(element.EPHEMERIS_TYPE),
+                    classification_type: element.CLASSIFICATION_TYPE,
+                    element_set_no: convertToInt(element.ELEMENT_SET_NO),
+                    rev_at_epoch: convertToInt(element.REV_AT_EPOCH),
+                    bstar: convertToFloat(element.BSTAR),
+                    mean_motion_dot: convertToFloat(element.MEAN_MOTION_DOT),
+                    semimajor_axis: convertToFloat(element.SEMIMAJOR_AXIS),
+                    period: convertToFloat(element.PERIOD),
+                    apoapsis: convertToFloat(element.APOAPSIS),
+                    periapsis: convertToFloat(element.PERIAPSIS),
+                    tle_line0: element.TLE_LINE0,
+                    tle_line1: element.TLE_LINE1,
+                    tle_line2: element.TLE_LINE2,
                 });
             }
         } catch (error) {
-            console.log(error);
-            throw Error(`${Date.now()}> Could not update documents`);
+            throw Error(`${Date.now()}> Could not update documents: ${error}`);
         }
 
         // Console debugging messages
         const t1 = performance.now();
 
         const timeTaken = (t1 - t0).toFixed(2);
-        const rowLength = launchSites.data.length;
+        const rowLength = gp.data.length;
 
         console.log(
             `${Date.now()}> Finished download, ${rowLength} documents synced @ ${timeTaken}ms`,
