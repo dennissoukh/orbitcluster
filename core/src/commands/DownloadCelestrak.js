@@ -1,7 +1,7 @@
 const { performance } = require('perf_hooks');
 const { BaseCommand } = require('../build/Neuron');
 const { convertToInt } = require('../helpers/Number');
-const { SpaceOther, ParseClassfd, CelesTrak } = require('../build/SpaceData');
+const { ParseClassfd, CelesTrak } = require('../build/SpaceData');
 
 class CelesTrakDownloader extends BaseCommand {
     /**
@@ -12,12 +12,14 @@ class CelesTrakDownloader extends BaseCommand {
     /**
      * The console command description.
      */
-    description = 'Download and update "celestrak" from SpaceData';
+    description = 'Download and update Celestrak supplemental TLEs';
 
     /**
      * Execute the console command.
      */
     async run(app) {
+        const t0 = performance.now();
+
         const satellites = [];
         const supplementalElementSets = [
             'starlink',
@@ -31,12 +33,12 @@ class CelesTrakDownloader extends BaseCommand {
             'telesat',
             'orbcomm',
             'iss',
-            'cpf'
-        ]
+            'cpf',
+        ];
 
         const data = new CelesTrak();
 
-        for (let i = 0; i < supplementalElementSets.length; i++){
+        for (let i = 0; i < supplementalElementSets.length; i += 1) {
             const element = supplementalElementSets[i];
 
             console.log(`${Date.now()}> Downloading ${element}`);

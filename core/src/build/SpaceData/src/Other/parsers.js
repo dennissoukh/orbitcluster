@@ -52,14 +52,14 @@ async function ParseMcnames(data) {
 }
 exports.ParseMcnames = ParseMcnames;
 async function ParseClassfd(data) {
-    return await parseTleFile_1.default(data);
+    return await parseTleFile_1.default(data, 'McCants');
 }
 exports.ParseClassfd = ParseClassfd;
 async function ParseAmsat(data) {
-    return await parseTleFile_1.default(data);
+    return await parseTleFile_1.default(data, 'AMSAT');
 }
 exports.ParseAmsat = ParseAmsat;
 async function ParseHamsat(data) {
-    return await parseTleFile_1.default(data);
+    return await parseTleFile_1.default(data, 'Hamsat');
 }
 exports.ParseHamsat = ParseHamsat;

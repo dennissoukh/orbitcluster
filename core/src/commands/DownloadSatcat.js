@@ -1,17 +1,19 @@
 const { performance } = require('perf_hooks');
 const { BaseCommand } = require('../build/Neuron');
 const { SpaceTrack } = require('../build/SpaceData');
+const { convertToInt } = require('../helpers/Number');
+const { handleEmpty } = require('../helpers/Str');
 
 class DownloadSatcat extends BaseCommand {
     /**
      * The name and signature of the console command.
      */
-    commandName = 'download:Satcat';
+    commandName = 'download:satcat';
 
     /**
      * The console command description.
      */
-    description = 'Download and update "launch-sites" from Space-Track';
+    description = 'Download and update satellite catalog from Space-Track';
 
     /**
      * Execute the console command.
@@ -23,7 +25,7 @@ class DownloadSatcat extends BaseCommand {
 
         // Query Space-Track API
         const spaceTrack = new SpaceTrack();
-        const launchSites = await spaceTrack.get({
+        const satellites = await spaceTrack.get({
             class: 'satcat',
         });
 
@@ -35,28 +37,27 @@ class DownloadSatcat extends BaseCommand {
             const collection = db.collection('satcat');
 
             // Save each launchsite into the database
-            for (let i = 0; i < launchSites.data.length; i += 1) {
-                const site = launchSites.data[i];
+            for (let i = 0; i < satellites.data.length; i += 1) {
+                const sat = satellites.data[i];
 
                 await collection.insertOne({
-                    intldes: site.INTLDES,
-                    norad_cat_id: Number.parseInt(site.NORAD_CAT_ID),
-                    object_type: site.OBJECT_TYPE,
-                    satname: site.SATNAME,
-                    country: site.COUNTRY,
-                    launch: new Date(site.LAUNCH),
-                    site: site.SITE,
-                    decay: new Date(site.DECAY),
-                    rcsvalue: Number.parseInt(site.RCSVALUE),
-                    rcs_size: site.RCS_SIZE,
-                    launch_year: Number.parseInt(site.LAUNCH_YEAR),
-                    launch_num: Number.parseInt(site.LAUNCH_NUM),
-                    launch_piece: site.LAUNCH_PIECE,
-                    current: site.CURRENT,
-                    object_name: site.OBJECT_NAME,
-                    object_id: site.OBJECT_ID,
-                    object_number: Number.parseInt(site.OBJECT_NUMBER),
-
+                    intldes: sat.INTLDES,
+                    norad_cat_id: convertToInt(sat.NORAD_CAT_ID),
+                    object_type: sat.OBJECT_TYPE,
+                    satname: sat.SATNAME,
+                    country: handleEmpty(sat.COUNTRY),
+                    launch: new Date(sat.LAUNCH),
+                    site: sat.SITE,
+                    decay: new Date(sat.DECAY),
+                    rcsvalue: convertToInt(sat.RCSVALUE),
+                    rcs_size: sat.RCS_SIZE,
+                    launch_year: convertToInt(sat.LAUNCH_YEAR),
+                    launch_num: convertToInt(sat.LAUNCH_NUM),
+                    launch_piece: sat.LAUNCH_PIECE,
+                    current: sat.CURRENT,
+                    object_name: sat.OBJECT_NAME,
+                    object_id: sat.OBJECT_ID,
+                    object_number: convertToInt(sat.OBJECT_NUMBER),
                 });
             }
         } catch (error) {
@@ -67,7 +68,7 @@ class DownloadSatcat extends BaseCommand {
         const t1 = performance.now();
 
         const timeTaken = (t1 - t0).toFixed(2);
-        const rowLength = launchSites.data.length;
+        const rowLength = satellites.data.length;
 
         console.log(
             `${Date.now()}> Finished download, ${rowLength} documents synced @ ${timeTaken}ms`,

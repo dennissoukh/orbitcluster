@@ -7,18 +7,14 @@
 |
 */
 const commands = [
-    'commands/Greet',
-    'commands/Quote',
     'commands/Key',
-    'commands/LaunchsitesDownloader',
-    'commands/SatDataDownloader',
-    'commands/SatRadioDownloader',
-    'commands/ClassfdDownloader',
+    'commands/DownloadLaunchsites',
+    'commands/DownloadSatData',
+    'commands/DownloadSatRadio',
     'commands/DownloadGeneralPerturbation',
     'commands/DownloadSatcat',
-    'commands/AmsatDownloader',
-    'commands/HamsatDownloader',
-    'commands/CelesTrakDownloader',
+    'commands/DownloadCelesTrak',
+    'commands/DownloadElementSets'
 ];
 
 module.exports = { commands };

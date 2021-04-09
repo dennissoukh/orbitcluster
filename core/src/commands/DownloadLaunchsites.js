@@ -11,13 +11,13 @@ class DownloadLaunchSites extends BaseCommand {
     /**
      * The console command description.
      */
-    description = 'Download and update "launch-sites" from Space-Track';
+    description = 'Download and update launch-sites from Space-Track';
 
     /**
      * Execute the console command.
      */
     async run(app) {
-        const t0 = startPerf('Extracting File');
+        const t0 = startPerf('Executing Download');
 
         // Query Space-Track API
         const spaceTrack = new SpaceTrack();

@@ -19,6 +19,7 @@ class SatRadioDownloader extends BaseCommand {
      */
     async run(app) {
         const t0 = startPerf('Extracting File');
+
         const data = new SpaceOther();
         const radio = await data.get({ class: 'radio' });
         const parsed = await ParseSatlist(radio);

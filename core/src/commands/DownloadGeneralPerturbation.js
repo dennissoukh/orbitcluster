@@ -12,12 +12,12 @@ class DownloadGeneralPerturbations extends BaseCommand {
     /**
      * The console command description.
      */
-    description = 'Download and update "gp" from Space-Track';
+    description = 'Download and update General Perturbations (GP) from Space-Track';
 
     /**
      * Execute the console command.
      */
-     async run(app) {
+    async run(app) {
         const t0 = performance.now();
 
         console.log(`${Date.now()}> Executing download`);
