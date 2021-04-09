@@ -46,6 +46,7 @@ plugins.forEach((plugin) => {
 */
 const routes = [
     require('./src/routes/application'),
+    require('./src/routes/satellite'),
 ];
 
 routes.forEach((route) => {
