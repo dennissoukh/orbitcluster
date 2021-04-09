@@ -1,11 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import Header from '../components/NavigationMenu/Header';
 
 const MainLayout: React.FC = ({ children }) => {
     return (
         <div>
-            <h3>Main Layout</h3>
-            <ul>
+            {/* <ul>
                 <li>
                     <Link to="/login">Login</Link>
                 </li>
@@ -18,7 +18,8 @@ const MainLayout: React.FC = ({ children }) => {
                 <li>
                     <Link to="/">Welcome</Link>
                 </li>
-            </ul>
+            </ul> */}
+            <Header/>
             {children}
         </div>
     );

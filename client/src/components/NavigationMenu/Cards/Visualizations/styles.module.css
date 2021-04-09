@@ -1,0 +1,148 @@
+.card {
+	width: 630px;
+	color: #0a2540;
+	display: flex;
+	flex-direction: column;
+	padding: 1rem 3rem;
+}
+
+.card > :first-child {
+  justify-content: space-between;
+	display: flex;
+}
+
+.mainActionsWrapper {
+	padding: 30px;
+}
+
+
+.header {
+	margin-bottom: 30px;
+}
+
+.header h5 {
+	display: flex;
+	align-items: center;
+	font-size: 1rem;
+}
+.header h5 svg {
+	color: #88add2;
+	margin-right: 7px;
+}
+.header p {
+	margin-left: 25px;
+	font-size: 14.5px;
+}
+
+
+.mainActions {
+	display: flex;
+}
+.mainActions > :first-child {
+	margin-right: 120px;
+}
+
+.mainActions ul li h5 {
+	text-transform: uppercase;
+	color: #88add2;
+	margin-bottom: 10px;
+}
+.mainActions ul li p {
+	padding-left: 20px;
+	white-space: nowrap;
+	margin: 10px 0;
+}
+
+
+
+.footer {
+	background-color: #f6f9fc;
+	height: 100%;
+	width: 100%;
+	padding: 35px 30px;
+	display: flex;
+	align-items: center;
+}
+.footer > :first-child {
+	margin-right: 120px;
+}
+
+.footer p {
+	display: flex;
+	align-items: center;
+	font-size: 1rem;
+	color: #0a2540;
+	margin: 10px 0;
+}
+.footer p svg {
+	color: #88add2;
+	margin-right: 7px;
+}
+
+.actions li {
+	display: flex;
+	align-items: center;
+	margin: 2rem 0;
+  min-width: 250px;
+}
+
+.actions li h5 {
+  font-size: 1.1rem;
+	text-transform: uppercase;
+	color: #88add2;
+	margin-bottom: 10px;
+}
+
+.description {
+  font-size: .875em;
+	margin-left: 13px;
+	font-weight: 500;
+}
+
+.description > :last-child {
+  font-size: .875em;
+	color: rgb(136, 152, 170);
+}
+
+.icons {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 50%;
+	background-color: rgb(136, 152, 170);
+	width: 35px;
+	height: 35px;
+}
+
+.icons svg {
+	color: white;
+	font-size: 40px;
+}
+
+.title {
+  font-size: .8em;
+  color: rgb(136, 152, 170);
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+.link {
+  font-size: .75em;
+  cursor: pointer;
+}
+
+.link:hover {
+  text-decoration: underline;
+}
+
+.action {
+  cursor: pointer;
+}
+
+.action > .description > p {
+  transition: color 120ms;
+}
+
+.action:hover > .description > p {
+  color: #0a2540 !important;
+}
