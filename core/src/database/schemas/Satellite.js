@@ -73,6 +73,10 @@ const data = async (db) => {
                         bsonType: ['int', 'null'],
                         description: 'must be an int ',
                     },
+                    categories: {
+                        bsonType: ['array', 'null'],
+                        description: 'must be an array ',
+                    },
                 },
             },
         },

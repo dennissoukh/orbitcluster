@@ -92,6 +92,26 @@ const data = async (db) => {
                                 bsonType: ['array', 'null'],
                                 description: 'must be an array',
                             },
+                            length: {
+                                bsonType: ['double', 'null'],
+                                description: 'must be a double',
+                            },
+                            width: {
+                                bsonType: ['double', 'null'],
+                                description: 'must be a double',
+                            },
+                            depth: {
+                                bsonType: ['double', 'null'],
+                                description: 'must be a double',
+                            },
+                            magnitude: {
+                                bsonType: ['double', 'null'],
+                                description: 'must be a double',
+                            },
+                            magnitude_source: {
+                                bsonType: ['string', 'null'],
+                                description: 'must be a string',
+                            },
                         },
                     },
                 },

@@ -9,4 +9,4 @@
 export { SpaceTrack } from './src/SpaceTrack';
 export { SpaceOther } from './src/Other';
 export { CelesTrak } from './src/Celestrak';
-export { ParseSatlist, ParseMcnames, ParseClassfd } from './src/Other/parsers';
+export { ParseSatlist, ParseMcnames, ParseClassfd} from './src/Other/parsers';

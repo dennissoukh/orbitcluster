@@ -10,12 +10,13 @@ const commands = [
     'commands/Greet',
     'commands/Quote',
     'commands/Key',
-    'commands/DownloadLaunchsites',
+    'commands/LaunchsitesDownloader',
     'commands/SatDataDownloader',
     'commands/SatRadioDownloader',
-    'commands/DownloadClassfd',
-    'commands/DownloadGeneralPerturbation',
-    'commands/DownloadSatcat',
+    'commands/ClassfdDownloader',
+    'commands/AmsatDownloader',
+    'commands/HamsatDownloader',
+    'commands/CelesTrakDownloader',
 ];
 
 module.exports = { commands };

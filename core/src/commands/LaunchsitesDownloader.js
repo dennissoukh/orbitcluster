@@ -1,6 +1,6 @@
-const { performance } = require('perf_hooks');
 const { BaseCommand } = require('../build/Neuron');
 const { SpaceTrack } = require('../build/SpaceData');
+const { endPerf, startPerf } = require('../helpers/Perf');
 
 class DownloadLaunchSites extends BaseCommand {
     /**
@@ -17,9 +17,7 @@ class DownloadLaunchSites extends BaseCommand {
      * Execute the console command.
      */
     async run(app) {
-        const t0 = performance.now();
-
-        console.log(`${Date.now()}> Executing download`);
+        const t0 = startPerf('Extracting File');
 
         // Query Space-Track API
         const spaceTrack = new SpaceTrack();
@@ -48,14 +46,7 @@ class DownloadLaunchSites extends BaseCommand {
         }
 
         // Console debugging messages
-        const t1 = performance.now();
-
-        const timeTaken = (t1 - t0).toFixed(2);
-        const rowLength = launchSites.data.length;
-
-        console.log(
-            `${Date.now()}> Finished download, ${rowLength} documents synced @ ${timeTaken}ms`,
-        );
+        endPerf(t0, `Finished download, ${launchSites.data.length} documents synced`);
     }
 }
 
