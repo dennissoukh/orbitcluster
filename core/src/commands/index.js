@@ -14,6 +14,8 @@ const commands = [
     'commands/SatDataDownloader',
     'commands/SatRadioDownloader',
     'commands/ClassfdDownloader',
+    'commands/DownloadGeneralPerturbation',
+    'commands/DownloadSatcat',
     'commands/AmsatDownloader',
     'commands/HamsatDownloader',
     'commands/CelesTrakDownloader',
