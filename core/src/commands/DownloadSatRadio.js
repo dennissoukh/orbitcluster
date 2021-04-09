@@ -2,6 +2,7 @@ const { BaseCommand } = require('../build/Neuron');
 const { SpaceOther, ParseSatlist } = require('../build/SpaceData');
 const { convertToInt } = require('../helpers/Number');
 const { endPerf, startPerf } = require('../helpers/Perf');
+const { groupArrayByKey } = require('../helpers/Array');
 
 class SatRadioDownloader extends BaseCommand {
     /**
@@ -22,52 +23,53 @@ class SatRadioDownloader extends BaseCommand {
 
         const data = new SpaceOther();
         const radio = await data.get({ class: 'radio' });
-        const parsed = await ParseSatlist(radio);
 
-        // Get an instance of the application database
-        const { db } = app.mongo;
+        // Parse satellite radio data
+        let parsed = await ParseSatlist(radio);
+        parsed = groupArrayByKey(parsed, 'norad_cat_id');
 
         try {
+            // Get an instance of the application database
+            const { db } = app.mongo;
+
             // Get the database collection
             const collection = db.collection('sat-data');
 
             // Save sat-data into the database
             for (let i = 0; i < parsed.length; i += 1) {
                 const element = parsed[i];
-                const document = await collection.findOne({ norad_cat_id: element.norad_cat_id });
+                const norad = convertToInt(Object.keys(element)[0]);
+
+                if (!norad) {
+                    continue;
+                }
+
+                const document = await collection.findOne({ norad_cat_id: norad });
                 if (document) {
-                    const query = { norad_cat_id: element.norad_cat_id };
+                    const query = { norad_cat_id: norad };
                     const radioUpdate = {
                         $set: {
-                            radio: {
-                                uplink: element.uplink,
-                                downlink: element.downlink,
-                                beacon: element.beacon,
-                                mode: element.mode,
-                                callsign: element.callsign,
-                                type: element.type,
-                            },
+                            radio: element[norad],
                         },
                     };
                     await collection.updateOne(query, radioUpdate);
-                } else if (element.norad_cat_id) {
+                } else {
+                    const name = element[norad][0].satname;
+                    element[norad].forEach((e) => { delete e.norad_cat_id, delete e.satname });
+
                     await collection.insertOne({
-                        norad_cat_id: convertToInt(element.norad_cat_id),
-                        alternate_name: element.satname,
-                        radio: {
-                            uplink: element.uplink,
-                            downlink: element.downlink,
-                            beacon: element.beacon,
-                            mode: element.mode,
-                            callsign: element.callsign,
-                            type: element.type,
-                        },
+                        norad_cat_id: norad,
+                        alternate_name: name,
+                        radio: element[norad],
                     });
                 }
             }
         } catch (error) {
             console.log(
                 `${Date.now()}> Could not update documents`,
+            );
+            console.log(
+                `${Date.now()}> ${error}`,
             );
         }
 
