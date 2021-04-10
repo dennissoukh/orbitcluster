@@ -7,6 +7,7 @@ import { Register } from './views/Auth/Register';
 import { ResetPassword } from './views/Auth/passwords/Reset';
 import MainLayout from './layouts/Main';
 import { Welcome } from './views/Base/Welcome';
+import Satellite from "./views/Base/Satellite";
 
 const App: React.FC = () => (
     <BrowserRouter>
@@ -17,9 +18,10 @@ const App: React.FC = () => (
                 <Route path={'/password/reset'} exact component={() => <ResetPassword/>}/>
             </Layout>
         </Route>
-        <Route path='/' exact>
+        <Route path='/'>
             <Layout layout={MainLayout}>
                 <Route path={'/'} exact component={() => <Welcome/>}/>
+                <Route path={'/satellite/:id'} component={() => <Satellite/>}/>
             </Layout>
         </Route>
     </BrowserRouter>
