@@ -23,7 +23,7 @@ class DownloadCategory extends BaseCommand {
             const { db } = app.mongo;
             const collection = db.collection('sat-category');
 
-            for (let i = 0; i < categories.length; i++) {
+            for (let i = 0; i < categories.length; i += 1) {
                 const element = categories[i];
                 await collection.insertOne(element);
             }

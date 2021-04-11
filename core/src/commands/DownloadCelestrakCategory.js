@@ -27,7 +27,7 @@ class DownloadCelestrakCategory extends BaseCommand {
         // Get a list of all the satellite categories
         const categories = await app.mongo.db.collection('sat-category').find().toArray();
 
-        for (let i = 0; i < categories.length; i++) {
+        for (let i = 0; i < categories.length; i += 1) {
             const category = categories[i];
             let res;
 
@@ -41,7 +41,7 @@ class DownloadCelestrakCategory extends BaseCommand {
 
             res = await ParseCelestrak(res);
 
-            for (let j = 0; j < res.length; j++) {
+            for (let j = 0; j < res.length; j += 1) {
                 const element = res[j];
 
                 const norad = convertToInt(element.tle_line2.slice(2, 7));
@@ -53,7 +53,7 @@ class DownloadCelestrakCategory extends BaseCommand {
                         $addToSet: {
                             categories: category.cat_id,
                         },
-                    }
+                    };
 
                     await satcat.updateOne(query, update);
                 }

@@ -16,7 +16,7 @@ const commands = [
     'commands/DownloadCelesTrak',
     'commands/DownloadElementSets',
     'commands/DownloadCategory',
-    'commands/DownloadCelestrakCategory'
+    'commands/DownloadCelestrakCategory',
 ];
 
 module.exports = { commands };

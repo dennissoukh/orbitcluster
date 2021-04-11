@@ -1,3 +1,5 @@
+/* eslint no-underscore-dangle: 0 */
+
 function generatePaginationQuery(query, sort, nextKey) {
     const sortField = sort == null ? null : sort[0];
 
@@ -26,16 +28,16 @@ function generatePaginationQuery(query, sort, nextKey) {
         return { paginatedQuery, nextKey };
     }
 
-    const sortOperator = sort[1] === 1 ? "$gt" : "$lt";
+    const sortOperator = sort[1] === 1 ? '$gt' : '$lt';
 
     const paginationQuery = [
         { [sortField]: { [sortOperator]: nextKey[sortField] } },
         {
             $and: [
                 { [sortField]: nextKey[sortField] },
-                { _id: { [sortOperator]: nextKey._id } }
-            ]
-        }
+                { _id: { [sortOperator]: nextKey._id } },
+            ],
+        },
     ];
 
     if (paginatedQuery.$or == null) {
@@ -49,4 +51,4 @@ function generatePaginationQuery(query, sort, nextKey) {
 
 module.exports = {
     generatePaginationQuery,
-}
+};
