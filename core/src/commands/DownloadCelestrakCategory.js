@@ -58,6 +58,13 @@ class DownloadCelestrakCategory extends BaseCommand {
                     await satcat.updateOne(query, update);
                 }
             }
+
+            await db.collection('sat-category').findOneAndUpdate(
+                { cat_id: category.cat_id },
+                { $set:
+                    { count: res.length }
+                }
+            )
         }
     }
 }

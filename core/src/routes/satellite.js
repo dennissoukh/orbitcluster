@@ -100,6 +100,35 @@ const routes = async (app, opts, done) => {
         reply.send(satData[0]);
     });
 
+    app.get('/sat-state', opts, async (request, reply) => {
+        const categories = app.mongo.db.collection('sat-category');
+
+        // Database header structure
+        const active = await categories.findOne({ cat_id: 'active' });
+        const geo = await categories.findOne({ cat_id: 'gpz-plus' });
+        const starlink = await categories.findOne({ cat_id: 'starlink' });
+
+        const databaseCategories = [
+            {
+                name: 'Active',
+                count: active.count,
+                id: active._id,
+            },
+            {
+                name: 'Geostationary',
+                count: geo.count,
+                id: geo._id,
+            },
+            {
+                name: 'Starlink',
+                count: starlink.count,
+                id: starlink._id,
+            }
+        ];
+
+        reply.send({ database: { categories: databaseCategories } })
+    });
+
     done();
 };
 

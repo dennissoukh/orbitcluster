@@ -12,6 +12,10 @@ const data = async (db) => {
                         bsonType: ['string', 'null'],
                         description: 'must be a string',
                     },
+                    count: {
+                        bsonType: ['int', 'null'],
+                        description: 'must be an int',
+                    },
                     description: {
                         bsonType: ['string', 'null'],
                         description: 'must be a string',
