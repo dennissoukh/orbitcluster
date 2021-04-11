@@ -1,76 +1,79 @@
 import { useRef, useLayoutEffect, useState, useEffect } from 'react';
 import { AnimatePresence, motion, useMotionValue } from 'framer-motion';
 
-import styles from './styles.module.css'
+import styles from './styles.module.sass';
 
-import ProductsCard from '../Cards/Database'
-import DevelopersCard from '../Cards/Visualizations'
-import CompanyCard from '../Cards/About'
+import DatabaseCard from '../Cards/Database';
+import VisualizationCard from '../Cards/Visualizations';
+import AboutCard from '../Cards/About';
 
 interface MenuContainerProps {
-    selectedNavOption: 'products' | 'developers' | 'company' | null
-    selectedNavOptionPosition: { x: number }
+    selectedNavOption: 'database' | 'visualizations' | 'about' | null,
+    selectedNavOptionPosition: { x: number },
 }
 
+const satInfo = fetch('http://localhost:4000/v1/sat-state')
+    .then((data) => data.json());
+
 const MenuContainer = ({ selectedNavOption, selectedNavOptionPosition }: MenuContainerProps) => {
+    const database = useRef<HTMLElement | null>(null);
+    const visualizations = useRef<HTMLElement>(null);
+    const about = useRef<HTMLElement>(null);
 
-    const products = useRef<HTMLElement | null>(null)
-    const developers = useRef<HTMLElement>(null)
-    const company = useRef<HTMLElement>(null)
+    const containerWidth = useMotionValue<number | null>(null);
+    const containerHeight = useMotionValue<number | null>(null);
 
-    const containerWidth = useMotionValue<number | null>(null)
-    const containerHeight = useMotionValue<number | null>(null)
+    const [isFirstInteraction, setIsFirstInteraction] = useState(true);
+    const [info, setInfo] = useState([]);
 
-    const [isFirstInteraction, setIsFirstInteraction] = useState(true)
-
+    useEffect(() => {
+        satInfo.then((res) => {
+            setInfo(res);
+        });
+    }, []);
 
     useEffect(() => {
         if (selectedNavOption !== null)
-            setIsFirstInteraction(false)
+            setIsFirstInteraction(false);
         else
-            setIsFirstInteraction(true)
+            setIsFirstInteraction(true);
     }, [selectedNavOption])
 
-
     useLayoutEffect(() => {
-        if (!selectedNavOption)
-            return
+        if (!selectedNavOption) return;
 
-        let width: number, height: number
+        let width: number, height: number;
 
         switch (selectedNavOption) {
-            case 'products':
-                if (products === null || products.current === null)
-                    return
-                width = products.current.clientWidth
-                height = products.current.clientHeight
-                break
-            case 'developers':
-                if (developers === null || developers.current === null)
-                    return
-                width = developers.current.clientWidth
-                height = developers.current.clientHeight
-                break
-            case 'company':
-                if (company === null || company.current === null)
-                    return
-                width = company.current.clientWidth
-                height = company.current.clientHeight
-                break
+            case 'database':
+                if (database === null || database.current === null) return;
+                width = database.current.clientWidth;
+                height = database.current.clientHeight;
+                break;
+            case 'visualizations':
+                if (visualizations === null || visualizations.current === null) return;
+                width = visualizations.current.clientWidth;
+                height = visualizations.current.clientHeight;
+                break;
+            case 'about':
+                if (about === null || about.current === null) return;
+                width = about.current.clientWidth;
+                height = about.current.clientHeight;
+                break;
             default:
-                return
+                return;
         }
-        containerWidth.set(width)
-        containerHeight.set(height)
-    }, [selectedNavOption, containerWidth, containerHeight])
+        containerWidth.set(width);
+        containerHeight.set(height);
+    }, [selectedNavOption, containerWidth, containerHeight]);
 
     const cardProps = {
         className: styles.card,
         initial: { opacity: 0, x: isFirstInteraction ? 0 : -70 },
         animate: { opacity: 1, x: 0 },
         exit: { opacity: 0, x: isFirstInteraction ? 0 : -70 },
-        transition: { type: 'spring', stiffness: 85, damping: 14 }
-    }
+        transition: { type: 'spring', stiffness: 85, damping: 14 },
+    };
 
     return (
         <AnimatePresence exitBeforeEnter>
@@ -98,25 +101,25 @@ const MenuContainer = ({ selectedNavOption, selectedNavOptionPosition }: MenuCon
 
                         <div className={styles.menuContent}>
                             <AnimatePresence>
-                                {selectedNavOption === 'products' && (
+                                {selectedNavOption === 'database' && (
                                     <motion.div {...cardProps}>
-                                        <ProductsCard ref={products} />
+                                        <DatabaseCard ref={database} {...info}/>
                                     </motion.div>
                                 )}
                             </AnimatePresence>
 
                             <AnimatePresence>
-                                {selectedNavOption === 'developers' && (
+                                {selectedNavOption === 'visualizations' && (
                                     <motion.div {...cardProps}>
-                                        <DevelopersCard ref={developers} />
+                                        <VisualizationCard ref={visualizations} />
                                     </motion.div>
                                 )}
                             </AnimatePresence>
 
                             <AnimatePresence>
-                                {selectedNavOption === 'company' && (
+                                {selectedNavOption === 'about' && (
                                     <motion.div {...cardProps}>
-                                        <CompanyCard ref={company} />
+                                        <AboutCard ref={about} />
                                     </motion.div>
                                 )}
                             </AnimatePresence>
@@ -129,4 +132,4 @@ const MenuContainer = ({ selectedNavOption, selectedNavOptionPosition }: MenuCon
     )
 }
 
-export default MenuContainer
+export default MenuContainer;

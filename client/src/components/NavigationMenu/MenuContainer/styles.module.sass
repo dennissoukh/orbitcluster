@@ -1,0 +1,39 @@
+.menuWrapper
+  position: absolute
+  display: flex
+  justify-content: center
+  top: calc(70px - 1px)
+  left: 0
+  right: 0
+  bottom: 0
+  width: 100%
+  pointer-events: none
+  z-index: 1
+
+.menuBody
+  z-index: 10
+  pointer-events: fill
+
+.arrow
+  position: absolute
+  width: 12px
+  height: 12px
+  margin-top: -6px
+  transform: rotate(45deg)
+  background-color: white
+  border-top-left-radius: 3px
+  transition: .2s
+
+.menuContent
+  position: relative
+  width: 100%
+  height: 100%
+  border-radius: 10px
+  overflow: hidden
+  background-color: white
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px
+
+.card
+  position: absolute
+  top: 0
+  left: 0

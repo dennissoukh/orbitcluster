@@ -1,32 +1,42 @@
 import { forwardRef } from 'react'
-import styles from './styles.module.css'
 
+import IconAward from '../../../Icons/Award';
+import IconBook from '../../../Icons/Book';
+import IconHeart from '../../../Icons/Heart';
+
+import styles from '../styles.module.sass';
 
 const CompanyCard = forwardRef<HTMLElement>((props, companyRef) => (
     <section className={styles.card} ref={companyRef}>
-        <div className={styles.mainActions}>
-            <ul className={styles.actions}>
+        <div className={styles.cardSection}>
+            <ul className={styles.navList}>
                 <li className={styles.action}>
-                    <div className={styles.icons}></div>
-                    <div className={styles.description}>
-                        <p>About Orbitcluster</p>
-                        <p>The who and why</p>
+                    <div className={styles.icons}>
+                        <IconHeart/>
+                    </div>
+                    <div className={styles.navItem}>
+                        <p className={styles.navItemTitle}>About Orbitcluster</p>
+                        <p className={styles.navItemBlurb}>The who and why</p>
                     </div>
                 </li>
             </ul>
-            <ul className={styles.actions}>
+            <ul className={styles.navList}>
                 <li className={styles.action}>
-                    <div className={styles.icons}></div>
-                    <div className={styles.description}>
-                        <p>Blog</p>
-                        <p>Some light reading</p>
+                    <div className={styles.icons}>
+                        <IconBook/>
+                    </div>
+                    <div className={styles.navItem}>
+                        <p className={styles.navItemTitle}>Blog</p>
+                        <p className={styles.navItemBlurb}>Some light reading</p>
                     </div>
                 </li>
                 <li className={styles.action}>
-                    <div className={styles.icons}></div>
-                    <div className={styles.description}>
-                        <p>Credits</p>
-                        <p>What made this site possible</p>
+                    <div className={styles.icons}>
+                        <IconAward/>
+                    </div>
+                    <div className={styles.navItem}>
+                        <p className={styles.navItemTitle}>Credits</p>
+                        <p className={styles.navItemBlurb}>What made this site possible</p>
                     </div>
                 </li>
             </ul>
