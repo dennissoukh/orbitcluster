@@ -1,0 +1,214 @@
+[
+  {
+    "cat_id": "last-30-days",
+    "name": "Recently Launched"
+  },
+  {
+    "cat_id": "stations",
+    "name": "Space Stations"
+  },
+  {
+    "cat_id": "visual",
+    "name": "100 (or so) Brightest"
+  },
+  {
+    "cat_id": "active",
+    "name": "Active Satellites"
+  },
+  {
+    "cat_id": "analyst",
+    "name": "Analyst Satellites"
+  },
+  {
+    "cat_id": "2019-006",
+    "name": "Indian ASAT Test Debris"
+  },
+  {
+    "cat_id": "1999-025",
+    "name": "FENGYUN 1C Debris"
+  },
+  {
+    "cat_id": "iridium-33-debris",
+    "name": "IRIDIUM 33 Debris"
+  },
+  {
+    "cat_id": "cosmos-2251-debris",
+    "name": "COSMOS 2251 Debris"
+  },
+  {
+    "cat_id": "weather",
+    "name": "Weather"
+  },
+  {
+    "cat_id": "noaa",
+    "name": "NOAA"
+  },
+  {
+    "cat_id": "goes",
+    "name": "GOES"
+  },
+  {
+    "cat_id": "resource",
+    "name": "Earth Resources"
+  },
+  {
+    "cat_id": "sarsat",
+    "name": "Search & Rescue (SARSAT)"
+  },
+  {
+    "cat_id": "dmc",
+    "name": "Disaster Monitoring"
+  },
+  {
+    "cat_id": "tdrss",
+    "name": "Tracking and Data Relay Satellite System (TDRSS)"
+  },
+  {
+    "cat_id": "argos",
+    "name": "ARGOS Data Collection System"
+  },
+  {
+    "cat_id": "planet",
+    "name": "Planet"
+  },
+  {
+    "cat_id": "spire",
+    "name": "Spire"
+  },
+  {
+    "cat_id": "gpz",
+    "name": "GEO Protected Zone"
+  },
+  {
+    "cat_id": "gpz-plus",
+    "name": "GEO Protected Zone Plus"
+  },
+  {
+    "cat_id": "geo",
+    "name": "Active Geosynchronous"
+  },
+  {
+    "cat_id": "intelsat",
+    "name": "Intelsat"
+  },
+  {
+    "cat_id": "ses",
+    "name": "SES"
+  },
+  {
+    "cat_id": "iridium",
+    "name": "Iridium"
+  },
+  {
+    "cat_id": "iridium-NEXT",
+    "name": "Iridium NEXT"
+  },
+  {
+    "cat_id": "starlink",
+    "name": "Starlink"
+  },
+  {
+    "cat_id": "oneweb",
+    "name": "OneWeb"
+  },
+  {
+    "cat_id": "orbcomm",
+    "name": "Orbcomm"
+  },
+  {
+    "cat_id": "globalstar",
+    "name": "Globalstar"
+  },
+  {
+    "cat_id": "swarm",
+    "name": "Swarm"
+  },
+  {
+    "cat_id": "amateur",
+    "name": "Amateur Radio"
+  },
+  {
+    "cat_id": "x-comm",
+    "name": "Experimental"
+  },
+  {
+    "cat_id": "other-comm",
+    "name": "Other Comm"
+  },
+  {
+    "cat_id": "satnogs",
+    "name": "SatNOGS"
+  },
+  {
+    "cat_id": "gorizont",
+    "name": "Gorizont"
+  },
+  {
+    "cat_id": "raduga",
+    "name": "Raduga"
+  },
+  {
+    "cat_id": "molniya",
+    "name": "Molniya"
+  },
+  {
+    "cat_id": "gnss",
+    "name": "GNSS"
+  },
+  {
+    "cat_id": "gps-ops",
+    "name": "GPS Operational"
+  },
+  {
+    "cat_id": "glo-ops",
+    "name": "GLONASS Operational"
+  },
+  {
+    "cat_id": "galileo",
+    "name": "Galileo"
+  },
+  {
+    "cat_id": "beidou",
+    "name": "Beidou"
+  },
+  {
+    "cat_id": "sbas",
+    "name": "Satellite-Based Augmentation System (WAAS/EGNOS/MSAS)"
+  },
+  {
+    "cat_id": "nnss",
+    "name": "Navy Navigation Satellite System (NNSS)"
+  },
+  {
+    "cat_id": "musson",
+    "name": "Russian LEO Navigation"
+  },
+  {
+    "cat_id": "science",
+    "name": "Space & Earth Science"
+  },
+  {
+    "cat_id": "geodetic",
+    "name": "Geodetic"
+  },
+  {
+    "cat_id": "engineering",
+    "name": "Engineering"
+  },
+  {
+    "cat_id": "education",
+    "name": "Education"
+  },
+  {
+    "cat_id": "military",
+    "name": "Miscellaneous Military"
+  },
+  {
+    "cat_id": "radar",
+    "name": "Radar Calibration"
+  },
+  {
+    "cat_id": "cubesat",
+    "name": "CubeSats"
+  }
+]

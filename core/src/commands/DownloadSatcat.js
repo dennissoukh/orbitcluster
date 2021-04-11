@@ -48,7 +48,7 @@ class DownloadSatcat extends BaseCommand {
                     country: handleEmpty(sat.COUNTRY),
                     launch: new Date(sat.LAUNCH),
                     site: sat.SITE,
-                    decay: new Date(sat.DECAY),
+                    decay: sat.DECAY ? new Date(sat.DECAY) : null,
                     rcsvalue: convertToInt(sat.RCSVALUE),
                     rcs_size: sat.RCS_SIZE,
                     launch_year: convertToInt(sat.LAUNCH_YEAR),
