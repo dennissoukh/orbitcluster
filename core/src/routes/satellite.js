@@ -1,5 +1,5 @@
-const { generatePaginationQuery } = require("../helpers/database");
 const mongo = require('mongodb');
+const { generatePaginationQuery } = require('../helpers/database');
 
 const routes = async (app, opts, done) => {
     app.get('/satellite', opts, async (request, reply) => {
@@ -29,9 +29,9 @@ const routes = async (app, opts, done) => {
         const req = JSON.parse(request.body).nextKey;
 
         const { paginatedQuery, nextKeyFn } = generatePaginationQuery(
-            {'object_type': 'PAYLOAD'},
+            { object_type: 'PAYLOAD' },
             ['norad_cat_id', 1],
-            req ? req : null
+            req || null,
         );
 
         let nextKey = null;
@@ -57,12 +57,14 @@ const routes = async (app, opts, done) => {
         }
 
         const satData = await collection.aggregate([
-            { $match:
+            {
+                $match:
                 {
-                    norad_cat_id: norad
-                }
+                    norad_cat_id: norad,
+                },
             },
-            { $lookup:
+            {
+                $lookup:
                 {
                     from: 'sat-data',
                     localField: 'norad_cat_id',
@@ -70,7 +72,8 @@ const routes = async (app, opts, done) => {
                     as: 'satdata',
                 },
             },
-            { $lookup:
+            {
+                $lookup:
                 {
                     from: 'general-perturbation',
                     localField: 'norad_cat_id',
@@ -78,7 +81,8 @@ const routes = async (app, opts, done) => {
                     as: 'gp',
                 },
             },
-            { $lookup:
+            {
+                $lookup:
                 {
                     from: 'tle-data',
                     localField: 'norad_cat_id',

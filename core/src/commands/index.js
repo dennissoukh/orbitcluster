@@ -14,7 +14,7 @@ const commands = [
     'commands/DownloadGeneralPerturbation',
     'commands/DownloadSatcat',
     'commands/DownloadCelesTrak',
-    'commands/DownloadElementSets'
+    'commands/DownloadElementSets',
 ];
 
 module.exports = { commands };

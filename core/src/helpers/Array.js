@@ -5,7 +5,7 @@ const groupArrayByKey = (arr, key) => {
     const res = [];
     const map = {};
 
-    arr.forEach(item => {
+    arr.forEach((item) => {
         const temp = {};
 
         if (!map[item[key]]) {
@@ -18,8 +18,8 @@ const groupArrayByKey = (arr, key) => {
     });
 
     return res;
-}
+};
 
 module.exports = {
     groupArrayByKey,
-}
+};
