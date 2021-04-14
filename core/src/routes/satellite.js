@@ -1,4 +1,4 @@
-const { convertToInt } = require('../helpers/Number');
+const { ObjectId } = require('mongodb');
 const {
     constructNotFoundError,
     notFoundMessageContract,
@@ -79,11 +79,18 @@ const routes = async (app) => {
             },
         },
     }, async (request, reply) => {
+        let id;
+
+        try {
+            id = ObjectId(request.params.id);
+        } catch (error) {
+            constructNotFoundError(reply);
+        }
+
         const collection = app.mongo.db.collection('satcat');
-        const norad = convertToInt(request.params.id);
 
         let satellite = await collection.findOne(
-            { norad_cat_id: norad },
+            { _id: id },
         );
 
         if (!satellite) {
@@ -93,7 +100,7 @@ const routes = async (app) => {
         satellite = await collection.aggregate([
             {
                 $match: {
-                    norad_cat_id: norad,
+                    norad_cat_id: satellite.norad_cat_id,
                 },
             },
             {
@@ -105,11 +112,23 @@ const routes = async (app) => {
                 },
             },
             {
+                $unwind: {
+                    path: '$data',
+                    preserveNullAndEmptyArrays: true,
+                },
+            },
+            {
                 $lookup: {
                     from: 'general-perturbation',
                     localField: 'norad_cat_id',
                     foreignField: 'norad_cat_id',
                     as: 'gp',
+                },
+            },
+            {
+                $unwind: {
+                    path: '$gp',
+                    preserveNullAndEmptyArrays: true,
                 },
             },
             {
