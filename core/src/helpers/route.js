@@ -1,4 +1,14 @@
 /**
+ * The shape of the pagination key.
+ */
+const paginationKeyContract = {
+    key: {
+        page: 'int',
+        per_page: 'int',
+    }
+}
+
+/**
  * The shape of the 404 message response.
  */
 const notFoundMessageContract = {
@@ -33,8 +43,23 @@ const generateIdempotencyKey = (prefix = null, len = 16) => {
     return res;
 };
 
+const parsePagination = (request, defaultLimit = 20) => {
+    const page = Number.parseInt(request.query.page, 10);
+    const limit = request.query.limit ? Number.parseInt(request.query.limit, 10) : defaultLimit;
+    const skip = page * limit;
+
+    return { page, limit, skip };
+};
+
+const generatePaginationMetadata = (page, limit) => {
+    return { page, per_page: limit }
+}
+
 module.exports = {
     constructNotFoundError,
     notFoundMessageContract,
     generateIdempotencyKey,
+    paginationKeyContract,
+    parsePagination,
+    generatePaginationMetadata,
 };

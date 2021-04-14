@@ -1,10 +1,43 @@
 const { convertToInt } = require('../helpers/Number');
-const { constructNotFoundError, notFoundMessageContract } = require('../helpers/route');
+const {
+    constructNotFoundError,
+    notFoundMessageContract,
+    paginationKeyContract,
+    parsePagination,
+    generatePaginationMetadata,
+} = require('../helpers/route');
 
-/**
- * GET a satellite with a specified NORAD catalog ID
- */
-const route = async (app) => {
+const routes = async (app) => {
+    /**
+     * GET list of satellites with pagination
+     */
+    app.get('/satellites', {
+        schema: {
+            response: {
+                200: {
+                    type: 'object',
+                    description: 'The base listing of the satellite catalog',
+                    properties: {
+                        data: {  type: 'array' },
+                        _metadata: paginationKeyContract,
+                    },
+                },
+            },
+        },
+    }, async (request, reply) => {
+        const { page, limit, skip } = parsePagination(request);
+        const paginationMetadata = generatePaginationMetadata(page, limit);
+
+        const collection = app.mongo.db.collection('satcat');
+        const satellites = await collection.find()
+            .sort({ norad_cat_id: 1 }).skip(skip).limit(limit).toArray();
+
+        reply.send({ _metadata: paginationMetadata, data: satellites });
+    });
+
+    /**
+     * GET a satellite with a specified NORAD catalog ID
+     */
     app.get('/satellites/:id', {
         schema: {
             response: {
@@ -72,18 +105,12 @@ const route = async (app) => {
                 },
             },
             {
-                $unwind: '$data',
-            },
-            {
                 $lookup: {
                     from: 'general-perturbation',
                     localField: 'norad_cat_id',
                     foreignField: 'norad_cat_id',
                     as: 'gp',
                 },
-            },
-            {
-                $unwind: '$gp',
             },
             {
                 $lookup: {
@@ -101,4 +128,4 @@ const route = async (app) => {
     });
 };
 
-module.exports = route;
+module.exports = routes;
