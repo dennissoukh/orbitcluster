@@ -1,29 +1,28 @@
 const { performance } = require('perf_hooks');
 const { BaseCommand } = require('../build/Neuron');
 const { SpaceTrack } = require('../build/SpaceData');
+const { convertToInt } = require('../helpers/Number');
 
 class DownloadBoxscore extends BaseCommand {
     /**
      * The name and signature of the console command.
      */
-    commandName = 'download:Boxscore';
+    commandName = 'download:boxscore';
 
     /**
      * The console command description.
      */
-    description = 'Download and update "launch-sites" from Space-Track';
+    description = 'Download and update "boxscore" from Space-Track';
 
     /**
      * Execute the console command.
      */
     async run(app) {
-        const t0 = performance.now();
-
-        console.log(`${Date.now()}> Executing download`);
+        const t0 = startPerf('Executing Download');
 
         // Query Space-Track API
         const spaceTrack = new SpaceTrack();
-        const launchSites = await spaceTrack.get({
+        const boxscore = await spaceTrack.get({
             class: 'boxscore',
         });
 
@@ -35,40 +34,31 @@ class DownloadBoxscore extends BaseCommand {
             const collection = db.collection('box-score');
 
             // Save each launchsite into the database
-            for (let i = 0; i < launchSites.data.length; i += 1) {
-                const site = launchSites.data[i];
+            for (let i = 0; i < boxscore.data.length; i += 1) {
+                const item = boxscore.data[i];
 
                 await collection.insertOne({
-                    country: site.COUNTRY,
-                    spadoc_cd: site.SPADOC_CD,
-                    orbital_tba: Number.parseInt(site.ORBITAL_TBA,10),
-                    orbital_payload_count: Number.parseInt(site.ORBITAL_PAYLOAD_COUNT,10),
-                    orbital_rockect_body_count: Number.parseInt(site.ORBITAL_ROCKET_BODY_COUNT,10),
-                    orbital_debris_count: Number.parseInt(site.ORBITAL_DEBRIS_COUNT,10),
-                    orbital_total_count: Number.parseInt(site.ORBITAL_TOTAL_COUNT,10),
-                    decayed_payload_count: Number.parseInt(site.DECAYED_PAYLOAD_COUNT,10),
-                    decayed_rockect_body_count: Number.parseInt(site.DECAYED_ROCKET_BODY_COUNT,10),
-                    decayed_debris_count: Number.parseInt(site.DECAYED_DEBRIS_COUNT,10),
-                    decayed_total_count: Number.parseInt(site.DECAYED_TOTAL_COUNT,10),
-                    country_total: Number.parseInt(site.COUNTRY_TOTAL,10),
-                    
-
+                    country: item.COUNTRY,
+                    spadoc_cd: item.SPADOC_CD,
+                    orbital_tba: convertToInt(item.ORBITAL_TBA),
+                    orbital_payload_count: convertToInt(item.ORBITAL_PAYLOAD_COUNT),
+                    orbital_rockect_body_count: convertToInt(item.ORBITAL_ROCKET_BODY_COUNT),
+                    orbital_debris_count: convertToInt(item.ORBITAL_DEBRIS_COUNT),
+                    orbital_total_count: convertToInt(item.ORBITAL_TOTAL_COUNT),
+                    decayed_payload_count: convertToInt(item.DECAYED_PAYLOAD_COUNT),
+                    decayed_rockect_body_count: convertToInt(item.DECAYED_ROCKET_BODY_COUNT),
+                    decayed_debris_count: convertToInt(item.DECAYED_DEBRIS_COUNT),
+                    decayed_total_count: convertToInt(item.DECAYED_TOTAL_COUNT),
+                    country_total: convertToInt(item.COUNTRY_TOTAL),
                 });
             }
         } catch (error) {
-            console.log(error)
-            throw Error(`${Date.now()}> Could not update documents`);
+            throw Error(`${Date.now()}> Could not update documents: ${error}`);
         }
-
-        // Console debugging messages
-        const t1 = performance.now();
-
-        const timeTaken = (t1 - t0).toFixed(2);
-        const rowLength = launchSites.data.length;
-
-        console.log(
-            `${Date.now()}> Finished download, ${rowLength} documents synced @ ${timeTaken}ms`,
-        );
+         // Console debugging messages
+         endPerf(t0, `Finished download, ${boxscore.data.length} documents synced`);
+        
+      
     }
 }
 
