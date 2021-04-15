@@ -3,7 +3,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.ParseClassfd = exports.ParseMcnames = exports.ParseSatlist = void 0;
+exports.ParseCelestrak = exports.ParseHamsat = exports.ParseAmsat = exports.ParseClassfd = exports.ParseMcnames = exports.ParseSatlist = void 0;
 const parseTleFile_1 = __importDefault(require("../helpers/parseTleFile"));
 /**
  * Process satlist.csv
@@ -52,6 +52,18 @@ async function ParseMcnames(data) {
 }
 exports.ParseMcnames = ParseMcnames;
 async function ParseClassfd(data) {
-    return await parseTleFile_1.default(data);
+    return await parseTleFile_1.default(data, 'McCants');
 }
 exports.ParseClassfd = ParseClassfd;
+async function ParseAmsat(data) {
+    return await parseTleFile_1.default(data, 'AMSAT');
+}
+exports.ParseAmsat = ParseAmsat;
+async function ParseHamsat(data) {
+    return await parseTleFile_1.default(data, 'Hamsat');
+}
+exports.ParseHamsat = ParseHamsat;
+async function ParseCelestrak(data) {
+    return await parseTleFile_1.default(data, 'CelesTrak');
+}
+exports.ParseCelestrak = ParseCelestrak;

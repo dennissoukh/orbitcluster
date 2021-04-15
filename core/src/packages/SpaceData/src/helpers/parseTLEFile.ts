@@ -1,4 +1,4 @@
-export default async function parseTLEFile(data: string) {
+export default async function parseTLEFile(data: string, source: string | null = null) {
     const tles: { tle_line0: string, tle_line1: string, tle_line2: string }[] = [];
     const lines = data.split(/\r\n|\n\r|\n|\r/);
 
@@ -12,6 +12,7 @@ export default async function parseTLEFile(data: string) {
                 tle_line0: line.trim(),
                 tle_line1: lines[i++],
                 tle_line2: lines[i++],
+                source,
             }
 
             tles.push(sat);

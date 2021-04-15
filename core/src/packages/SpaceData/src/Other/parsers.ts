@@ -55,5 +55,18 @@ export async function ParseMcnames(data: any) {
 }
 
 export async function ParseClassfd(data: string) {
-    return await parseTLEFile(data);
+    return await parseTLEFile(data, 'McCants');
 }
+
+export async function ParseAmsat(data: string) {
+    return await parseTLEFile(data, 'AMSAT');
+}
+
+export async function ParseHamsat(data: string) {
+    return await parseTLEFile(data, 'Hamsat');
+}
+
+export async function ParseCelestrak(data: string) {
+    return await parseTLEFile(data, 'CelesTrak');
+}
+

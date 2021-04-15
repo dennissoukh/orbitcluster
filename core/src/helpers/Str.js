@@ -1,11 +1,10 @@
-/* eslint no-extend-native: ["error", { "exceptions": ["String"] }] */
+/**
+ * Return null if a string is empty
+ */
+const handleEmpty = (value) => {
+    return (value.length === 0 || !value.trim()) ? null : value;
+};
 
-String.prototype.explode = function explode(separator, limit) {
-    const array = this.split(separator);
-
-    if (limit !== undefined && array.length >= limit) {
-        array.push(array.splice(limit - 1).join(separator));
-    }
-
-    return array;
+module.exports = {
+    handleEmpty,
 };

@@ -3,98 +3,98 @@ const data = async (db) => {
         validator: {
             $jsonSchema: {
                 bsonType: 'object',
-                required: ['originator', 'norad_cat_id'],
+                required: ['norad_cat_id'],
                 properties: {
                     originator: {
-                        bsonType: 'string',
+                        bsonType: ['string', 'null'],
                         description: 'must be a string and is required',
                     },
                     epoch: {
-                        bsonType: 'date',
+                        bsonType: ['date', 'null'],
                         description: 'must be a date',
                     },
                     mean_motion: {
-                        bsonType: 'double',
+                        bsonType: ['double', 'null', 'int'],
                         description: 'must be a double',
                     },
                     eccentricity: {
-                        bsonType: 'double',
+                        bsonType: ['double', 'null', 'int'],
                         description: 'must be a double',
                     },
                     inclination: {
-                        bsonType: 'double',
+                        bsonType: ['double', 'null', 'int'],
                         description: 'must be a double',
                     },
                     ra_of_asc_node: {
-                        bsonType: 'double',
+                        bsonType: ['double', 'null', 'int'],
                         description: 'must be a double',
                     },
                     arg_of_pericenter: {
-                        bsonType: 'double',
+                        bsonType: ['double', 'null', 'int'],
                         description: 'must be an double',
                     },
                     mean_anomaly: {
-                        bsonType: 'double',
+                        bsonType: ['double', 'null', 'int'],
                         description: 'must be a double',
                     },
                     ephemeris_type: {
-                        bsonType: 'int',
+                        bsonType: ['int', 'null'],
                         description: 'must be an int',
                     },
                     classification_type: {
-                        bsonType: 'string',
+                        bsonType: ['string', 'null'],
                         description: 'must be a string',
                     },
                     norad_cat_id: {
-                        bsonType: 'int',
+                        bsonType: ['int', 'null'],
                         description: 'must be an int and is required',
                     },
                     element_set_no: {
-                        bsonType: 'int',
+                        bsonType: ['int', 'null'],
                         description: 'must be an int',
                     },
                     rev_at_epoch: {
-                        bsonType: 'int',
+                        bsonType: ['int', 'null'],
                         description: 'must be a int',
                     },
                     bstar: {
-                        bsonType: 'double',
+                        bsonType: ['double', 'null', 'int'],
                         description: 'must be a double',
                     },
                     mean_motion_dot: {
-                        bsonType: 'double',
+                        bsonType: ['double', 'null', 'int'],
                         description: 'must be a double',
                     },
                     mean_motion_ddot: {
-                        bsonType: 'double',
+                        bsonType: ['double', 'null', 'int'],
                         description: 'must be a double',
                     },
                     semimajor_axis: {
-                        bsonType: 'double',
+                        bsonType: ['double', 'null', 'int'],
                         description: 'must be a double',
                     },
                     period: {
-                        bsonType: 'double',
+                        bsonType: ['double', 'null', 'int'],
                         description: 'must be a double',
                     },
                     apoapsis: {
-                        bsonType: 'double',
+                        bsonType: ['double', 'null', 'int'],
                         description: 'must be a double',
                     },
                     periapsis: {
-                        bsonType: 'double',
+                        bsonType: ['double', 'null', 'int'],
                         description: 'must be a double',
                     },
                     tle_line0: {
-                        bsonType: 'string',
+                        bsonType: ['string', 'null'],
                         description: 'must be a string',
                     },
                     tle_line1: {
-                        bsonType: 'string',
+                        bsonType: ['string', 'null'],
                         description: 'must be a string',
                     },
                     tle_line2: {
-                        bsonType: 'string',
+                        bsonType: ['string', 'null'],
                         description: 'must be a string',
                     },
                 },
