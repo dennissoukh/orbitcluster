@@ -1,7 +1,7 @@
-const { performance } = require('perf_hooks');
 const { BaseCommand } = require('../build/Neuron');
 const { SpaceTrack } = require('../build/SpaceData');
 const { convertToInt } = require('../helpers/Number');
+const { endPerf, startPerf } = require('../helpers/Perf');
 
 class DownloadBoxscore extends BaseCommand {
     /**
@@ -55,10 +55,8 @@ class DownloadBoxscore extends BaseCommand {
         } catch (error) {
             throw Error(`${Date.now()}> Could not update documents: ${error}`);
         }
-         // Console debugging messages
-         endPerf(t0, `Finished download, ${boxscore.data.length} documents synced`);
-        
-      
+
+        endPerf(t0, `Finished download, ${boxscore.data.length} documents synced`);
     }
 }
 

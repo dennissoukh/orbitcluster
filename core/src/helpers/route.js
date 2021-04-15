@@ -5,8 +5,8 @@ const paginationKeyContract = {
     key: {
         page: 'int',
         per_page: 'int',
-    }
-}
+    },
+};
 
 /**
  * The shape of the 404 message response.
@@ -37,7 +37,7 @@ const constructNotFoundError = (reply, message = 'The requested resource doesn\'
 const generateIdempotencyKey = (prefix = null, len = 16) => {
     let res = '';
     const chars = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
-    for (let i = length; i > 0; --i) res += chars[Math.floor(Math.random() * chars.length)];
+    for (let i = len; i > 0; i -= 1) res += chars[Math.floor(Math.random() * chars.length)];
     res = `${prefix}${res}`;
 
     return res;
@@ -52,8 +52,8 @@ const parsePagination = (request, defaultLimit = 20) => {
 };
 
 const generatePaginationMetadata = (page, limit) => {
-    return { page, per_page: limit }
-}
+    return { page, per_page: limit };
+};
 
 module.exports = {
     constructNotFoundError,
