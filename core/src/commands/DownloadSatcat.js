@@ -46,9 +46,9 @@ class DownloadSatcat extends BaseCommand {
                     object_type: sat.OBJECT_TYPE,
                     satname: sat.SATNAME,
                     country: handleEmpty(sat.COUNTRY),
-                    launch: new Date(sat.LAUNCH),
+                    launch: sat.LAUNCH ? new Date(sat.LAUNCH) : null,
                     site: sat.SITE,
-                    decay: new Date(sat.DECAY),
+                    decay: sat.DECAY ? new Date(sat.DECAY) : null,
                     rcsvalue: convertToInt(sat.RCSVALUE),
                     rcs_size: sat.RCS_SIZE,
                     launch_year: convertToInt(sat.LAUNCH_YEAR),
@@ -61,7 +61,12 @@ class DownloadSatcat extends BaseCommand {
                 });
             }
         } catch (error) {
-            throw Error(`${Date.now()}> Could not update documents`);
+            console.error(
+                `${Date.now()}> Could not update documents`,
+            );
+            console.error(
+                `${Date.now()}> ${error}`,
+            );
         }
 
         // Console debugging messages

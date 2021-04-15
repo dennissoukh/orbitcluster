@@ -15,7 +15,7 @@ const commands = [
     'commands/DownloadSatcat',
     'commands/DownloadBoxscore',
     'commands/DownloadCelesTrak',
-    'commands/DownloadElementSets'
+    'commands/DownloadElementSets',
 ];
 
 module.exports = { commands };

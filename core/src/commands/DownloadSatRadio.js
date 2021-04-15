@@ -55,7 +55,7 @@ class SatRadioDownloader extends BaseCommand {
                     await collection.updateOne(query, radioUpdate);
                 } else {
                     const name = element[norad][0].satname;
-                    element[norad].forEach((e) => { delete e.norad_cat_id, delete e.satname });
+                    element[norad].forEach((e) => { delete e.norad_cat_id, delete e.satname; });
 
                     await collection.insertOne({
                         norad_cat_id: norad,
@@ -65,10 +65,10 @@ class SatRadioDownloader extends BaseCommand {
                 }
             }
         } catch (error) {
-            console.log(
+            console.error(
                 `${Date.now()}> Could not update documents`,
             );
-            console.log(
+            console.error(
                 `${Date.now()}> ${error}`,
             );
         }

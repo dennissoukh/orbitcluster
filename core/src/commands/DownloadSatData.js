@@ -33,7 +33,12 @@ class SatDataDownloader extends BaseCommand {
                 await collection.insertOne(element);
             }
         } catch (error) {
-            throw new Error(`${Date.now()}> Could not update documents: ${error}`);
+            console.error(
+                `${Date.now()}> Could not update documents`,
+            );
+            console.error(
+                `${Date.now()}> ${error}`,
+            );
         }
 
         endPerf(t0, `Finished download, ${satData.length} documents synced`);

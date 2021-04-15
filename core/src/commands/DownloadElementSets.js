@@ -61,10 +61,12 @@ class DownloadElementSets extends BaseCommand {
                 });
             }
         } catch (error) {
-            console.log(
-                `${Date.now()}> Could not update documents: ${error}`,
+            console.error(
+                `${Date.now()}> Could not update documents`,
             );
-            throw error;
+            console.error(
+                `${Date.now()}> ${error}`,
+            );
         }
 
         endPerf(t0, `Completed download, ${res.length} documents synced`);
