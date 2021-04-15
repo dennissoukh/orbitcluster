@@ -66,31 +66,34 @@ class DownloadGeneralPerturbations extends BaseCommand {
             // Save each launchsite into the database
             for (let i = 0; i < gp.data.length; i += 1) {
                 const element = gp.data[i];
+                const norad = convertToInt(sat.NORAD_CAT_ID);
 
-                await collection.insertOne({
-                    norad_cat_id: convertToInt(element.NORAD_CAT_ID),
-                    originator: element.ORIGINATOR,
-                    epoch: new Date(element.EPOCH),
-                    mean_motion: convertToFloat(element.MEAN_MOTION),
-                    eccentricity: convertToFloat(element.ECCENTRICITY),
-                    inclination: convertToFloat(element.INCLINATION),
-                    ra_of_asc_node: convertToFloat(element.RA_OF_ASC_NODE),
-                    arg_of_pericenter: convertToFloat(element.ARG_OF_PERICENTER),
-                    mean_anomaly: convertToFloat(element.MEAN_ANOMALY),
-                    ephemeris_type: convertToInt(element.EPHEMERIS_TYPE),
-                    classification_type: element.CLASSIFICATION_TYPE,
-                    element_set_no: convertToInt(element.ELEMENT_SET_NO),
-                    rev_at_epoch: convertToInt(element.REV_AT_EPOCH),
-                    bstar: convertToFloat(element.BSTAR),
-                    mean_motion_dot: convertToFloat(element.MEAN_MOTION_DOT),
-                    semimajor_axis: convertToFloat(element.SEMIMAJOR_AXIS),
-                    period: convertToFloat(element.PERIOD),
-                    apoapsis: convertToFloat(element.APOAPSIS),
-                    periapsis: convertToFloat(element.PERIAPSIS),
-                    tle_line0: element.TLE_LINE0,
-                    tle_line1: element.TLE_LINE1,
-                    tle_line2: element.TLE_LINE2,
-                });
+                await collection.updateOne({ norad_cat_id: norad }, {
+                    $set: {
+                        norad_cat_id: norad,
+                        originator: element.ORIGINATOR,
+                        epoch: new Date(element.EPOCH),
+                        mean_motion: convertToFloat(element.MEAN_MOTION),
+                        eccentricity: convertToFloat(element.ECCENTRICITY),
+                        inclination: convertToFloat(element.INCLINATION),
+                        ra_of_asc_node: convertToFloat(element.RA_OF_ASC_NODE),
+                        arg_of_pericenter: convertToFloat(element.ARG_OF_PERICENTER),
+                        mean_anomaly: convertToFloat(element.MEAN_ANOMALY),
+                        ephemeris_type: convertToInt(element.EPHEMERIS_TYPE),
+                        classification_type: element.CLASSIFICATION_TYPE,
+                        element_set_no: convertToInt(element.ELEMENT_SET_NO),
+                        rev_at_epoch: convertToInt(element.REV_AT_EPOCH),
+                        bstar: convertToFloat(element.BSTAR),
+                        mean_motion_dot: convertToFloat(element.MEAN_MOTION_DOT),
+                        semimajor_axis: convertToFloat(element.SEMIMAJOR_AXIS),
+                        period: convertToFloat(element.PERIOD),
+                        apoapsis: convertToFloat(element.APOAPSIS),
+                        periapsis: convertToFloat(element.PERIAPSIS),
+                        tle_line0: element.TLE_LINE0,
+                        tle_line1: element.TLE_LINE1,
+                        tle_line2: element.TLE_LINE2,
+                    }
+                }, { upsert: true });
             }
         } catch (error) {
             console.error(
@@ -99,6 +102,7 @@ class DownloadGeneralPerturbations extends BaseCommand {
             console.error(
                 `${Date.now()}> ${error}`,
             );
+            throw error;
         }
 
         // Console debugging messages

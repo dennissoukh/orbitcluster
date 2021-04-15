@@ -11,7 +11,7 @@ class SatDataDownloader extends BaseCommand {
     /**
      * The console command description.
      */
-    description = 'Download and update "sat-data" from ucs.json';
+    description = 'Download and update "sat-data" from sat-data.json';
 
     /**
      * Execute the console command.
@@ -30,7 +30,11 @@ class SatDataDownloader extends BaseCommand {
             for (let i = 0; i < satData.length; i += 1) {
                 const element = satData[i];
 
-                await collection.insertOne(element);
+                await collection.updateOne(
+                    { norad_cat_id: element.norad_cat_id },
+                    { $set: element },
+                    { upsert: true },
+                );
             }
         } catch (error) {
             console.error(
@@ -39,6 +43,7 @@ class SatDataDownloader extends BaseCommand {
             console.error(
                 `${Date.now()}> ${error}`,
             );
+            throw error;
         }
 
         endPerf(t0, `Finished download, ${satData.length} documents synced`);

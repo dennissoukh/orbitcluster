@@ -25,10 +25,21 @@ class DownloadCategory extends BaseCommand {
 
             for (let i = 0; i < categories.length; i += 1) {
                 const element = categories[i];
-                await collection.insertOne(element);
+
+                await collection.updateOne(
+                    { cat_id: element.cat_id },
+                    { $set: element },
+                    { upsert: true },
+                );
             }
         } catch (error) {
-            throw new Error(`${Date.now()}> Could not update documents: ${error}`);
+            console.error(
+                `${Date.now()}> Could not update documents`,
+            );
+            console.error(
+                `${Date.now()}> ${error}`,
+            );
+            throw error;
         }
 
         endPerf(t0, `Finished download, ${categories.length} documents synced`);

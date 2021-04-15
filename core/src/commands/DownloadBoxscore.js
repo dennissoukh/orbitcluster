@@ -31,29 +31,37 @@ class DownloadBoxscore extends BaseCommand {
 
         try {
             // Get the database collection
-            const collection = db.collection('box-score');
+            const collection = db.collection('boxscore');
 
             // Save each launchsite into the database
             for (let i = 0; i < boxscore.data.length; i += 1) {
                 const item = boxscore.data[i];
 
-                await collection.insertOne({
-                    country: item.COUNTRY,
-                    spadoc_cd: item.SPADOC_CD,
-                    orbital_tba: convertToInt(item.ORBITAL_TBA),
-                    orbital_payload_count: convertToInt(item.ORBITAL_PAYLOAD_COUNT),
-                    orbital_rockect_body_count: convertToInt(item.ORBITAL_ROCKET_BODY_COUNT),
-                    orbital_debris_count: convertToInt(item.ORBITAL_DEBRIS_COUNT),
-                    orbital_total_count: convertToInt(item.ORBITAL_TOTAL_COUNT),
-                    decayed_payload_count: convertToInt(item.DECAYED_PAYLOAD_COUNT),
-                    decayed_rockect_body_count: convertToInt(item.DECAYED_ROCKET_BODY_COUNT),
-                    decayed_debris_count: convertToInt(item.DECAYED_DEBRIS_COUNT),
-                    decayed_total_count: convertToInt(item.DECAYED_TOTAL_COUNT),
-                    country_total: convertToInt(item.COUNTRY_TOTAL),
-                });
+                await collection.updateOne({ spadoc_cd: item.SPADOC_CD }, {
+                    $set: {
+                        country: item.COUNTRY,
+                        spadoc_cd: item.SPADOC_CD,
+                        orbital_tba: convertToInt(item.ORBITAL_TBA),
+                        orbital_payload_count: convertToInt(item.ORBITAL_PAYLOAD_COUNT),
+                        orbital_rocket_body_count: convertToInt(item.ORBITAL_ROCKET_BODY_COUNT),
+                        orbital_debris_count: convertToInt(item.ORBITAL_DEBRIS_COUNT),
+                        orbital_total_count: convertToInt(item.ORBITAL_TOTAL_COUNT),
+                        decayed_payload_count: convertToInt(item.DECAYED_PAYLOAD_COUNT),
+                        decayed_rocket_body_count: convertToInt(item.DECAYED_ROCKET_BODY_COUNT),
+                        decayed_debris_count: convertToInt(item.DECAYED_DEBRIS_COUNT),
+                        decayed_total_count: convertToInt(item.DECAYED_TOTAL_COUNT),
+                        country_total: convertToInt(item.COUNTRY_TOTAL),
+                    }
+                }, { upsert: true });
             }
         } catch (error) {
-            throw Error(`${Date.now()}> Could not update documents: ${error}`);
+            console.error(
+                `${Date.now()}> Could not update documents`,
+            );
+            console.error(
+                `${Date.now()}> ${error}`,
+            );
+            throw error;
         }
 
         endPerf(t0, `Finished download, ${boxscore.data.length} documents synced`);

@@ -60,14 +60,15 @@ class CelesTrakDownloader extends BaseCommand {
             // Save tle-data into the database
             for (let i = 0; i < satellites.length; i += 1) {
                 const element = satellites[i];
+                const norad = convertToInt(element.tle_line2.slice(2, 7));
 
-                await collection.insertOne({
-                    norad_cat_id: convertToInt(element.tle_line2.slice(2, 7)),
+                await collection.updateOne({ source: 'CelesTrak', norad_cat_id: norad }, {
+                    norad_cat_id: norad,
                     tle_line0: element.tle_line0,
                     tle_line1: element.tle_line1,
                     tle_line2: element.tle_line2,
                     source: 'CelesTrak',
-                });
+                }, { upsert: true });
             }
         } catch (error) {
             console.error(
@@ -76,6 +77,7 @@ class CelesTrakDownloader extends BaseCommand {
             console.error(
                 `${Date.now()}> ${error}`,
             );
+            throw error;
         }
 
         // Console debugging messages
