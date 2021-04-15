@@ -1,16 +1,20 @@
 const data = async (db) => {
-    db.createCollection('sat-categories', {
+    db.createCollection('sat-category', {
         validator: {
             $jsonSchema: {
                 bsonType: 'object',
                 properties: {
-                    id: {
-                        bsonType: ['string', 'null'],
+                    cat_id: {
+                        bsonType: 'string',
                         description: 'must be a string',
                     },
                     name: {
                         bsonType: ['string', 'null'],
                         description: 'must be a string',
+                    },
+                    count: {
+                        bsonType: ['int', 'null'],
+                        description: 'must be an int',
                     },
                     description: {
                         bsonType: ['string', 'null'],

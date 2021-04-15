@@ -16,6 +16,8 @@ const commands = [
     'commands/DownloadBoxscore',
     'commands/DownloadCelesTrak',
     'commands/DownloadElementSets',
+    'commands/DownloadCategory',
+    'commands/DownloadCelestrakCategory',
 ];
 
 module.exports = { commands };

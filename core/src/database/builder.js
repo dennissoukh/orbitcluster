@@ -9,6 +9,7 @@ const builder = async (app, options, done) => {
         { schema: require('./schemas/User'), name: 'user' },
         { schema: require('./schemas/SatData'), name: 'sat-data' },
         { schema: require('./schemas/TLEData'), name: 'tle-data' },
+        { schema: require('./schemas/SatCategory'), name: 'sat-category' },
 
     ];
 
