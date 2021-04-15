@@ -1,85 +1,124 @@
-const mongo = require('mongodb');
-const { generatePaginationQuery } = require('../helpers/database');
+const { ObjectId } = require('mongodb');
+const {
+    constructNotFoundError,
+    notFoundMessageContract,
+    paginationKeyContract,
+    parsePagination,
+    generatePaginationMetadata,
+} = require('../helpers/route');
 
-const routes = async (app, opts, done) => {
-    app.get('/satellite', opts, async (request, reply) => {
-        if (!request.query.id) {
-            reply.statusCode = 500;
-            reply.send({ error: 'Satellite ID not specified' });
-        }
+const routes = async (app) => {
+    /**
+     * GET list of satellites with pagination
+     */
+    app.get('/satellites', {
+        schema: {
+            response: {
+                200: {
+                    type: 'object',
+                    description: 'The base listing of the satellite catalog',
+                    properties: {
+                        data: {  type: 'array' },
+                        _metadata: paginationKeyContract,
+                    },
+                },
+            },
+        },
+    }, async (request, reply) => {
+        const { page, limit, skip } = parsePagination(request);
+        const paginationMetadata = generatePaginationMetadata(page, limit);
 
-        // Get an instance of the application database
-        const { db } = app.mongo;
+        const collection = app.mongo.db.collection('satcat');
+        const satellites = await collection.find()
+            .sort({ norad_cat_id: 1 }).skip(skip).limit(limit).toArray();
 
-        // Get the database collection
-        const collection = db.collection('satcat');
-        const document = await collection
-            .findOne({ norad_cat_id: Number.parseInt(request.query.id, 10) });
-
-        if (!document) {
-            reply.statusCode = 404;
-            reply.send({ error: 'Satellite does not exist' });
-        }
-
-        reply.send(document);
+        reply.send({ _metadata: paginationMetadata, data: satellites });
     });
 
-    app.post('/satellites', opts, async (request, reply) => {
+    /**
+     * GET a satellite with a specified NORAD catalog ID
+     */
+    app.get('/satellites/:id', {
+        schema: {
+            response: {
+                200: {
+                    type: 'object',
+                    description: 'The core satellite object',
+                    properties: {
+                        satellite: {
+                            _id: 'string',
+                            intldes: 'string',
+                            norad_cat_id: 'int',
+                            object_type: 'string',
+                            satname: 'string',
+                            country: 'string',
+                            launch: 'date',
+                            site: 'string',
+                            decay: 'date',
+                            rcsvalue: 'int',
+                            rcs_size: 'string',
+                            launch_year: 'int',
+                            launch_num: 'int',
+                            launch_piece: 'string',
+                            current: 'string',
+                            object_name: 'string',
+                            object_number: 'int',
+                            categories: 'array',
+                            data: 'object',
+                            gp: 'object',
+                            tles: 'array',
+                        },
+                    },
+                },
+                404: {
+                    type: 'object',
+                    properties: {
+                        error: notFoundMessageContract,
+                    },
+                },
+            },
+        },
+    }, async (request, reply) => {
+        let id;
+
+        try {
+            id = ObjectId(request.params.id);
+        } catch (error) {
+            constructNotFoundError(reply);
+        }
+
         const collection = app.mongo.db.collection('satcat');
 
-        const req = JSON.parse(request.body).nextKey;
-
-        const { paginatedQuery, nextKeyFn } = generatePaginationQuery(
-            { object_type: 'PAYLOAD' },
-            ['norad_cat_id', 1],
-            req || null,
+        let satellite = await collection.findOne(
+            { _id: id },
         );
 
-        let nextKey = null;
-
-        const documents = await collection
-            .find(paginatedQuery)
-            .limit(20)
-            .sort({ norad_cat_id: 1 }).toArray();
-
-        nextKey = nextKeyFn(documents);
-
-        reply.send({ documents, nextKey });
-    });
-
-    app.post('/satellite', opts, async (request, reply) => {
-        const collection = app.mongo.db.collection('satcat');
-
-        let satId = JSON.parse(request.body).id;
-        satId = new mongo.ObjectID(satId);
-
-        const document = await collection.findOne({ _id: satId });
-        const norad = document.norad_cat_id;
-
-        if (!document) {
-            reply.statusCode = 404;
-            reply.send({ error: 'Satellite does not exist' });
+        if (!satellite) {
+            constructNotFoundError(reply);
         }
 
-        const satData = await collection.aggregate([
+        satellite = await collection.aggregate([
             {
-                $match:
-                {
-                    norad_cat_id: norad,
+                $match: {
+                    norad_cat_id: satellite.norad_cat_id,
                 },
             },
             {
-                $lookup:
-                {
+                $lookup: {
                     from: 'sat-data',
                     localField: 'norad_cat_id',
                     foreignField: 'norad_cat_id',
-                    as: 'satdata',
+                    as: 'data',
                 },
             },
             {
-                $lookup:
-                {
+                $unwind: {
+                    path: '$data',
+                    preserveNullAndEmptyArrays: true,
+                },
+            },
+            {
+                $lookup: {
                     from: 'general-perturbation',
                     localField: 'norad_cat_id',
                     foreignField: 'norad_cat_id',
@@ -87,49 +126,25 @@ const routes = async (app, opts, done) => {
                 },
             },
             {
-                $lookup:
-                {
+                $unwind: {
+                    path: '$gp',
+                    preserveNullAndEmptyArrays: true,
+                },
+            },
+            {
+                $lookup: {
                     from: 'tle-data',
                     localField: 'norad_cat_id',
                     foreignField: 'norad_cat_id',
-                    as: 'tledata',
+                    as: 'tles',
                 },
             },
         ]).toArray();
 
-        reply.send(satData[0]);
+        [satellite] = satellite;
+
+        reply.send({ satellite });
     });
-
-    app.get('/sat-state', opts, async (request, reply) => {
-        const categories = app.mongo.db.collection('sat-category');
-
-        // Database header structure
-        const active = await categories.findOne({ cat_id: 'active' });
-        const geo = await categories.findOne({ cat_id: 'gpz-plus' });
-        const starlink = await categories.findOne({ cat_id: 'starlink' });
-
-        const databaseCategories = [
-            {
-                name: 'Active',
-                count: active.count,
-                id: active._id,
-            },
-            {
-                name: 'Geostationary',
-                count: geo.count,
-                id: geo._id,
-            },
-            {
-                name: 'Starlink',
-                count: starlink.count,
-                id: starlink._id,
-            }
-        ];
-
-        reply.send({ database: { categories: databaseCategories } })
-    });
-
-    done();
 };
 
 module.exports = routes;

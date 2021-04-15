@@ -13,6 +13,7 @@ const commands = [
     'commands/DownloadSatRadio',
     'commands/DownloadGeneralPerturbation',
     'commands/DownloadSatcat',
+    'commands/DownloadBoxscore',
     'commands/DownloadCelesTrak',
     'commands/DownloadElementSets',
     'commands/DownloadCategory',

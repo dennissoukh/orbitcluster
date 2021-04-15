@@ -42,7 +42,12 @@ class DownloadLaunchSites extends BaseCommand {
                 });
             }
         } catch (error) {
-            throw Error(`${Date.now()}> Could not update documents`);
+            console.error(
+                `${Date.now()}> Could not update documents`,
+            );
+            console.error(
+                `${Date.now()}> ${error}`,
+            );
         }
 
         // Console debugging messages

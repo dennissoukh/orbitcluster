@@ -1,9 +1,7 @@
-/* eslint no-underscore-dangle: 0 */
-
-function generatePaginationQuery(query, sort, nextKey) {
+const generatePaginationQuery = (query, sort, nextKey) => {
     const sortField = sort == null ? null : sort[0];
 
-    function nextKeyFn(items) {
+    const nextKeyFn = (items) => {
         if (items.length === 0) {
             return null;
         }
@@ -15,7 +13,7 @@ function generatePaginationQuery(query, sort, nextKey) {
         }
 
         return { _id: item._id, [sortField]: item[sortField] };
-    }
+    };
 
     if (nextKey == null) {
         return { query, nextKeyFn };
@@ -47,7 +45,7 @@ function generatePaginationQuery(query, sort, nextKey) {
     }
 
     return { paginatedQuery, nextKeyFn };
-}
+};
 
 module.exports = {
     generatePaginationQuery,

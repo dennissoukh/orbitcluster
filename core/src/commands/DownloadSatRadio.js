@@ -64,10 +64,10 @@ class SatRadioDownloader extends BaseCommand {
                 }
             }
         } catch (error) {
-            console.log(
+            console.error(
                 `${Date.now()}> Could not update documents`,
             );
-            console.log(
+            console.error(
                 `${Date.now()}> ${error}`,
             );
         }
