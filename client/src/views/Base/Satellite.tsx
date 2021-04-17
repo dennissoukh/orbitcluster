@@ -1,5 +1,6 @@
 import React from "react";
 import { withRouter } from "react-router-dom";
+import { usePageStore } from "../../store/GlobalStore";
 
 class Satellite extends React.Component<any, any> {
     state = {
@@ -7,17 +8,16 @@ class Satellite extends React.Component<any, any> {
             satname: null,
             norad_cat_id: null,
             intldes: null,
-            satdata: [{
+            data: [{
                 description: null
             }]
         }
     }
 
     async getSatellite(id: string): Promise<any> {
-        const res = await fetch(`http://localhost:4000/v1/satellite`, {
-            method: 'post',
-            body: JSON.stringify({ id }),
-        });
+        const res = await fetch(`http://localhost:4000/v1/satellites/${id}`);
+
+        console.log(res)
 
         const json = await res.json();
 
@@ -36,12 +36,12 @@ class Satellite extends React.Component<any, any> {
             <div>
                 <div className="container">
                     <h2>{this.state.satellite.satname}</h2>
-                    <span>{this.state.satellite.norad_cat_id} / {this.state.satellite.intldes}</span>
+                    {/* <span>{this.state.satellite.norad_cat_id} / {this.state.satellite.intldes}</span>
                     {this.state.satellite?.satdata[0]?.description && (
                         <p className="text-small mt-4">
                             {this.state.satellite.satdata[0].description}
                         </p>
-                    )}
+                    )} */}
                 </div>
             </div>
         )

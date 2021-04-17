@@ -15,7 +15,7 @@ const ProductsCard = forwardRef<HTMLElement>((props: any, productsRef) => (
                 <li>
                     <span className={styles.navTitle}>Satellites</span>
                 </li>
-                {props.database.categories.map((item: any) =>
+                {/* {props.database.categories.map((item: any) =>
                     <li className={styles.action} key={item.id}>
                         <Link to={`/category/${item.id}`}>
                             <div className={styles.icons}>
@@ -27,7 +27,7 @@ const ProductsCard = forwardRef<HTMLElement>((props: any, productsRef) => (
                             </div>
                         </Link>
                     </li>
-                )}
+                )} */}
                 <li className={styles.action}>
                     <div className={styles.icons}>
                         <IconCalender/>

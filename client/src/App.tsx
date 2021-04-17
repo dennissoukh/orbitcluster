@@ -6,8 +6,9 @@ import { Login } from './views/Auth/Login';
 import { Register } from './views/Auth/Register';
 import { ResetPassword } from './views/Auth/passwords/Reset';
 import MainLayout from './layouts/Main';
-import { Welcome } from './views/Base/Welcome';
+import Welcome from './views/Base/Welcome';
 import Satellite from "./views/Base/Satellite";
+import { PageProvider } from './store/GlobalStore';
 
 const App: React.FC = () => (
     <BrowserRouter>
@@ -19,10 +20,12 @@ const App: React.FC = () => (
             </Layout>
         </Route>
         <Route path='/'>
-            <Layout layout={MainLayout}>
-                <Route path={'/'} exact component={() => <Welcome/>}/>
-                <Route path={'/satellite/:id'} component={() => <Satellite/>}/>
-            </Layout>
+            <PageProvider>
+                <Layout layout={MainLayout}>
+                    <Route path={'/'} exact component={() => <Welcome/>}/>
+                    <Route path={'/satellite/:id'} component={() => <Satellite/>}/>
+                </Layout>
+            </PageProvider>
         </Route>
     </BrowserRouter>
 );

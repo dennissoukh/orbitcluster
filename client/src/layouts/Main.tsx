@@ -19,7 +19,7 @@ const MainLayout: React.FC = ({ children }) => {
                     <Link to="/">Welcome</Link>
                 </li>
             </ul> */}
-            <Header/>
+            {/* <Header/> */}
             {children}
         </div>
     );
