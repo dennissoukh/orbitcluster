@@ -12,8 +12,8 @@ interface MenuContainerProps {
     selectedNavOptionPosition: { x: number },
 }
 
-const satInfo = fetch('http://localhost:4000/v1/sat-state')
-    .then((data) => data.json());
+// const satInfo = fetch('http://localhost:4000/v1/sat-state')
+//     .then((data) => data.json());
 
 const MenuContainer = ({ selectedNavOption, selectedNavOptionPosition }: MenuContainerProps) => {
     const database = useRef<HTMLElement | null>(null);
@@ -24,13 +24,13 @@ const MenuContainer = ({ selectedNavOption, selectedNavOptionPosition }: MenuCon
     const containerHeight = useMotionValue<number | null>(null);
 
     const [isFirstInteraction, setIsFirstInteraction] = useState(true);
-    const [info, setInfo] = useState([]);
+    // const [info, setInfo] = useState([]);
 
-    useEffect(() => {
-        satInfo.then((res) => {
-            setInfo(res);
-        });
-    }, []);
+    // useEffect(() => {
+    //     satInfo.then((res) => {
+    //         setInfo(res);
+    //     });
+    // }, []);
 
     useEffect(() => {
         if (selectedNavOption !== null)
@@ -103,7 +103,7 @@ const MenuContainer = ({ selectedNavOption, selectedNavOptionPosition }: MenuCon
                             <AnimatePresence>
                                 {selectedNavOption === 'database' && (
                                     <motion.div {...cardProps}>
-                                        <DatabaseCard ref={database} {...info}/>
+                                        <DatabaseCard ref={database}/>
                                     </motion.div>
                                 )}
                             </AnimatePresence>

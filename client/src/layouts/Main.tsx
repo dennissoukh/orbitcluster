@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import Header from '../components/NavigationMenu/Header';
 
 const MainLayout: React.FC = ({ children }) => {
@@ -19,7 +18,7 @@ const MainLayout: React.FC = ({ children }) => {
                     <Link to="/">Welcome</Link>
                 </li>
             </ul> */}
-            {/* <Header/> */}
+            <Header/>
             {children}
         </div>
     );

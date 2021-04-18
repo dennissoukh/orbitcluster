@@ -2,13 +2,14 @@ import React, { useState, useEffect} from 'react';
 import InfiniteScroll from 'react-infinite-scroll-component';
 import { Link } from 'react-router-dom';
 import styles from './styles.module.css';
-import {  usePageStore } from '../../store/GlobalStore';
+import { usePageStore } from '../../store/GlobalStore';
 
 const Welcome: React.FC = () => {
+    const pageState = usePageStore();
+
     const [satList, setSatList] = useState([]);
-    const [page, setPage] = useState<number>((window.history.state && window.history.state.page) || 0);
-    const [scrollY, setScroll] = useState<number>((window.history.state && window.history.state.scrollY) || 0);
-    const test = usePageStore();
+    const [page, setPage] = useState<number>((pageState.satellites && pageState.satellites.page) || 0);
+    const [scrollY, setScroll] = useState<number>((pageState.satellites && pageState.satellites.scrollY) || 0);
 
     const getSatellites: any = async (pageNumber: number = page, initial: boolean = false): Promise<any> => {
         fetch(`http://localhost:4000/v1/satellites?page=${pageNumber}${initial ? '&initial=true' : ''}`)
@@ -18,24 +19,21 @@ const Welcome: React.FC = () => {
                 setPage(pageNumber + 1);
 
                 if (initial) {
-                    window.scrollTo(0, test.satellites.scrollY);
+                    window.scrollTo(0, scrollY);
                 }
 
-                test.satellites.scrollY = window.scrollY;
-                test.satellites.page = pageNumber + 1;
+                pageState.satellites.page = pageNumber;
             });
     }
 
     const updateScrollPosition: any = () => {
-        test.satellites.scrollY = window.scrollY;
+        setScroll(window.scrollY);
+        pageState.satellites.scrollY = window.scrollY;
     }
 
     useEffect(() => {
-        setPage(test.satellites.page);
-        setScroll(test.satellites.scrollY);
-
-        getSatellites(test.satellites.page, true);
-    }, []);
+        getSatellites(pageState.satellites.page, true);
+    }, [pageState.satellites.page]);
 
     useEffect(() => {
         window.addEventListener('scroll', updateScrollPosition, { passive: true });

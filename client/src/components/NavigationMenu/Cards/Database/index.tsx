@@ -1,10 +1,10 @@
 import { forwardRef } from 'react';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 
 import IconClipboardList from '../../../Icons/ClipboardList';
 import IconMapPin from '../../../Icons/MapPin';
 import IconCalender from '../../../Icons/Calender';
-import IconSatellite from '../../../Icons/Satellite';
+// import IconSatellite from '../../../Icons/Satellite';
 
 import styles from '../styles.module.sass';
 
