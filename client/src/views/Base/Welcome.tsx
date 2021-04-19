@@ -33,7 +33,7 @@ const Welcome: React.FC = () => {
 
     useEffect(() => {
         getSatellites(pageState.satellites.page, true);
-    }, [pageState.satellites.page]);
+    }, []);
 
     useEffect(() => {
         window.addEventListener('scroll', updateScrollPosition, { passive: true });
