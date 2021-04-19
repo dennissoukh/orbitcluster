@@ -50,6 +50,7 @@ const routes = [
     require('./src/routes/Category'),
     require('./src/routes/Launchsite'),
     require('./src/routes/Recent'),
+    require('./src/routes/Boxscore'),
 ];
 
 routes.forEach((route) => {
