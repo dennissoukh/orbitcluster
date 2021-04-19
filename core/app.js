@@ -49,6 +49,7 @@ const routes = [
     require('./src/routes/satellite'),
     require('./src/routes/Category'),
     require('./src/routes/Launchsite'),
+    require('./src/routes/Recent'),
 ];
 
 routes.forEach((route) => {

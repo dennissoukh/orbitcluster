@@ -51,18 +51,22 @@ class DownloadElementSets extends BaseCommand {
             // Save tle-data into the database
             for (let i = 0; i < res.length; i += 1) {
                 const element = res[i];
+                const norad = convertToInt(element.tle_line2.slice(2, 7));
 
-                await collection.insertOne({
-                    norad_cat_id: convertToInt(element.tle_line2.slice(2, 7)),
+                await collection.updateOne({ source: element.source, norad_cat_id: norad }, {
+                    norad_cat_id: norad,
                     tle_line0: element.tle_line0,
                     tle_line1: element.tle_line1,
                     tle_line2: element.tle_line2,
                     source: element.source,
-                });
+                }, { upsert: true });
             }
         } catch (error) {
-            console.log(
-                `${Date.now()}> Could not update documents: ${error}`,
+            console.error(
+                `${Date.now()}> Could not update documents`,
+            );
+            console.error(
+                `${Date.now()}> ${error}`,
             );
             throw error;
         }

@@ -18,7 +18,7 @@ const routes = async (app) => {
                     type: 'object',
                     description: 'The base listing of the satellite catalog',
                     properties: {
-                        data: {  type: 'array' },
+                        data: { type: 'array' },
                         _metadata: paginationKeyContract,
                     },
                 },
@@ -30,7 +30,8 @@ const routes = async (app) => {
 
         const collection = app.mongo.db.collection('satcat');
         const satellites = await collection.find()
-            .sort({ norad_cat_id: 1 }).skip(skip).limit(limit).toArray();
+            .sort({ norad_cat_id: 1 }).skip(skip).limit(limit)
+            .toArray();
 
         reply.send({ _metadata: paginationMetadata, data: satellites });
     });

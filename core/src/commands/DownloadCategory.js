@@ -1,17 +1,17 @@
 const { BaseCommand } = require('../build/Neuron');
-const satData = require('../../data/sat-data.json');
-const { endPerf, startPerf } = require('../helpers/Perf');
+const { startPerf, endPerf } = require('../helpers/Perf');
+const categories = require('../../data/sat-categories.json');
 
-class SatDataDownloader extends BaseCommand {
+class DownloadCategory extends BaseCommand {
     /**
      * The name and signature of the console command.
      */
-    commandName = 'download:satdata';
+    commandName = 'download:categories';
 
     /**
      * The console command description.
      */
-    description = 'Download and update "sat-data" from sat-data.json';
+    description = 'Download and update satellite categories';
 
     /**
      * Execute the console command.
@@ -20,18 +20,14 @@ class SatDataDownloader extends BaseCommand {
         const t0 = startPerf('Extracting File');
 
         try {
-            // Get an instance of the application database
             const { db } = app.mongo;
+            const collection = db.collection('sat-category');
 
-            // Get the database collection
-            const collection = db.collection('sat-data');
-
-            // Save sat-data into the database
-            for (let i = 0; i < satData.length; i += 1) {
-                const element = satData[i];
+            for (let i = 0; i < categories.length; i += 1) {
+                const element = categories[i];
 
                 await collection.updateOne(
-                    { norad_cat_id: element.norad_cat_id },
+                    { cat_id: element.cat_id },
                     { $set: element },
                     { upsert: true },
                 );
@@ -46,8 +42,8 @@ class SatDataDownloader extends BaseCommand {
             throw error;
         }
 
-        endPerf(t0, `Finished download, ${satData.length} documents synced`);
+        endPerf(t0, `Finished download, ${categories.length} documents synced`);
     }
 }
 
-module.exports = SatDataDownloader;
+module.exports = DownloadCategory;

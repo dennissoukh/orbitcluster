@@ -39,29 +39,38 @@ class DownloadSatcat extends BaseCommand {
             // Save each launchsite into the database
             for (let i = 0; i < satellites.data.length; i += 1) {
                 const sat = satellites.data[i];
+                const norad = convertToInt(sat.NORAD_CAT_ID);
 
-                await collection.insertOne({
-                    intldes: sat.INTLDES,
-                    norad_cat_id: convertToInt(sat.NORAD_CAT_ID),
-                    object_type: sat.OBJECT_TYPE,
-                    satname: sat.SATNAME,
-                    country: handleEmpty(sat.COUNTRY),
-                    launch: new Date(sat.LAUNCH),
-                    site: sat.SITE,
-                    decay: new Date(sat.DECAY),
-                    rcsvalue: convertToInt(sat.RCSVALUE),
-                    rcs_size: sat.RCS_SIZE,
-                    launch_year: convertToInt(sat.LAUNCH_YEAR),
-                    launch_num: convertToInt(sat.LAUNCH_NUM),
-                    launch_piece: sat.LAUNCH_PIECE,
-                    current: sat.CURRENT,
-                    object_name: sat.OBJECT_NAME,
-                    object_id: sat.OBJECT_ID,
-                    object_number: convertToInt(sat.OBJECT_NUMBER),
-                });
+                await collection.updateOne({ norad_cat_id: norad }, {
+                    $set: {
+                        intldes: sat.INTLDES,
+                        norad_cat_id: norad,
+                        object_type: sat.OBJECT_TYPE,
+                        satname: sat.SATNAME,
+                        country: handleEmpty(sat.COUNTRY),
+                        launch: sat.LAUNCH ? new Date(sat.LAUNCH) : null,
+                        site: sat.SITE,
+                        decay: sat.DECAY ? new Date(sat.DECAY) : null,
+                        rcsvalue: convertToInt(sat.RCSVALUE),
+                        rcs_size: sat.RCS_SIZE,
+                        launch_year: convertToInt(sat.LAUNCH_YEAR),
+                        launch_num: convertToInt(sat.LAUNCH_NUM),
+                        launch_piece: sat.LAUNCH_PIECE,
+                        current: sat.CURRENT,
+                        object_name: sat.OBJECT_NAME,
+                        object_id: sat.OBJECT_ID,
+                        object_number: convertToInt(sat.OBJECT_NUMBER),
+                    }
+                }, { upsert: true });
             }
         } catch (error) {
-            throw Error(`${Date.now()}> Could not update documents`);
+            console.error(
+                `${Date.now()}> Could not update documents`,
+            );
+            console.error(
+                `${Date.now()}> ${error}`,
+            );
+            throw error;
         }
 
         // Console debugging messages

@@ -1,4 +1,3 @@
-const { generatePaginationQuery } = require('../helpers/database');
 const { ObjectId } = require('mongodb');
 const {
     constructNotFoundError,

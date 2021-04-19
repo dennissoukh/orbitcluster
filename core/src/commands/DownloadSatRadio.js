@@ -40,35 +40,34 @@ class SatRadioDownloader extends BaseCommand {
                 const element = parsed[i];
                 const norad = convertToInt(Object.keys(element)[0]);
 
-                if (!norad) {
-                    continue;
-                }
+                if (norad) {
+                    const document = await collection.findOne({ norad_cat_id: norad });
 
-                const document = await collection.findOne({ norad_cat_id: norad });
-                if (document) {
-                    const query = { norad_cat_id: norad };
-                    const radioUpdate = {
-                        $set: {
+                    if (document) {
+                        const query = { norad_cat_id: norad };
+                        const radioUpdate = {
+                            $set: {
+                                radio: element[norad],
+                            },
+                        };
+                        await collection.updateOne(query, radioUpdate);
+                    } else {
+                        const name = element[norad][0].satname;
+                        element[norad].forEach((e) => { delete e.norad_cat_id; delete e.satname; });
+
+                        await collection.insertOne({
+                            norad_cat_id: norad,
+                            alternate_name: name,
                             radio: element[norad],
-                        },
-                    };
-                    await collection.updateOne(query, radioUpdate);
-                } else {
-                    const name = element[norad][0].satname;
-                    element[norad].forEach((e) => { delete e.norad_cat_id, delete e.satname; });
-
-                    await collection.insertOne({
-                        norad_cat_id: norad,
-                        alternate_name: name,
-                        radio: element[norad],
-                    });
+                        });
+                    }
                 }
             }
         } catch (error) {
-            console.log(
+            console.error(
                 `${Date.now()}> Could not update documents`,
             );
-            console.log(
+            console.error(
                 `${Date.now()}> ${error}`,
             );
         }

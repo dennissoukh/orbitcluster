@@ -36,13 +36,21 @@ class DownloadLaunchSites extends BaseCommand {
             for (let i = 0; i < launchSites.data.length; i += 1) {
                 const site = launchSites.data[i];
 
-                await collection.insertOne({
-                    site_code: site.SITE_CODE,
-                    launch_site: site.LAUNCH_SITE,
-                });
+                await collection.updateOne({ site_code: site.SITE_CODE }, {
+                    $set: {
+                        site_code: site.SITE_CODE,
+                        launch_site: site.LAUNCH_SITE,
+                    }
+                }, { upsert: true });
             }
         } catch (error) {
-            throw Error(`${Date.now()}> Could not update documents`);
+            console.error(
+                `${Date.now()}> Could not update documents`,
+            );
+            console.error(
+                `${Date.now()}> ${error}`,
+            );
+            throw error;
         }
 
         // Console debugging messages

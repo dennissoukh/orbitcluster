@@ -65,3 +65,8 @@ export async function ParseAmsat(data: string) {
 export async function ParseHamsat(data: string) {
     return await parseTLEFile(data, 'Hamsat');
 }
+
+export async function ParseCelestrak(data: string) {
+    return await parseTLEFile(data, 'CelesTrak');
+}
+

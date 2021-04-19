@@ -74,6 +74,7 @@ exports.default = {
         'gorizont',
         'raduga',
         'molniya',
+        'gnss',
         'gps-ops',
         'glo-ops',
         'galileo',
