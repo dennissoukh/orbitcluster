@@ -11,7 +11,7 @@ const routes = async (app, opts, done) => {
         const { db } = app.mongo;
 
         // Get the database collection
-        const collection = db.collection('sat-categories');
+        const collection = db.collection('sat-category');
         const documents = await collection.find().toArray();
 
         reply.send(documents);
