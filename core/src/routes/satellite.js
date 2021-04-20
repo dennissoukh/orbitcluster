@@ -9,7 +9,7 @@ const {
 const routes = async (app) => {
     /**
      * GET list of satellites with pagination
-     */
+     **/
     app.get('/satellites', {
         schema: {
             response: {
@@ -37,7 +37,7 @@ const routes = async (app) => {
 
     /**
      * GET a satellite with a specified NORAD catalog ID
-     */
+     **/
     app.get('/satellites/:id', {
         schema: {
             response: {
