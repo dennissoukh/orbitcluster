@@ -6,8 +6,8 @@ const {
 
 const routes = async (app) => {
     /**
-     * GET list of satellites with pagination
-     */
+     * GET list of recently launched satellites with pagination
+     **/
     app.get('/recent/new', {
         schema: {
             response: {
@@ -33,6 +33,9 @@ const routes = async (app) => {
         reply.send({ _metadata: paginationMetadata, data: satellites });
     });
 
+    /**
+     * GET list of recently decayed satellites with pagination
+     **/
     app.get('/recent/decayed', {
         schema: {
             response: {
