@@ -33,7 +33,7 @@ const routes = async (app) => {
 
     /**
      * GET satellites of a certain site with a specified site_code
-     */
+     **/
     app.get('/launchsites/:id', {
         schema: {
             response: {
