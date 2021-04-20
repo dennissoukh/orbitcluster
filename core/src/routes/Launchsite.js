@@ -34,7 +34,7 @@ const routes = async (app, opts) => {
 
 
     /**
-     * GET a launch site with a specified _id
+     * GET satellites of a certain site with a specified site_code
      */
      app.get('/launchsites/:id', {
         schema: {
@@ -61,21 +61,34 @@ const routes = async (app, opts) => {
     }, async (request, reply) => {
         let id;
 
-        try {
-            id = ObjectId(request.params.id);
-        } catch (error) {
-            constructNotFoundError(reply);
-        }
-
         const collection = app.mongo.db.collection('launch-site');
 
         let launchSite = await collection.findOne(
-            { _id: id },
+            { site_code: request.params.id },
         );
 
         if (!launchSite) {
             constructNotFoundError(reply);
         }
+
+        launchSite = await collection.aggregate([
+            {
+                $match: {
+                    site_code: launchSite.site_code,
+                },
+            },
+            {
+                $lookup: {
+                    from: 'satcat',
+                    localField: 'site_code',
+                    foreignField: 'site',
+                    as: 'satellites',
+                },
+            },
+        ]).toArray();
+
+        [launchSite] = launchSite;
+
         reply.send({ launchSite });
     });
 };

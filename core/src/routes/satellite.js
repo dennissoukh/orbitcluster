@@ -82,12 +82,6 @@ const routes = async (app) => {
     }, async (request, reply) => {
         let id;
 
-        try {
-            id = ObjectId(request.params.id);
-        } catch (error) {
-            constructNotFoundError(reply);
-        }
-
         const collection = app.mongo.db.collection('satcat');
 
         let satellite = await collection.findOne(

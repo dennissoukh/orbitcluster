@@ -20,7 +20,7 @@ const routes = async (app, opts, done) => {
     /**
      * GET a category with a specified category_name
      */
-     app.get('/categories/:category_name', {
+     app.get('/categories/:cat_id', {
         schema: {
             response: {
                 200: {
@@ -28,9 +28,9 @@ const routes = async (app, opts, done) => {
                     description: 'Category',
                     properties: {
                         satellite: {
-                            _category_name: 'string',
-                            id: 'string',
+                            cat_id: 'string',
                             name: 'string',
+                            count: 'description',
                             description: 'string',
                         },
                     },
@@ -44,10 +44,10 @@ const routes = async (app, opts, done) => {
             },
         },
     }, async (request, reply) => {
-        let category_name;
+        let cat_id;
 
         try {
-            category_name = ObjectId(request.params.category_name);
+            cat_id = ObjectId(request.params.cat_id);
         } catch (error) {
             constructNotFoundError(reply);
         }
@@ -55,7 +55,7 @@ const routes = async (app, opts, done) => {
         const collection = app.mongo.db.collection('sat-category');
 
         let satellite = await collection.findOne(
-            { _category_name: category_name },
+            { cat_id: cat_id },
         );
 
 
