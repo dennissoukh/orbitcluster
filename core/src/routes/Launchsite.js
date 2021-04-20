@@ -31,9 +31,7 @@ const routes = async (app) => {
         reply.send({ _metadata: paginationMetadata, data: launchSite });
     });
 
-    /**
-     * GET satellites of a certain site with a specified site_code
-     **/
+
     app.get('/launchsites/:id', {
         schema: {
             response: {
