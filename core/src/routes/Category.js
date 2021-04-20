@@ -4,9 +4,8 @@ const {
     notFoundMessageContract,
 } = require('../helpers/route');
 
-const routes = async (app, opts, done) => {
+const routes = async (app, opts) => {
     app.get('/categories', opts, async (request, reply) => {
-
         // Get an instance of the application database
         const { db } = app.mongo;
 
@@ -20,7 +19,7 @@ const routes = async (app, opts, done) => {
     /**
      * GET a category with a specified category_name
      */
-     app.get('/categories/:cat_id', {
+    app.get('/categories/:cat_id', {
         schema: {
             response: {
                 200: {
@@ -54,12 +53,10 @@ const routes = async (app, opts, done) => {
 
         const collection = app.mongo.db.collection('sat-category');
 
-        let satellite = await collection.findOne(
-            { cat_id: cat_id },
+        const satellite = await collection.findOne(
+            { cat_id },
         );
-
-
-});
-
+        reply.send({ satellite });
+    });
 };
 module.exports = routes;

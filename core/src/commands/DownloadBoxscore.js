@@ -51,7 +51,7 @@ class DownloadBoxscore extends BaseCommand {
                         decayed_debris_count: convertToInt(item.DECAYED_DEBRIS_COUNT),
                         decayed_total_count: convertToInt(item.DECAYED_TOTAL_COUNT),
                         country_total: convertToInt(item.COUNTRY_TOTAL),
-                    }
+                    },
                 }, { upsert: true });
             }
         } catch (error) {

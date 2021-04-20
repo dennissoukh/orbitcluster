@@ -60,7 +60,7 @@ class DownloadSatcat extends BaseCommand {
                         object_name: sat.OBJECT_NAME,
                         object_id: sat.OBJECT_ID,
                         object_number: convertToInt(sat.OBJECT_NUMBER),
-                    }
+                    },
                 }, { upsert: true });
             }
         } catch (error) {

@@ -1,4 +1,3 @@
-const { ObjectId } = require('mongodb');
 const {
     constructNotFoundError,
     notFoundMessageContract,
@@ -7,41 +6,40 @@ const {
     generatePaginationMetadata,
 } = require('../helpers/route');
 
-const routes = async (app, opts) => {
-        app.get('/launchsites', {
-            schema: {
-                response: {
-                    200: {
-                        type: 'object',
-                        description: 'Launch Site',
-                        properties: {
-                            data: {  type: 'array' },
-                            _metadata: paginationKeyContract,
-                        },
-                    },
-                },
-            },
-        }, async (request, reply) => {
-            const { page, limit, skip } = parsePagination(request);
-            const paginationMetadata = generatePaginationMetadata(page, limit);
-
-            const collection = app.mongo.db.collection('launch-site');
-            const launchSite = await collection.find()
-                .sort({ site_code: 1 }).toArray();
-
-            reply.send({ _metadata: paginationMetadata, data: launchSite });
-    });
-
-
-    /**
-     * GET satellites of a certain site with a specified site_code
-     */
-     app.get('/launchsites/:id', {
+const routes = async (app) => {
+    app.get('/launchsites', {
         schema: {
             response: {
                 200: {
                     type: 'object',
-                    //description: 'Launch site',
+                    description: 'Launch Site',
+                    properties: {
+                        data: { type: 'array' },
+                        _metadata: paginationKeyContract,
+                    },
+                },
+            },
+        },
+    }, async (request, reply) => {
+        const { page, limit } = parsePagination(request);
+        const paginationMetadata = generatePaginationMetadata(page, limit);
+
+        const collection = app.mongo.db.collection('launch-site');
+        const launchSite = await collection.find()
+            .sort({ site_code: 1 }).toArray();
+
+        reply.send({ _metadata: paginationMetadata, data: launchSite });
+    });
+
+    /**
+     * GET satellites of a certain site with a specified site_code
+     */
+    app.get('/launchsites/:id', {
+        schema: {
+            response: {
+                200: {
+                    type: 'object',
+                    // description: 'Launch site',
                     properties: {
                         launchSite: {
                             _id: 'string',
@@ -59,8 +57,6 @@ const routes = async (app, opts) => {
             },
         },
     }, async (request, reply) => {
-        let id;
-
         const collection = app.mongo.db.collection('launch-site');
 
         let launchSite = await collection.findOne(

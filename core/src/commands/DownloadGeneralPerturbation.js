@@ -92,7 +92,7 @@ class DownloadGeneralPerturbations extends BaseCommand {
                         tle_line0: element.TLE_LINE0,
                         tle_line1: element.TLE_LINE1,
                         tle_line2: element.TLE_LINE2,
-                    }
+                    },
                 }, { upsert: true });
             }
         } catch (error) {
