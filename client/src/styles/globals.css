@@ -1,0 +1,67 @@
+@import url("https://cdnjs.cloudflare.com/ajax/libs/inter-ui/3.18.0/inter.css");
+@import "tailwindcss/base";
+@import "tailwindcss/utilities";
+
+h1,
+h2,
+h3,
+h4,
+p {
+    line-height: 1.6;
+}
+
+:root {
+    --transition-quick: 50ms;
+    --transition-fast: 150ms;
+    --transition-medium: 300ms;
+    --transition-long: 450ms;
+
+    --color-base: #FFC233;
+    --color-blue: #A7CEEF;
+    --color-red: #C9A3A4;
+    --color-lavender: #B8BBD3;
+    --color-white: white;
+    --color-light-gray: #BBBFBF;
+    --color-lighter-gray: #F2F7F7;
+    --color-gray: #26252C;
+    --color-dark-light-gray: #2E2D34;
+    --color-dark-gray: #212027;
+    --color-black: #2E2E2E;
+
+    --color-bg-dark: var(--color-dark-gray);
+    --color-bg-light: var(--color-gray);
+    --color-type-base: var(--color-lighter-gray);
+    --color-type-mute: var(--color-light-gray);
+
+    --font-primary: "Inter";
+}
+
+* {
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-black) rgba(0, 0, 0, 0);
+}
+
+html,
+body,
+#app {
+    background-color: var(--color-bg-dark);
+    color: var(--color-lighter-gray);
+    height: 100%;
+    width: 100%;
+}
+
+h1 {
+    font-size: 2.5rem;
+}
+
+h2 {
+    font-size: 2.2rem;
+}
+
+h3 {
+    font-size: 2rem;
+}
+
+h4 {
+    font-size: 1.4rem;
+}
