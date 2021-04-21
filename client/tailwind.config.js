@@ -60,9 +60,6 @@ module.exports = {
             0: '0px',
             2: '2px',
         },
-        width: {
-            '300': '300px'
-        },
         extend: {
             borderRadius: {
                 5: '5px',
@@ -70,6 +67,16 @@ module.exports = {
             },
             outline: {
                 'no-chrome': 'none'
+            },
+            width: {
+                '30': '30px',
+                '300': '300px',
+            },
+            height: {
+                '30': '30px',
+            },
+            minWidth: {
+                '300': '300px',
             }
         }
     },
