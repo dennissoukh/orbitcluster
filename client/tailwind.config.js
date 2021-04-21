@@ -17,11 +17,12 @@ module.exports = {
         colors: {
             button: 'var(--color-base)',
             transparent: 'transparent',
-            primary: {
-                'primary': 'var(--color-black)',
-                'secondary': 'var(--color-dark-gray)',
-                'tertiary': 'var(--color-gray)',
-            }
+            primary: 'var(--color-black)',
+            secondary: 'var(--color-dark-gray)',
+            tertiary: 'var(--color-gray)',
+            'gray': 'var(--color-dark-gray-2)',
+            'light-gray': 'var(--color-light-gray)',
+            'muted': 'var(--color-type-mute)',
         },
         fontSize: {
             tiny: '0.625rem',
@@ -58,6 +59,9 @@ module.exports = {
             DEFAULT: '1px',
             0: '0px',
             2: '2px',
+        },
+        width: {
+            '300': '300px'
         },
         extend: {
             borderRadius: {

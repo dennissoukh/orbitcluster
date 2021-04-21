@@ -1,9 +1,11 @@
 import React from 'react';
-import { useScreenType } from '../../hooks/useScreenType';
+import SidebarContainer from '../../ui/sidebar/SidebarContainer';
 
-const DesktopLayout: React.FC = ({}) => {
+const DesktopLayout: React.FC = () => {
     return (
-        <div>Desktop Layout</div>
+        <>
+            <SidebarContainer/>
+        </>
     )
 };
 

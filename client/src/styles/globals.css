@@ -26,6 +26,7 @@ p {
     --color-light-gray: #F7F7F9;
     --color-gray: #848484;
     --color-dark-gray: #181818;
+    --color-dark-gray-2: #262626;
     --color-black: #111111;
 
     --color-bg-dark: var(--color-black);
@@ -41,7 +42,7 @@ p {
 
 html,
 body,
-#app {
+#root {
     background-color: var(--color-bg-dark);
     color: var(--color-light-gray);
     font-size: var(--font-size);
