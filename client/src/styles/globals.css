@@ -11,6 +11,8 @@ p {
 }
 
 :root {
+    --font-size: 14px;
+
     --transition-quick: 50ms;
     --transition-fast: 150ms;
     --transition-medium: 300ms;
@@ -41,7 +43,8 @@ html,
 body,
 #app {
     background-color: var(--color-bg-dark);
-    color: var(--color-lighter-gray);
+    color: var(--color-light-gray);
+    font-size: var(--font-size);
     height: 100%;
     width: 100%;
 }
