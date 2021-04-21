@@ -15,11 +15,11 @@ module.exports = {
             ]
         },
         colors: {
-            button: 'var(--color-primary)',
+            button: 'var(--color-base)',
             transparent: 'transparent',
             primary: {
-                'primary': 'var(--color-dark-gray)',
-                'secondary': 'var(--color-dark-light-gray)',
+                'primary': 'var(--color-black)',
+                'secondary': 'var(--color-dark-gray)',
                 'tertiary': 'var(--color-gray)',
             }
         },

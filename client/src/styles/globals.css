@@ -21,24 +21,20 @@ p {
     --color-red: #C9A3A4;
     --color-lavender: #B8BBD3;
     --color-white: white;
-    --color-light-gray: #BBBFBF;
-    --color-lighter-gray: #F2F7F7;
-    --color-gray: #26252C;
-    --color-dark-light-gray: #2E2D34;
-    --color-dark-gray: #212027;
-    --color-black: #2E2E2E;
+    --color-light-gray: #F7F7F9;
+    --color-gray: #848484;
+    --color-dark-gray: #181818;
+    --color-black: #111111;
 
-    --color-bg-dark: var(--color-dark-gray);
-    --color-bg-light: var(--color-gray);
-    --color-type-base: var(--color-lighter-gray);
-    --color-type-mute: var(--color-light-gray);
-
-    --font-primary: "Inter";
+    --color-bg-dark: var(--color-black);
+    --color-bg-light: var(--color-dark-gray);
+    --color-type-base: var(--color-light-gray);
+    --color-type-mute: var(--color-gray);
 }
 
 * {
     scrollbar-width: thin;
-    scrollbar-color: var(--color-black) rgba(0, 0, 0, 0);
+    scrollbar-color: var(--color-dark-gray) rgba(0, 0, 0, 0);
 }
 
 html,
