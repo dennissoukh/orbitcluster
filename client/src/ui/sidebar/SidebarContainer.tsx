@@ -20,6 +20,10 @@ const SidebarContainer: React.FC = () => {
 
                 <NavigationItem name="Database" sublist={[
                     {
+                        name: 'Satellites',
+                        url: '/satellites',
+                    },
+                    {
                         name: 'Recently Launched',
                         url: '/recently-launched',
                     },
