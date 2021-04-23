@@ -1,9 +1,3 @@
-import React from 'react';
-
-const Satellites: React.FC = () => {
-    return (
-        <div></div>
-    )
-};
+import { Satellites } from '../modules/satellites/Satellites';
 
 export default Satellites;

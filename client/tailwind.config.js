@@ -24,6 +24,8 @@ module.exports = {
             'light-gray': 'var(--color-light-gray)',
             'muted': 'var(--color-type-mute)',
             'white': 'var(--color-white)',
+            red: 'var(--color-red)',
+            green: 'var(--color-green)',
         },
         fontSize: {
             tiny: '0.625rem',

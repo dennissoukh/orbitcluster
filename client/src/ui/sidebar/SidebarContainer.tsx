@@ -5,7 +5,7 @@ import NavigationItem from './NavigationItem';
 
 const SidebarContainer: React.FC = () => {
     return (
-        <div className="min-w-300 h-screen bg-secondary">
+        <div className="min-w-300 min-h-screen bg-secondary">
             <div className="px-6 pt-5 pb-3 mb-4">
                 <div className="flex justify-between items-center">
                     <div>

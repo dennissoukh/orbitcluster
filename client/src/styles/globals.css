@@ -28,6 +28,8 @@ p {
     --color-dark-gray: #181818;
     --color-dark-gray-2: #262626;
     --color-black: #111111;
+    --color-green: #2DCA72;
+    --color-red: #DC143C;
 
     --color-bg-dark: var(--color-black);
     --color-bg-light: var(--color-dark-gray);
