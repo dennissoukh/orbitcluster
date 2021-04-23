@@ -23,6 +23,7 @@ module.exports = {
             'gray': 'var(--color-dark-gray-2)',
             'light-gray': 'var(--color-light-gray)',
             'muted': 'var(--color-type-mute)',
+            'white': 'var(--color-white)',
         },
         fontSize: {
             tiny: '0.625rem',
@@ -78,7 +79,14 @@ module.exports = {
             minWidth: {
                 '300': '300px',
             }
-        }
+        },
+        // screens: {
+        //     'sm': '640px',
+        //     'md': '768px',
+        //     'lg': '1024px',
+        //     'xl': '1280px',
+        //     '2xl': '1536px',
+        // }
     },
     variants: {
         scrollBar: ['rounded', 'dark']

@@ -21,7 +21,7 @@ const ApplicationLayout: React.FC = ({ children }) => {
                 {isDesktop() &&
                     <NavigatorContainer/>
                 }
-                <div className="px-6">
+                <div className={isDesktop() ? 'px-6' : 'px-4 md:px-6'}>
                     {children}
                 </div>
             </div>
