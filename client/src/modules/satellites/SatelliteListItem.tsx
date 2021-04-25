@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { dateToString } from '../../lib/date';
 import { satellite } from '../../types/satellite';
-import { VscDebugStepOver, VscFold } from 'react-icons/vsc';
+import { VscDebugStepOver } from 'react-icons/vsc';
 
 interface SatelliteListItemProps {
     satellite: satellite,
@@ -14,7 +14,7 @@ export const SatelliteListItem: React.FC<SatelliteListItemProps> = ({
     index,
 }) => {
     return (
-        <div className="flex items-center mt-6 text-sm" key={index}>
+        <div className="flex items-center mt-6 text-sm">
             <div className="w-1/6">
                 <Link to={`/satellites/${satellite._id}`}>
                     <p>{satellite.satname}</p>
@@ -49,12 +49,9 @@ export const SatelliteListItem: React.FC<SatelliteListItemProps> = ({
                     <>
                         <div className="w-max border border-solid border-gray rounded-lg p-2">
                             <Link to={`/passes/${satellite._id}}`}>
-                                <VscDebugStepOver size="18"/>
+                                <VscDebugStepOver size="13"/>
                             </Link>
                         </div>
-                        {/* <div className="border border-solid border-gray rounded-lg p-2">
-                            <VscFold size="18"/>
-                        </div> */}
                     </>
                 }
             </div>
