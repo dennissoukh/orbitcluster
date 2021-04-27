@@ -77,7 +77,7 @@ const routes = async (app) => {
         data = await collection.aggregate([
             {
                 $match: {
-                    norad_cat_id: satellite.norad_cat_id,
+                    norad_cat_id: data.norad_cat_id,
                 },
             },
             {
