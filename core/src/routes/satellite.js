@@ -1,97 +1,80 @@
+const { ObjectId } = require('mongodb');
 const {
     constructNotFoundError,
-    notFoundMessageContract,
-    paginationKeyContract,
     parsePagination,
-    generatePaginationMetadata,
+    generateBasePaginationMetadata,
 } = require('../helpers/route');
 
 const routes = async (app) => {
     /**
      * GET list of satellites with pagination
-     **/
-    app.get('/satellites', {
-        schema: {
-            response: {
-                200: {
-                    type: 'object',
-                    description: 'The base listing of the satellite catalog',
-                    properties: {
-                        data: { type: 'array' },
-                        _metadata: paginationKeyContract,
-                    },
-                },
-            },
-        },
-    }, async (request, reply) => {
+     */
+    app.get('/satellites', {}, async (request, reply) => {
+        // Parse pagination request
         const { page, limit, skip } = parsePagination(request);
-        const paginationMetadata = generatePaginationMetadata(page, limit);
 
+        // Get database collection
         const collection = app.mongo.db.collection('satcat');
-        const satellites = await collection.find()
-            .sort({ norad_cat_id: 1 }).skip(skip).limit(limit)
-            .toArray();
 
-        reply.send({ _metadata: paginationMetadata, data: satellites });
+        // Data to return
+        let data;
+
+        // Number of documents that are getting returned
+        let count;
+
+        // Check if a search statement exists in the query
+        if (request.query.search) {
+            // Search collection
+            const query = await collection.find({
+                $or: [
+                    {
+                        satname: new RegExp(request.query.search, 'i')
+                    },
+                    {
+                        object_id: new RegExp(request.query.search, 'i')
+                    },
+                ]
+            });
+
+            // Count results, sort and convert to array
+            count = await query.count();
+            data = await query.sort({ norad_cat_id: 1 })
+                .skip(skip).limit(limit).toArray();
+        } else {
+            count = await collection.estimatedDocumentCount();
+            data = await collection.find().sort({ norad_cat_id: 1 })
+                .skip(skip).limit(limit).toArray();
+        }
+
+        // Generate pagination metadata
+        let metadata = generateBasePaginationMetadata(page, limit, count, skip, data.length);
+
+        reply.send({ metadata, data });
     });
 
     /**
-     * GET a satellite with a specified NORAD catalog ID
-     **/
-    app.get('/satellites/:id', {
-        schema: {
-            response: {
-                200: {
-                    type: 'object',
-                    description: 'The core satellite object',
-                    properties: {
-                        satellite: {
-                            _id: 'string',
-                            intldes: 'string',
-                            norad_cat_id: 'int',
-                            object_type: 'string',
-                            satname: 'string',
-                            country: 'string',
-                            launch: 'date',
-                            site: 'string',
-                            decay: 'date',
-                            rcsvalue: 'int',
-                            rcs_size: 'string',
-                            launch_year: 'int',
-                            launch_num: 'int',
-                            launch_piece: 'string',
-                            current: 'string',
-                            object_name: 'string',
-                            object_number: 'int',
-                            categories: 'array',
-                            data: 'object',
-                            gp: 'object',
-                            tles: 'array',
-                        },
-                    },
-                },
-                404: {
-                    type: 'object',
-                    properties: {
-                        error: notFoundMessageContract,
-                    },
-                },
-            },
-        },
-    }, async (request, reply) => {
+     * GET a satellite with a specified identifier
+     */
+    app.get('/satellites/:id', {}, async (request, reply) => {
         let id;
 
-        const collection = app.mongo.db.collection('satcat');
-
-        let satellite = await collection.findOne(
-            { _id: id },
-        );
-
-        if (!satellite) {
+        try {
+            id = ObjectId(request.params.id);
+        } catch (error) {
             constructNotFoundError(reply);
         }
 
-        satellite = await collection.aggregate([
+        const collection = app.mongo.db.collection('satcat');
+
+        let data = await collection.findOne(
+            { _id: id },
+        );
+
+        if (!data) {
+            constructNotFoundError(reply);
+        }
+
+        data = await collection.aggregate([
             {
                 $match: {
                     norad_cat_id: satellite.norad_cat_id,
@@ -135,9 +118,9 @@ const routes = async (app) => {
             },
         ]).toArray();
 
-        [satellite] = satellite;
+        [data] = data;
 
-        reply.send({ satellite });
+        reply.send({ data });
     });
 };
 

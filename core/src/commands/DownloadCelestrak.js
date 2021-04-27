@@ -63,11 +63,13 @@ class CelesTrakDownloader extends BaseCommand {
                 const norad = convertToInt(element.tle_line2.slice(2, 7));
 
                 await collection.updateOne({ source: 'CelesTrak', norad_cat_id: norad }, {
-                    norad_cat_id: norad,
-                    tle_line0: element.tle_line0,
-                    tle_line1: element.tle_line1,
-                    tle_line2: element.tle_line2,
-                    source: 'CelesTrak',
+                    $set: {
+                        norad_cat_id: norad,
+                        tle_line0: element.tle_line0,
+                        tle_line1: element.tle_line1,
+                        tle_line2: element.tle_line2,
+                        source: 'CelesTrak',
+                    }
                 }, { upsert: true });
             }
         } catch (error) {
