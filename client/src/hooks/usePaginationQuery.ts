@@ -63,6 +63,6 @@ export const usePaginationQuery = (url: string) => {
         page,
         navigatePage,
         search,
-        setSearch
+        setSearch,
     };
 }

@@ -26,6 +26,7 @@ module.exports = {
             'white': 'var(--color-white)',
             red: 'var(--color-red)',
             green: 'var(--color-green)',
+            blue: 'var(--color-blue)',
         },
         fontSize: {
             tiny: '0.625rem',
@@ -74,12 +75,14 @@ module.exports = {
             width: {
                 '30': '30px',
                 '300': '300px',
+                '500': '500px',
             },
             height: {
                 '30': '30px',
             },
             minWidth: {
                 '300': '300px',
+                '500': '500px',
             }
         },
         // screens: {

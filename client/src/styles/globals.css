@@ -2,6 +2,15 @@
 @import "tailwindcss/base";
 @import "tailwindcss/utilities";
 
+input:checked + div {
+    @apply border-primary;
+}
+
+input:checked + div svg {
+    @apply block;
+}
+
+
 h1,
 h2,
 h3,

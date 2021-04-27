@@ -11,8 +11,7 @@ export const Satellites: React.FC = () => {
         response,
         isLoading,
         navigatePage,
-        search,
-        setSearch
+        setSearch,
     } = usePaginationQuery('satellites');
 
     useEffect(() => {
@@ -24,11 +23,8 @@ export const Satellites: React.FC = () => {
 
     return (
         <>
-            <div className="px-4">
+            <div className="flex items-center justify-between flex-wrap">
                 <TextSearch callback={setSearch}/>
-                <div>
-
-                </div>
             </div>
             <div className="mt-5">
                 <div className="flex items-center bg-secondary text-sm border-gray border-solid border p-3 px-5 rounded-lg">
