@@ -1,7 +1,7 @@
 /**
  * The shape of the pagination key.
  */
- const paginationKeyContract = {
+const paginationKeyContract = {
     key: {
         page: 'int',
         per_page: 'int',
@@ -54,7 +54,15 @@ const parsePagination = (request, defaultLimit = 10) => {
 const generateBasePaginationMetadata = (page, limit, count, skip, pageCount) => {
     const pages = Math.floor(count / limit);
 
-    return { page, perPage: limit, pages, count, skip, pageCount };
+    return {
+        page,
+        perPage:
+        limit,
+        pages,
+        count,
+        skip,
+        pageCount,
+    };
 };
 
 module.exports = {

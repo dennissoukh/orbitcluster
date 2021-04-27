@@ -28,12 +28,12 @@ const routes = async (app) => {
             const query = await collection.find({
                 $or: [
                     {
-                        satname: new RegExp(request.query.search, 'i')
+                        satname: new RegExp(request.query.search, 'i'),
                     },
                     {
-                        object_id: new RegExp(request.query.search, 'i')
+                        object_id: new RegExp(request.query.search, 'i'),
                     },
-                ]
+                ],
             });
 
             // Count results, sort and convert to array
@@ -43,11 +43,12 @@ const routes = async (app) => {
         } else {
             count = await collection.estimatedDocumentCount();
             data = await collection.find().sort({ norad_cat_id: 1 })
-                .skip(skip).limit(limit).toArray();
+                .skip(skip).limit(limit)
+                .toArray();
         }
 
         // Generate pagination metadata
-        let metadata = generateBasePaginationMetadata(page, limit, count, skip, data.length);
+        const metadata = generateBasePaginationMetadata(page, limit, count, skip, data.length);
 
         reply.send({ metadata, data });
     });
