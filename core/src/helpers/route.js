@@ -1,7 +1,7 @@
 /**
  * The shape of the pagination key.
  */
-const paginationKeyContract = {
+ const paginationKeyContract = {
     key: {
         page: 'int',
         per_page: 'int',
@@ -43,7 +43,7 @@ const generateIdempotencyKey = (prefix = null, len = 16) => {
     return res;
 };
 
-const parsePagination = (request, defaultLimit = 20) => {
+const parsePagination = (request, defaultLimit = 10) => {
     const page = Number.parseInt(request.query.page, 10);
     const limit = request.query.limit ? Number.parseInt(request.query.limit, 10) : defaultLimit;
     const skip = page * limit;
@@ -51,8 +51,10 @@ const parsePagination = (request, defaultLimit = 20) => {
     return { page, limit, skip };
 };
 
-const generatePaginationMetadata = (page, limit) => {
-    return { page, per_page: limit };
+const generateBasePaginationMetadata = (page, limit, count, skip, pageCount) => {
+    const pages = Math.floor(count / limit);
+
+    return { page, perPage: limit, pages, count, skip, pageCount };
 };
 
 module.exports = {
@@ -61,5 +63,5 @@ module.exports = {
     generateIdempotencyKey,
     paginationKeyContract,
     parsePagination,
-    generatePaginationMetadata,
+    generateBasePaginationMetadata,
 };

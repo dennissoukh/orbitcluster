@@ -40,7 +40,7 @@ class DownloadLaunchSites extends BaseCommand {
                     $set: {
                         site_code: site.SITE_CODE,
                         launch_site: site.LAUNCH_SITE,
-                    }
+                    },
                 }, { upsert: true });
             }
         } catch (error) {

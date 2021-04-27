@@ -52,7 +52,7 @@ const data = async (db) => {
                     country_total: {
                         bsonType: ['int', 'null'],
                         description: 'must be an int',
-                    }
+                    },
                 },
             },
         },

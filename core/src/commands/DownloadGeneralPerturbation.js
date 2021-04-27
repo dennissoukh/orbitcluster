@@ -66,7 +66,7 @@ class DownloadGeneralPerturbations extends BaseCommand {
             // Save each launchsite into the database
             for (let i = 0; i < gp.data.length; i += 1) {
                 const element = gp.data[i];
-                const norad = convertToInt(sat.NORAD_CAT_ID);
+                const norad = convertToInt(element.NORAD_CAT_ID);
 
                 await collection.updateOne({ norad_cat_id: norad }, {
                     $set: {
@@ -92,7 +92,7 @@ class DownloadGeneralPerturbations extends BaseCommand {
                         tle_line0: element.TLE_LINE0,
                         tle_line1: element.TLE_LINE1,
                         tle_line2: element.TLE_LINE2,
-                    }
+                    },
                 }, { upsert: true });
             }
         } catch (error) {
