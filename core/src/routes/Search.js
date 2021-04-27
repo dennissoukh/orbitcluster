@@ -1,7 +1,7 @@
 const routes = async (app) => {
     /**
-     * Filter out satellites with a search query
-     **/
+     * GET: Filter out satellites using search queries
+     */
     app.get('/search', {
     }, async (request, reply) => {
         const collection = app.mongo.db.collection('satcat');

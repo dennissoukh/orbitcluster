@@ -32,7 +32,7 @@ const routes = async (app) => {
 
     /**
      * GET satellites of a certain site with a specified spadoc_cd
-     **/
+     */
     app.get('/boxscore/:id', {
         schema: {
             response: {
