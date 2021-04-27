@@ -22,7 +22,7 @@ export const Satellites: React.FC = () => {
     }, [response]);
 
     return (
-        <>
+        <div className="px-7">
             <div className="flex items-center justify-between flex-wrap">
                 <TextSearch callback={setSearch}/>
             </div>
@@ -67,6 +67,6 @@ export const Satellites: React.FC = () => {
                     </div>
                 }
             </div>
-        </>
+        </div>
     )
 }

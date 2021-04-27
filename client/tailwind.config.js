@@ -83,6 +83,9 @@ module.exports = {
             minWidth: {
                 '300': '300px',
                 '500': '500px',
+            },
+            left: {
+                300: '300px'
             }
         },
         // screens: {

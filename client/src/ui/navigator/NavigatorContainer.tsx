@@ -9,7 +9,7 @@ const NavigatorContainer: React.FC<NavigatorContainerProps> = ({
     title
 }) => {
     return (
-        <div className="py-5 px-6 w-full">
+        <div className="py-5 px-6 w-full z-10 relative">
             <div className={title ? 'flex items-center justify-between' : 'flex items-center justify-end'}>
                 {title &&
                     <div>

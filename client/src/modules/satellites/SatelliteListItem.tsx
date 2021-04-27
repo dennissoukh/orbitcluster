@@ -25,7 +25,7 @@ export const SatelliteListItem: React.FC<SatelliteListItemProps> = ({
                 <p>{satellite.object_id}</p>
             </div>
             <div className="w-1/6">
-                <div className={satellite.decay === '1970-01-01T00:00:00.000Z'
+                <div className={!satellite.decay
                     ? 'h-1.5 w-1.5 bg-green rounded-full'
                     : 'h-1.5 w-1.5 bg-gray rounded-full'
                 }></div>
