@@ -31,7 +31,6 @@ const routes = async (app) => {
         reply.send({ _metadata: paginationMetadata, data: launchSite });
     });
 
-
     app.get('/launchsites/:id', {
         schema: {
             response: {
