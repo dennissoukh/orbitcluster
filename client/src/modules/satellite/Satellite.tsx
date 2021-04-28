@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import { useSingleQuery } from '../../hooks/useSingleQuery';
 import { satellite, tle } from '../../types/satellite';
 import { OrbitMap } from './OrbitMap';
+import { Details } from './Details';
 
 export const Satellite: React.FC = () => {
     const { id } = useParams<{ id: string }>();
@@ -48,7 +49,16 @@ export const Satellite: React.FC = () => {
                     {activeElement &&
                         <OrbitMap tle={activeElement}/>
                     }
-                    <h3>{data.object_name}</h3>
+                    <div className="px-4 md:px-7 pb-7">
+                        <div className="flex flex-wrap overflow-hidden">
+                            <div className="w-full overflow-hidden lg:w-1/2">
+                                <Details satellite={data}/>
+                            </div>
+                            <div className="w-full overflow-hidden lg:w-1/2">
+
+                            </div>
+                        </div>
+                    </div>
                 </>
             }
         </>

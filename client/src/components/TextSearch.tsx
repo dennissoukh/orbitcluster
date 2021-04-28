@@ -1,18 +1,18 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 import { useEffect } from 'react';
-import { VscSearch } from 'react-icons/vsc'
+import { VscSearch } from 'react-icons/vsc';
 
 interface TextSearchProps {
     classes?: string,
-    callback: Function
-}
+    callback: Function,
+};
 
 export const TextSearch: React.FC<TextSearchProps> = ({ classes, callback }) => {
     const [searchString, setSearchString] = useState<string>();
 
     useEffect(() => {
         callback(searchString);
-    }, [searchString]);
+    }, [searchString, callback]);
 
     return (
         <div className="flex items-center w-6/12">
@@ -27,4 +27,4 @@ export const TextSearch: React.FC<TextSearchProps> = ({ classes, callback }) => 
             />
         </div>
     )
-}
+};

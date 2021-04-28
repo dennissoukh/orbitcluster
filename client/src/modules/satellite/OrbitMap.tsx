@@ -45,28 +45,29 @@ export const OrbitMap: React.FC<{ tle: tle }> = ({ tle }) => {
     }, []);
 
     return (
-        <div className="absolute top-0 left-300 w-full">
-            {markerPosition[0] !== 0 &&
-                <MapContainer
-                    center={markerPosition}
-                    zoom={3}
-                    scrollWheelZoom={true}
-                    style={{ height: '600px', backgroundColor: '#262626', position: 'inherit' }}
-                    maxZoom={10}
-                    minZoom={2}
-                    zoomControl={false}
-                    attributionControl={false}
-                    worldCopyJump={true}
-                >
-                    <TileLayer
-                        url="https://{s}.basemaps.cartocdn.com/dark_nolabels/{z}/{x}/{y}{r}.png"
-                    />
-                    <Marker position={markerPosition} icon={marker} />
-                    {groundTrack &&
-                        <Polyline positions={groundTrack} pathOptions={{ color: 'gray' }} weight={1.25}/>
-                    }
-                </MapContainer>
-            }
+        <div style={{ height: 'calc(500px - 50px)' }}>
+            <div className="absolute top-0 left-300 w-full" style={{ height: '500px' }}>
+                {markerPosition[0] !== 0 &&
+                    <MapContainer
+                        center={markerPosition}
+                        zoom={3}
+                        scrollWheelZoom={true}
+                        style={{ height: '500px', backgroundColor: '#262626', position: 'inherit' }}
+                        maxZoom={10}
+                        minZoom={2}
+                        zoomControl={false}
+                        attributionControl={false}
+                    >
+                        <TileLayer
+                            url="https://{s}.basemaps.cartocdn.com/dark_nolabels/{z}/{x}/{y}{r}.png"
+                        />
+                        <Marker position={markerPosition} icon={marker} />
+                        {groundTrack &&
+                            <Polyline positions={groundTrack} pathOptions={{ color: 'gray' }} weight={1.25}/>
+                        }
+                    </MapContainer>
+                }
+            </div>
         </div>
     )
 }

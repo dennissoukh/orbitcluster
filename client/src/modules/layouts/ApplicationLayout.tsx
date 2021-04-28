@@ -21,7 +21,10 @@ const ApplicationLayout: React.FC = ({ children }) => {
                 {isDesktop() &&
                     <NavigatorContainer/>
                 }
-                <div className={isDesktop() ? 'py-5' : 'px-4 md:px-6 py-5'}>
+                {/* <div className={isDesktop() ? 'py-5' : 'py-5'}>
+                    {children}
+                </div> */}
+                <div>
                     {children}
                 </div>
             </div>

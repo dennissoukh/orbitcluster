@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { dateToString } from '../../lib/date';
+import { timestampToReadableDate } from '../../lib/date';
 import { satellite } from '../../types/satellite';
 import { VscDebugStepOver } from 'react-icons/vsc';
 
@@ -37,7 +37,7 @@ export const SatelliteListItem: React.FC<SatelliteListItemProps> = ({
                 <Link to={`/launch-site/${satellite.site}`} className="w-fit">
                     <p>{satellite.site}</p>
                 </Link>
-                <p>{dateToString(satellite.launch)}</p>
+                <p>{timestampToReadableDate(satellite.launch)}</p>
             </div>
             <div className="w-1/6">
                 <Link to={`/operator/${satellite.country}`}>
