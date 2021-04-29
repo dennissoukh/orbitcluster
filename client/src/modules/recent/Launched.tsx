@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { usePaginationQuery } from '../../hooks/usePaginationQuery';
 import PaginationNavigator from '../../ui/pagination/Navigator';
-import SatelliteListItem from './SatelliteListItem';
+import SatelliteListItem from '../operator/SatelliteListItem';
 import { TextSearch } from '../../components/TextSearch';
 
 export const Launched: React.FC = () => {

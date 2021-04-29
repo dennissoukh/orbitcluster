@@ -37,7 +37,7 @@ export const Details: React.FC<DetailsProps> = ({ satellite }) => {
                         <Callout
                             title="Country"
                             content={satellite.country}
-                            link={`/operator/${satellite.country}`}
+                            link={`/operators/${satellite.country}`}
                         />
                     </div>
                 </div>

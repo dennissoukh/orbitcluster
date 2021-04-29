@@ -1,18 +1,23 @@
 import React, { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
 import { usePaginationQuery } from '../../hooks/usePaginationQuery';
 import PaginationNavigator from '../../ui/pagination/Navigator';
-import SatelliteListItem from '../operator/SatelliteListItem';
+import SatelliteListItem from './SatelliteListItem';
 import { TextSearch } from '../../components/TextSearch';
+import { operator } from '../../types/operator';
+import { satellite } from '../../types/satellite';
 
-export const Decayed: React.FC = () => {
-    const [data, setData] = useState([]);
+export const Operator: React.FC = () => {
+    const { id } = useParams<{ id: string }>();
+
+    const [data, setData] = useState<Array<satellite>>([]);
     const [metadata, setMetadata] = useState<any>({});
     const {
         response,
         isLoading,
         navigatePage,
         setSearch,
-    } = usePaginationQuery('recent/decayed');
+    } = usePaginationQuery(`operators/${id}`);
 
     useEffect(() => {
         if (response && !isLoading) {

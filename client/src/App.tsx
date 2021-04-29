@@ -5,6 +5,8 @@ import Satellites from './pages/Satellites';
 import Satellite from './pages/Satellite';
 import RecentlyLaunched from './pages/RecentlyLaunched';
 import RecentlyDecayed from './pages/RecentlyDecayed';
+import Operators from './pages/Operators';
+import Operator from './pages/Operator';
 
 const App: React.FC = () => {
     return (
@@ -23,6 +25,8 @@ const renderRoute = () => {
             <Route path="/satellites/:id" component={Satellite}/>
             <Route path="/recent/new" component={RecentlyLaunched}/>
             <Route path="/recent/decayed" component={RecentlyDecayed}/>
+            <Route path="/operators" exact component={Operators}/>
+            <Route path="/operators/:id" component={Operator}/>
         </Switch>
     );
 };

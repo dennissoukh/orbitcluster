@@ -31,6 +31,10 @@ const SidebarContainer: React.FC = () => {
                         name: 'Recently Decayed',
                         url: '/recent/decayed',
                     },
+                    {
+                        name: 'Operators',
+                        url: '/operators',
+                    },
                 ]}/>
 
                 <NavigationItem name="Visualizations" sublist={[
