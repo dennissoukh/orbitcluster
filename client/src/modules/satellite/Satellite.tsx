@@ -5,6 +5,8 @@ import { satellite, tle } from '../../types/satellite';
 import { OrbitMap } from './OrbitMap';
 import { Details } from './Details';
 import { GeneralPerturbation } from './GeneralPerturbation';
+import { TLE } from './TLE';
+import { Radio } from './Radio';
 
 export const Satellite: React.FC = () => {
     const { id } = useParams<{ id: string }>();
@@ -30,6 +32,10 @@ export const Satellite: React.FC = () => {
 
             setOrbitElements([gp, ...data.tles]);
         }
+    }
+
+    const updateActiveElement = (tle: tle) => {
+        setActiveElement(tle);
     }
 
     useEffect(() => {
@@ -78,6 +84,12 @@ export const Satellite: React.FC = () => {
                             <div className="w-full overflow-hidden lg:w-1/2 px-4">
                                 {activeElement &&
                                     <GeneralPerturbation tle={activeElement}/>
+                                }
+                                {orbitElements &&
+                                    <TLE tles={orbitElements} setActiveTle={updateActiveElement}/>
+                                }
+                                {data.data?.radio && activeElement &&
+                                    <Radio radio={data.data.radio}/>
                                 }
                             </div>
                         </div>

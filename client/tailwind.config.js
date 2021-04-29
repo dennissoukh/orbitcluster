@@ -12,6 +12,10 @@ module.exports = {
                 'Helvetica',
                 'Arial',
                 'sans-serif',
+            ],
+            mono: [
+                'SF Mono',
+                'mono'
             ]
         },
         colors: {

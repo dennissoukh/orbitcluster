@@ -88,7 +88,7 @@ export const OrbitMap: React.FC<{ tle: tle }> = ({ tle }) => {
                     </MapContainer>
                 }
                 {satState &&
-                    <div className="absolute flex bottom-3 right-3 font-light" style={{ zIndex: 1000 }}>
+                    <div className="absolute flex bottom-3 right-3 font-light select-none" style={{ zIndex: 1000 }}>
                         <Callout
                             title="Latitude"
                             content={satState.latitude.toFixed(2)}
