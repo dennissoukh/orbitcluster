@@ -25,11 +25,11 @@ const SidebarContainer: React.FC = () => {
                     },
                     {
                         name: 'Recently Launched',
-                        url: '/recently-launched',
+                        url: '/recent/new',
                     },
                     {
                         name: 'Recently Decayed',
-                        url: '/recently-decayed',
+                        url: '/recent/decayed',
                     },
                 ]}/>
 
