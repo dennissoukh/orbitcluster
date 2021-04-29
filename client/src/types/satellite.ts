@@ -94,3 +94,10 @@ export interface tle {
     tle_line2: string,
     source: string,
 }
+
+export interface state {
+    velocity: number,
+    latitude: number,
+    longitude: number,
+    height: number,
+}

@@ -74,6 +74,7 @@ module.exports = {
             },
             width: {
                 '30': '30px',
+                90: '90px',
                 '300': '300px',
                 '500': '500px',
             },
@@ -82,6 +83,7 @@ module.exports = {
             },
             minWidth: {
                 '300': '300px',
+                90: '90px',
                 '500': '500px',
             },
             left: {

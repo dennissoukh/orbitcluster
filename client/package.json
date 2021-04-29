@@ -51,7 +51,7 @@
     ]
   },
   "devDependencies": {
-    "@tailwindcss/postcss7-compat": "^2.1.0",
+    "@tailwindcss/postcss7-compat": "npm:@tailwindcss/postcss7-compat",
     "@types/leaflet": "^1.7.0",
     "@types/react-responsive": "^8.0.2",
     "@types/react-router-dom": "^5.1.7",
