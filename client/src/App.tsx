@@ -4,6 +4,7 @@ import ApplicationLayout from './modules/layouts/ApplicationLayout';
 import Satellites from './pages/Satellites';
 import Satellite from './pages/Satellite';
 import RecentlyLaunched from './pages/RecentlyLaunched';
+import RecentlyDecayed from './pages/RecentlyDecayed';
 
 const App: React.FC = () => {
     return (
@@ -21,6 +22,7 @@ const renderRoute = () => {
             <Route path="/satellites" exact component={Satellites}/>
             <Route path="/satellites/:id" component={Satellite}/>
             <Route path="/recent/new" component={RecentlyLaunched}/>
+            <Route path="/recent/decayed" component={RecentlyDecayed}/>
         </Switch>
     );
 };
