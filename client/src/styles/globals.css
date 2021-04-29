@@ -76,3 +76,15 @@ h3 {
 h4 {
     font-size: 1.4rem;
 }
+
+::-moz-selection {
+    background-color: rgb(179, 212, 252);
+    color: black;
+    text-shadow: none;
+}
+
+::selection {
+  background-color: rgb(179, 212, 252);
+  color: black;
+  text-shadow: none;
+}

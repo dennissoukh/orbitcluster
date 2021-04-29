@@ -36,7 +36,7 @@ export const Callout: React.FC<CalloutProps> = ({
                     )
                 }
                 {units &&
-                    <span>{units}</span>
+                    <span className="font-light" style={{ marginLeft: '2px' }}>{units}</span>
                 }
             </div>
         </div>

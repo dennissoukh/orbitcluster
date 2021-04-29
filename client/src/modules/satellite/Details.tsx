@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { satellite } from '../../types/satellite';
 import { Callout } from '../../components/Callout';
 import { timestampToReadableDate } from '../../lib/date';
@@ -12,26 +11,6 @@ interface DetailsProps {
 export const Details: React.FC<DetailsProps> = ({ satellite }) => {
     return (
         <div>
-            <h4 className="font-medium">{satellite.object_name}</h4>
-
-            {satellite.data && satellite.data.alternate_name &&
-                <p className="text-sm text-muted">{satellite.data.alternate_name}, {satellite.data.official_name}</p>
-            }
-
-            {satellite.categories &&
-                <div className="flex flex-wrap mt-3">
-                    {satellite.categories.map((category, index) => {
-                        return (
-                            <Link
-                                to={`/categories/${category}`}
-                                key={index}
-                                className="uppercase py-1 px-3 mr-2 border border-solid border-gray rounded-full text-xs"
-                            >{category}</Link>
-                        )
-                    })}
-                </div>
-            }
-
             <div className="mt-5">
                 <div className="flex flex-wrap overflow-hidden">
                     <div className="w-1/2">
@@ -126,7 +105,6 @@ export const Details: React.FC<DetailsProps> = ({ satellite }) => {
                     styles="mt-4"
                 />
             }
-
         </div>
     )
 };

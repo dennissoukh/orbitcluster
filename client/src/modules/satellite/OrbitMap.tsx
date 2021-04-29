@@ -45,7 +45,7 @@ export const OrbitMap: React.FC<{ tle: tle }> = ({ tle }) => {
     }, []);
 
     return (
-        <div style={{ height: 'calc(500px - 50px)' }}>
+        <div style={{ height: 'calc(480px)' }}>
             <div className="absolute top-0 left-300 w-full" style={{ height: '500px' }}>
                 {markerPosition[0] !== 0 &&
                     <MapContainer

@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { useSingleQuery } from '../../hooks/useSingleQuery';
 import { satellite, tle } from '../../types/satellite';
 import { OrbitMap } from './OrbitMap';
 import { Details } from './Details';
+import { GeneralPerturbation } from './GeneralPerturbation';
 
 export const Satellite: React.FC = () => {
     const { id } = useParams<{ id: string }>();
@@ -50,12 +51,34 @@ export const Satellite: React.FC = () => {
                         <OrbitMap tle={activeElement}/>
                     }
                     <div className="px-4 md:px-7 pb-7">
-                        <div className="flex flex-wrap overflow-hidden">
-                            <div className="w-full overflow-hidden lg:w-1/2">
+                        <h4 className="font-medium">{data.object_name}</h4>
+
+                        {data.data && data.data.alternate_name &&
+                            <p className="text-sm text-muted">{data.data.alternate_name}, {data.data.official_name}</p>
+                        }
+
+                        {data.categories &&
+                            <div className="flex flex-wrap mt-3">
+                                {data.categories.map((category, index) => {
+                                    return (
+                                        <Link
+                                            to={`/categories/${category}`}
+                                            key={index}
+                                            className="uppercase py-1 px-3 mr-2 border border-solid border-gray rounded-full text-xs"
+                                        >{category}</Link>
+                                    )
+                                })}
+                            </div>
+                        }
+
+                        <div className="flex flex-wrap overflow-hidden -mx-4">
+                            <div className="w-full overflow-hidden lg:w-1/2 px-4">
                                 <Details satellite={data}/>
                             </div>
-                            <div className="w-full overflow-hidden lg:w-1/2">
-
+                            <div className="w-full overflow-hidden lg:w-1/2 px-4">
+                                {activeElement &&
+                                    <GeneralPerturbation tle={activeElement}/>
+                                }
                             </div>
                         </div>
                     </div>
