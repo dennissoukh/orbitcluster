@@ -53,7 +53,7 @@ export const Satellite: React.FC = () => {
         <>
             {data &&
                 <>
-                    {activeElement &&
+                    {activeElement && !data.decay &&
                         <OrbitMap tle={activeElement}/>
                     }
                     <div className="px-4 md:px-7 pb-7">

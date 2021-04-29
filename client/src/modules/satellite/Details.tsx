@@ -56,6 +56,16 @@ export const Details: React.FC<DetailsProps> = ({ satellite }) => {
                         />
                     </div>
                 </div>
+                {satellite.decay &&
+                    <div className="flex flex-wrap overflow-hidden mt-4">
+                        <div className="w-1/2">
+                            <Callout
+                                title="Decay Date"
+                                content={timestampToReadableDate(satellite.decay)}
+                            />
+                        </div>
+                    </div>
+                }
             </div>
 
             {satellite.data &&
