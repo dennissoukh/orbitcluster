@@ -7,6 +7,7 @@ import RecentlyLaunched from './pages/RecentlyLaunched';
 import RecentlyDecayed from './pages/RecentlyDecayed';
 import Operators from './pages/Operators';
 import Operator from './pages/Operator';
+import { CesiumMapper } from './pages/Visualizations';
 
 const App: React.FC = () => {
     return (
@@ -27,6 +28,7 @@ const renderRoute = () => {
             <Route path="/recent/decayed" component={RecentlyDecayed}/>
             <Route path="/operators" exact component={Operators}/>
             <Route path="/operators/:id" component={Operator}/>
+            <Route path="/viz/3d" component={CesiumMapper}/>
         </Switch>
     );
 };

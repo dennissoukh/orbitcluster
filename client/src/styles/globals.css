@@ -89,3 +89,24 @@ h4 {
   color: black;
   text-shadow: none;
 }
+
+.cesium-viewer-animationContainer {
+    display: none;
+}
+
+.cesium-viewer-bottom {
+    display: none;
+}
+
+.cesium-viewer {
+    position: absolute;
+    left: 300px;
+    max-width: calc(100% - 300px);
+}
+
+@media only screen and (max-width: 1024px) {
+    .cesium-viewer {
+        left: 0;
+        max-width: 100%;
+    }
+}
