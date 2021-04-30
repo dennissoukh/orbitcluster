@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { timestampToReadableDate } from '../../lib/date';
 import { satellite } from '../../types/satellite';
-import { VscDebugStepOver } from 'react-icons/vsc';
+import { VscDebugStepOver, VscGlobe } from 'react-icons/vsc';
 
 interface SatelliteListItemProps {
     satellite: satellite,
@@ -45,11 +45,16 @@ export const SatelliteListItem: React.FC<SatelliteListItemProps> = ({
                 </Link>
             </div>
             <div className="w-1/12 flex justify-end">
-                {satellite.decay === '1970-01-01T00:00:00.000Z' &&
+                {!satellite.decay &&
                     <>
-                        <div className="w-max border border-solid border-gray rounded-lg p-2">
-                            <Link to={`/passes/${satellite._id}}`}>
+                        <div className="w-max border border-solid border-gray rounded-lg p-2 mr-2">
+                            <Link to={`/passes/${satellite._id}`}>
                                 <VscDebugStepOver size="13"/>
+                            </Link>
+                        </div>
+                        <div className="w-max border border-solid border-gray rounded-lg p-2">
+                            <Link to={`/viz/3d/${satellite._id}`}>
+                                <VscGlobe size="13"/>
                             </Link>
                         </div>
                     </>
