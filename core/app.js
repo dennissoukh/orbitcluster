@@ -49,8 +49,8 @@ const routes = [
     require('./src/routes/satellite'),
     require('./src/routes/Category'),
     require('./src/routes/Launchsite'),
-    require('./src/routes/Recent'),
-    require('./src/routes/Boxscore'),
+    require('./src/routes/recent'),
+    require('./src/routes/operators'),
     require('./src/routes/Search'),
     require('./src/routes/auth'),
 ];
