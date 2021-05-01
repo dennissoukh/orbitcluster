@@ -4,7 +4,7 @@
   "main": "app.js",
   "license": "MIT",
   "scripts": {
-    "mocha": "mocha 'src/tests/**/*.js' --recursive --reporter spec",
+    "mocha": "nyc mocha 'src/tests/**/*.js' --recursive --reporter spec",
     "watch": "nodemon ./bin/www",
     "test": "eslint --ignore-path .gitignore ."
   },
@@ -40,6 +40,7 @@
     "eslint-plugin-import": "^2.22.1",
     "mocha": "^8.3.2",
     "nodemon": "^2.0.7",
+    "nyc": "^15.1.0",
     "typescript": "^4.2.4"
   }
 }
