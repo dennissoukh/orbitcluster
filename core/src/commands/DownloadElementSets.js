@@ -53,13 +53,17 @@ class DownloadElementSets extends BaseCommand {
                 const element = res[i];
                 const norad = convertToInt(element.tle_line2.slice(2, 7));
 
-                await collection.updateOne({ source: element.source, norad_cat_id: norad }, {
-                    norad_cat_id: norad,
-                    tle_line0: element.tle_line0,
-                    tle_line1: element.tle_line1,
-                    tle_line2: element.tle_line2,
-                    source: element.source,
-                }, { upsert: true });
+                if (norad) {
+                    await collection.updateOne({ source: element.source, norad_cat_id: norad }, {
+                        $set: {
+                            norad_cat_id: norad,
+                            tle_line0: element.tle_line0,
+                            tle_line1: element.tle_line1,
+                            tle_line2: element.tle_line2,
+                            source: element.source,
+                        }
+                    }, { upsert: true });
+                }
             }
         } catch (error) {
             console.error(
