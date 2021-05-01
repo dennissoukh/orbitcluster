@@ -18,7 +18,7 @@ const routes = async (app, opts) => {
 
     /**
      * GET a category with a specified cat_id
-    */
+     */
     app.get('/categories/:cat_id', {
         schema: {
             response: {
