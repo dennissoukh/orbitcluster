@@ -52,7 +52,6 @@ const routes = [
     require('./src/routes/recent'),
     require('./src/routes/operators'),
     require('./src/routes/Search'),
-    require('./src/routes/auth'),
 ];
 
 routes.forEach((route) => {
