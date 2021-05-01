@@ -44,7 +44,7 @@ const SidebarContainer: React.FC = () => {
                     },
                     {
                         name: '3D Map',
-                        url: '/3d-map',
+                        url: '/viz/3d',
                     },
                 ]}/>
 

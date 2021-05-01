@@ -53,7 +53,7 @@ export const SatelliteListItem: React.FC<SatelliteListItemProps> = ({
                             </Link>
                         </div>
                         <div className="w-max border border-solid border-gray rounded-lg p-2">
-                            <Link to={`/viz/3d/${satellite._id}`}>
+                            <Link to={`/viz/3d?sat=${satellite._id}`}>
                                 <VscGlobe size="13"/>
                             </Link>
                         </div>
