@@ -20,7 +20,7 @@ const routes = async (app) => {
 
         if (request.query.search) {
             const query = await collection.find({
-                "launch": { $gte: from, $lte: to },
+                launch: { $gte: from, $lte: to },
                 $or: [
                     {
                         satname: new RegExp(request.query.search, 'i'),
@@ -37,12 +37,12 @@ const routes = async (app) => {
                 .skip(skip).limit(limit).toArray();
         } else {
             data = await collection
-                .find({ "launch": { $gte: from, $lte: to } })
+                .find({ launch: { $gte: from, $lte: to } })
                 .sort({ norad_cat_id: -1 })
                 .skip(skip).limit(limit)
                 .toArray();
 
-            count = await collection.find({ "launch": { $gte: from, $lte: to } }).count();
+            count = await collection.find({ launch: { $gte: from, $lte: to } }).count();
         }
 
         const metadata = generateBasePaginationMetadata(page, limit, count, skip, data.length);
@@ -66,7 +66,7 @@ const routes = async (app) => {
 
         if (request.query.search) {
             const query = await collection.find({
-                'decay': { $gte: from, $lte: to },
+                decay: { $gte: from, $lte: to },
                 $or: [
                     {
                         satname: new RegExp(request.query.search, 'i'),
@@ -83,12 +83,12 @@ const routes = async (app) => {
                 .skip(skip).limit(limit).toArray();
         } else {
             data = await collection
-                .find({ 'decay': { $gte: from, $lte: to } })
+                .find({ decay: { $gte: from, $lte: to } })
                 .sort({ norad_cat_id: -1 })
                 .skip(skip).limit(limit)
                 .toArray();
 
-            count = await collection.find({ 'decay': { $gte: from, $lte: to } }).count();
+            count = await collection.find({ decay: { $gte: from, $lte: to } }).count();
         }
 
         const metadata = generateBasePaginationMetadata(page, limit, count, skip, data.length);

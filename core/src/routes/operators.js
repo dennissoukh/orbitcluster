@@ -1,8 +1,6 @@
 const {
-    notFoundMessageContract,
     parsePagination,
     generateBasePaginationMetadata,
-    constructNotFoundError,
 } = require('../helpers/route');
 
 const routes = async (app) => {
@@ -31,7 +29,8 @@ const routes = async (app) => {
             data = await collection
                 .find()
                 .sort({ country: 1 })
-                .skip(skip).limit(limit).toArray();
+                .skip(skip).limit(limit)
+                .toArray();
         }
 
         const metadata = generateBasePaginationMetadata(page, limit, count, skip, data.length);

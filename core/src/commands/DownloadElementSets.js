@@ -61,7 +61,7 @@ class DownloadElementSets extends BaseCommand {
                             tle_line1: element.tle_line1,
                             tle_line2: element.tle_line2,
                             source: element.source,
-                        }
+                        },
                     }, { upsert: true });
                 }
             }
