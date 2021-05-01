@@ -28,6 +28,7 @@ const plugins = [
     require('./src/plugins/Helmet'),
     require('./src/plugins/Jwt'),
     require('./src/plugins/Cookie'),
+    require('./src/plugins/Static'),
 ];
 
 plugins.forEach((plugin) => {

@@ -1,3 +1,4 @@
+const path = require('path');
 const { env } = require('../helpers/helpers');
 
 module.exports = {
@@ -54,7 +55,9 @@ module.exports = {
 
     url: env('APP_URL', 'http://localhost'),
 
-    asset_url: env('ASSET_URL', null),
+    asset_url: env('ASSET_URL', '/public/'),
+
+    root: path.join(__dirname, '../../public'),
 
     /*
     |--------------------------------------------------------------------------

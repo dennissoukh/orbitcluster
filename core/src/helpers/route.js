@@ -55,7 +55,13 @@ const generateBasePaginationMetadata = (page, limit, count, skip, pageCount) => 
     const pages = Math.floor(count / limit);
 
     return {
-        page, perPage: limit, pages, count, skip, pageCount,
+        page,
+        perPage:
+        limit,
+        pages,
+        count,
+        skip,
+        pageCount,
     };
 };
 
