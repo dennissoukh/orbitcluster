@@ -1,0 +1,30 @@
+// Text truncate
+// Requires inline-block or block for proper styling
+=text-truncate
+  text-overflow: ellipsis
+  white-space: nowrap
+  overflow: hidden
+
+// Manage responsive breakpoints
+=media-respond-to($breakpoint)
+  @if map-has-key($grid-breakpoints, $breakpoint)
+    @media (min-width: map-get($grid-breakpoints, $breakpoint))
+      @content
+  @else
+    @warn "No value could be retrieved from breakpoint `#{$breakpoint}`."
+
+// Respond above - uses Bootstrap's breakpoint variables
+=media-respond-above($breakpoint)
+  @if map-has-key($grid-breakpoints, $breakpoint)
+    @media (min-width: map-get($grid-breakpoints, $breakpoint))
+      @content
+  @else
+    @warn "No value could be retrieved from breakpoint `#{$breakpoint}`."
+
+// Respond below - uses Bootstrap's breakpoint variables
+=media-respond-below($breakpoint)
+  @if map-has-key($grid-breakpoints, $breakpoint)
+    @media (max-width: (map-get($grid-breakpoints, $breakpoint) - 1))
+      @content
+  @else
+    @warn "No value could be retrieved from breakpoint `#{$breakpoint}`."

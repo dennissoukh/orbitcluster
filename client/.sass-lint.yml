@@ -1,0 +1,77 @@
+options:
+  merge-default-rules: false
+  formatter: stylish
+  max-warnings: 50
+
+# File Options
+files:
+  include: 'src/assets/sass/**/*.s+(a|c)ss'
+  ignore:
+    - 'sass/vendor/**/*.*'
+
+# Rule Configuration
+rules:
+  class-name-format:
+    - 1
+    -
+      allow-leading-underscore: false
+      convention: hyphenatedbem
+
+  extends-before-mixins: 2
+  extends-before-declarations: 2
+  placeholder-in-extend: 2
+  mixins-before-declarations:
+    - 0
+    -
+      exclude:
+        - breakpoint
+        - mq
+        - breakpoint-max-width
+        - breakpoint-min-width
+        - make-wide-container
+
+  no-warn: 0
+  no-debug: 1
+  no-ids: 2
+  no-important: 2
+  no-color-keywords: 1
+  no-color-literals: 0
+  no-css-comments: 0
+  no-trailing-zero: 1
+  hex-notation:
+    - 2
+    -
+      style: uppercase
+  indentation:
+    - 2
+    -
+      size: 2
+
+  # Property Sorting
+  property-sort-order:
+    - 1
+    -
+      order: smacss
+      ignore-custom-properties: true
+
+  # Quotes
+  quotes:
+    - 1
+    -
+      style: double
+  url-quotes: 1
+
+  # Variables
+  variable-for-property:
+    - 2
+    -
+      # properties:
+        # - font-family
+        # - font-size
+        # - font-weight
+        # - transition
+  variable-name-format:
+    - 1
+    - allow-leading-underscore: false
+      convention: hyphenatedbem
+  zero-unit: true
