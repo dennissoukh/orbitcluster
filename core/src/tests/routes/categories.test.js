@@ -4,29 +4,28 @@ chai.use(chaiHttp);
 
 const expect = chai.expect;
 
-describe('/launch-sites', () => {
+describe('/categories', () => {
     it('checking route properties', async (done) => {
         chai.request('http://localhost:3000')
-            .get('/v1/launch-sites')
+            .get('/v1/categories')
             .end((err, res) => {
                 chai.expect(err).to.be.null;
                 chai.expect(res).to.have.status(200);
-                chai.expect(res.body).to.have.property('metadata');
                 chai.expect(res.body).to.have.property('data');
             })
         done();
     });
 });
 
-describe('/launch-sites/:id', () => {
+describe('/categories/:id', () => {
     it('checking route properties upon valid entry', async (done) => {
         chai.request('http://localhost:3000')
-            .get('/v1/launch-sites/AFETR')
+            .get('/v1/categories/visual')
             .end((err, res) => {
                 chai.expect(err).to.be.null;
                 chai.expect(res).to.have.status(200);
-                chai.expect(res.body).to.have.property('launchSite');
-                chai.expect(res.body).to.have.property('satellites');
+                chai.expect(res.body).to.have.property('metadata');
+                chai.expect(res.body).to.have.property('data');
             })
 
         done();
@@ -34,7 +33,7 @@ describe('/launch-sites/:id', () => {
 
     it('checking route properties upon invalid entry', async (done) => {
         chai.request('http://localhost:3000')
-            .get('/v1/launch-sites/InvalidEntry')
+            .get('/v1/categories/InvalidEntry')
             .end((err, res) => {
                 chai.expect(err).to.be.null;
                 chai.expect(res).to.have.status(404);

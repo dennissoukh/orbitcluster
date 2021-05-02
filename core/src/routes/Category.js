@@ -1,7 +1,6 @@
-const { ObjectId } = require('mongodb');
 const {
-    constructNotFoundError,
-    notFoundMessageContract,
+    parsePagination,
+    generateBasePaginationMetadata,
 } = require('../helpers/route');
 
 const routes = async (app, opts) => {
@@ -13,50 +12,43 @@ const routes = async (app, opts) => {
         const collection = db.collection('sat-category');
         const documents = await collection.find().toArray();
 
-        reply.send(documents);
+        reply.send({ data: documents });
     });
 
     /**
      * GET a category with a specified cat_id
      */
-    app.get('/categories/:cat_id', {
-        schema: {
-            response: {
-                200: {
-                    type: 'object',
-                    description: 'Category',
-                    properties: {
-                        satellite: {
-                            cat_id: 'string',
-                            name: 'string',
-                            count: 'description',
-                            description: 'string',
-                        },
-                    },
-                },
-                404: {
-                    type: 'object',
-                    properties: {
-                        error: notFoundMessageContract,
-                    },
-                },
-            },
-        },
-    }, async (request, reply) => {
-        let cat_id;
+    app.get('/categories/:id', {}, async (request, reply) => {
+        const { page, limit, skip } = parsePagination(request);
 
-        try {
-            cat_id = ObjectId(request.params.cat_id);
-        } catch (error) {
-            constructNotFoundError(reply);
+        const collection = app.mongo.db.collection('satcat');
+
+        let data;
+        let count;
+
+        if (request.query.search) {
+            const query = await collection.find({
+                $in: { categories: [request.params.id] },
+                $or: [
+                    { satname: new RegExp(request.query.search, 'i') },
+                    { object_id: new RegExp(request.query.search, 'i') },
+                ],
+            });
+
+            count = await query.count();
+            data = await query.sort({ norad_cat_id: -1 }).skip(skip).limit(limit).toArray();
+        } else {
+            count = await collection.find({ categories: { $in: [request.params.id] }}).count();
+            data = await collection
+                .find({ categories: { $in: [request.params.id] }})
+                .sort({ norad_cat_id: -1 })
+                .skip(skip).limit(limit)
+                .toArray();
         }
 
-        const collection = app.mongo.db.collection('sat-category');
+        const metadata = generateBasePaginationMetadata(page, limit, count, skip, data.length);
 
-        const satellite = await collection.findOne(
-            { cat_id },
-        );
-        reply.send({ satellite });
+        reply.send({ metadata, data });
     });
 };
 module.exports = routes;
