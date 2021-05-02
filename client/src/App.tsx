@@ -10,6 +10,8 @@ import Operator from './pages/Operator';
 import { CesiumMapper } from './pages/Visualizations';
 import LaunchSites from './pages/LaunchSites';
 import LaunchSite from './pages/LaunchSite';
+import Categories from './pages/Categories';
+import Category from './pages/Category';
 
 const App: React.FC = () => {
     return (
@@ -33,6 +35,8 @@ const renderRoute = () => {
             <Route path="/viz/3d" component={CesiumMapper}/>
             <Route path="/launch-sites" exact component={LaunchSites}/>
             <Route path="/launch-sites/:id" component={LaunchSite}/>
+            <Route path="/categories" exact component={Categories}/>
+            <Route path="/categories/:id" component={Category}/>
         </Switch>
     );
 };
