@@ -36,7 +36,6 @@ const routes = async (app) => {
             response: {
                 200: {
                     type: 'object',
-                    // description: 'Launch site',
                     properties: {
                         launchSite: {
                             _id: 'string',
