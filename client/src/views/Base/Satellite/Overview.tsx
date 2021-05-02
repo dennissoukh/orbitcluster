@@ -39,7 +39,7 @@ const Overview: React.FC<{ satellite: satellite }> = (props) => {
                 <div className="row mt-3">
                     <div className="col-6">
 
-                        <Callout title="Launch Site" content={satellite.site} link={`/launch-site/${satellite.site}`}/>
+                        <Callout title="Launch Site" content={satellite.site} link={`/launch-sites/${satellite.site}`}/>
                     </div>
                     <div className="col-6">
                         <Callout title="Launch Date" content={dateToString(satellite.launch)}/>

@@ -1,3 +1,3 @@
-import { LaunchSite } from '../modules/launch-site/LaunchSite';
+import { LaunchSite } from '../modules/launch-sites/LaunchSite';
 
 export default LaunchSite;

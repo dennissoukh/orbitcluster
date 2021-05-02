@@ -46,7 +46,7 @@ export const Details: React.FC<DetailsProps> = ({ satellite }) => {
                         <Callout
                             title="Launch Site"
                             content={satellite.site}
-                            link={`/launch-site/${satellite.site}`}
+                            link={`/launch-sites/${satellite.site}`}
                         />
                     </div>
                     <div className="w-1/2">

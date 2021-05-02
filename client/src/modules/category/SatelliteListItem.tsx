@@ -32,7 +32,7 @@ export const SatelliteListItem: React.FC<SatelliteListItemProps> = ({
                 <p>{satellite.object_type}</p>
             </div>
             <div className="w-1/5">
-                <Link to={`/launch-site/${satellite.site}`} className="w-fit">
+                <Link to={`/launch-sites/${satellite.site}`} className="w-fit">
                     <p>{satellite.site}</p>
                 </Link>
                 <p>{timestampToReadableDate(satellite.launch)}</p>
