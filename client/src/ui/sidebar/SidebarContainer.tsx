@@ -35,6 +35,10 @@ const SidebarContainer: React.FC = () => {
                         name: 'Operators',
                         url: '/operators',
                     },
+                    {
+                        name: 'Launch Sites',
+                        url: '/launch-sites',
+                    },
                 ]}/>
 
                 <NavigationItem name="Visualizations" sublist={[
