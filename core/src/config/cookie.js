@@ -15,6 +15,7 @@ module.exports = {
      * The signing secret.
      * @type {String|Array|Object}
      */
+
     secret: 'my-secret',
 
     /**
@@ -23,8 +24,9 @@ module.exports = {
      * string), this function can be used to decode a previously-encoded cookie
      * value into a JavaScript string or other object.
      */
-    parseOptions: {
-        decode: decodeURIComponent
-    }
 
-}
+    parseOptions: {
+        decode: decodeURIComponent,
+    },
+
+};

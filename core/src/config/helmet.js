@@ -14,12 +14,14 @@ module.exports = {
      * Sets the Content-Security-Policy header which helps mitigate cross-site
      * scripting attacks, among other things.
      */
+
     contentSecurityPolicy: true,
 
     /**
      * Sets the Expect-CT header which helps mitigate misissued SSL
      * certificates.
      */
+
     expectCt: {
         maxAge: 0,
         // enforce: true,
@@ -34,38 +36,43 @@ module.exports = {
      * "origin", "strict-origin", "origin-when-cross-origin",
      * "strict-origin-when-cross-origin", or "unsafe-url"
      */
+
     referrerPolicy: {
-        policy: 'no-referrer'
+        policy: 'no-referrer',
     },
 
     /**
      * Sets the Strict-Transport-Security header which tells browsers to
      * prefer HTTPS over insecure HTTP.
      */
+
     hsts: {
         maxAge: 15552000,
         includeSubDomains: true,
-        preload: false
+        preload: false,
     },
 
     /**
      * Sets the X-Content-Type-Options header to nosniff. This mitigates MIME
      * type sniffing which can cause security vulnerabilities.
      */
+
     noSniff: true,
 
     /**
      * Sets the Origin-Agent-Cluster header, which provides a mechanism to
      * allow web applications to isolate their origins.
      */
+
     originAgentCluster: true,
 
     /**
      * Sets the X-DNS-Prefetch-Control header to help control DNS prefetching,
      * which can improve user privacy at the expense of performance.
      */
+
     dnsPrefetchControl: {
-        allow: false
+        allow: false,
     },
 
     /**
@@ -73,6 +80,7 @@ module.exports = {
      * Explorer 8. It forces potentially-unsafe downloads to be saved,
      * mitigating execution of HTML in your site's context.
      */
+
     ieNoOpen: false,
 
     /**
@@ -81,8 +89,9 @@ module.exports = {
      *
      * Actions are "deny" or "sameorigin".
      */
+
     frameguard: {
-        action: 'sameorigin'
+        action: 'sameorigin',
     },
 
     /**
@@ -92,20 +101,23 @@ module.exports = {
      * Permitted policies are "none", "master-only", "by-content-type", or
      * "all".
      */
+
     permittedCrossDomainPolicies: {
-        permittedPolicies: 'none'
+        permittedPolicies: 'none',
     },
 
     /**
      * Removes the X-Powered-By header, which is set by default in some
      * frameworks.
      */
+
     hidePoweredBy: true,
 
     /**
      * Disables browsers' buggy cross-site scripting filter by setting the
      * X-XSS-Protection header to 0.
      */
-    xssFilter: true
 
-}
+    xssFilter: true,
+
+};
