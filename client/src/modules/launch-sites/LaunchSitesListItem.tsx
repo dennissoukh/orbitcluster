@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { launchSite } from '../../types/other';
 
 interface LaunchSitesListItemProps {
@@ -20,7 +21,9 @@ export const LaunchSitesListItem: React.FC<LaunchSitesListItemProps> = ({ site }
 
                     </div>
                 </div>
-                <p className="uppercase text-sm mt-3">{site.launch_site}</p>
+                <p className="uppercase text-sm mt-3">
+                    <Link to={`/launch-sites/${site.site_code}`}>{site.launch_site}</Link>
+                </p>
             </div>
         </div>
     )
