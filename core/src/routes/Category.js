@@ -4,7 +4,26 @@ const {
 } = require('../helpers/route');
 
 const routes = async (app, opts) => {
-    app.get('/categories', opts, async (request, reply) => {
+    app.get('/categories', {
+        schema: {
+            response: {
+              200: {
+                type: 'object',
+                properties: {
+                  data: {
+                      type: 'array',
+                        properties: {
+                            _id: { type: 'string' },
+                            cat_id: { type: 'string' },
+                            name: { type: 'string' },
+                            count: { type: 'number' },
+                        }
+                    }
+                },
+            }
+            }
+        }
+    }, async (request, reply) => {
         // Get an instance of the application database
         const { db } = app.mongo;
 
