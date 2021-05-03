@@ -48,11 +48,11 @@ plugins.forEach((plugin) => {
 const routes = [
     require('./src/routes/application'),
     require('./src/routes/satellite'),
-    require('./src/routes/category'),
-    require('./src/routes/launchsite'),
+    require('./src/routes/satCategories'),
+    require('./src/routes/launchsites'),
     require('./src/routes/recent'),
     require('./src/routes/operators'),
-    require('./src/routes/search'),
+    require('./src/routes/passes'),
 ];
 
 routes.forEach((route) => {

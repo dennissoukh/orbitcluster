@@ -96,4 +96,5 @@ const routes = async (app) => {
         reply.send({ metadata, data });
     });
 };
+
 module.exports = routes;
