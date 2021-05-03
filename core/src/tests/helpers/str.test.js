@@ -9,5 +9,4 @@ describe('handleEmpty', () => {
     it('empty input should equal null', () => {
         expect(handleEmpty('')).to.equal(null);
     });
-
 });

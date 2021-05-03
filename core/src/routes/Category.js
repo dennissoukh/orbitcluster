@@ -38,9 +38,9 @@ const routes = async (app, opts) => {
             count = await query.count();
             data = await query.sort({ norad_cat_id: -1 }).skip(skip).limit(limit).toArray();
         } else {
-            count = await collection.find({ categories: { $in: [request.params.id] }}).count();
+            count = await collection.find({ categories: { $in: [request.params.id] } }).count();
             data = await collection
-                .find({ categories: { $in: [request.params.id] }})
+                .find({ categories: { $in: [request.params.id] } })
                 .sort({ norad_cat_id: -1 })
                 .skip(skip).limit(limit)
                 .toArray();

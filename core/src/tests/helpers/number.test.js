@@ -17,7 +17,7 @@ describe('convertToInt', () => {
     it('converts a decimal value to a number integer literal', () => {
         expect(convertToInt(13.5)).to.equal(13);
     });
-})
+});
 
 describe('convertToDecimal', () => {
     it('converts a string value to a number literal', () => {

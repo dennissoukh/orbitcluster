@@ -1,8 +1,9 @@
 const chai = require('chai');
 const chaiHttp = require('chai-http');
+
 chai.use(chaiHttp);
 
-const expect = chai.expect;
+const { expect } = chai;
 
 describe('/recent/new', () => {
     it('checking route properties', async (done) => {
@@ -13,7 +14,7 @@ describe('/recent/new', () => {
                 chai.expect(res).to.have.status(200);
                 chai.expect(res.body).to.have.property('metadata');
                 chai.expect(res.body).to.have.property('data');
-            })
+            });
         done();
     });
 });
@@ -27,9 +28,8 @@ describe('/recent/decayed', () => {
                 chai.expect(res).to.have.status(200);
                 chai.expect(res.body).to.have.property('metadata');
                 chai.expect(res.body).to.have.property('data');
-            })
+            });
 
         done();
     });
 });
-

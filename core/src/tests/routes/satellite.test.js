@@ -1,8 +1,9 @@
 const chai = require('chai');
 const chaiHttp = require('chai-http');
+
 chai.use(chaiHttp);
 
-const expect = chai.expect;
+const { expect } = chai;
 
 describe('/satellites', () => {
     it('checking route properties', async (done) => {
@@ -12,7 +13,7 @@ describe('/satellites', () => {
                 chai.expect(err).to.be.null;
                 chai.expect(res).to.have.status(200);
                 chai.expect(res.body).to.have.property('metadata');
-            })
+            });
         done();
     });
 });
@@ -25,7 +26,7 @@ describe('/satellites/:id', () => {
                 chai.expect(err).to.be.null;
                 chai.expect(res).to.have.status(200);
                 chai.expect(res.body).to.have.property('data');
-            })
+            });
 
         done();
     });
@@ -36,7 +37,7 @@ describe('/satellites/:id', () => {
             .end((err, res) => {
                 chai.expect(err).to.be.null;
                 chai.expect(res).to.have.status(404);
-            })
+            });
         done();
     });
 });
@@ -49,7 +50,7 @@ describe('/orbit/:id', () => {
                 chai.expect(err).to.be.null;
                 chai.expect(res).to.have.status(200);
                 chai.expect(res.body).to.have.property('metadata');
-            })
+            });
         done();
     });
 
@@ -59,7 +60,7 @@ describe('/orbit/:id', () => {
             .end((err, res) => {
                 chai.expect(err).to.be.null;
                 chai.expect(res).to.have.status(404);
-            })
+            });
         done();
     });
 });
