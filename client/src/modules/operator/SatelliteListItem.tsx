@@ -45,10 +45,10 @@ export const SatelliteListItem: React.FC<SatelliteListItemProps> = ({
                 </Link>
             </div>
             <div className="w-1/12 flex justify-end">
-                {satellite.decay === '1970-01-01T00:00:00.000Z' &&
+                {!satellite.decay &&
                     <>
                         <div className="w-max border border-solid border-gray rounded-lg p-2">
-                            <Link to={`/passes/${satellite._id}}`}>
+                            <Link to={`/passes/${satellite.norad_cat_id}`}>
                                 <VscDebugStepOver size="13"/>
                             </Link>
                         </div>

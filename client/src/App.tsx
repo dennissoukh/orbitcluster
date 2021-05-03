@@ -12,6 +12,7 @@ import LaunchSites from './pages/LaunchSites';
 import LaunchSite from './pages/LaunchSite';
 import Categories from './pages/Categories';
 import Category from './pages/Category';
+import Passes from './pages/Passes';
 
 const App: React.FC = () => {
     return (
@@ -37,6 +38,7 @@ const renderRoute = () => {
             <Route path="/launch-sites/:id" component={LaunchSite}/>
             <Route path="/categories" exact component={Categories}/>
             <Route path="/categories/:id" component={Category}/>
+            <Route path="/passes/:id" component={Passes}/>
         </Switch>
     );
 };

@@ -46,7 +46,7 @@ export const SatelliteListItem: React.FC<SatelliteListItemProps> = ({
                 {!satellite.decay &&
                     <>
                         <div className="w-max border border-solid border-gray rounded-lg p-2 mr-2">
-                            <Link to={`/passes/${satellite._id}`}>
+                            <Link to={`/passes/${satellite.norad_cat_id}`}>
                                 <VscDebugStepOver size="13"/>
                             </Link>
                         </div>
