@@ -29,6 +29,7 @@ const plugins = [
     require('./src/plugins/Jwt'),
     require('./src/plugins/Cookie'),
     require('./src/plugins/Static'),
+    require('./src/plugins/Swagger'),
 ];
 
 plugins.forEach((plugin) => {
@@ -48,11 +49,11 @@ plugins.forEach((plugin) => {
 const routes = [
     require('./src/routes/application'),
     require('./src/routes/satellite'),
-    require('./src/routes/category'),
-    require('./src/routes/launchsite'),
+    require('./src/routes/satCategories'),
+    require('./src/routes/launchsites'),
     require('./src/routes/recent'),
     require('./src/routes/operators'),
-    require('./src/routes/search'),
+    require('./src/routes/passes'),
 ];
 
 routes.forEach((route) => {
@@ -84,6 +85,10 @@ app.register(builder);
 | ready app is returned in the form of a promise.
 |
 */
+app.ready(() => {
+    app.swagger();
+})
+
 async function ready() {
     return app.ready();
 }

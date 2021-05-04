@@ -1,88 +1,133 @@
 const {
-    constructNotFoundError,
-    notFoundMessageContract,
-    paginationKeyContract,
     parsePagination,
-    generatePaginationMetadata,
+    generateBasePaginationMetadata,
 } = require('../helpers/route');
 
 const routes = async (app) => {
-    app.get('/launchsites', {
+    app.get('/launch-sites', {
         schema: {
             response: {
                 200: {
                     type: 'object',
-                    description: 'Launch Site',
                     properties: {
-                        data: { type: 'array' },
-                        _metadata: paginationKeyContract,
-                    },
+                        metadata: {
+                            type: 'object',
+                            properties: {
+                                page: { type: 'number' },
+                                limit: { type: 'number' },
+                                pages: { type: 'number' },
+                                count: { type: 'number' },
+                                skip: { type: 'number' },
+                                pageCount: { type: 'number' },
+                            }
+                        },
+                        data: {
+                            type: 'array',
+                            properties: {
+                            _id: { type: 'string' },
+                            site_code: { type: 'string' },
+                            launch_site: { type: 'string' },
+                        }
+                    }
                 },
-            },
-        },
+            }
+            }
+        }
     }, async (request, reply) => {
-        const { page, limit } = parsePagination(request);
-        const paginationMetadata = generatePaginationMetadata(page, limit);
+
+        const { page, limit, skip } = parsePagination(request);
 
         const collection = app.mongo.db.collection('launch-site');
-        const launchSite = await collection.find()
-            .sort({ site_code: 1 }).toArray();
 
-        reply.send({ _metadata: paginationMetadata, data: launchSite });
+        let data;
+        let count;
+
+        count = await collection.estimatedDocumentCount();
+        data = await collection.find().sort({ site_code: 1 })
+            .skip(skip).limit(limit)
+            .toArray();
+
+        const metadata = generateBasePaginationMetadata(page, limit, count, skip, data.length);
+
+        reply.send({ metadata, data });
     });
 
-    app.get('/launchsites/:id', {
+    app.get('/launch-sites/:id', {
         schema: {
             response: {
-                200: {
-                    type: 'object',
-                    // description: 'Launch site',
-                    properties: {
-                        launchSite: {
-                            _id: 'string',
-                            site_code: 'string',
-                            launch_site: 'string',
-                        },
+              200: {
+                type: 'object',
+                properties: {
+                  metadata: {
+                      type: 'object',
+                        properties: {
+                            page: { type: 'number' },
+                            limit: { type: 'number' },
+                            pages: { type: 'number' },
+                            count: { type: 'number' },
+                            skip: { type: 'number' },
+                            pageCount: { type: 'number' },
+                        }
                     },
+                  data: {
+                      type: 'array',
+                        properties: {
+                            _id: { type: 'string' },
+                            intldes: { type: 'string' },
+                            norad_cat_id: { type: 'number' },
+                            object_type: { type: 'string' },
+                            satname: { type: 'string' },
+                            country: { type: 'string' },
+                            launch: { type: 'string' },
+                            site: { type: 'string' },
+                            decay: { type: 'string' },
+                            rcsvalue: { type: 'string' },
+                            rcs_size: { type: 'string' },
+                            launch_year: { type: 'number' },
+                            launch_num: { type: 'number' },
+                            launch_piece: { type: 'string' },
+                            current: { type: 'string' },
+                            object_name: { type: 'string' },
+                            object_id: { type: 'string' },
+                            object_number: { type: 'number' },
+                            categories: { type: 'array'},
+                        }
+                    }
                 },
-                404: {
-                    type: 'object',
-                    properties: {
-                        error: notFoundMessageContract,
-                    },
-                },
-            },
-        },
+            }
+            }
+        }
     }, async (request, reply) => {
-        const collection = app.mongo.db.collection('launch-site');
+        const { page, limit, skip } = parsePagination(request);
 
-        let launchSite = await collection.findOne(
-            { site_code: request.params.id },
-        );
+        const collection = app.mongo.db.collection('satcat');
 
-        if (!launchSite) {
-            constructNotFoundError(reply);
+        let data;
+        let count;
+
+        if (request.query.search) {
+            const query = await collection.find({
+                site: request.params.id,
+                $or: [
+                    { satname: new RegExp(request.query.search, 'i') },
+                    { object_id: new RegExp(request.query.search, 'i') },
+                ],
+            });
+
+            count = await query.count();
+            data = await query.sort({ norad_cat_id: -1 }).skip(skip).limit(limit).toArray();
+        } else {
+            count = await collection.find({ site: request.params.id }).count();
+            data = await collection
+                .find({ site: request.params.id })
+                .sort({ norad_cat_id: -1 })
+                .skip(skip).limit(limit)
+                .toArray();
         }
 
-        launchSite = await collection.aggregate([
-            {
-                $match: {
-                    site_code: launchSite.site_code,
-                },
-            },
-            {
-                $lookup: {
-                    from: 'satcat',
-                    localField: 'site_code',
-                    foreignField: 'site',
-                    as: 'satellites',
-                },
-            },
-        ]).toArray();
+        const metadata = generateBasePaginationMetadata(page, limit, count, skip, data.length);
 
-        [launchSite] = launchSite;
-
-        reply.send({ launchSite });
+        reply.send({ metadata, data });
     });
 };
 
