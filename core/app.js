@@ -87,7 +87,7 @@ app.register(builder);
 */
 app.ready(() => {
     app.swagger();
-})
+});
 
 async function ready() {
     return app.ready();
