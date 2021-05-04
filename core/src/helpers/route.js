@@ -38,7 +38,7 @@ const generateIdempotencyKey = (prefix = null, len = 16) => {
     let res = '';
     const chars = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
     for (let i = len; i > 0; i -= 1) res += chars[Math.floor(Math.random() * chars.length)];
-    res = `${prefix}${res}`;
+    res = `${prefix || ''}${res}`;
 
     return res;
 };
@@ -56,7 +56,6 @@ const generateBasePaginationMetadata = (page, limit, count, skip, pageCount) => 
 
     return {
         page,
-        perPage:
         limit,
         pages,
         count,

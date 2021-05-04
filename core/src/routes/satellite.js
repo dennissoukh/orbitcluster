@@ -9,7 +9,51 @@ const routes = async (app) => {
     /**
      * GET list of satellites with pagination
      */
-    app.get('/satellites', {}, async (request, reply) => {
+    app.get('/satellites', {
+        schema: {
+            response: {
+              200: {
+                type: 'object',
+                properties: {
+                  metadata: {
+                      type: 'object',
+                        properties: {
+                            page: { type: 'number' },
+                            limit: { type: 'number' },
+                            pages: { type: 'number' },
+                            count: { type: 'number' },
+                            skip: { type: 'number' },
+                            pageCount: { type: 'number' },
+                        }
+                    },
+                  data: {
+                      type: 'array',
+                        properties: {
+                            _id: { type: 'string' },
+                            intldes: { type: 'string' },
+                            norad_cat_id: { type: 'number' },
+                            object_type: { type: 'string' },
+                            satname: { type: 'string' },
+                            country: { type: 'string' },
+                            launch: { type: 'string' },
+                            site: { type: 'string' },
+                            decay: { type: 'string' },
+                            rcsvalue: { type: 'string' },
+                            rcs_size: { type: 'string' },
+                            launch_year: { type: 'number' },
+                            launch_num: { type: 'number' },
+                            launch_piece: { type: 'string' },
+                            current: { type: 'string' },
+                            object_name: { type: 'string' },
+                            object_id: { type: 'string' },
+                            object_number: { type: 'number' },
+                        }
+                    }
+                },
+            }
+            }
+        }
+    }, async (request, reply) => {
         // Parse pagination request
         const { page, limit, skip } = parsePagination(request);
 
@@ -56,7 +100,52 @@ const routes = async (app) => {
     /**
      * GET a satellite with a specified identifier
      */
-    app.get('/satellites/:id', {}, async (request, reply) => {
+    app.get('/satellites/:id', {
+        schema: {
+            response: {
+              200: {
+                type: 'object',
+                properties: {
+                  metadata: {
+                      type: 'object',
+                        properties: {
+                            page: { type: 'number' },
+                            limit: { type: 'number' },
+                            pages: { type: 'number' },
+                            count: { type: 'number' },
+                            skip: { type: 'number' },
+                            pageCount: { type: 'number' },
+                        }
+                    },
+                  data: {
+                      type: 'array',
+                        properties: {
+                            _id: { type: 'string' },
+                            intldes: { type: 'string' },
+                            norad_cat_id: { type: 'number' },
+                            object_type: { type: 'string' },
+                            satname: { type: 'string' },
+                            country: { type: 'string' },
+                            launch: { type: 'string' },
+                            site: { type: 'string' },
+                            decay: { type: 'string' },
+                            rcsvalue: { type: 'string' },
+                            rcs_size: { type: 'string' },
+                            launch_year: { type: 'number' },
+                            launch_num: { type: 'number' },
+                            launch_piece: { type: 'string' },
+                            current: { type: 'string' },
+                            object_name: { type: 'string' },
+                            object_id: { type: 'string' },
+                            object_number: { type: 'number' },
+                            tles: { type: 'array' },
+                        }
+                    }
+                },
+            }
+            }
+        }
+    }, async (request, reply) => {
         let id;
 
         try {
@@ -127,7 +216,52 @@ const routes = async (app) => {
     /**
      * GET a satellite with a specified identifier(+ TLE's)
      */
-    app.get('/orbit/:id', {}, async (request, reply) => {
+    app.get('/orbit/:id', {
+        schema: {
+            response: {
+              200: {
+                type: 'object',
+                properties: {
+                  metadata: {
+                      type: 'object',
+                        properties: {
+                            page: { type: 'number' },
+                            limit: { type: 'number' },
+                            pages: { type: 'number' },
+                            count: { type: 'number' },
+                            skip: { type: 'number' },
+                            pageCount: { type: 'number' },
+                        }
+                    },
+                  data: {
+                      type: 'array',
+                        properties: {
+                            _id: { type: 'string' },
+                            intldes: { type: 'string' },
+                            norad_cat_id: { type: 'number' },
+                            object_type: { type: 'string' },
+                            satname: { type: 'string' },
+                            country: { type: 'string' },
+                            launch: { type: 'string' },
+                            site: { type: 'string' },
+                            decay: { type: 'string' },
+                            rcsvalue: { type: 'string' },
+                            rcs_size: { type: 'string' },
+                            launch_year: { type: 'number' },
+                            launch_num: { type: 'number' },
+                            launch_piece: { type: 'string' },
+                            current: { type: 'string' },
+                            object_name: { type: 'string' },
+                            object_id: { type: 'string' },
+                            object_number: { type: 'number' },
+                            tles: { type: 'array' },
+                        }
+                    }
+                },
+            }
+            }
+        }
+    }, async (request, reply) => {
         let id;
 
         try {

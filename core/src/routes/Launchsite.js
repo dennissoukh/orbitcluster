@@ -4,39 +4,29 @@ const {
 } = require('../helpers/route');
 
 const routes = async (app) => {
-    app.get('/operators', {
+    app.get('/launch-sites', {
         schema: {
             response: {
-              200: {
-                type: 'object',
-                properties: {
-                  metadata: {
-                      type: 'object',
-                        properties: {
-                            page: { type: 'number' },
-                            limit: { type: 'number' },
-                            pages: { type: 'number' },
-                            count: { type: 'number' },
-                            skip: { type: 'number' },
-                            pageCount: { type: 'number' },
-                        }
-                    },
-                  data: {
-                      type: 'array',
-                        properties: {
+                200: {
+                    type: 'object',
+                    properties: {
+                        metadata: {
+                            type: 'object',
+                            properties: {
+                                page: { type: 'number' },
+                                limit: { type: 'number' },
+                                pages: { type: 'number' },
+                                count: { type: 'number' },
+                                skip: { type: 'number' },
+                                pageCount: { type: 'number' },
+                            }
+                        },
+                        data: {
+                            type: 'array',
+                            properties: {
                             _id: { type: 'string' },
-                            spadoc_cd: { type: 'string' },
-                            country: { type: 'string' },
-                            country_total: { type: 'number' },
-                            decayed_debris_count: { type: 'number' },
-                            decayed_payload_count: { type: 'number' },
-                            decayed_rocket_body_count: { type: 'number' },
-                            decayed_total_count: { type: 'number' },
-                            orbital_debris_count: { type: 'number' },
-                            orbital_payload_count: { type: 'number' },
-                            orbital_rocket_body_count: { type: 'number' },
-                            orbital_tba: { type: 'number' },
-                            orbital_total_count: { type: 'number' },
+                            site_code: { type: 'string' },
+                            launch_site: { type: 'string' },
                         }
                     }
                 },
@@ -44,43 +34,25 @@ const routes = async (app) => {
             }
         }
     }, async (request, reply) => {
+
         const { page, limit, skip } = parsePagination(request);
 
-        const collection = app.mongo.db.collection('boxscore');
+        const collection = app.mongo.db.collection('launch-site');
 
         let data;
         let count;
 
-        if (request.query.search) {
-            const query = await collection.find({
-                $or: [
-                    { spadoc_cd: new RegExp(request.query.search, 'i') },
-                    { country: new RegExp(request.query.search, 'i') },
-                ],
-            });
-
-            count = await query.count();
-            data = await query
-                .sort({ country: 1 })
-                .skip(skip).limit(limit).toArray();
-        } else {
-            count = await collection.estimatedDocumentCount();
-            data = await collection
-                .find()
-                .sort({ country: 1 })
-                .skip(skip).limit(limit)
-                .toArray();
-        }
+        count = await collection.estimatedDocumentCount();
+        data = await collection.find().sort({ site_code: 1 })
+            .skip(skip).limit(limit)
+            .toArray();
 
         const metadata = generateBasePaginationMetadata(page, limit, count, skip, data.length);
 
         reply.send({ metadata, data });
     });
 
-    /**
-     * GET satellites of a certain site with a specified spadoc_cd
-     */
-    app.get('/operators/:id', {
+    app.get('/launch-sites/:id', {
         schema: {
             response: {
               200: {
@@ -135,7 +107,7 @@ const routes = async (app) => {
 
         if (request.query.search) {
             const query = await collection.find({
-                country: request.params.id,
+                site: request.params.id,
                 $or: [
                     { satname: new RegExp(request.query.search, 'i') },
                     { object_id: new RegExp(request.query.search, 'i') },
@@ -145,9 +117,9 @@ const routes = async (app) => {
             count = await query.count();
             data = await query.sort({ norad_cat_id: -1 }).skip(skip).limit(limit).toArray();
         } else {
-            count = await collection.find({ country: request.params.id }).count();
+            count = await collection.find({ site: request.params.id }).count();
             data = await collection
-                .find({ country: request.params.id })
+                .find({ site: request.params.id })
                 .sort({ norad_cat_id: -1 })
                 .skip(skip).limit(limit)
                 .toArray();

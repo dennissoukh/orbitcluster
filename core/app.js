@@ -29,6 +29,7 @@ const plugins = [
     require('./src/plugins/Jwt'),
     require('./src/plugins/Cookie'),
     require('./src/plugins/Static'),
+    require('./src/plugins/Swagger'),
 ];
 
 plugins.forEach((plugin) => {
@@ -84,6 +85,10 @@ app.register(builder);
 | ready app is returned in the form of a promise.
 |
 */
+app.ready(() => {
+    app.swagger();
+})
+
 async function ready() {
     return app.ready();
 }
