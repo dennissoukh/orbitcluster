@@ -15,6 +15,10 @@ const routes = async (app) => {
         const norad = convertToInt(request.params.id);
         const satellite = await collection.findOne({ norad_cat_id: norad });
 
+        if (!satellite) {
+            reply.send({ status: 'Satellite no longer in orbit' });
+        }
+
         const { lat, lon, alt } = JSON.parse(request.body);
 
         // Use the predict library to compute passes
