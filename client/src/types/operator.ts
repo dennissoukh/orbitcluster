@@ -1,0 +1,15 @@
+export type operator = {
+    _id: string,
+    spadoc_cd: string,
+    country: string,
+    country_total: number,
+    decayed_debris_count: number,
+    decayed_payload_count: number,
+    decayed_rocket_body_count: number,
+    decayed_total_count: number,
+    orbital_debris_count: number,
+    orbital_payload_count: number,
+    orbital_rocket_body_count: number,
+    orbital_tba: number,
+    orbital_total_count: number,
+}
