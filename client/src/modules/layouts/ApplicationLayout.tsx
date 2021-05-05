@@ -1,8 +1,7 @@
 import React from 'react';
 import { useScreenType } from "../../hooks/useScreenType";
-import HeaderContainer from '../../ui/header/HeaderContainer';
-import NavigatorContainer from '../../ui/navigator/NavigatorContainer';
-import SidebarContainer from '../../ui/sidebar/SidebarContainer';
+import DesktopHeaderContainer from '../../ui/desktop-header/DesktopHeaderContainer';
+import MobileHeaderContainer from '../../ui/mobile-header/MobileHeaderContainer';
 
 const ApplicationLayout: React.FC = ({ children }) => {
     const screenType = useScreenType();
@@ -12,21 +11,13 @@ const ApplicationLayout: React.FC = ({ children }) => {
     }
 
     return (
-        <div className={isDesktop() ? 'flex' : undefined}>
+        <div>
             {isDesktop()
-                ? <SidebarContainer/>
-                : <HeaderContainer/>
+                ? <DesktopHeaderContainer/>
+                : <MobileHeaderContainer/>
             }
-            <div className={isDesktop() ? 'w-full' : undefined}>
-                {isDesktop() &&
-                    <NavigatorContainer/>
-                }
-                {/* <div className={isDesktop() ? 'py-5' : 'py-5'}>
-                    {children}
-                </div> */}
-                <div>
-                    {children}
-                </div>
+            <div className="page w-full">
+                {children}
             </div>
         </div>
     )

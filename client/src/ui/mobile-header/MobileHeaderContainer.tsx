@@ -19,7 +19,7 @@ import {
 } from 'react-icons/md';
 import { useEffect } from 'react';
 
-const HeaderContainer: React.FC = () => {
+const MobileHeaderContainer: React.FC = () => {
     const location = useLocation();
     const [active, setActive] = useState(false);
 
@@ -179,4 +179,4 @@ const HeaderContainer: React.FC = () => {
     )
 };
 
-export default HeaderContainer;
+export default MobileHeaderContainer;
