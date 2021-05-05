@@ -1,23 +1,27 @@
 import React, { useEffect, useState } from 'react';
+import { useCategoriesPageStore } from '../../global-stores/useCategoriesPageStore';
 import { usePaginationQuery } from '../../hooks/usePaginationQuery';
 import PaginationNavigator from '../../ui/pagination/Navigator';
 import CategoriesListItem from './CategoriesListItem';
 
 export const Categories: React.FC = () => {
     const [data, setData] = useState([]);
-    const [metadata, setMetadata] = useState<any>({});
+
+    const metadata      = useCategoriesPageStore(state => state.metadata);
+    const setMetadata   = useCategoriesPageStore((state: any) => state.setMetadata);
+
     const {
         response,
         isLoading,
         navigatePage,
-    } = usePaginationQuery('categories');
+    } = usePaginationQuery('categories', metadata);
 
     useEffect(() => {
         if (response && !isLoading) {
             setData(response.data);
             setMetadata(response.metadata);
         }
-    }, [response]);
+    });
 
     return (
         <div className="px-4 md:px-7">

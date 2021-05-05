@@ -3,23 +3,27 @@ import { usePaginationQuery } from '../../hooks/usePaginationQuery';
 import PaginationNavigator from '../../ui/pagination/Navigator';
 import SatelliteListItem from '../operator/SatelliteListItem';
 import { TextSearch } from '../../components/TextSearch';
+import { useLaunchedPageStore } from '../../global-stores/useLaunchedPageStore';
 
 export const Launched: React.FC = () => {
     const [data, setData] = useState([]);
-    const [metadata, setMetadata] = useState<any>({});
+
+    const metadata      = useLaunchedPageStore(state => state.metadata);
+    const setMetadata   = useLaunchedPageStore((state: any) => state.setMetadata);
+
     const {
         response,
         isLoading,
         navigatePage,
         setSearch,
-    } = usePaginationQuery('recent/new');
+    } = usePaginationQuery('recent/new', metadata);
 
     useEffect(() => {
         if (response && !isLoading) {
             setData(response.data);
             setMetadata(response.metadata);
         }
-    }, [response]);
+    });
 
     return (
         <div className="px-4 md:px-7">

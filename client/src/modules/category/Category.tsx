@@ -3,33 +3,31 @@ import { useParams } from 'react-router-dom';
 import { usePaginationQuery } from '../../hooks/usePaginationQuery';
 import PaginationNavigator from '../../ui/pagination/Navigator';
 import SatelliteListItem from './SatelliteListItem';
-import { TextSearch } from '../../components/TextSearch';
-import { satellite } from '../../types/satellite';
+import { useCategoryPageStore } from '../../global-stores/useCategoryPageStore';
 
 export const Category: React.FC = () => {
     const { id } = useParams<{ id: string }>();
 
-    const [data, setData] = useState<Array<satellite>>([]);
-    const [metadata, setMetadata] = useState<any>({});
+    const [data, setData] = useState([]);
+
+    const metadata      = useCategoryPageStore(state => state.metadata);
+    const setMetadata   = useCategoryPageStore((state: any) => state.setMetadata);
+
     const {
         response,
         isLoading,
         navigatePage,
-        setSearch,
-    } = usePaginationQuery(`categories/${id}`);
+    } = usePaginationQuery(`categories/${id}`, metadata);
 
     useEffect(() => {
         if (response && !isLoading) {
             setData(response.data);
             setMetadata(response.metadata);
         }
-    }, [response]);
+    });
 
     return (
         <div className="px-4 md:px-7">
-            <div className="flex items-center justify-between flex-wrap">
-                <TextSearch callback={setSearch}/>
-            </div>
             <div className="mt-5">
                 <div className="flex items-center bg-secondary text-sm border-gray border-solid border p-3 px-5 rounded-lg">
                     <div className="w-1/6">

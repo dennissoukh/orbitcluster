@@ -2,30 +2,29 @@ import React, { useEffect, useState } from 'react';
 import { usePaginationQuery } from '../../hooks/usePaginationQuery';
 import PaginationNavigator from '../../ui/pagination/Navigator';
 import SatelliteListItem from '../operator/SatelliteListItem';
-import { TextSearch } from '../../components/TextSearch';
+import { useDecayedPageStore } from '../../global-stores/useDecayedPageStore';
 
 export const Decayed: React.FC = () => {
     const [data, setData] = useState([]);
-    const [metadata, setMetadata] = useState<any>({});
+
+    const metadata      = useDecayedPageStore(state => state.metadata);
+    const setMetadata   = useDecayedPageStore((state: any) => state.setMetadata);
+
     const {
         response,
         isLoading,
         navigatePage,
-        setSearch,
-    } = usePaginationQuery('recent/decayed');
+    } = usePaginationQuery('recent/decayed', metadata);
 
     useEffect(() => {
         if (response && !isLoading) {
             setData(response.data);
             setMetadata(response.metadata);
         }
-    }, [response]);
+    });
 
     return (
         <div className="px-4 md:px-7">
-            <div className="flex items-center justify-between flex-wrap">
-                <TextSearch callback={setSearch}/>
-            </div>
             <div className="mt-5">
                 <div className="flex items-center bg-secondary text-sm border-gray border-solid border p-3 px-5 rounded-lg">
                     <div className="w-1/6">

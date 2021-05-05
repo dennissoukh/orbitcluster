@@ -2,30 +2,29 @@ import React, { useEffect, useState } from 'react';
 import { usePaginationQuery } from '../../hooks/usePaginationQuery';
 import PaginationNavigator from '../../ui/pagination/Navigator';
 import OperatorListItem from './OperatorListItem';
-import { TextSearch } from '../../components/TextSearch';
+import { useOperatorsPageStore } from '../../global-stores/useOperatorsPageStore';
 
 export const Operators: React.FC = () => {
     const [data, setData] = useState([]);
-    const [metadata, setMetadata] = useState<any>({});
+
+    const metadata      = useOperatorsPageStore(state => state.metadata);
+    const setMetadata   = useOperatorsPageStore((state: any) => state.setMetadata);
+
     const {
         response,
         isLoading,
         navigatePage,
-        setSearch,
-    } = usePaginationQuery('operators');
+    } = usePaginationQuery('operators', metadata);
 
     useEffect(() => {
         if (response && !isLoading) {
             setData(response.data);
             setMetadata(response.metadata);
         }
-    }, [response]);
+    });
 
     return (
         <div className="px-4 md:px-7">
-            <div className="flex items-center justify-between flex-wrap">
-                <TextSearch callback={setSearch}/>
-            </div>
             <div className="mt-5">
                 <div className="flex items-center bg-secondary text-sm border-gray border-solid border p-3 px-5 rounded-lg">
                     <div className="w-1/4 pr-3">
