@@ -56,7 +56,7 @@ export const Satellite: React.FC = () => {
                     {activeElement && !data.decay &&
                         <OrbitMap tle={activeElement}/>
                     }
-                    <div className="px-4 md:px-7 pb-7">
+                    <div className="px-4 md:px-7 py-5">
                         <h4 className="font-medium">{data.object_name}</h4>
 
                         {data.data && data.data.alternate_name &&

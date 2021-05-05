@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { usePaginationQuery } from '../../hooks/usePaginationQuery';
 import PaginationNavigator from '../../ui/pagination/Navigator';
-import SatelliteListItem from '../operator/SatelliteListItem';
+import SatelliteListItem from '../../ui/satellite-list-item/SatelliteListItem';
 import { useDecayedPageStore } from '../../global-stores/useDecayedPageStore';
 
 export const Decayed: React.FC = () => {
@@ -56,7 +56,7 @@ export const Decayed: React.FC = () => {
                 <div className="px-5">
                     {data && data.map((item: any, index: number) => {
                         return (
-                            <SatelliteListItem satellite={item} index={index} key={index}/>
+                            <SatelliteListItem satellite={item} key={index}/>
                         )
                     })}
                 </div>

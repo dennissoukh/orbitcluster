@@ -15,22 +15,33 @@ module.exports = {
             ],
             mono: [
                 'SF Mono',
-                'mono'
+                'Menlo',
+                'Monaco',
+                'Courier New',
+                'monospace'
             ]
         },
         colors: {
-            button: 'var(--color-base)',
             transparent: 'transparent',
-            primary: 'var(--color-black)',
-            secondary: 'var(--color-dark-gray)',
-            tertiary: 'var(--color-gray)',
-            'gray': 'var(--color-dark-gray-2)',
-            'light-gray': 'var(--color-light-gray)',
-            'muted': 'var(--color-type-mute)',
-            'white': 'var(--color-white)',
-            red: 'var(--color-red)',
-            green: 'var(--color-green)',
-            blue: 'var(--color-blue)',
+            primary: {
+                100: 'var(--color-primary-100)',
+                200: 'var(--color-primary-200)',
+                300: 'var(--color-primary-300)',
+                600: 'var(--color-primary-600)',
+                700: 'var(--color-primary-700)',
+                800: 'var(--color-primary-800)',
+                900: 'var(--color-primary-900)',
+            },
+            secondary: {
+                DEFAULT: 'var(--color-secondary)',
+                'washed-out': 'var(--color-secondary-washed-out)',
+            },
+            accent: {
+                DEFAULT: 'var(--color-accent)',
+                hover: 'var(--color-accent-hover)',
+                disabled: 'var(--color-accent-disabled)',
+            },
+            green: 'var(--color-green)'
         },
         fontSize: {
             tiny: '0.625rem',

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { usePaginationQuery } from '../../hooks/usePaginationQuery';
 import PaginationNavigator from '../../ui/pagination/Navigator';
-import SatelliteListItem from './SatelliteListItem';
+import SatelliteListItem from '../../ui/satellite-list-item/SatelliteListItem';
 import { useCategoryPageStore } from '../../global-stores/useCategoryPageStore';
 
 export const Category: React.FC = () => {

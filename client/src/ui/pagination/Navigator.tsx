@@ -12,7 +12,7 @@ const PaginationNavigator: React.FC<PaginationNavigatorProps> = ({
     callback
 }) => {
     return (
-        <div className="flex justify-between text-muted">
+        <div className="flex justify-between text-primary-200">
             <div>
                 <p>{pagination.skip} — {pagination.pageCount + pagination.skip} of {pagination.count}</p>
             </div>

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { usePaginationQuery } from '../../hooks/usePaginationQuery';
 import PaginationNavigator from '../../ui/pagination/Navigator';
-import SatelliteListItem from './SatelliteListItem';
+import SatelliteListItem from '../../ui/satellite-list-item/SatelliteListItem';
 import { satellite } from '../../types/satellite';
 import { useLaunchSitePageStore } from '../../global-stores/useLaunchSitePageStore';
 
@@ -60,7 +60,7 @@ export const LaunchSite: React.FC = () => {
                 <div className="px-5">
                     {data && data.map((item: any, index: number) => {
                         return (
-                            <SatelliteListItem satellite={item} index={index} key={index}/>
+                            <SatelliteListItem satellite={item} key={index}/>
                         )
                     })}
                 </div>
