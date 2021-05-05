@@ -3,29 +3,35 @@ import { usePaginationQuery } from '../../hooks/usePaginationQuery';
 import PaginationNavigator from '../../ui/pagination/Navigator';
 import SatelliteListItem from './SatelliteListItem';
 import { TextSearch } from '../../components/TextSearch';
+import { useStore } from '../../global-stores/useSatellitesPageStore';
 
 export const Satellites: React.FC = () => {
     const [data, setData] = useState([]);
-    const [metadata, setMetadata] = useState<any>({});
+
+    const metadata      = useStore(state => state.metadata);
+    const setMetadata   = useStore((state: any) => state.setMetadata);
+
+    const search        = useStore(state => state.search);
+    const setSearch     = useStore((state: any) => state.setSearch);
+
     const {
         response,
         isLoading,
         navigatePage,
-        setSearch,
-    } = usePaginationQuery('satellites');
+    } = usePaginationQuery('satellites', metadata, search);
 
     useEffect(() => {
         if (response && !isLoading) {
             setData(response.data);
             setMetadata(response.metadata);
         }
-    }, [response]);
+    });
 
     return (
         <div className="px-4 md:px-7">
-            <div className="flex items-center justify-between flex-wrap">
-                <TextSearch callback={setSearch}/>
-            </div>
+            {/* <div className="flex items-center justify-between flex-wrap">
+                <TextSearch callback={setSearch} defaultValue={search}/>
+            </div> */}
             <div className="mt-5">
                 <div className="flex items-center bg-secondary text-sm border-gray border-solid border p-3 px-5 rounded-lg">
                     <div className="w-1/6">

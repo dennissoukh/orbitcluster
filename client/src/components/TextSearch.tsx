@@ -5,15 +5,10 @@ import { VscSearch } from 'react-icons/vsc';
 interface TextSearchProps {
     classes?: string,
     callback: Function,
+    defaultValue?: string
 };
 
-export const TextSearch: React.FC<TextSearchProps> = ({ classes, callback }) => {
-    const [searchString, setSearchString] = useState<string>();
-
-    useEffect(() => {
-        callback(searchString);
-    }, [searchString, callback]);
-
+export const TextSearch: React.FC<TextSearchProps> = ({ classes, callback, defaultValue }) => {
     return (
         <div className="flex items-center w-6/12">
             <VscSearch/>
@@ -23,7 +18,8 @@ export const TextSearch: React.FC<TextSearchProps> = ({ classes, callback }) => 
                 id="search-data"
                 placeholder="Search by name, identifiers or keyword..."
                 className={classes ? classes : 'p-3 w-full bg-primary focus:outline-none'}
-                onChange={(e) => setSearchString(e.target.value)}
+                onChange={(e) => callback(e.target.value)}
+                value={defaultValue}
             />
         </div>
     )
