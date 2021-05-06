@@ -93,25 +93,25 @@ export const OrbitMap: React.FC<{ tle: tle }> = ({ tle }) => {
                             title="Latitude"
                             content={satState.latitude.toFixed(2)}
                             units="°"
-                            styles="mr-3 min-w-90"
+                            styles="pr-5"
                         />
                         <Callout
                             title="Longitude"
                             content={satState.longitude.toFixed(2)}
                             units="°"
-                            styles="mr-3 min-w-90"
+                            styles="pr-5"
                         />
                         <Callout
                             title="Altitude"
                             content={satState.height.toFixed(2)}
                             units="km"
-                            styles="mr-3 min-w-90"
+                            styles="pr-5"
                         />
                         <Callout
                             title="Velocity"
                             content={satState.velocity.toFixed(2)}
                             units="km/s"
-                            styles="min-w-90"
+                            styles="pr-5"
                         />
                     </div>
                 }

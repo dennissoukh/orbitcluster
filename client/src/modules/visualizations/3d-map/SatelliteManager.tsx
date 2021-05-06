@@ -14,7 +14,7 @@ export class SatelliteManager {
     processSatellites(satellites: Array<satellite>) {
         satellites.forEach((sat) => {
 
-            if (sat.gp) {
+            if (sat && sat.gp) {
                 const mapSat = {
                     name: sat.satname,
                     tle: [

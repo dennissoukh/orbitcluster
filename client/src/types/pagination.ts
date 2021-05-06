@@ -1,10 +1,10 @@
 export type pagination = {
     page: number,
-    per_page: number,
+    perPage: number,
     pages: number,
     count: number,
     skip: number,
-    limit: number,
+    // limit: number,
     pageCount: number,
 }
 

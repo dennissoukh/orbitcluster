@@ -13,6 +13,7 @@ import LaunchSite from './pages/LaunchSite';
 import Categories from './pages/Categories';
 import Category from './pages/Category';
 import Passes from './pages/Passes';
+import { Welcome } from './modules/welcome/Welcome';
 
 const App: React.FC = () => {
     return (
@@ -39,6 +40,7 @@ const renderRoute = () => {
             <Route path="/categories" exact component={Categories}/>
             <Route path="/categories/:id" component={Category}/>
             <Route path="/passes/:id" component={Passes}/>
+            <Route path="/" exact component={Welcome}/>
         </Switch>
     );
 };

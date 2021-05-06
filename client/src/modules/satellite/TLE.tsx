@@ -18,7 +18,7 @@ export const TLE: React.FC<TLEProps> = ({ tles, setActiveTle }) => {
                                 <div>{tle.tle_line2}</div>
                             </div>
                         </div>
-                        <div className="text-sm text-muted pt-1 flex justify-between">
+                        <div className="text-sm text-primary-200 pt-1 flex justify-between">
                             <p>{tle.source}</p>
                             <p className="cursor-pointer" onClick={() => setActiveTle(tle)}>Set Active</p>
                         </div>

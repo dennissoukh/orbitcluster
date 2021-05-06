@@ -18,7 +18,7 @@ export const Callout: React.FC<CalloutProps> = ({
 }) => {
     return (
         <div className={styles}>
-            <span className="text-muted text-sm uppercase">{title}</span>
+            <span className="text-primary-200 text-sm uppercase">{title}</span>
             <div>
                 {link
                     ? (

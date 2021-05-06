@@ -1,14 +1,14 @@
 import { useEffect, useRef, useState } from "react";
+import { pagination } from "../types/pagination";
 
-export const usePaginationQuery = (url: string) => {
+export const usePaginationQuery = (url: string, metadata?: pagination, search: string = '') => {
     const isMounted = useRef(true);
     const [response, setResponse] = useState<any>({});
     const [error, setError] = useState(false);
     const [isLoading, setIsLoading] = useState(false);
     const [page, setPage] = useState(0);
-    const [search, setSearch] = useState('');
 
-    const fetchData = async (page: number) => {
+    const fetchData = async (page: number, search: string) => {
         try {
             const urlQuery = createUrl(url, page, search);
             const res = await fetch(urlQuery);
@@ -32,7 +32,7 @@ export const usePaginationQuery = (url: string) => {
     // Callback function to set and navigate to a page
     const navigatePage = (direction: number = 1) => {
         setPage(page + direction);
-        fetchData(page + direction);
+        fetchData(page + direction, search || '');
     }
 
     const createUrl = (model: string, page: number, query?: string) => {
@@ -40,20 +40,21 @@ export const usePaginationQuery = (url: string) => {
     }
 
     useEffect(() => {
-        if (isMounted.current) {
+        if (metadata && isMounted.current) {
+            setPage(metadata.page);
             setIsLoading(true);
-            fetchData(page);
+            fetchData(metadata.page, search);
         }
-
         return () => {
             isMounted.current = false;
         }
-    }, [url, page, fetchData]);
+    });
 
-    useEffect(() => {
-        setPage(0);
-        fetchData(0);
-    }, [search])
+    // useEffect(() => {
+    //     if (search && metadata && isMounted.current && !isLoading) {
+    //         fetchData(metadata.page, search);
+    //     }
+    // }, [search]);
 
     return {
         response,
@@ -63,6 +64,6 @@ export const usePaginationQuery = (url: string) => {
         page,
         navigatePage,
         search,
-        setSearch,
+        setSearch: () => { return; },
     };
 }

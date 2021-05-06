@@ -3,6 +3,7 @@ import { Clock, Globe, Scene, Viewer } from 'resium';
 import { satellite } from '../../../types/satellite';
 import CesiumContext from './CesiumContext';
 import CesiumController from './CesiumController';
+import CesiumControls from './CesiumControls';
 
 export let Controller: CesiumController;
 
@@ -19,7 +20,6 @@ export default class ViewerComponent extends Component<{ satellites: Array<satel
             this.context.setInstance(this.ref.current.cesiumElement);
 
             // Create a controller for the Cesium instance
-            console.log(this.props.satellites)
             Controller = new CesiumController(this.ref.current.cesiumElement, this.props.satellites);
 
             // Create a higher resolution skybox
@@ -69,7 +69,7 @@ export default class ViewerComponent extends Component<{ satellites: Array<satel
                         shouldAnimate={true}
                     />
                 </Viewer>
-                {/* <CesiumControls/> */}
+                <CesiumControls/>
             </>
         )
     }

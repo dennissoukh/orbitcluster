@@ -4,13 +4,12 @@
 @import "tailwindcss/utilities";
 
 input:checked + div {
-    @apply border-primary;
+    @apply border-primary-100;
 }
 
 input:checked + div svg {
     @apply block;
 }
-
 
 h1,
 h2,
@@ -22,66 +21,63 @@ p {
 
 :root {
     --font-size: 14px;
-
-    --transition-quick: 50ms;
-    --transition-fast: 150ms;
-    --transition-medium: 300ms;
-    --transition-long: 450ms;
-
-    --color-base: #FFC233;
-    --color-blue: #A7CEEF;
-    --color-red: #C9A3A4;
-    --color-lavender: #B8BBD3;
-    --color-white: white;
-    --color-light-gray: #F7F7F9;
-    --color-gray: #848484;
-    --color-dark-gray: #181818;
-    --color-dark-gray-2: #262626;
-    --color-black: #111111;
+    --color-primary-100: #DEE3EA;
+    --color-primary-200: #B2BDCD;
+    --color-primary-300: #5D7290;
+    --color-primary-600: #323D4D;
+    --color-primary-700: #242C37;
+    --color-primary-800: #151A21;
+    --color-primary-900: #0B0E11;
+    --color-secondary: #5575E7;
+    --color-secondary-washed-out: #879EED;
+    --color-accent: #FD4D4D;
+    --color-accent-hover: #FD6868;
+    --color-accent-disabled: #F5BFBF;
     --color-green: #2DCA72;
-    --color-red: #DC143C;
-
-    --color-bg-dark: var(--color-black);
-    --color-bg-light: var(--color-dark-gray);
-    --color-type-base: var(--color-light-gray);
-    --color-type-mute: var(--color-gray);
+    --color-white: #FFFFFF;
+    --gradient-color-1: #0039A6;
+    --gradient-color-2: #5575E7;
+    --gradient-color-3: #7038FF;
+    --gradient-color-4: #FFBA27;
 }
 
 * {
     scrollbar-width: thin;
-    scrollbar-color: var(--color-dark-gray) rgba(0, 0, 0, 0);
+    scrollbar-color: var(--color-primary-700) transparent;
 }
 
 html,
 body,
 #root {
-    background-color: var(--color-bg-dark);
-    color: var(--color-light-gray);
-    font-size: var(--font-size);
-    height: 100%;
-    width: 100%;
+  background-color: var(--color-primary-900);
+  color: var(--color-primary-100);
+  font-size: var(--font-size);
+  font-feature-settings: "pnum";
+  height: 100%;
+  width: 100%;
+  overflow-x: hidden;
 }
 
 h1 {
-    font-size: 2.5rem;
+  font-size: 2.5rem;
 }
 
 h2 {
-    font-size: 2.2rem;
+  font-size: 2.2rem;
 }
 
 h3 {
-    font-size: 2rem;
+  font-size: 2rem;
 }
 
 h4 {
-    font-size: 1.4rem;
+  font-size: 1.4rem;
 }
 
 ::-moz-selection {
-    background-color: rgb(179, 212, 252);
-    color: black;
-    text-shadow: none;
+  background-color: rgb(179, 212, 252);
+  color: black;
+  text-shadow: none;
 }
 
 ::selection {
@@ -91,22 +87,15 @@ h4 {
 }
 
 .cesium-viewer-animationContainer {
-    display: none;
+  display: none;
 }
 
 .cesium-viewer-bottom {
-    display: none;
+  display: none;
 }
 
 .cesium-viewer {
-    position: absolute;
-    left: 300px;
-    max-width: calc(100% - 300px);
-}
-
-@media only screen and (max-width: 1024px) {
-    .cesium-viewer {
-        left: 0;
-        max-width: 100%;
-    }
+  position: absolute;
+  left: 0;
+  right: 0;
 }

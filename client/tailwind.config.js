@@ -15,22 +15,34 @@ module.exports = {
             ],
             mono: [
                 'SF Mono',
-                'mono'
+                'Menlo',
+                'Monaco',
+                'Courier New',
+                'monospace'
             ]
         },
         colors: {
-            button: 'var(--color-base)',
             transparent: 'transparent',
-            primary: 'var(--color-black)',
-            secondary: 'var(--color-dark-gray)',
-            tertiary: 'var(--color-gray)',
-            'gray': 'var(--color-dark-gray-2)',
-            'light-gray': 'var(--color-light-gray)',
-            'muted': 'var(--color-type-mute)',
-            'white': 'var(--color-white)',
-            red: 'var(--color-red)',
+            primary: {
+                100: 'var(--color-primary-100)',
+                200: 'var(--color-primary-200)',
+                300: 'var(--color-primary-300)',
+                600: 'var(--color-primary-600)',
+                700: 'var(--color-primary-700)',
+                800: 'var(--color-primary-800)',
+                900: 'var(--color-primary-900)',
+            },
+            secondary: {
+                DEFAULT: 'var(--color-secondary)',
+                'washed-out': 'var(--color-secondary-washed-out)',
+            },
+            accent: {
+                DEFAULT: 'var(--color-accent)',
+                hover: 'var(--color-accent-hover)',
+                disabled: 'var(--color-accent-disabled)',
+            },
             green: 'var(--color-green)',
-            blue: 'var(--color-blue)',
+            white: 'var(--color-white)'
         },
         fontSize: {
             tiny: '0.625rem',
@@ -58,40 +70,22 @@ module.exports = {
             7: '60px',
             8: '75px',
             9: '80px',
+            '4l': '7rem',
             '5l': '10rem',
             'n1/2': '-50%',
             24: '24rem',
             400: '400px',
         },
-        borderWidth: {
-            DEFAULT: '1px',
-            0: '0px',
-            2: '2px',
-        },
         extend: {
-            borderRadius: {
-                5: '5px',
-                8: '8px',
-            },
             outline: {
                 'no-chrome': 'none'
             },
-            width: {
-                '30': '30px',
-                90: '90px',
-                '300': '300px',
-                '500': '500px',
-            },
             height: {
-                '30': '30px',
+                30: '30px',
+                70: '70px',
             },
-            minWidth: {
-                '300': '300px',
-                90: '90px',
-                '500': '500px',
-            },
-            left: {
-                300: '300px'
+            maxWidth: {
+                1470: '1470px'
             }
         },
         // screens: {

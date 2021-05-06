@@ -8,8 +8,8 @@ interface LaunchSitesListItemProps {
 
 export const LaunchSitesListItem: React.FC<LaunchSitesListItemProps> = ({ site }) => {
     return (
-        <div className="border border-solid border-secondary p-4 rounded-lg my-5 w-400">
-            <div>
+        <div className="flex items-center bg-primary-800 text-primary-200 text-sm p-4 my-5 rounded-lg w-400">
+            <div className="w-full">
                 <div style={{ height: '200px' }} className="flex items-center justify-center">
                     <div style={{
                         backgroundImage: `url(http://localhost:4000/public/maps/${site.site_code}.svg)`,

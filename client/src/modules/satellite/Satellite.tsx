@@ -53,10 +53,10 @@ export const Satellite: React.FC = () => {
         <>
             {data &&
                 <>
-                    {activeElement && !data.decay &&
+                    {!data.decay && activeElement &&
                         <OrbitMap tle={activeElement}/>
                     }
-                    <div className="px-4 md:px-7 pb-7">
+                    <div className="px-4 md:px-6 pb-5">
                         <h4 className="font-medium">{data.object_name}</h4>
 
                         {data.data && data.data.alternate_name &&
@@ -70,7 +70,7 @@ export const Satellite: React.FC = () => {
                                         <Link
                                             to={`/categories/${category}`}
                                             key={index}
-                                            className="uppercase py-1 px-3 mr-2 border border-solid border-gray rounded-full text-xs"
+                                            className="uppercase py-1 px-3 mr-2 border border-solid border-primary-700 rounded-full text-xs"
                                         >{category}</Link>
                                     )
                                 })}
@@ -82,13 +82,13 @@ export const Satellite: React.FC = () => {
                                 <Details satellite={data}/>
                             </div>
                             <div className="w-full overflow-hidden lg:w-1/2 px-4">
-                                {activeElement &&
+                                {!data.decay && activeElement &&
                                     <GeneralPerturbation tle={activeElement}/>
                                 }
-                                {orbitElements &&
+                                {!data.decay && orbitElements &&
                                     <TLE tles={orbitElements} setActiveTle={updateActiveElement}/>
                                 }
-                                {data.data?.radio && activeElement &&
+                                {!data.decay && data.data?.radio && activeElement &&
                                     <Radio radio={data.data.radio}/>
                                 }
                             </div>
