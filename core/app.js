@@ -54,6 +54,7 @@ const routes = [
     require('./src/routes/recent'),
     require('./src/routes/operators'),
     require('./src/routes/passes'),
+    require('./src/routes/orbit'),
 ];
 
 routes.forEach((route) => {

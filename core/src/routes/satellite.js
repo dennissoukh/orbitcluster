@@ -28,26 +28,6 @@ const routes = async (app) => {
                         },
                         data: {
                             type: 'array',
-                            // properties: {
-                            //     _id: { type: 'string' },
-                            //     intldes: { type: 'string' },
-                            //     norad_cat_id: { type: 'number' },
-                            //     object_type: { type: 'string' },
-                            //     satname: { type: 'string' },
-                            //     country: { type: 'string' },
-                            //     launch: { type: 'string' },
-                            //     site: { type: 'string' },
-                            //     decay: { type: 'string' },
-                            //     rcsvalue: { type: 'string' },
-                            //     rcs_size: { type: 'string' },
-                            //     launch_year: { type: 'number' },
-                            //     launch_num: { type: 'number' },
-                            //     launch_piece: { type: 'string' },
-                            //     current: { type: 'string' },
-                            //     object_name: { type: 'string' },
-                            //     object_id: { type: 'string' },
-                            //     object_number: { type: 'number' },
-                            // },
                         },
                     },
                 },
@@ -182,108 +162,6 @@ const routes = async (app) => {
                 $unwind: {
                     path: '$data',
                     preserveNullAndEmptyArrays: true,
-                },
-            },
-            {
-                $lookup: {
-                    from: 'general-perturbation',
-                    localField: 'norad_cat_id',
-                    foreignField: 'norad_cat_id',
-                    as: 'gp',
-                },
-            },
-            {
-                $unwind: {
-                    path: '$gp',
-                    preserveNullAndEmptyArrays: true,
-                },
-            },
-            {
-                $lookup: {
-                    from: 'tle-data',
-                    localField: 'norad_cat_id',
-                    foreignField: 'norad_cat_id',
-                    as: 'tles',
-                },
-            },
-        ]).toArray();
-
-        [data] = data;
-
-        reply.send({ data });
-    });
-
-    /**
-     * GET a satellite with a specified identifier(+ TLE's)
-     */
-    app.get('/orbit/:id', {
-        schema: {
-            response: {
-                200: {
-                    type: 'object',
-                    properties: {
-                        metadata: {
-                            type: 'object',
-                            properties: {
-                                page: { type: 'number' },
-                                limit: { type: 'number' },
-                                pages: { type: 'number' },
-                                count: { type: 'number' },
-                                skip: { type: 'number' },
-                                pageCount: { type: 'number' },
-                            },
-                        },
-                        data: {
-                            type: 'array',
-                            properties: {
-                                _id: { type: 'string' },
-                                intldes: { type: 'string' },
-                                norad_cat_id: { type: 'number' },
-                                object_type: { type: 'string' },
-                                satname: { type: 'string' },
-                                country: { type: 'string' },
-                                launch: { type: 'string' },
-                                site: { type: 'string' },
-                                decay: { type: 'string' },
-                                rcsvalue: { type: 'string' },
-                                rcs_size: { type: 'string' },
-                                launch_year: { type: 'number' },
-                                launch_num: { type: 'number' },
-                                launch_piece: { type: 'string' },
-                                current: { type: 'string' },
-                                object_name: { type: 'string' },
-                                object_id: { type: 'string' },
-                                object_number: { type: 'number' },
-                                tles: { type: 'array' },
-                            },
-                        },
-                    },
-                },
-            },
-        },
-    }, async (request, reply) => {
-        let id;
-
-        try {
-            id = ObjectId(request.params.id);
-        } catch (error) {
-            constructNotFoundError(reply);
-        }
-
-        const collection = app.mongo.db.collection('satcat');
-
-        let data = await collection.findOne(
-            { _id: id },
-        );
-
-        if (!data) {
-            constructNotFoundError(reply);
-        }
-
-        data = await collection.aggregate([
-            {
-                $match: {
-                    norad_cat_id: data.norad_cat_id,
                 },
             },
             {
