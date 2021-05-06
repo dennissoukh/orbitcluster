@@ -13,11 +13,11 @@ export const SatelliteListItem: React.FC<SatelliteListItemProps> = ({
 }) => {
     return (
         <div className="flex items-center mt-6 text-sm">
-            <div className={!satellite.decay
-                ? 'h-1.5 w-1.5 bg-green rounded-full'
-                : 'h-1.5 w-1.5 bg-primary-600 rounded-full'
-            }></div>
-            <div className="w-1/6 ml-3 w-md-full">
+            <div className="w-1/6 w-md-full flex items-center">
+                <div className={!satellite.decay
+                    ? 'h-1.5 w-1.5 bg-green rounded-full mr-2'
+                    : 'h-1.5 w-1.5 bg-primary-600 rounded-full mr-2'
+                }></div>
                 <Link to={`/satellites/${satellite._id}`}>
                     <p>{satellite.satname}</p>
                 </Link>
@@ -40,7 +40,7 @@ export const SatelliteListItem: React.FC<SatelliteListItemProps> = ({
                     <p>{satellite.country}</p>
                 </Link>
             </div>
-            <div className="w-1/12 flex justify-end">
+            <div className="flex flex-1 justify-end">
                 {!satellite.decay &&
                     <>
                         <div className="w-max border border-solid border-primary-600 rounded-lg p-2 mr-2">

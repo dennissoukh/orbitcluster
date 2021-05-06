@@ -19,7 +19,6 @@ export default class ViewerComponent extends Component<{ satellites: Array<satel
             this.context.setInstance(this.ref.current.cesiumElement);
 
             // Create a controller for the Cesium instance
-            console.log(this.props.satellites)
             Controller = new CesiumController(this.ref.current.cesiumElement, this.props.satellites);
 
             // Create a higher resolution skybox

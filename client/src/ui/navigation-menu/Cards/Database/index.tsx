@@ -54,7 +54,7 @@ const ProductsCard = forwardRef<HTMLElement>((props: any, productsRef) => (
                     <span className={styles.navTitle}>Objects of Interest</span>
                 </li>
                 <li className={styles.action}>
-                    <Link to={`/categories/brightest`}>
+                    <Link to={`/categories/visual`}>
                         <div className={styles.icons}>
                             {/* <IconSatellite/> */}
                         </div>

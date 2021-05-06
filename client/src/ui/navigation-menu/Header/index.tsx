@@ -60,7 +60,7 @@ const Header = () => {
     }
 
     return (
-        <header className="w-full h-70 flex justify-center items-center z-50 absolute top-0">
+        <header className="w-full h-70 flex justify-center items-center absolute top-0" style={{ zIndex: 1000 }}>
             <div
                 onMouseLeave={onMouseLeave}
                 className="w-1/3 h-full"

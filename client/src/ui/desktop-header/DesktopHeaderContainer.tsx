@@ -8,8 +8,8 @@ import Header from '../navigation-menu/Header';
 const DesktopHeaderContainer: React.FC = () => {
     return (
         <>
-            <div className="absolute w-full right-0 z-10 max-w-1470 left-1/2 transform -translate-x-1/2">
-                <div className="px-6 py-1 mx-4 ">
+            <div className="absolute w-full right-0 max-w-1470 left-1/2 transform -translate-x-1/2" style={{ zIndex: 1000 }}>
+                <div className="px-6 py-1">
                     <div className="flex items-center h-70">
                         <div>
                             <Link to="/">

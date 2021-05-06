@@ -16,7 +16,7 @@ const ApplicationLayout: React.FC = ({ children }) => {
                 ? <DesktopHeaderContainer/>
                 : <MobileHeaderContainer/>
             }
-            <div className="w-full pt-8 max-w-1470 ml-auto mr-auto">
+            <div className="w-full lg:pt-5l pt-5 max-w-1470 ml-auto mr-auto">
                 {children}
             </div>
         </div>
