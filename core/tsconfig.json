@@ -2,7 +2,9 @@
   "compilerOptions": {
     "target": "es2020",
     "module": "commonjs",
-    "lib": ["es2020"],
+    "lib": [
+      "es2020"
+    ],
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "removeComments": false,
@@ -14,7 +16,9 @@
     "outDir": "./src/build",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
-    "types": ["node"],
+    "types": [
+      "node"
+    ],
   },
   "include": [
     "./src/packages/Neuron/**/*",
