@@ -30,9 +30,9 @@ p {
     --color-primary-900: #0B0E11;
     --color-secondary: #5575E7;
     --color-secondary-washed-out: #879EED;
-    --color-accent: #fd4d4d;
-    --color-accent-hover: #fd6868;
-    --color-accent-disabled: #f5bfbf;
+    --color-accent: #FD4D4D;
+    --color-accent-hover: #FD6868;
+    --color-accent-disabled: #F5BFBF;
     --color-green: #2DCA72;
     --color-white: #FFFFFF;
     --gradient-color-1: #0039A6;
@@ -49,34 +49,35 @@ p {
 html,
 body,
 #root {
-    background-color: var(--color-primary-900);
-    color: var(--color-primary-100);
-    font-size: var(--font-size);
-    font-feature-settings: "pnum";
-    height: 100%;
-    width: 100%;
+  background-color: var(--color-primary-900);
+  color: var(--color-primary-100);
+  font-size: var(--font-size);
+  font-feature-settings: "pnum";
+  height: 100%;
+  width: 100%;
+  overflow-x: hidden;
 }
 
 h1 {
-    font-size: 2.5rem;
+  font-size: 2.5rem;
 }
 
 h2 {
-    font-size: 2.2rem;
+  font-size: 2.2rem;
 }
 
 h3 {
-    font-size: 2rem;
+  font-size: 2rem;
 }
 
 h4 {
-    font-size: 1.4rem;
+  font-size: 1.4rem;
 }
 
 ::-moz-selection {
-    background-color: rgb(179, 212, 252);
-    color: black;
-    text-shadow: none;
+  background-color: rgb(179, 212, 252);
+  color: black;
+  text-shadow: none;
 }
 
 ::selection {
@@ -86,22 +87,15 @@ h4 {
 }
 
 .cesium-viewer-animationContainer {
-    display: none;
+  display: none;
 }
 
 .cesium-viewer-bottom {
-    display: none;
+  display: none;
 }
 
 .cesium-viewer {
-    position: absolute;
-    left: 300px;
-    max-width: calc(100% - 300px);
-}
-
-@media only screen and (max-width: 1024px) {
-    .cesium-viewer {
-        left: 0;
-        max-width: 100%;
-    }
+  position: absolute;
+  left: 0;
+  right: 0;
 }
