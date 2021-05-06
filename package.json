@@ -1,0 +1,10 @@
+{
+  "name": "orbitcluster",
+  "license": "MIT",
+  "scripts": {
+    "serve": "concurrently \"npm --prefix ./client run start\" \"npm --prefix ./core run watch\""
+  },
+  "dependencies": {
+    "concurrently": "^6.0.2"
+  }
+}

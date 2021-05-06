@@ -18,7 +18,7 @@ const app = async () => {
  */
 const start = async (app) => {
     try {
-        await app.listen(process.env.PORT || 3000);
+        await app.listen(process.env.PORT || 4000);
         app.log.info(`server listening on ${app.server.address().port}, start time ${process.hrtime()}`);
     } catch (err) {
         app.log.error(err);

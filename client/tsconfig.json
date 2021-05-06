@@ -2,7 +2,7 @@
   "compilerOptions": {
     "sourceMap": true,
     "target": "es6",
-    "jsx": "preserve",
+    "jsx": "react-jsx",
     "moduleResolution": "node",
     "experimentalDecorators": true,
     "noEmitOnError": false,
@@ -16,7 +16,7 @@
     "types": [
       "@types/jest"
     ],
-    "module": "commonjs",
+    "module": "esnext",
     "esModuleInterop": true,
     "preserveSymlinks": true,
     "typeRoots": [
@@ -27,7 +27,9 @@
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
     "noEmit": true,
-    "isolatedModules": true
+    "isolatedModules": true,
+    "allowSyntheticDefaultImports": true,
+    "noFallthroughCasesInSwitch": true
   },
   "include": [
     "src"
@@ -35,5 +37,5 @@
   "exclude": [
     "node_modules",
     "vendor"
-  ],
+  ]
 }
