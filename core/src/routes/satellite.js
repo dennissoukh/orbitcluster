@@ -86,17 +86,6 @@ const routes = async (app) => {
                 200: {
                     type: 'object',
                     properties: {
-                        metadata: {
-                            type: 'object',
-                            properties: {
-                                page: { type: 'number' },
-                                limit: { type: 'number' },
-                                pages: { type: 'number' },
-                                count: { type: 'number' },
-                                skip: { type: 'number' },
-                                pageCount: { type: 'number' },
-                            },
-                        },
                         data: {
                             type: 'object',
                             properties: {
