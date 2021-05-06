@@ -1,7 +1,7 @@
 import React from 'react';
 import { useEffect } from 'react';
 import { timestampToReadableDayMonth, timestampToReadableTime } from '../../lib/date';
-import { convert, convertToDate, fromJulianDayAndMilliseconds } from '../../lib/julian';
+import { convertToDate } from '../../lib/julian';
 
 interface SatellitePassItemProps {
     pass: any,

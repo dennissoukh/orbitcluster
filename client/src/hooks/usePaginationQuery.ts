@@ -50,11 +50,11 @@ export const usePaginationQuery = (url: string, metadata?: pagination, search: s
         }
     });
 
-    // useEffect(() => {
-    //     if (search && metadata && isMounted.current && !isLoading) {
-    //         fetchData(metadata.page, search);
-    //     }
-    // }, [search]);
+    useEffect(() => {
+        if (search && metadata && isMounted.current && !isLoading) {
+            fetchData(0, search);
+        }
+    }, [search]);
 
     return {
         response,

@@ -30,7 +30,7 @@ export const Passes: React.FC = () => {
 
     return (
         <div className="px-4 md:px-6 py-5">
-            <div className="flex items-center bg-secondary text-sm border-gray border-solid border p-3 rounded-lg">
+            <div className="flex items-center bg-primary-800 text-primary-200 text-sm py-3 px-3 rounded-lg">
                 <div className="w-9 mx-5">
                     <span>Date</span>
                 </div>
@@ -95,7 +95,7 @@ export const Passes: React.FC = () => {
                         <SatellitePassItem pass={pass} key={index}/>
                     )
                 })}
-                {!passes &&
+                {!passes.length &&
                     <p>No available passes for this satellite</p>
                 }
             </div>

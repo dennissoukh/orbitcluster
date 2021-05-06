@@ -7,20 +7,19 @@ import CategoriesListItem from './CategoriesListItem';
 export const Categories: React.FC = () => {
     const [data, setData] = useState([]);
 
-    const metadata      = useCategoriesPageStore(state => state.metadata);
-    const setMetadata   = useCategoriesPageStore((state: any) => state.setMetadata);
-
     const {
         response,
         isLoading,
         navigatePage,
-    } = usePaginationQuery('categories', metadata);
+    } = usePaginationQuery('categories');
 
     useEffect(() => {
-        if (response && !isLoading) {
-            setData(response.data);
-            setMetadata(response.metadata);
+        const fetchData = async () => {
+            const res = await fetch('http://localhost:4000/v1/categories');
+            const data = await res.json();
+            setData(data.data);
         }
+        fetchData()
     });
 
     return (
@@ -41,11 +40,11 @@ export const Categories: React.FC = () => {
                         )
                     })}
                 </div>
-                {metadata &&
+                {/* {metadata &&
                     <div className="pt-6 pb-4 px-5">
                         <PaginationNavigator pagination={metadata} callback={navigatePage}/>
                     </div>
-                }
+                } */}
             </div>
         </div>
     )
