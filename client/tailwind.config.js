@@ -41,7 +41,8 @@ module.exports = {
                 hover: 'var(--color-accent-hover)',
                 disabled: 'var(--color-accent-disabled)',
             },
-            green: 'var(--color-green)'
+            green: 'var(--color-green)',
+            white: 'var(--color-white)'
         },
         fontSize: {
             tiny: '0.625rem',
@@ -74,35 +75,16 @@ module.exports = {
             24: '24rem',
             400: '400px',
         },
-        borderWidth: {
-            DEFAULT: '1px',
-            0: '0px',
-            2: '2px',
-        },
         extend: {
-            borderRadius: {
-                5: '5px',
-                8: '8px',
-            },
             outline: {
                 'no-chrome': 'none'
             },
-            width: {
-                '30': '30px',
-                90: '90px',
-                '300': '300px',
-                '500': '500px',
-            },
             height: {
-                '30': '30px',
+                30: '30px',
+                70: '70px',
             },
-            minWidth: {
-                '300': '300px',
-                90: '90px',
-                '500': '500px',
-            },
-            left: {
-                300: '300px'
+            maxWidth: {
+                1470: '1470px'
             }
         },
         // screens: {

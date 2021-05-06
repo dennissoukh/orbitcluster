@@ -8,9 +8,9 @@ import Header from '../navigation-menu/Header';
 const DesktopHeaderContainer: React.FC = () => {
     return (
         <>
-            <div className="absolute w-full left-0 right-0" style={{ maxWidth: '1470px', left: '50%', transform: 'translateX(-50%)' }}>
+            <div className="absolute w-full right-0 z-10 max-w-1470 left-1/2 transform -translate-x-1/2">
                 <div className="px-6 py-1 mx-4 ">
-                    <div className="flex items-center" style={{ height: '70px' }}>
+                    <div className="flex items-center h-70">
                         <div>
                             <Link to="/">
                                 <Logo size="25px"/>

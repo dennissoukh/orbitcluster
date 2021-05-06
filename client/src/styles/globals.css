@@ -34,6 +34,11 @@ p {
     --color-accent-hover: #fd6868;
     --color-accent-disabled: #f5bfbf;
     --color-green: #2DCA72;
+    --color-white: #FFFFFF;
+    --gradient-color-1: #0039A6;
+    --gradient-color-2: #5575E7;
+    --gradient-color-3: #7038FF;
+    --gradient-color-4: #FFBA27;
 }
 
 * {
@@ -99,10 +104,4 @@ h4 {
         left: 0;
         max-width: 100%;
     }
-}
-
-.page {
-  padding-top: 70px;
-  max-width: 1470px;
-  margin: 0 auto;
 }

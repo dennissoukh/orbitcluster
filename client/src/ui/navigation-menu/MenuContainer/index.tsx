@@ -1,8 +1,6 @@
 import { useRef, useLayoutEffect, useState, useEffect } from 'react';
 import { AnimatePresence, motion, useMotionValue } from 'framer-motion';
 
-import styles from './styles.module.sass';
-
 import DatabaseCard from '../Cards/Database';
 import VisualizationCard from '../Cards/Visualizations';
 import AboutCard from '../Cards/About';
@@ -58,7 +56,7 @@ const MenuContainer = ({ selectedNavOption, selectedNavOptionPosition }: MenuCon
     }, [selectedNavOption, containerWidth, containerHeight]);
 
     const cardProps = {
-        className: styles.card,
+        className: "absolute top-0 left-0",
         initial: { opacity: 0, x: isFirstInteraction ? 0 : -70 },
         animate: { opacity: 1, x: 0 },
         exit: { opacity: 0, x: isFirstInteraction ? 0 : -70 },
@@ -69,15 +67,15 @@ const MenuContainer = ({ selectedNavOption, selectedNavOptionPosition }: MenuCon
         <AnimatePresence exitBeforeEnter>
             {selectedNavOption !== null && (
                 <motion.div
-                    className={styles.menuWrapper}
-                    style={{ originX: 0.5, originY: 0, transformPerspective: 1000, height: window.innerHeight - 70 }}
+                    className="absolute flex justify-center left-0 right-0 bottom-0 w-full pointer-events-none z-10"
+                    style={{ originX: 0.5, originY: 0, transformPerspective: 1000, height: window.innerHeight - 70, top: 'calc(70px - 1px)' }}
                     initial={{ opacity: 0, rotateX: -13 }}
                     animate={{ opacity: 1, rotateX: 0 }}
                     exit={{ opacity: 0, rotateX: -13 }}
                     transition={{ duration: 0.15, ease: 'linear' }}
                 >
                     <motion.div
-                        className={styles.menuBody}
+                        className="z-10 pointer-events-auto"
                         style={{
                             width: containerWidth,
                             height: containerHeight,
@@ -85,11 +83,11 @@ const MenuContainer = ({ selectedNavOption, selectedNavOptionPosition }: MenuCon
                         }}
                     >
                         <div
-                            className={styles.arrow}
+                            className="absolute w-2 h-2 -m-1 transform rotate-45 bg-white rounded-tl transition"
                             style={{ left: selectedNavOptionPosition.x - 6 }}  /* [6 -> half of arrow width] */
                         />
 
-                        <div className={styles.menuContent}>
+                        <div className="relative w-full h-full rounded-xl overflow-hidden bg-white">
                             <AnimatePresence>
                                 {selectedNavOption === 'database' && (
                                     <motion.div {...cardProps}>

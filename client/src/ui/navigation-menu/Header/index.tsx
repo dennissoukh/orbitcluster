@@ -1,6 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
 
-import styles from './styles.module.sass';
 import MenuContainer from '../MenuContainer';
 
 type NavOption = 'database' | 'visualizations' | 'about';
@@ -61,17 +60,18 @@ const Header = () => {
     }
 
     return (
-        <header className={styles.header}>
+        <header className="w-full h-70 flex justify-center items-center z-50 absolute top-0">
             <div
                 onMouseLeave={onMouseLeave}
-                className={styles.navigationWrapper}
+                className="w-1/3 h-full"
             >
-                <nav className={styles.navigationItems}>
+                <nav className="flex flex-row content-around w-full h-full">
                     <button
                         onMouseEnter={() => onNavOptionHover('database')}
                         onClick={() => onNavOptionClicked('database')}
                         onFocus={() => onNavOptionHover('database')}
                         onTouchStart={() => onNavOptionClicked('database')}
+                        className="w-full h-full min-w-90 flex items-center justify-center border-none bg-transparent transition cursor-pointer font-semibold"
                     >
                         <p ref={database}>Database</p>
                     </button>
@@ -81,6 +81,7 @@ const Header = () => {
                         onClick={() => onNavOptionClicked('visualizations')}
                         onFocus={() => onNavOptionHover('visualizations')}
                         onTouchStart={() => onNavOptionClicked('visualizations')}
+                        className="w-full h-full min-w-90 flex items-center justify-center border-none bg-transparent transition cursor-pointer font-semibold"
                     >
                         <p ref={visualizations}>Visualizations</p>
                     </button>
@@ -90,11 +91,11 @@ const Header = () => {
                         onClick={() => onNavOptionClicked('about')}
                         onFocus={() => onNavOptionHover('about')}
                         onTouchStart={() => onNavOptionClicked('about')}
+                        className="w-full h-full min-w-90 flex items-center justify-center border-none bg-transparent transition cursor-pointer font-semibold"
                     >
                         <p ref={about}>About</p>
                     </button>
                 </nav>
-
                 <MenuContainer
                     selectedNavOption={selectedNavOption}
                     selectedNavOptionPosition={selectedNavOptionPosition}
