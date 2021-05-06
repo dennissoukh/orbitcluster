@@ -59,15 +59,14 @@ const DevelopersCard = forwardRef<HTMLElement>((props, developersRef) => (
                         <p className={styles.navItemBlurb}>Visualise satellite trajectories</p>
                     </div>
                 </li>
-                <li className={styles.action}>
+                {/* <li className={styles.action}>
                     <div className={styles.icons}>
-                        {/* <IconGrain/> */}
                     </div>
                     <div className={styles.navItem}>
                         <p className={styles.navItemTitle}>Star Map</p>
                         <p className={styles.navItemBlurb}>View a star map for a location</p>
                     </div>
-                </li>
+                </li> */}
             </ul>
         </div>
     </section>

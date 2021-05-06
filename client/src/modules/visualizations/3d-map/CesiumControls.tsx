@@ -29,8 +29,8 @@ export default class CesiumControls extends Component<{}, { [key: string]: any }
 
     componentDidMount() {
         this.viewer = this.context.viewer;
+        this.controller = Controller;
         if (this.viewer) {
-            this.controller = Controller;
             this.viewer.selectedEntityChanged.addEventListener((entity) => {
                 this.activeEntity = entity;
                 this.setState({name: this.activeEntity?._name});
