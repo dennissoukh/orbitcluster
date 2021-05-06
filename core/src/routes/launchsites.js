@@ -4,7 +4,32 @@ const {
 } = require('../helpers/route');
 
 const routes = async (app) => {
-    app.get('/launch-sites', {}, async (request, reply) => {
+    app.get('/launch-sites', {
+        schema: {
+            response: {
+                200: {
+                    type: 'object',
+                    description: 'Launch Site',
+                    properties: {
+                        metadata: {
+                            type: 'object',
+                            properties: {
+                                page: { type: 'number' },
+                                limit: { type: 'number' },
+                                pages: { type: 'number' },
+                                count: { type: 'number' },
+                                skip: { type: 'number' },
+                                pageCount: { type: 'number' },
+                            },
+                        },
+                        data: {
+                            type: 'array',
+                        },
+                    },
+                },
+            },
+        },
+    }, async (request, reply) => {
         const { page, limit, skip } = parsePagination(request);
 
         const collection = app.mongo.db.collection('launch-site');
@@ -18,7 +43,32 @@ const routes = async (app) => {
         reply.send({ metadata, data });
     });
 
-    app.get('/launch-sites/:id', {}, async (request, reply) => {
+    app.get('/launch-sites/:id', {
+        schema: {
+            response: {
+                200: {
+                    type: 'object',
+                    properties: {
+                        metadata: {
+                            type: 'object',
+                            properties: {
+                                page: { type: 'number' },
+                                limit: { type: 'number' },
+                                pages: { type: 'number' },
+                                count: { type: 'number' },
+                                skip: { type: 'number' },
+                                pageCount: { type: 'number' },
+                            },
+                        },
+                        data: {
+                            type: 'array',
+                        },
+                    },
+                },
+            },
+        },
+
+    }, async (request, reply) => {
         const { page, limit, skip } = parsePagination(request);
 
         const collection = app.mongo.db.collection('satcat');

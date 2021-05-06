@@ -4,7 +4,20 @@ const {
 } = require('../helpers/route');
 
 const routes = async (app, opts) => {
-    app.get('/categories', opts, async (request, reply) => {
+    app.get('/categories', {
+        schema: {
+            response: {
+              200: {
+                type: 'object',
+                properties: {
+                  data: {
+                      type: 'array',
+                    },
+                },
+            },
+        },
+    },
+    }, async (request, reply) => {
         // Get an instance of the application database
         const { db } = app.mongo;
 
@@ -18,7 +31,31 @@ const routes = async (app, opts) => {
     /**
      * GET a category with a specified cat_id
      */
-    app.get('/categories/:id', {}, async (request, reply) => {
+    app.get('/categories/:id', {
+        schema: {
+            response: {
+              200: {
+                type: 'object',
+                properties: {
+                  metadata: {
+                      type: 'object',
+                        properties: {
+                            page: { type: 'number' },
+                            limit: { type: 'number' },
+                            pages: { type: 'number' },
+                            count: { type: 'number' },
+                            skip: { type: 'number' },
+                            pageCount: { type: 'number' },
+                        }
+                    },
+                  data: {
+                      type: 'array',
+                  },
+                },
+              },
+            },
+        },
+    }, async (request, reply) => {
         const { page, limit, skip } = parsePagination(request);
 
         const collection = app.mongo.db.collection('satcat');
@@ -53,3 +90,4 @@ const routes = async (app, opts) => {
 };
 
 module.exports = routes;
+
