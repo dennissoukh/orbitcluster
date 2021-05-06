@@ -2,7 +2,8 @@
   "name": "orbitcluster",
   "license": "MIT",
   "scripts": {
-    "serve": "concurrently \"npm --prefix ./client run start\" \"npm --prefix ./core run watch\""
+    "serve": "concurrently \"yarn --cwd ./client run start\" \"yarn --cwd ./core run watch\"",
+    "install-packages": "concurrently \"yarn --cwd ./client install\" \"yarn --cwd ./core install\""
   },
   "dependencies": {
     "concurrently": "^6.0.2"
