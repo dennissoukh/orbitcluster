@@ -25,7 +25,7 @@ export const Loading: React.FC = () => {
                             </svg>
                         </div>
                         <div>
-                        <h1 className="text-lg md:text-5xl ml-5">Computing Simulation &amp; <br/> Object Trajectories</h1>
+                            <h1 className="text-lg md:text-5xl ml-5">Computing Simulation &amp; <br/> Object Trajectories</h1>
                         </div>
                     </div>
                 </div>

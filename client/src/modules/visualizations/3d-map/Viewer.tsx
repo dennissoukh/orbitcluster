@@ -3,6 +3,7 @@ import { Clock, Globe, Scene, Viewer } from 'resium';
 import { satellite } from '../../../types/satellite';
 import CesiumContext from './CesiumContext';
 import CesiumController from './CesiumController';
+import CesiumControls from './CesiumControls';
 
 export let Controller: CesiumController;
 
@@ -68,7 +69,7 @@ export default class ViewerComponent extends Component<{ satellites: Array<satel
                         shouldAnimate={true}
                     />
                 </Viewer>
-                {/* <CesiumControls/> */}
+                <CesiumControls/>
             </>
         )
     }

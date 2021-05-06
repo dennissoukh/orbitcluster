@@ -7,7 +7,6 @@ import { Loading } from '../../../components/Loading';
 interface MapperState {
     satellites: Array<satellite>
 }
-
 export class Mapper extends Component<{ location: any }, MapperState> {
     constructor(props: any) {
         super(props);

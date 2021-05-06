@@ -3,6 +3,7 @@ import { JulianDate, Viewer } from 'cesium';
 import CesiumController from './CesiumController';
 import CesiumContext from './CesiumContext';
 import { Controller } from './Viewer';
+import { timestampToReadableTime } from '../../../lib/date';
 
 export default class CesiumControls extends Component<{}, { [key: string]: any }> {
     controller:     CesiumController | undefined;
@@ -34,8 +35,8 @@ export default class CesiumControls extends Component<{}, { [key: string]: any }
                 this.activeEntity = entity;
                 this.setState({name: this.activeEntity?._name});
             });
-            this.timeInterval = setInterval(() => this.setState({ time: this.getCesiumTime() }), 1000);
         }
+        this.timeInterval = setInterval(() => this.setState({ time: this.getCesiumTime() }), 1000);
     }
 
     componentWillUnmount() {
@@ -53,30 +54,25 @@ export default class CesiumControls extends Component<{}, { [key: string]: any }
     }
 
     getCesiumTime() {
-        const zeroPad = (num: number, places: number) => String(num).padStart(places, '0');
         let date: any = '00:00:00';
 
-        if (this.viewer?.clock.currentTime) {
-            date = JulianDate.toGregorianDate(this.viewer.clock.currentTime);
-        }
+        date = timestampToReadableTime(new Date());
 
-        return `${zeroPad(date.hour, 2)}:${zeroPad(date.minute, 2)}:${zeroPad(date.second, 2)}`;
+        return date;
     }
 
     render() {
         return (
-            <div className="controls">
-                <div className="left">
+            <div className="absolute bottom-0 left-0 right-0 bg-primary-900 bg-opacity-80 flex py-4">
+                <div className="max-w-1470 ml-auto mr-auto flex w-full">
                     <div>
-                        <span className="small">REFERENCE FRAME</span>
-                        <p className="large" onClick={this.changeReferenceFrame}>{this.state.referenceFrame}</p>
+                        <span className="text-sm uppercase text-primary-200">Reference Frame</span>
+                        <div>
+                            <button onClick={this.changeReferenceFrame} className="text-lg">{this.state.referenceFrame}</button>
+                        </div>
                     </div>
-                    {/* <div>
-                        <span className="small">SHOW PREVIOUS ORBIT</span>
-                        <p className="large">Yes</p>
-                    </div> */}
-                    <div>
-                        <span className="small">ANIMATION TIME</span>
+                    <div className="ml-6">
+                        <span className="text-sm uppercase text-primary-200">Animation Time</span>
                         <p className="large">{this.state.time}</p>
                     </div>
                     {/* <div>
@@ -95,12 +91,12 @@ export default class CesiumControls extends Component<{}, { [key: string]: any }
                         <span className="small">INCLINATION</span>
                         <p className="large">N/A</p>
                     </div> */}
-                </div>
-                <div className="right">
-                    <div>
-                        <span className="small">TARGET</span>
-                        <p className="large">{this.state.name ? this.state.name : 'N/A'}</p>
-                    </div>
+                    {/* <div className="right">
+                        <div>
+                            <span className="small">TARGET</span>
+                            <p className="large">{this.state.name ? this.state.name : 'N/A'}</p>
+                        </div>
+                    </div> */}
                 </div>
             </div>
         )
