@@ -3,20 +3,20 @@ const {
     generateBasePaginationMetadata,
 } = require('../helpers/route');
 
-const routes = async (app, opts) => {
+const routes = async (app) => {
     app.get('/categories', {
         schema: {
             response: {
-              200: {
-                type: 'object',
-                properties: {
-                  data: {
-                      type: 'array',
+                200: {
+                    type: 'object',
+                    properties: {
+                        data: {
+                            type: 'array',
+                        },
                     },
                 },
             },
         },
-    },
     }, async (request, reply) => {
         // Get an instance of the application database
         const { db } = app.mongo;
@@ -34,25 +34,25 @@ const routes = async (app, opts) => {
     app.get('/categories/:id', {
         schema: {
             response: {
-              200: {
-                type: 'object',
-                properties: {
-                  metadata: {
-                      type: 'object',
-                        properties: {
-                            page: { type: 'number' },
-                            limit: { type: 'number' },
-                            pages: { type: 'number' },
-                            count: { type: 'number' },
-                            skip: { type: 'number' },
-                            pageCount: { type: 'number' },
-                        }
+                200: {
+                    type: 'object',
+                    properties: {
+                        metadata: {
+                            type: 'object',
+                            properties: {
+                                page: { type: 'number' },
+                                limit: { type: 'number' },
+                                pages: { type: 'number' },
+                                count: { type: 'number' },
+                                skip: { type: 'number' },
+                                pageCount: { type: 'number' },
+                            },
+                        },
+                        data: {
+                            type: 'array',
+                        },
                     },
-                  data: {
-                      type: 'array',
-                  },
                 },
-              },
             },
         },
     }, async (request, reply) => {
@@ -90,4 +90,3 @@ const routes = async (app, opts) => {
 };
 
 module.exports = routes;
-

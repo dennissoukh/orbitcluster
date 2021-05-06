@@ -51,7 +51,7 @@ const routes = [
     require('./src/routes/satellite'),
     require('./src/routes/satCategories'),
     require('./src/routes/launchsites'),
-    require('./src/routes/recent'),
+    require('./src/routes/Recent'),
     require('./src/routes/operators'),
     require('./src/routes/passes'),
     require('./src/routes/orbit'),

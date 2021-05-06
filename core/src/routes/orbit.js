@@ -57,6 +57,6 @@ const routes = async (app) => {
 
         reply.send({ data });
     });
-}
+};
 
 module.exports = routes;
