@@ -51,10 +51,10 @@ export class ManifestLoader {
          * TODO: Make folder location dynamic
          */
         if (commandPath.startsWith('commands/')) {
-            commandPath = `./${commandPath}`
+            commandPath = `./${commandPath}.js`
         }
 
-        const srcPath = `${this.basePath}\\src`;
+        const srcPath = `${this.basePath}/src`;
 
         try {
             const path = resolveFrom(srcPath, commandPath);

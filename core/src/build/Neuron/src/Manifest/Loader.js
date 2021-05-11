@@ -59,9 +59,9 @@ class ManifestLoader {
              * TODO: Make folder location dynamic
              */
             if (commandPath.startsWith('commands/')) {
-                commandPath = `./${commandPath}`;
+                commandPath = `./${commandPath}.js`;
             }
-            const srcPath = `${this.basePath}\\src`;
+            const srcPath = `${this.basePath}/src`;
             try {
                 const path = Cosmic_1.resolveFrom(srcPath, commandPath);
                 return require(path);
