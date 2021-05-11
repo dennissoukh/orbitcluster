@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   version="1.1"
+   width="990.79999"
+   height="500.49994"
+   viewBox="-29668 -14192 9907.9999 5004.9995"
+   id="svg12"
+   sodipodi:docname="PMRF.svg"
+   inkscape:version="0.92.4 (5da689c313, 2019-01-14)">
+  <metadata
+     id="metadata18">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs16" />
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="958"
+     inkscape:window-height="1008"
+     id="namedview14"
+     showgrid="false"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0"
+     inkscape:zoom="1.1348673"
+     inkscape:cx="533.66164"
+     inkscape:cy="238.95555"
+     inkscape:window-x="953"
+     inkscape:window-y="0"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="svg12" />
+  <g
+     clip-path="url(#state_clip_path)"
+     id="g8"
+     style="fill:none;stroke:#cccccc;stroke-width:10px;stroke-linejoin:round"
+     transform="translate(4.999981,4.9998664)">
+    <use
+       xlink:href="#state_outline"
+       id="use2"
+       style="fill:#ffffff;stroke-width:396"
+       x="0"
+       y="0"
+       width="100%"
+       height="100%" />
+    <g
+       id="Kauai">
+      <path
+         id="6008"
+         d="m -24207,-13322 75,-10 107,-117 80,-5 46,-30 5,5 40,26 40,-5 127,-55 75,-56 71,-15 46,-67 156,-4 182,-152 136,-40 91,-92 86,-92 122,-81 176,-14 81,-66 125,93 60,97 50,42 80,67 115,36 116,6 41,-56 v -51 l -30,-11 21,-87 35,-10 91,-55 136,6 60,46 45,16 217,-25 70,57 h 35 l 30,-20 46,-51 35,5 121,-4 51,-77 75,52 5,41 h 35 l 25,31 40,-20 30,21 -25,51 146,11 35,36 40,31 60,-36 81,37 170,134 v 72 l 55,-10 100,67 85,129 -45,25 60,87 -11,41 30,67 -16,108 20,10 91,-15 30,46 29,175 -40,71 30,36 -21,82 -91,92 -5,25 -11,118 -153,286 15,41 -41,107 -90,5 -61,20 v 21 l 25,143 -22,231 29,184 -75,25 24,57 101,-46 11,11 -36,71 -16,46 25,139 -26,158 -26,16 -34,-52 -81,15 -25,-62 -30,5 -21,67 -10,15 -35,-20 -20,5 -41,56 25,36 66,5 30,-30 25,31 -35,30 9,36 15,21 -55,10 -30,25 4,36 -110,30 -36,72 -121,40 -11,72 -55,10 -21,25 30,72 -35,10 -75,-21 -36,5 -40,82 -46,5 -25,61 -71,5 -31,66 -80,20 -36,46 h -45 l -41,26 -20,66 -35,10 -50,-62 -126,-52 -136,-41 -40,-36 -40,-26 -101,30 -60,-52 -70,-26 -96,-5 -71,76 -146,-52 -45,36 -231,-109 -96,4 -20,-36 -30,5 -91,-31 6,-41 -61,-16 -15,10 -25,26 -21,82 -61,10 -19,-41 -80,-98 -66,-1 -75,-128 -80,-47 v -36 l -40,-15 -10,-36 -35,5 -20,-26 -19,-128 -46,-11 -85,-26 -55,-98 -40,-25 -126,-27 -131,10 -166,-37 -100,-124 -55,-21 -236,-42 -80,-88 -270,-350 -60,-77 -54,-160 76,-117 27,-185 31,-97 106,-56 66,-81 157,-112 91,-82 20,-51 26,-61 11,-103 61,-184 z"
+         inkscape:connector-curvature="0" />
+      <path
+         id="6009"
+         d="m -27998,-11973 20,-15 16,-21 20,5 v 31 l -21,36 -35,41 -26,5 -30,-21 -4,-41 15,-46 z"
+         inkscape:connector-curvature="0" />
+      <path
+         id="6010"
+         d="m -27944,-11752 15,61 80,16 101,-76 45,46 95,134 -10,46 19,41 -10,46 -46,36 -45,-21 -40,30 -47,154 -81,61 -16,77 5,107 -26,67 -6,128 30,108 40,26 34,92 -81,92 -121,45 -26,41 -45,-10 -61,92 -86,-27 -131,31 -40,-31 -25,40 -81,15 -126,15 -132,148 -1,92 -66,92 -86,66 -113,179 -35,82 34,112 -26,52 -96,66 44,118 -81,66 -9,-51 -51,-1 -55,-21 -10,-56 -60,-31 h -60 l -80,-139 -95,-47 10,-51 10,-5 -80,-42 6,-97 31,-117 -24,-93 20,-66 87,-92 76,-123 11,-112 21,-51 31,-103 76,-30 101,-148 209,-209 136,-20 116,-45 25,-41 6,-15 -36,-26 106,-5 121,-40 218,-173 77,-112 11,-123 36,-123 46,-46 80,-5 66,-76 z"
+         inkscape:connector-curvature="0" />
+    </g>
+  </g>
+  <use
+     xlink:href="#Kauai"
+     id="use10"
+     style="fill:#ccc;stroke:#fff;stroke-width:10px"
+     x="0"
+     y="0"
+     width="100%"
+     height="100%"
+     transform="translate(4.999981,4.9998664)" />
+  <g
+     id="layer1"
+     inkscape:label="Vrstva 1"
+     transform="matrix(2.9507165,0,0,2.8802238,-25076.532,-12182.322)">
+    <circle
+       transform="matrix(0.994318,0,0,0.994318,-275.5681,-427.0646)"
+       id="path1306"
+       style="fill:#ff1414;fill-opacity:0.78448277;stroke-width:10.19400024;stroke-miterlimit:4;stroke-dasharray:none"
+       cx="340"
+       cy="492.36218"
+       r="62.857143" />
+  </g>
+</svg>
