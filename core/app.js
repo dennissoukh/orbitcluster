@@ -86,9 +86,9 @@ app.register(builder);
 | ready app is returned in the form of a promise.
 |
 */
-app.ready(() => {
-    app.swagger();
-});
+// app.ready(() => {
+//     app.swagger();
+// });
 
 async function ready() {
     return app.ready();
