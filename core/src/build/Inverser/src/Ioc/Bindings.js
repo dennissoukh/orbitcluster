@@ -29,13 +29,14 @@ class Bindings {
      * Resolve a binding. An exception is raised, if the binding is missing
      */
     resolve(binding) {
+        var _a;
         const bindingNode = this.list.get(binding);
         if (!bindingNode) {
             throw new Error('Lookup Failed');
         }
         let resolvedValue;
         if (bindingNode.singleton) {
-            bindingNode.cachedValue = bindingNode.cachedValue ?? bindingNode.callback(this.container);
+            bindingNode.cachedValue = (_a = bindingNode.cachedValue) !== null && _a !== void 0 ? _a : bindingNode.callback(this.container);
             resolvedValue = bindingNode.cachedValue;
         }
         else {

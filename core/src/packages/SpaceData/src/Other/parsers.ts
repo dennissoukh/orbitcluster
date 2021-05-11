@@ -1,4 +1,4 @@
-import parseTLEFile from "../helpers/parseTleFile";
+import parseTLEFile from "../helpers/parseTLEFile";
 import { Mcnames, Satlist } from "./contracts";
 
 /**

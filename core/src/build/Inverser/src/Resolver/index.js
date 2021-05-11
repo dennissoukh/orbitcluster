@@ -1,4 +1,13 @@
 "use strict";
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.IocResolver = void 0;
 /**
@@ -70,16 +79,18 @@ class IocResolver {
             method = tokens.pop();
         }
         const lookupNode = this.container.lookupOrFail(tokens.join('.'), prefixNamespace);
-        this.lookupCache[cacheKey] = { ...lookupNode, method };
+        this.lookupCache[cacheKey] = Object.assign(Object.assign({}, lookupNode), { method });
         return this.lookupCache[cacheKey];
     }
     /**
      * Calls the namespace.method expression with any arguments that needs to
      * be passed. Also supports type-hinting dependencies.
      */
-    async call(namespace, prefixNamespace, args) {
-        const lookupNode = typeof namespace === 'string' ? this.resolve(namespace, prefixNamespace) : namespace;
-        return this.container.callAsync(await this.container.makeAsync(lookupNode.namespace), lookupNode.method, args);
+    call(namespace, prefixNamespace, args) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const lookupNode = typeof namespace === 'string' ? this.resolve(namespace, prefixNamespace) : namespace;
+            return this.container.callAsync(yield this.container.makeAsync(lookupNode.namespace), lookupNode.method, args);
+        });
     }
 }
 exports.IocResolver = IocResolver;
