@@ -1,7 +1,7 @@
 const prod = {
     url: {
-        API_URL: 'http://www.api.orbitcluster.com/v1',
-        API_ASSETS_URL: 'http://www.api.orbitcluster.com/public',
+        API_URL: 'https://www.api.orbitcluster.com/v1',
+        API_ASSETS_URL: 'https://www.api.orbitcluster.com/public',
         APP_URL: 'https://www.orbitcluster.com'
     }
 }
