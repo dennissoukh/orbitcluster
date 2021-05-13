@@ -3,7 +3,7 @@ import { satellite } from '../../../types/satellite';
 import CesiumContext, { state } from './CesiumContext';
 import Viewer from './Viewer';
 import { Loading } from '../../../components/Loading';
-import { config } from '../../../../app.config';
+import { config } from '../../../app.config';
 
 interface MapperState {
     satellites: Array<satellite>

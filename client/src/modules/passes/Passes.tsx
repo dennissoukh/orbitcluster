@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom";
-import { config } from "../../../app.config";
+import { config } from "../../app.config";
 import { SatellitePassItem } from "./SatellitePassItem";
 
 export const Passes: React.FC = () => {

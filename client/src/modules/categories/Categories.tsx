@@ -3,7 +3,7 @@ import { useCategoriesPageStore } from '../../global-stores/useCategoriesPageSto
 import { usePaginationQuery } from '../../hooks/usePaginationQuery';
 import PaginationNavigator from '../../ui/pagination/Navigator';
 import CategoriesListItem from './CategoriesListItem';
-import { config } from '../../../app.config';
+import { config } from '../../app.config';
 
 export const Categories: React.FC = () => {
     const [data, setData] = useState([]);

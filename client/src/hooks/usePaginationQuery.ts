@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { pagination } from "../types/pagination";
-import { config } from '../../app.config';
+import { config } from '../app.config';
 
 export const usePaginationQuery = (url: string, metadata?: pagination, search: string = '') => {
     const isMounted = useRef(true);

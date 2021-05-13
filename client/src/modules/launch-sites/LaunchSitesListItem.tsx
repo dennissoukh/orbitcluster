@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { launchSite } from '../../types/other';
-import { config } from '../../../app.config';
+import { config } from '../../app.config';
 
 interface LaunchSitesListItemProps {
     site: launchSite,

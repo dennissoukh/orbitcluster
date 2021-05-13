@@ -11,7 +11,7 @@ import {
 } from 'cesium';
 import { CesiumEntityWrapper } from './CesiumEntityWrapper';
 import { SatelliteProperties } from './SatelliteProperties';
-import { config } from '../../../../app.config';
+import { config } from '../../../app.config';
 
 interface Satellite {
     name: string;

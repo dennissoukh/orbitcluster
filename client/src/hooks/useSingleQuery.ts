@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { config } from '../../app.config';
+import { config } from '../app.config';
 
 export const useSingleQuery = (model: string, id: string) => {
     const isMounted = useRef(true);
