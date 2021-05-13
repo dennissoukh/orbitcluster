@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { launchSite } from '../../types/other';
+import { config } from '../../../app.config';
 
 interface LaunchSitesListItemProps {
     site: launchSite,
@@ -12,7 +13,7 @@ export const LaunchSitesListItem: React.FC<LaunchSitesListItemProps> = ({ site }
             <div className="w-full">
                 <div style={{ height: '200px' }} className="flex items-center justify-center">
                     <div style={{
-                        backgroundImage: `url(http://localhost:4000/public/maps/${site.site_code}.svg)`,
+                        backgroundImage: `url(${config.url.API_ASSETS_URL}/maps/${site.site_code}.svg)`,
                         backgroundRepeat: 'no-repeat',
                         backgroundSize: 'contain',
                         backgroundPosition: 'center',

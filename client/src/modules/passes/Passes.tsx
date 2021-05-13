@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom";
+import { config } from "../../../app.config";
 import { SatellitePassItem } from "./SatellitePassItem";
 
 export const Passes: React.FC = () => {
@@ -8,7 +9,7 @@ export const Passes: React.FC = () => {
 
     useEffect(() => {
         const getPasses = async () => {
-            const url = `http://localhost:4000/v1/passes/${id}`;
+            const url = `${config.url.API_URL}/passes/${id}`;
             const res = await fetch(url, {
                 method: 'POST',
                 // headers: {

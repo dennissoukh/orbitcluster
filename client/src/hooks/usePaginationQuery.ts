@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { pagination } from "../types/pagination";
+import { config } from '../../app.config';
 
 export const usePaginationQuery = (url: string, metadata?: pagination, search: string = '') => {
     const isMounted = useRef(true);
@@ -36,7 +37,7 @@ export const usePaginationQuery = (url: string, metadata?: pagination, search: s
     }
 
     const createUrl = (model: string, page: number, query?: string) => {
-        return `http://localhost:4000/v1/${model}?page=${page}${query ? `&search=${query}` : ''}`;
+        return `${config.url.API_URL}/${model}?page=${page}${query ? `&search=${query}` : ''}`;
     }
 
     useEffect(() => {

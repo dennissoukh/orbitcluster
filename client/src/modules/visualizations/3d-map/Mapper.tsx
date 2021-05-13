@@ -3,6 +3,7 @@ import { satellite } from '../../../types/satellite';
 import CesiumContext, { state } from './CesiumContext';
 import Viewer from './Viewer';
 import { Loading } from '../../../components/Loading';
+import { config } from '../../../../app.config';
 
 interface MapperState {
     satellites: Array<satellite>
@@ -17,7 +18,7 @@ export class Mapper extends Component<{ location: any }, MapperState> {
 
     componentDidMount() {
         if (this.props.location.search) {
-            fetch(`http://localhost:4000/v1/orbit${this.props.location.search}`)
+            fetch(`${config.url.API_URL}/orbit${this.props.location.search}`)
                 .then((res) => res.json())
                 .then((data) => {
                     const exists = (el: any) => el._id === data.data._id;

@@ -1,4 +1,5 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react';
+import { config } from '../../app.config';
 
 export const useSingleQuery = (model: string, id: string) => {
     const isMounted = useRef(true);
@@ -8,7 +9,7 @@ export const useSingleQuery = (model: string, id: string) => {
 
     const fetchData = async () => {
         try {
-            const url = `http://localhost:4000/v1/${model}/${id}`;
+            const url = `${config.url.API_URL}/${model}/${id}`;
             const res = await fetch(url);
             const data = await res.json();
             setIsLoading(false);

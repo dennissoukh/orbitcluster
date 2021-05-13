@@ -29,23 +29,23 @@ const MobileHeaderContainer: React.FC = () => {
 
     return (
         <>
-            <div className="px-4 md:px-6 pt-5 flex justify-between">
+            <div className="px-4 md:px-6 pt-5 flex justify-between absolute w-full z-10">
                 <div>
                     <Link to="/">
                         <Logo size="30px"/>
                     </Link>
                 </div>
                 <div>
-                    <div className="px-2 py-1 bg-secondary bg-opacity-50 rounded-full cursor-pointer" onClick={() => setActive(!active)}>
+                    <div className="px-3 py-1 bg-primary-800 bg-opacity-50 rounded-full cursor-pointer" onClick={() => setActive(!active)}>
                         <VscMenu size="20px"/>
                     </div>
                 </div>
             </div>
             {active &&
-                <div className="absolute top-1 left-0 right-0 p-5 bg-white m-3 rounded-lg text-primary shadow-lg">
+                <div className="absolute top-0 left-0 right-0 p-5 bg-white m-3 rounded-lg text-primary-900 shadow-lg z-20">
                     <div className="flex justify-between">
                         <div>
-                            <span className="text-muted font-semibold text-sm uppercase">Application</span>
+                            <span className="text-primary-300 font-semibold text-sm uppercase">Application</span>
                         </div>
                         <div className="cursor-pointer">
                             <VscChromeClose size="20px" onClick={() => setActive(!active)}/>
@@ -80,7 +80,7 @@ const MobileHeaderContainer: React.FC = () => {
                         </div>
                         <div className="mt-6">
                             <div>
-                                <span className="text-muted font-semibold text-sm uppercase">Satellites</span>
+                                <span className="text-primary-300 font-semibold text-sm uppercase">Satellites</span>
                             </div>
                             <div className="mt-4">
                                 <div className="flex">
@@ -141,7 +141,7 @@ const MobileHeaderContainer: React.FC = () => {
                         </div>
                         <div className="mt-6">
                             <div>
-                                <span className="text-muted font-semibold text-sm uppercase">Tools</span>
+                                <span className="text-primary-300 font-semibold text-sm uppercase">Tools</span>
                             </div>
                             <div className="mt-3">
                                 <div className="flex">

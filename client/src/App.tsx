@@ -13,7 +13,7 @@ import LaunchSite from './pages/LaunchSite';
 import Categories from './pages/Categories';
 import Category from './pages/Category';
 import Passes from './pages/Passes';
-import { Welcome } from './modules/welcome/Welcome';
+import { Welcome } from './pages/Welcome';
 
 const App: React.FC = () => {
     return (

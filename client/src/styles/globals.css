@@ -4,11 +4,11 @@
 @import "tailwindcss/utilities";
 
 input:checked + div {
-    @apply border-primary-100;
+  @apply border-primary-100;
 }
 
 input:checked + div svg {
-    @apply block;
+  @apply block;
 }
 
 h1,
@@ -16,34 +16,38 @@ h2,
 h3,
 h4,
 p {
-    line-height: 1.6;
+  line-height: 1.6;
 }
 
 :root {
-    --font-size: 14px;
-    --color-primary-100: #DEE3EA;
-    --color-primary-200: #B2BDCD;
-    --color-primary-300: #5D7290;
-    --color-primary-600: #323D4D;
-    --color-primary-700: #242C37;
-    --color-primary-800: #151A21;
-    --color-primary-900: #0B0E11;
-    --color-secondary: #5575E7;
-    --color-secondary-washed-out: #879EED;
-    --color-accent: #FD4D4D;
-    --color-accent-hover: #FD6868;
-    --color-accent-disabled: #F5BFBF;
-    --color-green: #2DCA72;
-    --color-white: #FFFFFF;
-    --gradient-color-1: #0039A6;
-    --gradient-color-2: #5575E7;
-    --gradient-color-3: #7038FF;
-    --gradient-color-4: #FFBA27;
+  --font-size: 14px;
+  --color-primary-100: #DEE3EA;
+  --color-primary-200: #B2BDCD;
+  --color-primary-300: #5D7290;
+  --color-primary-600: #323D4D;
+  --color-primary-700: #242C37;
+  --color-primary-800: #151A21;
+  --color-primary-900: #0B0E11;
+  --color-secondary: #5575E7;
+  --color-secondary-washed-out: #879EED;
+  --color-accent: #FD4D4D;
+  --color-accent-hover: #FD6868;
+  --color-accent-disabled: #F5BFBF;
+  --color-green: #2DCA72;
+  --color-white: #FFFFFF;
+  --gradient-color-1: #0039A6;
+  --gradient-color-2: #5575E7;
+  --gradient-color-3: #7038FF;
+  --gradient-color-4: #FFBA27;
+  /* --gradient-color-1: #6EC3F4;
+  --gradient-color-2: #3A3AFF;
+  --gradient-color-3: #FF61AB;
+  --gradient-color-4: #E63946; */
 }
 
 * {
-    scrollbar-width: thin;
-    scrollbar-color: var(--color-primary-700) transparent;
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-primary-700) transparent;
 }
 
 html,

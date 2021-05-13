@@ -60,7 +60,7 @@ const Header = () => {
     }
 
     return (
-        <header className="w-full h-70 flex justify-center items-center absolute top-0" style={{ zIndex: 1000 }}>
+        <header className="w-full h-70 flex justify-center items-center">
             <div
                 onMouseLeave={onMouseLeave}
                 className="w-1/3 h-full"
@@ -72,6 +72,7 @@ const Header = () => {
                         onFocus={() => onNavOptionHover('database')}
                         onTouchStart={() => onNavOptionClicked('database')}
                         className="w-full h-full min-w-90 flex items-center justify-center border-none bg-transparent transition cursor-pointer font-semibold"
+                        style={{ zIndex: 10000 }}
                     >
                         <p ref={database}>Database</p>
                     </button>
@@ -82,6 +83,7 @@ const Header = () => {
                         onFocus={() => onNavOptionHover('visualizations')}
                         onTouchStart={() => onNavOptionClicked('visualizations')}
                         className="w-full h-full min-w-90 flex items-center justify-center border-none bg-transparent transition cursor-pointer font-semibold"
+                        style={{ zIndex: 10000 }}
                     >
                         <p ref={visualizations}>Visualizations</p>
                     </button>
@@ -92,6 +94,7 @@ const Header = () => {
                         onFocus={() => onNavOptionHover('about')}
                         onTouchStart={() => onNavOptionClicked('about')}
                         className="w-full h-full min-w-90 flex items-center justify-center border-none bg-transparent transition cursor-pointer font-semibold"
+                        style={{ zIndex: 10000 }}
                     >
                         <p ref={about}>About</p>
                     </button>

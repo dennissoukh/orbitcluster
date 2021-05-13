@@ -11,6 +11,7 @@ import {
 } from 'cesium';
 import { CesiumEntityWrapper } from './CesiumEntityWrapper';
 import { SatelliteProperties } from './SatelliteProperties';
+import { config } from '../../../../app.config';
 
 interface Satellite {
     name: string;
@@ -100,7 +101,7 @@ export class SatelliteEntityWrapper extends CesiumEntityWrapper {
 
     createBillboard() {
         const billboard = new BillboardGraphics({
-            image: 'http://localhost:3000/assets/icons/point.svg'
+            image: `${config.url.APP_URL}/assets/icons/point.svg`
         })
 
         this.createCesiumSatelliteEntity("Billboard", "billboard", billboard);
