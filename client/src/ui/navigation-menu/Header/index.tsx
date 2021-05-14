@@ -60,7 +60,7 @@ const Header = () => {
     }
 
     return (
-        <header className="w-full h-70 flex justify-center items-center">
+        <header className="w-full h-70 flex justify-center items-center overflow-hidden">
             <div
                 onMouseLeave={onMouseLeave}
                 className="w-1/3 h-full"

@@ -93,7 +93,7 @@ const MobileHeaderContainer: React.FC = () => {
                                         </Link>
                                     </div>
                                     <div className="w-1/3">
-                                        <Link to="/recent/launched" className="flex items-center font-semibold">
+                                        <Link to="/recent/new" className="flex items-center font-semibold">
                                             <div className="pr-1">
                                                 <MdAddCircleOutline size="14px"/>
                                             </div>
@@ -113,7 +113,7 @@ const MobileHeaderContainer: React.FC = () => {
                             <div className="mt-3">
                                 <div className="flex">
                                     <div className="w-1/3">
-                                        <Link to="/" className="flex items-center font-semibold">
+                                        <Link to="/categories/amateur" className="flex items-center font-semibold">
                                             <div className="pr-1">
                                                 <MdTrackChanges size="14px"/>
                                             </div>
@@ -121,21 +121,21 @@ const MobileHeaderContainer: React.FC = () => {
                                         </Link>
                                     </div>
                                     <div className="w-1/3">
-                                        <Link to="/" className="flex items-center font-semibold">
+                                        <Link to="/categories/starlink" className="flex items-center font-semibold">
                                             <div className="pr-1">
                                                 <MdHome size="14px"/>
                                             </div>
                                             <span>Starlink</span>
                                         </Link>
                                     </div>
-                                    <div className="w-1/3">
+                                    {/* <div className="w-1/3">
                                         <Link to="/" className="flex items-center font-semibold">
                                             <div className="pr-1">
                                                 <MdHome size="14px"/>
                                             </div>
                                             <span>Starlink</span>
                                         </Link>
-                                    </div>
+                                    </div> */}
                                 </div>
                             </div>
                         </div>

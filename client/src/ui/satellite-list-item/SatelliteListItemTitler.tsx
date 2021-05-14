@@ -3,7 +3,7 @@ import React from 'react';
 export const SatelliteListItemTitler: React.FC = () => {
     return (
         <div className="flex items-center bg-primary-800 text-primary-200 text-sm py-3 px-3 rounded-lg">
-            <div className="w-1/6">
+            <div className="w-1/3 sm:w-1/3">
                 <p>Name</p>
             </div>
             <div className="w-1/6">

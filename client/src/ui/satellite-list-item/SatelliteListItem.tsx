@@ -12,8 +12,8 @@ export const SatelliteListItem: React.FC<SatelliteListItemProps> = ({
     satellite,
 }) => {
     return (
-        <div className="flex items-center mt-6 text-sm">
-            <div className="w-1/6 w-md-full flex items-center">
+        <div className="flex items-center mt-6 text-sm flex-wrap">
+            <div className="w-full sm:w-3/12 w-md-full flex items-center">
                 <div className={!satellite.decay
                     ? 'h-1.5 w-1.5 bg-green rounded-full mr-2'
                     : 'h-1.5 w-1.5 bg-primary-600 rounded-full mr-2'
@@ -22,20 +22,20 @@ export const SatelliteListItem: React.FC<SatelliteListItemProps> = ({
                     <p>{satellite.satname}</p>
                 </Link>
             </div>
-            <div className="w-1/6">
+            <div className="w-5/12 sm:w-1/6">
                 <p>{satellite.norad_cat_id}</p>
                 <p>{satellite.object_id}</p>
             </div>
-            <div className="w-1/6">
+            <div className="w-1/4 sm:w-1/6">
                 <p>{satellite.object_type}</p>
             </div>
-            <div className="w-1/5">
+            <div className="w-1/4 sm:w-1/6">
                 <Link to={`/launch-sites/${satellite.site}`} className="w-fit">
                     <p>{satellite.site}</p>
                 </Link>
                 <p>{timestampToReadableDate(satellite.launch)}</p>
             </div>
-            <div className="w-1/6">
+            <div className="w-full sm:w-1/6">
                 <Link to={`/operators/${satellite.country}`}>
                     <p>{satellite.country}</p>
                 </Link>
