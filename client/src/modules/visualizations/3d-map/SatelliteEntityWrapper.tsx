@@ -101,7 +101,7 @@ export class SatelliteEntityWrapper extends CesiumEntityWrapper {
 
     createBillboard() {
         const billboard = new BillboardGraphics({
-            image: `${config.url.APP_URL}/assets/icons/point.svg`
+            image: `${config.url.API_ASSETS_URL}/icons/point.svg`
         })
 
         this.createCesiumSatelliteEntity("Billboard", "billboard", billboard);

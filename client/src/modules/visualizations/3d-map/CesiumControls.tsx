@@ -63,7 +63,7 @@ export default class CesiumControls extends Component<{}, { [key: string]: any }
 
     render() {
         return (
-            <div className="absolute bottom-0 left-0 right-0 bg-primary-900 bg-opacity-80 flex py-4">
+            <div className="absolute bottom-0 left-0 right-0 bg-primary-900 bg-opacity-80 flex px-5 py-4">
                 <div className="max-w-1470 ml-auto mr-auto flex w-full">
                     <div>
                         <span className="text-sm uppercase text-primary-200">Reference Frame</span>

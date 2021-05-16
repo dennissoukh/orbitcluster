@@ -29,7 +29,7 @@ const MobileHeaderContainer: React.FC = () => {
 
     return (
         <>
-            <div className="px-4 md:px-6 pt-5 flex justify-between absolute w-full z-10">
+            <div className="px-4 md:px-6 pt-5 flex justify-between absolute w-full" style={{ zIndex: 10000 }}>
                 <div>
                     <Link to="/">
                         <Logo size="30px"/>
@@ -42,7 +42,7 @@ const MobileHeaderContainer: React.FC = () => {
                 </div>
             </div>
             {active &&
-                <div className="absolute top-0 left-0 right-0 p-5 bg-white m-3 rounded-lg text-primary-900 shadow-lg z-20">
+                <div className="absolute top-0 left-0 right-0 p-5 bg-white m-3 rounded-lg text-primary-900 shadow-lg" style={{ zIndex: 10001 }}>
                     <div className="flex justify-between">
                         <div>
                             <span className="text-primary-300 font-semibold text-sm uppercase">Application</span>
