@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import L from 'leaflet';
-import { MapContainer, TileLayer, Marker, Polyline } from 'react-leaflet';
+import { MapContainer, TileLayer, Marker, Polyline } from '@monsonjeremy/react-leaflet';
 import { getGroundTracks, getLatLngObj } from 'tle.js';
 import { state, tle } from '../../types/satellite';
 import 'leaflet/dist/leaflet.css';
