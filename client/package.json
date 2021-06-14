@@ -65,7 +65,7 @@
     "@types/react-router-dom": "^5.1.7",
     "@types/styled-components": "^5.1.9",
     "autoprefixer": "^9.0.0",
-    "postcss": "^8.3.0",
+    "postcss": "^7",
     "tailwindcss": "npm:@tailwindcss/postcss7-compat"
   }
 }
